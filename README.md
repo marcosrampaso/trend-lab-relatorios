@@ -11,3 +11,7 @@ Os resultados são retrospectivos, nos nove meses usados na seleção. Não são
 - styles.css e report.js: apresentação e filtros locais, sem serviço externo.
 
 Nenhum banco privado, credencial, modelo binário ou histórico bruto foi incluído. Gerar estas páginas não inicia acompanhamento prospectivo nem altera a campanha em execução.
+
+## Saídas e indicadores
+
+[Saídas adaptativas e novas entradas](saidas.html) documenta uma rodada separada, com referência da geração73. Os relatórios principais continuam no retrato da geração68. [Resultados completos](saidas-dados.json) incluem as cinco variantes e os modelos comparados. Nenhuma variante foi promovida para a genética ou para ordens reais.
