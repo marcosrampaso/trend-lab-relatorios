@@ -15,3 +15,9 @@ Nenhum banco privado, credencial, modelo binário ou histórico bruto foi inclu�
 ## Saídas e indicadores
 
 [Saídas adaptativas e novas entradas](saidas.html) documenta uma rodada separada, com referência da geração73. Os relatórios principais continuam no retrato da geração68. [Resultados completos](saidas-dados.json) incluem as cinco variantes e os modelos comparados. Nenhuma variante foi promovida para a genética ou para ordens reais.
+
+## Acompanhamento por eventos
+
+[Acompanhamento local](acompanhamento/index.html): relatórios HTML por novo recorde; revisões agrupadas a cada25gerações ou ganho. Relatórios de50gerações e registro de diagnóstico a cada100, contados daG79, preservando marcos e histórico. A versão GitHub é um retrato estático; treino, cota e fila ao vivo ficam somente no computador. A primeira entrega por evento ainda precisa de recibo; o painel distingue conexão verificada de revisão realmente entregue.
+
+O monitor lê checkpoints semIA e só aciona o Codex por evento. A rotina antiga de30min está pausada. Não há API paga nem ordens reais. Um diagnóstico de histórico enfileirado não é apresentado como teste concluído.
