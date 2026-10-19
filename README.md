@@ -137,3 +137,9 @@ Sem teto artificial de gerações/horas e sem a trava acumulada de −10%, exclu
 [Retrato V3 e comparação de saídas](experimentos/donchian-genetico-v3/index.html) · [Método e contabilidade](app/DONCHIAN-GENETICO-V3.md) · [Painel local](http://127.0.0.1:4173/pesquisa-genetica/donchian-genetico.html?run=v3#exits-section)
 
 A genética compara saída inteira com metade no primeiro alvo e restante no segundo. Alvos em múltiplos do stop calculado pelo ATR; os3% são limite diário de perda. Funding usa a quantidade restante, parciais respeitam lote mínimo e uma posição conta uma vez. V2 preservada na geração59; sem reutilizar suas pontuações.
+
+## Donchian V4 · sem prazo e com stop após a parcial
+
+[Retrato V4](experimentos/donchian-genetico-v4/index.html) · [Método e proteção](app/DONCHIAN-GENETICO-V4.md) · [Painel local](http://127.0.0.1:4173/pesquisa-genetica/donchian-genetico.html?run=v4#exits-section)
+
+Sem vencimento por operação. Após parcial válida, genética escolhe proteção dos custos conhecidos, lucro de0,25R/0,5R ou trailing porATR. Stop só aperta e passa a valer no próximo candle; gaps/funding futuro ainda podem gerar perda. Saídas no fim do histórico são identificadas separadamente. V3 preservada na geração73; sem ordens reais.
