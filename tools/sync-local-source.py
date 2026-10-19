@@ -17,7 +17,7 @@ for f in (src/'web').iterdir():
 if (src/'web/vendor').exists():files += [f for f in (src/'web/vendor').rglob('*') if f.is_file() and f.suffix in {'.js','.css'}]
 files.append(src/'web/data/forward-protocol.json')
 files.append(src/'web/arquitetura-trend-lab.pdf')
-for name in ['experimento-noticias.html','experimento-noticias.js','experimento-noticias.css','cripto-sentimento.html','cripto-sentimento.js','cripto-sentimento.css','daytrade-integrado.html','daytrade-integrado.js','cdi-comparativo.html','cdi-overlay.js','cdi-overlay.css','donchian-lab.html','donchian-lab.js','donchian-genetico.html','donchian-genetico.js','donchian-genetico.css','donchian-defesa.html','donchian-defesa.js','g151-evolucao.html','g151-evolucao.js','g151-evolucao.css','pepe-finrl.html','pepe-finrl.js','pepe-finrl.css']:
+for name in ['experimento-noticias.html','experimento-noticias.js','experimento-noticias.css','cripto-sentimento.html','cripto-sentimento.js','cripto-sentimento.css','daytrade-integrado.html','daytrade-integrado.js','cdi-comparativo.html','cdi-overlay.js','cdi-overlay.css','donchian-lab.html','donchian-lab.js','donchian-genetico.html','donchian-genetico.js','donchian-genetico.css','donchian-defesa.html','donchian-defesa.js','g151-evolucao.html','g151-evolucao.js','g151-evolucao.css','pepe-finrl.html','pepe-finrl.js','pepe-finrl.css','finrl-explicado.html','finrl-explicado.js','finrl-explicado.css']:
  files.append(src/'web/pesquisa-genetica'/name)
 manifest={}
 for f in sorted(set(files)):

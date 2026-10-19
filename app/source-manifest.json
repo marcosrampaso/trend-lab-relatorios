@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-19T21:16:51.587981+00:00",
+  "exportedAt": "2026-10-19T22:04:27.510215+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -84,6 +84,10 @@
     "PEPE-FINRL-PBT.md": {
       "sha256": "46c17f3e268a54ab9238785e4fae07a7d7e1061de0f6ba37fc200a73e013fd72",
       "bytes": 8521
+    },
+    "PEPE-POCS-OFFLINE.md": {
+      "sha256": "e741f2e1d7b39b7d7446ea22a897ddc0066dabe61ae8294c395bbef1b01e0815",
+      "bytes": 7057
     },
     "PESQUISA-ML-MERCADOS.md": {
       "sha256": "0de1890c2bf19a7cbc54807340189a005d4bf31c94c85a32a2ff532c6a8c82c7",
@@ -284,6 +288,10 @@
     "package.json": {
       "sha256": "048e7a0ce4ecc95089c6907c9d3402d0dbaa85f709d0b658edfb756801460c73",
       "bytes": 2124
+    },
+    "pepe-finrl-1000-protocol.json": {
+      "sha256": "9ea27bc6cb7928052a66759af551f0f0ec08c364ba44f5409cd73a1f33ff23a4",
+      "bytes": 6238
     },
     "pepe-finrl-protocol.json": {
       "sha256": "7549f3f9b7a0ab3ec99c9c147de92ee3830963dd8fb1f2554b403524a58c3894",
@@ -489,6 +497,10 @@
       "sha256": "8ff5a3b8a3489e59b7af465a5df484c090aa81486ba0a8ec7d3226861bb12851",
       "bytes": 1684
     },
+    "scripts/check-pepe-offline.py": {
+      "sha256": "92f7a34a0dc89ee33203540eb09453ad3287269142430874ccac468d3ed476b7",
+      "bytes": 1814
+    },
     "scripts/clean-retired-training.py": {
       "sha256": "0efeb08c80db34465f648e4f18fbaf89704ff165f64d84f49609e2ec429ed524",
       "bytes": 3338
@@ -612,6 +624,10 @@
     "scripts/evaluate-local-ml.mjs": {
       "sha256": "7618c601a1f3ce5b0374c73f0dda3db3f85639a6400c6d3cf85b72cc25c7a1c9",
       "bytes": 8954
+    },
+    "scripts/evaluate-pepe-1000.py": {
+      "sha256": "e8f0aad278bb142ec822fc813ef191566ef2279ca4bd8c4902ca5cb9e3c602f8",
+      "bytes": 1447
     },
     "scripts/evaluate-pepe-finrl.py": {
       "sha256": "b0cd9d9646fee61e8e60efb4c6af93972024fc57202da1fe6f6dc5b0cb945d56",
@@ -845,6 +861,18 @@
       "sha256": "cdf10fc4823440a3a2e9e35a66bac2846315433fc834e580fdd4e7b66b26c8e4",
       "bytes": 7073
     },
+    "scripts/pepe-1000-bridge.mjs": {
+      "sha256": "518059b0bfac287af475c9555fa6c0a7dd0d9fd994bf3218acfdeacda24d3e75",
+      "bytes": 5552
+    },
+    "scripts/pepe-1000-core.mjs": {
+      "sha256": "b408df88096326a2b3fa24e93bb82c4f39a6fef9a25693990f7dad3ab4423fbb",
+      "bytes": 3269
+    },
+    "scripts/pepe-1000-worker.py": {
+      "sha256": "3978b3f6f537562d029af3e1f8483ba13c6fd16c346c0b4568763c07ce255956",
+      "bytes": 4801
+    },
     "scripts/pepe-finrl-bridge.mjs": {
       "sha256": "e4d16fd3009f5a42cf3dbdd85f0a7546b3993f8554b591d3bb49208425c32e0c",
       "bytes": 5515
@@ -852,6 +880,14 @@
     "scripts/pepe-finrl-references.mjs": {
       "sha256": "2b25d6820d95e9849105d56640915b40787781216a4641cb817165c2d800cabf",
       "bytes": 5209
+    },
+    "scripts/pepe-nb-risk-core.py": {
+      "sha256": "89960c2212936ca943ca0636ea9418cbc37a65a6935bc0a159d74d93e20259d0",
+      "bytes": 873
+    },
+    "scripts/pepe-offline-guard.mjs": {
+      "sha256": "b58cc4de5be3b9ab5f14fcd85a43f216b0c3baf422b8ba3b48ced92d5bdd2b36",
+      "bytes": 482
     },
     "scripts/pepe-pbt-control.mjs": {
       "sha256": "b74821ef91669691138e457a00c0f2d0dcdd03d1cf5be58a4824d2e16c83d17d",
@@ -869,9 +905,25 @@
       "sha256": "104eaf11407b5ede66a2bd869bbd2b54e406f9d56a823dc8ae394523744831ab",
       "bytes": 4771
     },
+    "scripts/pepe-population-control.mjs": {
+      "sha256": "4ae70119f61dbb280dcb4e921763baac055d096369c5bf3104bc9caf03c63b2b",
+      "bytes": 2443
+    },
+    "scripts/pepe-population-poc.mjs": {
+      "sha256": "d4a2e37a9d125712c8509c06aa5daa747433f4b67149599a396d50dc30a33e7a",
+      "bytes": 1496
+    },
+    "scripts/pepe-population-service.mjs": {
+      "sha256": "08c2da92231715ab40f49306d844fe1d85c9562270aed3537d834c473953418e",
+      "bytes": 5075
+    },
     "scripts/pepe-reference-engine.mjs": {
       "sha256": "b2b0144ad6a35dfbcadbb72111e5533ff8a48c4018bd1ceb8b0002ad083c6531",
       "bytes": 13622
+    },
+    "scripts/pepe_1000_env.py": {
+      "sha256": "484b89d5f282d136effb72343f233f6f05903a2ea90643b7a98de30582eb4603",
+      "bytes": 4440
     },
     "scripts/pepe_finrl_env.py": {
       "sha256": "ebf946a4ca6cd77220dc81dd69d39c4a5bda76858650ed92aa4ba61c31438560",
@@ -896,6 +948,10 @@
     "scripts/prepare-local-sentiment.py": {
       "sha256": "71046b2eb7a0e1e4500febbde75fcb4cdc9925e29618d5614aa771176fed8efe",
       "bytes": 1176
+    },
+    "scripts/prepare-pepe-1000.mjs": {
+      "sha256": "54fa090ef7bdf882a5f65eb82846c0b6d80453087c576f220bf2e9cb7b32324a",
+      "bytes": 4713
     },
     "scripts/prepare-pepe-finrl.mjs": {
       "sha256": "7003420406dc9d33d59099903c8deda99551419eae444849874ad7d86a9829ec",
@@ -965,13 +1021,25 @@
       "sha256": "b99f1d559ec8beb04299da8d0afd4c0355279ecacc235ed016b32a2a16491ebe",
       "bytes": 13291
     },
+    "scripts/run-pepe-1000.mjs": {
+      "sha256": "de1f7b6d768bc9d95ee118d4bef47f4c7ad66dcab411a1d669a38b2f05b3a00e",
+      "bytes": 9503
+    },
     "scripts/run-pepe-finrl.mjs": {
       "sha256": "2b9aae871f0e1a0228b1d60207bada87ebf0c87263968ee9e5b41bd4a0d0bcfe",
       "bytes": 123
     },
+    "scripts/run-pepe-nb-poc.py": {
+      "sha256": "cdc9da396d2bbde9aa6746227cb69f2b5f5d07f43bf25b270f29c824ec8a5e3d",
+      "bytes": 8604
+    },
     "scripts/run-pepe-pbt.mjs": {
       "sha256": "b536fdd07155b26e6566513c5d75f6aed28d0c0068457161992c92ee52d087d1",
       "bytes": 9465
+    },
+    "scripts/run-pepe-population-poc.mjs": {
+      "sha256": "41172184eacf371651441d2cae40df924e9b291dc2abad0c709722313e48473c",
+      "bytes": 2901
     },
     "scripts/scalp-tree-data.mjs": {
       "sha256": "c51e40d301c4f2135e5d7971ecefe02dd3db7f0d8729625aa64a8d461c890e8a",
@@ -1008,6 +1076,14 @@
     "scripts/start-pepe-pbt-control.mjs": {
       "sha256": "faaafb061f7e2c810a896a716d8900efcbaf43dd9a325d4f347ea7814dac8cb4",
       "bytes": 1077
+    },
+    "scripts/start-pepe-population-control.mjs": {
+      "sha256": "42d030f2bdca27ee95168b3f97411f68af89b801305d9f88df9a093ec5a35dd4",
+      "bytes": 1422
+    },
+    "scripts/start-pepe-population-poc.mjs": {
+      "sha256": "ca97759bf325669e353239fd8a1c19aac868bb4e3e670aedadd2f6cf474d66e5",
+      "bytes": 1218
     },
     "scripts/train-btc-comparison.py": {
       "sha256": "200f0496b411b970812ff4fa32375afb04b59294c22080e58a4ce4c88592d812",
@@ -1149,6 +1225,10 @@
       "sha256": "ff2eacbf75fc169b9260441b8ebc847590e01f11ca15be24402efc5b29112d31",
       "bytes": 1883
     },
+    "tests/finrl-explainer.test.mjs": {
+      "sha256": "86bb2669288eef9c1af1ae75682d26de059aaea2e6335eb0eabc975de0f49d2d",
+      "bytes": 1593
+    },
     "tests/finrl-futures-engine.test.mjs": {
       "sha256": "9bfb897dbcd45c72b4904a09bd87baec0b6d27fb76cfc24bbc81054359ecdcce",
       "bytes": 7109
@@ -1220,6 +1300,10 @@
     "tests/pepe-pbt.test.mjs": {
       "sha256": "49983b63e935a8d7bc53f7c6092bb5c62fc36d5481bdd1138e0a6fbbc2d17c34",
       "bytes": 3525
+    },
+    "tests/pepe-populations.test.mjs": {
+      "sha256": "1dc1425ab26835427ecbee85df2102f2aea7da769581d1ce06c0889a8d5a0262",
+      "bytes": 4203
     },
     "tests/profitability.test.mjs": {
       "sha256": "397010de6ba8f969cf623c7de06779b2966bb066410f4a6d816716c1d8e1b501",
@@ -1378,8 +1462,8 @@
       "bytes": 7448
     },
     "web/index.html": {
-      "sha256": "c37e046aea4db1847d12def52062b4da1acebc46b760a77db9f3cd792ed889bf",
-      "bytes": 53062
+      "sha256": "073f0748fb871726ed627fdebfdfce36afbfeb065a8ac678cfcb2dae65439751",
+      "bytes": 53157
     },
     "web/lab.js": {
       "sha256": "73d211b70178393330410fa351effe2a90bd202fb66c316b8efa3880ceae7f9e",
@@ -1469,6 +1553,18 @@
       "sha256": "9049698e62a4374782fcf7129edccf663bc14258b3668c4ce3689b63e9b36e28",
       "bytes": 9322
     },
+    "web/pesquisa-genetica/finrl-explicado.css": {
+      "sha256": "7dfb4ebf6fb5940d43541c2baa5bbb4906550c5fa40db267226475c36ac16e38",
+      "bytes": 1285
+    },
+    "web/pesquisa-genetica/finrl-explicado.html": {
+      "sha256": "d8efe5513df1719a5ba980ea0dcaa4f91dc5fe5dd1f256ee1117fa0f04cb823e",
+      "bytes": 12580
+    },
+    "web/pesquisa-genetica/finrl-explicado.js": {
+      "sha256": "7d9aaa98d139085831cb9b4c6f19369619d6bfd0191b384525e10e6f1f7dbadb",
+      "bytes": 4591
+    },
     "web/pesquisa-genetica/g151-evolucao.css": {
       "sha256": "2be81b733d1fce417d209f08b5d2cacf19a6609d86e6388b9d7cb9dbfbecfeb2",
       "bytes": 2380
@@ -1486,12 +1582,12 @@
       "bytes": 1244
     },
     "web/pesquisa-genetica/pepe-finrl.html": {
-      "sha256": "4132d298e4d98895738fcd2b840f413b79d4cf08884f26ffc54692167704bd68",
-      "bytes": 9141
+      "sha256": "29ebac34e94567c84b124fc09312ccc1b087e26ff7a9a506c49063fa7238ca65",
+      "bytes": 9650
     },
     "web/pesquisa-genetica/pepe-finrl.js": {
-      "sha256": "f75633758a5c887cbe43b1f3f80fe65a9d33c75967b164e3808fe297bd4f1c28",
-      "bytes": 12083
+      "sha256": "16d726f1c3bdc4e8cebd6c0e9698f115d205f0023ec47518adf52bfc6dc9ca10",
+      "bytes": 13274
     },
     "web/profitability.js": {
       "sha256": "c5654f4881aa27433e57a0056b72baec8a60c17797a07a964bf74501c7dac928",

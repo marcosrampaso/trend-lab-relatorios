@@ -1,0 +1,14 @@
+// A finite local scheduler; no LLM calls, internet, policy edits or final-test reads.
+import fs from 'node:fs';import {ROOT,read,hash,atomic} from './multiasset-io.mjs';import {populationAction,populationStatus} from './pepe-population-service.mjs';import {refreshPopulationPOC} from './pepe-population-poc.mjs';
+process.chdir(ROOT);const base='work/pepe-population-poc',config={version:'population-poc-v1',steps:51200000,smallGeneration:200,largeGeneration:50,metric:'Archived fixed-quarter development score and net after costs; not final test',returnPopulation:250,realOrders:false},regFile=base+'/registration.json';fs.mkdirSync(base,{recursive:true});
+if(!fs.existsSync(regFile)){const a=read('web/data/pepe-finrl.json'),b=read('web/data/pepe-finrl-1000.json');if(a.generation>=200||b.generation>=50)throw Error('Register before target milestones');atomic(regFile,{registeredAt:Date.now(),config,sourceSHA256:hash('scripts/run-pepe-population-poc.mjs'),registrations:{small:hash('work/pepe-finrl-v2/registration.json'),large:hash('work/pepe-finrl-1000-v1/registration.json')}});}else if(read(regFile).sourceSHA256!==hash('scripts/run-pepe-population-poc.mjs'))throw Error('POC source changed');
+const control=()=>read(base+'/control.json');let state=fs.existsSync(base+'/state.json')?read(base+'/state.json'):{stage:'waiting250',startedAt:Date.now(),config};
+const save=()=>{state.updatedAt=Date.now();atomic(base+'/state.json',state);refreshPopulationPOC();};process.on('SIGTERM',()=>atomic(base+'/control.json',{desired:'paused',reason:'Scheduler stopped',updatedAt:Date.now()}));
+try{save();if(state.stage==='waiting250')populationAction('start','boost',250,{internal:true});while(control().desired==='running'){
+ const a=read('web/data/pepe-finrl.json'),b=read('web/data/pepe-finrl-1000.json');if([a,b].some(r=>r.status==='error'||r.status==='paused_disk'||r.status==='paused_budget'))throw Error('A training run requires attention; scheduler stopped');
+ if(state.stage==='waiting250'&&a.generation>=config.smallGeneration){state.stage='running1000';save();populationAction('start','boost',1000,{internal:true});}
+ if(state.stage==='running1000'&&b.generation>=config.largeGeneration){state.stage='returning250';save();populationAction('start','boost',250,{internal:true});}
+ if(state.stage==='returning250'){const s=populationStatus(250);if(s.active&&!s.other.active){state.stage='complete';state.completedAt=Date.now();state.conclusion='Matched51.2M-step development comparison recorded.250-agent main training resumed;1000 paused.';atomic(base+'/control.json',{desired:'complete',updatedAt:Date.now()});save();break;}}
+ save();await new Promise(r=>setTimeout(r,5000));
+}if(!['complete','error'].includes(state.stage)){state.resumeStage=state.stage;state.stage='paused_manual';save();}
+}catch(e){state.stage='error';state.error=e.message;save();console.error(e.stack);process.exitCode=1;}
