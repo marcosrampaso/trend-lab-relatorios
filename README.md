@@ -116,3 +116,12 @@ Atualizar este retrato: `python3 tools/snapshot-cdi.py --source /caminho/do/tren
 - [Método e conclusões](app/DONCHIAN-LAB.md), [retrato estático](experimentos/donchian/index.html), [dados](experimentos/donchian/snapshot.json).
 
 50cenários:12de isolamento do filtro,6carteiras contínuas em82meses e32diagnósticos por blocos. Capital contínuo R$1.000 sem aportes/reset, janeiro/2020 a19/10/2026 03:08UTC. A configuração que ganhouR$67,95 emjun–set/2026 terminou a conta contínua comR$900,43; limite global acionado em31/01/2020, depois permanece em caixa. Não foi promovida. Os64minutos sem mark price foram explicitados e ocorreram sem exposição em todas ascarteiras. CDI de outubro ainda provisório.248testes e auditoria de paridade com o motor preservado passaram; fontes/dados antigos preservados. O comparativo geral CDI agora reúne374cenários.
+
+
+## Genética Donchian com tela ao vivo · 19/10/2026
+
+- [Acompanhamento na máquina](http://127.0.0.1:4173/pesquisa-genetica/donchian-genetico.html).
+- [Método, genes e comandos](app/DONCHIAN-GENETICO.md).
+- [Retrato datado da execução](experimentos/donchian-genetico/index.html) e [dados do retrato](experimentos/donchian-genetico/snapshot.json).
+
+24candidatos por geração, seleção, cruzamento, mutação,4elites e imigrantes aleatórios. Busca entradas por reteste/contexto1h/4h, stop, alvo e prazo com risco1% fixo. Até200gerações ou12horas, checkpoints e aumento de diversidade após5gerações sem recorde. Catálogo desde2020 e804minutos recentes adicionados até19/10/2026 13:32 deSãoPaulo, congelados antes da seleção. Fitness usa apenas45meses completos de2020–2023;2024–2025 e2026 são diagnósticos separados, sem orientar os pais. A conta contínua desde2020 mantém seu limite global, sem repor dinheiro. Não há promoção nem ordens reais.259testes passaram; resultados antigos preservados. O GitHub é um retrato estático, não uma tela de monitoramento da máquina.
