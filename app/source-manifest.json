@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-19T16:39:56.925236+00:00",
+  "exportedAt": "2026-10-19T16:41:49.384497+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -1202,8 +1202,8 @@
       "bytes": 4811
     },
     "web/pesquisa-genetica/donchian-genetico.css": {
-      "sha256": "b038d019d0ac29f20cef743da2858924348e3663031f17166b8d71ccb97d19e5",
-      "bytes": 968
+      "sha256": "95ec8509f7fb3c8b87a33e69696ca6657d379023f0b621c4f991f8dbb2a076ec",
+      "bytes": 1009
     },
     "web/pesquisa-genetica/donchian-genetico.html": {
       "sha256": "1a714fc0ecc5a2d6f16654db48ec0e57e193dce761d922d401464791a8ce14db",
