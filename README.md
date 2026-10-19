@@ -143,3 +143,9 @@ A genética compara saída inteira com metade no primeiro alvo e restante no seg
 [Retrato V4](experimentos/donchian-genetico-v4/index.html) · [Método e proteção](app/DONCHIAN-GENETICO-V4.md) · [Painel local](http://127.0.0.1:4173/pesquisa-genetica/donchian-genetico.html?run=v4#exits-section)
 
 Sem vencimento por operação. Após parcial válida, genética escolhe proteção dos custos conhecidos, lucro de0,25R/0,5R ou trailing porATR. Stop só aperta e passa a valer no próximo candle; gaps/funding futuro ainda podem gerar perda. Saídas no fim do histórico são identificadas separadamente. V3 preservada na geração73; sem ordens reais.
+
+## Por que a curva cai contra o CDI? · defesas de mercado
+
+[Auditoria e seis perfis de defesa](experimentos/donchian-defesa/index.html) · [Método, limites e custos](app/DONCHIAN-DEFESA-MERCADO.md) · [Painel local](http://127.0.0.1:4173/pesquisa-genetica/donchian-defesa.html)
+
+ControleV4 congelado: ganho inicial em2020–2021, perdas posteriores e custos maiores que a vantagem bruta. Nenhuma defesa passou o critério de desenvolvimento contraCDI. Coleta prospectiva pública deBTC/ETH em observação, sem ordens ou vetos nos bots.
