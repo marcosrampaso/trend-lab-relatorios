@@ -1,0 +1,2870 @@
+{
+  "snapshotAt": "2026-10-19T15:20:09.707228+00:00",
+  "mode": "static_paper_only",
+  "historical": {
+    "status": "complete",
+    "generatedAt": 1792422939467,
+    "start": 1780272000000,
+    "end": 1790812800000,
+    "registration": {
+      "registeredAt": 1792422936640,
+      "definition": {
+        "version": "daytrade-integrated-v1",
+        "symbols": [
+          "ETHUSDT",
+          "BTCUSDT"
+        ],
+        "strategies": [
+          {
+            "id": "trend1h",
+            "name": "EMA9/21 · sinal1h"
+          },
+          {
+            "id": "donchian-fixed",
+            "name": "Donchian20h · fixo"
+          },
+          {
+            "id": "donchian-adaptive",
+            "name": "Donchian10–40h · adaptativo"
+          }
+        ],
+        "variants": [
+          "control",
+          "sentiment",
+          "btc-context",
+          "combined"
+        ],
+        "capitalBRL": 1000,
+        "risk": 0.01,
+        "leverage": 10,
+        "maxHoldMinutes": 1440,
+        "cooldownMinutes": 240,
+        "stopATR": 1.5,
+        "targetR": 2,
+        "entryDelayMinutes": 2,
+        "closedHourBufferSeconds": 30,
+        "durationDays": 30,
+        "historical": {
+          "start": "2026-06-01T00:00:00Z",
+          "end": "2026-10-01T00:00:00Z",
+          "newsApplied": false,
+          "independentHoldout": false
+        },
+        "rules": [
+          "Reuse the existing EMA1h and fixed/adaptive Donchian signal functions; preserve frozen old sources and experiments.",
+          "Hourly closed signals, minute execution, fixed2min delay after signal for causal logging and30sec settlement buffer. Not an exact replay of older1h fills.",
+          "Risk1%,10x,R$1000 per independent portfolio; stops1.5ATR,target2R,max24h,cooldown4h. Corrected funding engine, modeled fees/slippage and contract-specific current filters.",
+          "Keep cost filter: stop distance / round-trip costs including funding reserve >=4, evaluated for each cost scenario; opposite exit signals always remain.",
+          "ETH BTC-context veto requires trailing72h correlation>=0.60 and BTC1h/4h both against entry; BTC own-trend variant requires both BTC1h/4h against entry, without self-correlation.",
+          "Sentiment model/revision and thresholds inherited from the local fixed model. Additionally deduplicate canonical article URLs and normalized titles, preserving earliest received version; do not change prior experiments.",
+          "Separate all4variants to measure BTC and sentiment independently; missing/expired/future/insufficient news does not veto, mark uncovered. No historical news backfill.",
+          "Original G151 forests were trained for5min signals and are not used to score hourly signals. No new RF fit or genetic search in this stage.",
+          "Historical BTC-context ablation is exploratory on already-seen Jun-Sep2026. Compare all strategies, including losses and inactive portfolios. No automatic winner promotion.",
+          "Longer holding does not imply higher probability of success; trading frequency, gross returns, fees, slippage, funding, drawdown and sample size are reported.",
+          "No real orders, paid AI or account keys. Honor local pause; never restart original server or edit private DB. Missing decisions are explicit and never filled retroactively."
+        ]
+      },
+      "sourceHashes": {
+        "daytrade-integrated-protocol.json": "39bf7418ce0c44cba773f736e7d95ff18baad6d60e2d3d1be766ccac05e62d16",
+        "scripts/evaluate-daytrade.mjs": "403bada738ea339eb7a1522fda27ca5682a3d2bb6403ddc1e186a4c4ba5fdc9b",
+        "scripts/daytrade-core.mjs": "9057e41ae8c952f64f7707a1c2fc05acc40e45f34c736cc237d9672781da7505",
+        "scripts/daytrade-inputs.mjs": "bb882b6a878c24bf0c3931ce013976402313f13c097a2daa1c3ef29609fe31e5",
+        "web/strategies.js": "0f8331cafe46fe464eac2d87756581451b90454c352ec86b66a67aa1293b23a2",
+        "web/donchian.js": "e57981083a85265a5973e8a679645b8daac1ac00d6550274e37e8d3d7db9b1de",
+        "web/research-adaptive-funding.js": "ace93e5d95c393a88c3e138d7992f0452b80947de6b361c5484d10414c8a27dd",
+        "scripts/btc-context-core.mjs": "ba389bc33bc51b441ea53061b0e1a2a8e92fd12a95a0ada80ac1c120ec375d1e",
+        "scripts/multiasset-core.mjs": "ced09d368550a5257840426c3dc0f52818daea7ffdcecf7a1dd0537e0b69da90",
+        "web/filters.js": "10854d01d859f541a5e7e98bff4dd8d2f39181b97d7210e9c1dae2fce1916188"
+      },
+      "inputHashes": {
+        "data/scalp-tree/manifest.json": "5ba56ba61bc60375f2b864d09abda34b4dfd6a151ca4ed9947b82b74def1042a",
+        "data/scalp-tree/2025-08.json": "0ab0e747e99b0c210824836e063e0c843078e9f49603003e6f76a2e72860f5bb",
+        "data/scalp-tree/2025-09.json": "84f55fecf84eba1e615879bf18a580d4dd883950282d013fbd6bf777667ed11b",
+        "data/scalp-tree/2025-10.json": "4c1e7cecfaac028700e11dff57f4368ec74458ef916dbbb0dd3ec7ab9b6db7ee",
+        "data/scalp-tree/2025-11.json": "41c145a5575d4fa2d66ade2855f2458790a3d42a534b680bca5db36c30804fb9",
+        "data/scalp-tree/2025-12.json": "280d04c3290acf9af5893db00f83058f5d14380f7aecb5e2c850a2429b86cc1e",
+        "data/scalp-tree/2026-01.json": "ecf3bbd2f8c3654f256d12c78c49577422fbfaec1ca9658033af63db6809a4ad",
+        "data/scalp-tree/2026-02.json": "30a78e0ffdf92f5e96eb8cdbd78fd8b56b575d345ce82d219a3d337e2f613c40",
+        "data/scalp-tree/2026-03.json": "ff377c9adc772e56f6aace496d908ce68da657857e6e390fdbf6bd1d61a2e81a",
+        "data/scalp-tree/2026-04.json": "6e9fd03704a2f11cf4deecd564ad067971c483a1125124edb4017f450ae6de66",
+        "data/scalp-tree/2026-05.json": "947074bd91ef03a2a603ef62019a719de9a8a1a460793543a6c50598ea4df84c",
+        "data/scalp-tree/2026-06.json": "f95fbaf5dd09d5fd1d6ce6876f0e45088d819fe76e202daa0bb7eed835d3dfca",
+        "data/scalp-tree/2026-07.json": "89e0f01dc625e8be5dcae8e546c0eb9f17da0b8645a5a3e2abeb19c3fc8744ca",
+        "data/scalp-tree/2026-08.json": "08bf67fdb912435c4c0bc66137d6a1be96536c1f31e5c620cb0cc083487110c5",
+        "data/scalp-tree/2026-09.json": "4fe6909fdaf52de3b7f1e92c20fa43c785ef5117338c762f8639c036814c06e7",
+        "work/multiasset-v1/history/manifest.json": "f37af7ebcdfb77143ca86756e8daf81cdfeb2c0e439c4310c9eeb2382892350a",
+        "work/multiasset-v1/history/2025-08.json": "4fcb5ca3ed529aa58d8f6244b1549f4afb240d781e6c1f3a17c3363aac58d874",
+        "work/multiasset-v1/history/2025-09.json": "66c4ddfb5d69af1629ed3a39f09fa6bcf4a7aa1b8b116195ba5e5b0ce1005a5d",
+        "work/multiasset-v1/history/2025-10.json": "f22cadd05ad9df139bc5555df8d6983d480528cd20e8ab0b3e870505fcfe0cd7",
+        "work/multiasset-v1/history/2025-11.json": "6b0131291cb6e3c049ddf552eade878d738362b12f5e5298ab7455e489f507b5",
+        "work/multiasset-v1/history/2025-12.json": "72a00b477d543c94e581b0bea81164190a29d4359a8a21a5393c7bb0dc308a25",
+        "work/multiasset-v1/history/2026-01.json": "a0b4771be70a18d659495b450ae544adbb6e729922fd8a0466345c23d7845918",
+        "work/multiasset-v1/history/2026-02.json": "d628efbfcb00e3183fdcb604112ee753160ead6daeef28eabe30e92a8c39256b",
+        "work/multiasset-v1/history/2026-03.json": "07d63ac32b0c2cb9894559a4bb22357aefc7b2fd98726e55395a7b092896acd1",
+        "work/multiasset-v1/history/2026-04.json": "6029bb812b0cb5f92b70fefd9620db3b0ecdc1069a2de6dd231a5f84d3baf55c",
+        "work/multiasset-v1/history/2026-05.json": "dcca00c5c7c9827be6662fb542892cd9639586881babb2a71f7612fae12af1b6",
+        "work/multiasset-v1/history/2026-06.json": "66c2e901403ab478b4f3a2038f350bd38916e8067f6727d6a51ccf1546545556",
+        "work/multiasset-v1/history/2026-07.json": "6aba2235a866bf58aa117001414baf74872df29d4ff916342eceb84072135e98",
+        "work/multiasset-v1/history/2026-08.json": "9c6dd3a17600d8f1d09af30a2fd45954d1305c063f022df2a5407181d5f15527",
+        "work/multiasset-v1/history/2026-09.json": "3a0af02bfb7ec22d7553db0904f461aa998b6a3a14fa7bac0f4cfb76da92dcfa",
+        "work/multiasset-v1/eth-test-market.json": "ff9c7f9341e755cd872b6dcc12932de1b7944855b542c33ea7bdb6163466c179",
+        "work/multiasset-v1/btc-test-market.json": "510571dfedffb780791879ebdeff1edfbec344c999d2232c02b65edd4e253885"
+      }
+    },
+    "results": [
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "trend1h",
+        "label": "EMA9/21 · sinal1h",
+        "variant": "control",
+        "cost": "base",
+        "pnlBRL": -23.00179402769828,
+        "finalBRL": 976.9982059723018,
+        "initialBRL": 1000,
+        "count": 73,
+        "maxDD": 0.09303327852284858,
+        "halted": false,
+        "feesBRL": 58.93318340179589,
+        "fundingBRL": 0.2645368960039001,
+        "position": null,
+        "rejected": 0,
+        "skipped": 75,
+        "grossBRL": 35.66685247809366,
+        "slippageBRL": 23.573275730321154,
+        "avgHoldHours": 10.333561643835614,
+        "maxHoldHours": 24,
+        "directionalSignals": 148,
+        "allowedSignals": 127
+      },
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "trend1h",
+        "label": "EMA9/21 · sinal1h",
+        "variant": "control",
+        "cost": "stress",
+        "pnlBRL": -41.732562638596846,
+        "finalBRL": 958.2674373614032,
+        "initialBRL": 1000,
+        "count": 23,
+        "maxDD": 0.0841792249215773,
+        "halted": false,
+        "feesBRL": 25.0639252821346,
+        "fundingBRL": 0.1525924654803078,
+        "position": null,
+        "rejected": 0,
+        "skipped": 125,
+        "grossBRL": -16.821229821942488,
+        "slippageBRL": 10.025569025547028,
+        "avgHoldHours": 13.643478260869566,
+        "maxHoldHours": 24,
+        "directionalSignals": 148,
+        "allowedSignals": 34
+      },
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "trend1h",
+        "label": "EMA9/21 · sinal1h",
+        "variant": "btc-context",
+        "cost": "base",
+        "pnlBRL": -102.736942554899,
+        "finalBRL": 897.263057445101,
+        "initialBRL": 1000,
+        "count": 36,
+        "maxDD": 0.11485986972807995,
+        "halted": true,
+        "feesBRL": 28.712534936736706,
+        "fundingBRL": 0.03287094209282531,
+        "position": null,
+        "rejected": 0,
+        "skipped": 112,
+        "grossBRL": -74.0572785602548,
+        "slippageBRL": 11.485011471802975,
+        "avgHoldHours": 6.874074074074074,
+        "maxHoldHours": 24,
+        "directionalSignals": 148,
+        "allowedSignals": 79
+      },
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "trend1h",
+        "label": "EMA9/21 · sinal1h",
+        "variant": "btc-context",
+        "cost": "stress",
+        "pnlBRL": -56.928046161335004,
+        "finalBRL": 943.071953838665,
+        "initialBRL": 1000,
+        "count": 14,
+        "maxDD": 0.07958264288295983,
+        "halted": false,
+        "feesBRL": 15.702038879489816,
+        "fundingBRL": -0.17552867484421628,
+        "position": null,
+        "rejected": 0,
+        "skipped": 134,
+        "grossBRL": -41.05047860700044,
+        "slippageBRL": 6.2808099886480315,
+        "avgHoldHours": 7.282142857142857,
+        "maxHoldHours": 19,
+        "directionalSignals": 148,
+        "allowedSignals": 14
+      },
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "donchian-fixed",
+        "label": "Donchian20h · fixo",
+        "variant": "control",
+        "cost": "base",
+        "pnlBRL": -18.502146721609307,
+        "finalBRL": 981.4978532783907,
+        "initialBRL": 1000,
+        "count": 82,
+        "maxDD": 0.0738368495322059,
+        "halted": false,
+        "feesBRL": 62.32567579959702,
+        "fundingBRL": -1.0894702103467817,
+        "position": null,
+        "rejected": 0,
+        "skipped": 96,
+        "grossBRL": 44.91299928833438,
+        "slippageBRL": 24.93027311356645,
+        "avgHoldHours": 9.241056910569105,
+        "maxHoldHours": 24,
+        "directionalSignals": 178,
+        "allowedSignals": 152
+      },
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "donchian-fixed",
+        "label": "Donchian20h · fixo",
+        "variant": "control",
+        "cost": "stress",
+        "pnlBRL": 17.09689606957923,
+        "finalBRL": 1017.0968960695792,
+        "initialBRL": 1000,
+        "count": 42,
+        "maxDD": 0.06798251354791221,
+        "halted": false,
+        "feesBRL": 46.237577651104544,
+        "fundingBRL": -0.7010748593763405,
+        "position": null,
+        "rejected": 0,
+        "skipped": 136,
+        "grossBRL": 64.03554858005958,
+        "slippageBRL": 18.49504426533455,
+        "avgHoldHours": 11.075396825396828,
+        "maxHoldHours": 24,
+        "directionalSignals": 178,
+        "allowedSignals": 79
+      },
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "donchian-fixed",
+        "label": "Donchian20h · fixo",
+        "variant": "btc-context",
+        "cost": "base",
+        "pnlBRL": -22.994005757259828,
+        "finalBRL": 977.0059942427401,
+        "initialBRL": 1000,
+        "count": 67,
+        "maxDD": 0.09567654968186833,
+        "halted": false,
+        "feesBRL": 50.082441303837925,
+        "fundingBRL": -1.054052332702786,
+        "position": null,
+        "rejected": 0,
+        "skipped": 111,
+        "grossBRL": 28.142487879280928,
+        "slippageBRL": 20.032978448550974,
+        "avgHoldHours": 9.206716417910448,
+        "maxHoldHours": 24,
+        "directionalSignals": 178,
+        "allowedSignals": 123
+      },
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "donchian-fixed",
+        "label": "Donchian20h · fixo",
+        "variant": "btc-context",
+        "cost": "stress",
+        "pnlBRL": 28.243958647350098,
+        "finalBRL": 1028.2439586473502,
+        "initialBRL": 1000,
+        "count": 37,
+        "maxDD": 0.041135684481047596,
+        "halted": false,
+        "feesBRL": 40.50637980374151,
+        "fundingBRL": -0.7909852163412863,
+        "position": null,
+        "rejected": 0,
+        "skipped": 141,
+        "grossBRL": 69.54132366743282,
+        "slippageBRL": 16.202565640517157,
+        "avgHoldHours": 10.937387387387389,
+        "maxHoldHours": 24,
+        "directionalSignals": 178,
+        "allowedSignals": 67
+      },
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "donchian-adaptive",
+        "label": "Donchian10–40h · adaptativo",
+        "variant": "control",
+        "cost": "base",
+        "pnlBRL": 27.04207064474531,
+        "finalBRL": 1027.0420706447453,
+        "initialBRL": 1000,
+        "count": 80,
+        "maxDD": 0.07412506479961703,
+        "halted": false,
+        "feesBRL": 61.96301465289267,
+        "fundingBRL": -1.0470809864204098,
+        "position": null,
+        "rejected": 0,
+        "skipped": 83,
+        "grossBRL": 90.05216628405802,
+        "slippageBRL": 24.785210454649153,
+        "avgHoldHours": 9.515833333333331,
+        "maxHoldHours": 24,
+        "directionalSignals": 163,
+        "allowedSignals": 147
+      },
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "donchian-adaptive",
+        "label": "Donchian10–40h · adaptativo",
+        "variant": "control",
+        "cost": "stress",
+        "pnlBRL": 67.94570262038462,
+        "finalBRL": 1067.9457026203845,
+        "initialBRL": 1000,
+        "count": 42,
+        "maxDD": 0.06956800459743832,
+        "halted": false,
+        "feesBRL": 47.99582979114903,
+        "fundingBRL": -0.7093681215392512,
+        "position": null,
+        "rejected": 0,
+        "skipped": 121,
+        "grossBRL": 116.65090053307351,
+        "slippageBRL": 19.198353652338,
+        "avgHoldHours": 11.714285714285717,
+        "maxHoldHours": 24,
+        "directionalSignals": 163,
+        "allowedSignals": 82
+      },
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "donchian-adaptive",
+        "label": "Donchian10–40h · adaptativo",
+        "variant": "btc-context",
+        "cost": "base",
+        "pnlBRL": 20.763866976014924,
+        "finalBRL": 1020.7638669760149,
+        "initialBRL": 1000,
+        "count": 65,
+        "maxDD": 0.08912350463490412,
+        "halted": false,
+        "feesBRL": 49.360091120762064,
+        "fundingBRL": -1.0224913856384412,
+        "position": null,
+        "rejected": 0,
+        "skipped": 98,
+        "grossBRL": 71.14644948241494,
+        "slippageBRL": 19.74404008392179,
+        "avgHoldHours": 9.587692307692308,
+        "maxHoldHours": 24,
+        "directionalSignals": 163,
+        "allowedSignals": 120
+      },
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "donchian-adaptive",
+        "label": "Donchian10–40h · adaptativo",
+        "variant": "btc-context",
+        "cost": "stress",
+        "pnlBRL": 55.26950522582695,
+        "finalBRL": 1055.2695052258268,
+        "initialBRL": 1000,
+        "count": 37,
+        "maxDD": 0.042196439611150785,
+        "halted": false,
+        "feesBRL": 41.54590510447083,
+        "fundingBRL": -0.8135679730034953,
+        "position": null,
+        "rejected": 0,
+        "skipped": 126,
+        "grossBRL": 97.62897830330076,
+        "slippageBRL": 16.61838032136377,
+        "avgHoldHours": 11.409009009009011,
+        "maxHoldHours": 24,
+        "directionalSignals": 163,
+        "allowedSignals": 68
+      },
+      {
+        "symbol": "BTCUSDT",
+        "strategy": "trend1h",
+        "label": "EMA9/21 · sinal1h",
+        "variant": "control",
+        "cost": "base",
+        "pnlBRL": 55.160123775632854,
+        "finalBRL": 1055.1601237756329,
+        "initialBRL": 1000,
+        "count": 47,
+        "maxDD": 0.03883243048805036,
+        "halted": false,
+        "feesBRL": 33.81198336750876,
+        "fundingBRL": -0.4976892069398206,
+        "position": null,
+        "rejected": 0,
+        "skipped": 76,
+        "grossBRL": 89.46979635008196,
+        "slippageBRL": 13.524797466785312,
+        "avgHoldHours": 11.36843971631206,
+        "maxHoldHours": 24,
+        "directionalSignals": 123,
+        "allowedSignals": 69
+      },
+      {
+        "symbol": "BTCUSDT",
+        "strategy": "trend1h",
+        "label": "EMA9/21 · sinal1h",
+        "variant": "control",
+        "cost": "stress",
+        "pnlBRL": -20.649512008066466,
+        "finalBRL": 979.3504879919335,
+        "initialBRL": 1000,
+        "count": 9,
+        "maxDD": 0.03283626567223499,
+        "halted": false,
+        "feesBRL": 6.437160313753079,
+        "fundingBRL": 0.09337829113543325,
+        "position": null,
+        "rejected": 0,
+        "skipped": 114,
+        "grossBRL": -14.305729985448853,
+        "slippageBRL": 2.5748622485622037,
+        "avgHoldHours": 9.125925925925925,
+        "maxHoldHours": 24,
+        "directionalSignals": 123,
+        "allowedSignals": 12
+      },
+      {
+        "symbol": "BTCUSDT",
+        "strategy": "trend1h",
+        "label": "EMA9/21 · sinal1h",
+        "variant": "btc-context",
+        "cost": "base",
+        "pnlBRL": 33.95135863286271,
+        "finalBRL": 1033.9513586328626,
+        "initialBRL": 1000,
+        "count": 29,
+        "maxDD": 0.030573298163284274,
+        "halted": false,
+        "feesBRL": 20.74609501809647,
+        "fundingBRL": 0.15244034840129053,
+        "position": null,
+        "rejected": 0,
+        "skipped": 94,
+        "grossBRL": 54.54501330255775,
+        "slippageBRL": 8.298440520975491,
+        "avgHoldHours": 8.64080459770115,
+        "maxHoldHours": 24,
+        "directionalSignals": 123,
+        "allowedSignals": 39
+      },
+      {
+        "symbol": "BTCUSDT",
+        "strategy": "trend1h",
+        "label": "EMA9/21 · sinal1h",
+        "variant": "btc-context",
+        "cost": "stress",
+        "pnlBRL": -25.906296721426685,
+        "finalBRL": 974.0937032785733,
+        "initialBRL": 1000,
+        "count": 5,
+        "maxDD": 0.026645285865736886,
+        "halted": false,
+        "feesBRL": 3.8042465002692634,
+        "fundingBRL": 0.05888964810558407,
+        "position": null,
+        "rejected": 0,
+        "skipped": 118,
+        "grossBRL": -22.160939869263167,
+        "slippageBRL": 1.5216952978284461,
+        "avgHoldHours": 3.4799999999999995,
+        "maxHoldHours": 6,
+        "directionalSignals": 123,
+        "allowedSignals": 5
+      },
+      {
+        "symbol": "BTCUSDT",
+        "strategy": "donchian-fixed",
+        "label": "Donchian20h · fixo",
+        "variant": "control",
+        "cost": "base",
+        "pnlBRL": -61.32977336521378,
+        "finalBRL": 938.6702266347862,
+        "initialBRL": 1000,
+        "count": 74,
+        "maxDD": 0.1045176467522398,
+        "halted": false,
+        "feesBRL": 52.556163596813505,
+        "fundingBRL": -0.41377085907630495,
+        "position": null,
+        "rejected": 0,
+        "skipped": 145,
+        "grossBRL": -8.359838909324463,
+        "slippageBRL": 21.02246594522818,
+        "avgHoldHours": 9.30855855855856,
+        "maxHoldHours": 24,
+        "directionalSignals": 219,
+        "allowedSignals": 149
+      },
+      {
+        "symbol": "BTCUSDT",
+        "strategy": "donchian-fixed",
+        "label": "Donchian20h · fixo",
+        "variant": "control",
+        "cost": "stress",
+        "pnlBRL": -7.9905017186905525,
+        "finalBRL": 992.0094982813094,
+        "initialBRL": 1000,
+        "count": 17,
+        "maxDD": 0.03392306930882242,
+        "halted": false,
+        "feesBRL": 11.871081525925067,
+        "fundingBRL": -0.10554610474384152,
+        "position": null,
+        "rejected": 0,
+        "skipped": 202,
+        "grossBRL": 3.9861259119783066,
+        "slippageBRL": 4.748434007899159,
+        "avgHoldHours": 9.018627450980393,
+        "maxHoldHours": 24,
+        "directionalSignals": 219,
+        "allowedSignals": 28
+      },
+      {
+        "symbol": "BTCUSDT",
+        "strategy": "donchian-fixed",
+        "label": "Donchian20h · fixo",
+        "variant": "btc-context",
+        "cost": "base",
+        "pnlBRL": 9.428507099706565,
+        "finalBRL": 1009.4285070997066,
+        "initialBRL": 1000,
+        "count": 61,
+        "maxDD": 0.055420307946237694,
+        "halted": false,
+        "feesBRL": 45.52473914739573,
+        "fundingBRL": -0.38255935421597975,
+        "position": null,
+        "rejected": 0,
+        "skipped": 158,
+        "grossBRL": 55.335805601318086,
+        "slippageBRL": 18.209898600784726,
+        "avgHoldHours": 9.130601092896178,
+        "maxHoldHours": 24,
+        "directionalSignals": 219,
+        "allowedSignals": 125
+      },
+      {
+        "symbol": "BTCUSDT",
+        "strategy": "donchian-fixed",
+        "label": "Donchian20h · fixo",
+        "variant": "btc-context",
+        "cost": "stress",
+        "pnlBRL": -16.573506537381775,
+        "finalBRL": 983.4264934626183,
+        "initialBRL": 1000,
+        "count": 14,
+        "maxDD": 0.030358162126450594,
+        "halted": false,
+        "feesBRL": 10.031184287484137,
+        "fundingBRL": -0.024194581223426322,
+        "position": null,
+        "rejected": 0,
+        "skipped": 205,
+        "grossBRL": -6.518127668674316,
+        "slippageBRL": 4.012473314088529,
+        "avgHoldHours": 8.995238095238095,
+        "maxHoldHours": 24,
+        "directionalSignals": 219,
+        "allowedSignals": 24
+      },
+      {
+        "symbol": "BTCUSDT",
+        "strategy": "donchian-adaptive",
+        "label": "Donchian10–40h · adaptativo",
+        "variant": "control",
+        "cost": "base",
+        "pnlBRL": -46.51520504563351,
+        "finalBRL": 953.4847949543665,
+        "initialBRL": 1000,
+        "count": 74,
+        "maxDD": 0.10369349008579401,
+        "halted": false,
+        "feesBRL": 53.84691909378742,
+        "fundingBRL": -0.27985269468371166,
+        "position": null,
+        "rejected": 0,
+        "skipped": 132,
+        "grossBRL": 7.611566742837276,
+        "slippageBRL": 21.538768803526075,
+        "avgHoldHours": 9.105180180180183,
+        "maxHoldHours": 24,
+        "directionalSignals": 206,
+        "allowedSignals": 153
+      },
+      {
+        "symbol": "BTCUSDT",
+        "strategy": "donchian-adaptive",
+        "label": "Donchian10–40h · adaptativo",
+        "variant": "control",
+        "cost": "stress",
+        "pnlBRL": 2.574038428268466,
+        "finalBRL": 1002.5740384282685,
+        "initialBRL": 1000,
+        "count": 16,
+        "maxDD": 0.03627844800952791,
+        "halted": false,
+        "feesBRL": 12.487843572295795,
+        "fundingBRL": -0.07368443645075534,
+        "position": null,
+        "rejected": 0,
+        "skipped": 190,
+        "grossBRL": 15.135566437014932,
+        "slippageBRL": 4.995140649830937,
+        "avgHoldHours": 8.782291666666666,
+        "maxHoldHours": 24,
+        "directionalSignals": 206,
+        "allowedSignals": 29
+      },
+      {
+        "symbol": "BTCUSDT",
+        "strategy": "donchian-adaptive",
+        "label": "Donchian10–40h · adaptativo",
+        "variant": "btc-context",
+        "cost": "base",
+        "pnlBRL": 18.435857396741966,
+        "finalBRL": 1018.435857396742,
+        "initialBRL": 1000,
+        "count": 61,
+        "maxDD": 0.06464333911162153,
+        "halted": false,
+        "feesBRL": 47.342561651227165,
+        "fundingBRL": -0.38908200120330866,
+        "position": null,
+        "rejected": 0,
+        "skipped": 145,
+        "grossBRL": 66.16750104917205,
+        "slippageBRL": 18.9370280646703,
+        "avgHoldHours": 8.883879781420765,
+        "maxHoldHours": 24,
+        "directionalSignals": 206,
+        "allowedSignals": 128
+      },
+      {
+        "symbol": "BTCUSDT",
+        "strategy": "donchian-adaptive",
+        "label": "Donchian10–40h · adaptativo",
+        "variant": "btc-context",
+        "cost": "stress",
+        "pnlBRL": -1.3068654142588798,
+        "finalBRL": 998.6931345857411,
+        "initialBRL": 1000,
+        "count": 13,
+        "maxDD": 0.029925577022362173,
+        "halted": false,
+        "feesBRL": 10.01445498953488,
+        "fundingBRL": 0.005815294689244643,
+        "position": null,
+        "rejected": 0,
+        "skipped": 193,
+        "grossBRL": 8.701774280586612,
+        "slippageBRL": 4.005784029022834,
+        "avgHoldHours": 8.702564102564102,
+        "maxHoldHours": 24,
+        "directionalSignals": 206,
+        "allowedSignals": 25
+      }
+    ],
+    "scalpReference": [
+      {
+        "arm": "eth-g151",
+        "label": "ETH · pesos G151",
+        "symbol": "ETHUSDT",
+        "cost": "base",
+        "pnlBRL": 27.49764014937881,
+        "finalBRL": 1027.4976401493789,
+        "initialBRL": 1000,
+        "count": 8,
+        "maxDD": 0.023654548732830745,
+        "halted": false,
+        "feesBRL": 7.224904932078609,
+        "fundingBRL": 0.22997826088732104,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2438,
+        "signals": 2475,
+        "modelAllowed": 9
+      },
+      {
+        "arm": "eth-g151",
+        "label": "ETH · pesos G151",
+        "symbol": "ETHUSDT",
+        "cost": "stress",
+        "pnlBRL": 15.17001589384762,
+        "finalBRL": 1015.1700158938477,
+        "initialBRL": 1000,
+        "count": 8,
+        "maxDD": 0.023074680255362946,
+        "halted": false,
+        "feesBRL": 12.700689450735451,
+        "fundingBRL": 0.20219666112417622,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2438,
+        "signals": 2475,
+        "modelAllowed": 9
+      },
+      {
+        "arm": "btc-transfer",
+        "label": "BTC · pesos ETH transferidos",
+        "symbol": "BTCUSDT",
+        "cost": "base",
+        "pnlBRL": 23.054103156934787,
+        "finalBRL": 1023.0541031569348,
+        "initialBRL": 1000,
+        "count": 6,
+        "maxDD": 0.014527453245233662,
+        "halted": false,
+        "feesBRL": 5.764526400848698,
+        "fundingBRL": 0,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2332,
+        "signals": 2365,
+        "modelAllowed": 6
+      },
+      {
+        "arm": "btc-transfer",
+        "label": "BTC · pesos ETH transferidos",
+        "symbol": "BTCUSDT",
+        "cost": "stress",
+        "pnlBRL": 11.868546640484823,
+        "finalBRL": 1011.8685466404849,
+        "initialBRL": 1000,
+        "count": 6,
+        "maxDD": 0.009825552021709667,
+        "halted": false,
+        "feesBRL": 8.264313262239135,
+        "fundingBRL": 0,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2332,
+        "signals": 2365,
+        "modelAllowed": 6
+      },
+      {
+        "arm": "btc-trained",
+        "label": "BTC · floresta treinada no BTC",
+        "symbol": "BTCUSDT",
+        "cost": "base",
+        "pnlBRL": 0,
+        "finalBRL": 1000,
+        "initialBRL": 1000,
+        "count": 0,
+        "maxDD": 0,
+        "halted": false,
+        "feesBRL": 0,
+        "fundingBRL": 0,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2338,
+        "signals": 2365,
+        "modelAllowed": 0
+      },
+      {
+        "arm": "btc-trained",
+        "label": "BTC · floresta treinada no BTC",
+        "symbol": "BTCUSDT",
+        "cost": "stress",
+        "pnlBRL": 0,
+        "finalBRL": 1000,
+        "initialBRL": 1000,
+        "count": 0,
+        "maxDD": 0,
+        "halted": false,
+        "feesBRL": 0,
+        "fundingBRL": 0,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2338,
+        "signals": 2365,
+        "modelAllowed": 0
+      }
+    ],
+    "newsApplied": false,
+    "independentHoldout": false,
+    "promoted": false,
+    "notes": [
+      "Todos os resultados, inclusive perdas, publicados; controles e filtroBTC separados.",
+      "Mesmo período e capital da comparaçãoG151; sinais/seleção diferentes impedem concluir superioridade geral por este período.",
+      "Risco1%,10x,limites iguais; não aumentados para produzir lucro. Operações até24h, não encerramento obrigatório à meia-noite.",
+      "Sinais antigos reutilizados, motor1m/funding corrigido e atraso2min são adaptações.",
+      "Sem notícias retroativas. Custos e funding modelados; FXfixo5; antes de tributos."
+    ]
+  },
+  "forward": {
+    "app": "trend-lab-daytrade",
+    "status": "waiting",
+    "updatedAt": 1792423205763,
+    "registration": {
+      "registeredAt": 1792423099916,
+      "protocol": {
+        "version": "daytrade-integrated-v1",
+        "symbols": [
+          "ETHUSDT",
+          "BTCUSDT"
+        ],
+        "strategies": [
+          {
+            "id": "trend1h",
+            "name": "EMA9/21 · sinal1h"
+          },
+          {
+            "id": "donchian-fixed",
+            "name": "Donchian20h · fixo"
+          },
+          {
+            "id": "donchian-adaptive",
+            "name": "Donchian10–40h · adaptativo"
+          }
+        ],
+        "variants": [
+          "control",
+          "sentiment",
+          "btc-context",
+          "combined"
+        ],
+        "capitalBRL": 1000,
+        "risk": 0.01,
+        "leverage": 10,
+        "maxHoldMinutes": 1440,
+        "cooldownMinutes": 240,
+        "stopATR": 1.5,
+        "targetR": 2,
+        "entryDelayMinutes": 2,
+        "closedHourBufferSeconds": 30,
+        "durationDays": 30,
+        "historical": {
+          "start": "2026-06-01T00:00:00Z",
+          "end": "2026-10-01T00:00:00Z",
+          "newsApplied": false,
+          "independentHoldout": false
+        },
+        "rules": [
+          "Reuse the existing EMA1h and fixed/adaptive Donchian signal functions; preserve frozen old sources and experiments.",
+          "Hourly closed signals, minute execution, fixed2min delay after signal for causal logging and30sec settlement buffer. Not an exact replay of older1h fills.",
+          "Risk1%,10x,R$1000 per independent portfolio; stops1.5ATR,target2R,max24h,cooldown4h. Corrected funding engine, modeled fees/slippage and contract-specific current filters.",
+          "Keep cost filter: stop distance / round-trip costs including funding reserve >=4, evaluated for each cost scenario; opposite exit signals always remain.",
+          "ETH BTC-context veto requires trailing72h correlation>=0.60 and BTC1h/4h both against entry; BTC own-trend variant requires both BTC1h/4h against entry, without self-correlation.",
+          "Sentiment model/revision and thresholds inherited from the local fixed model. Additionally deduplicate canonical article URLs and normalized titles, preserving earliest received version; do not change prior experiments.",
+          "Separate all4variants to measure BTC and sentiment independently; missing/expired/future/insufficient news does not veto, mark uncovered. No historical news backfill.",
+          "Original G151 forests were trained for5min signals and are not used to score hourly signals. No new RF fit or genetic search in this stage.",
+          "Historical BTC-context ablation is exploratory on already-seen Jun-Sep2026. Compare all strategies, including losses and inactive portfolios. No automatic winner promotion.",
+          "Longer holding does not imply higher probability of success; trading frequency, gross returns, fees, slippage, funding, drawdown and sample size are reported.",
+          "No real orders, paid AI or account keys. Honor local pause; never restart original server or edit private DB. Missing decisions are explicit and never filled retroactively."
+        ],
+        "id": "daytrade-1792423099916",
+        "firstSignalAt": 1792425600000,
+        "start": 1792425720000,
+        "end": 1795017720000,
+        "strategy": {
+          "version": "scalping-5m-v1",
+          "registeredAt": "2026-10-16T20:27:05.641Z",
+          "capitalBRL": 1000,
+          "fx": 5,
+          "leverage": 10,
+          "risk": 0.01,
+          "dailyLimit": 0.03,
+          "totalLimit": 0.1,
+          "signalMinutes": 5,
+          "executionMinutes": 1,
+          "warmupStart": "2025-03-31T00:00:00Z",
+          "end": "2025-06-01T00:00:00Z",
+          "ema": [
+            9,
+            21
+          ],
+          "rsi": 14,
+          "bollinger": {
+            "length": 20,
+            "std": 2
+          },
+          "macd": [
+            12,
+            26,
+            9
+          ],
+          "rvol": {
+            "length": 20,
+            "min": 1.2
+          },
+          "stopATR": 1.5,
+          "targetR": 2,
+          "maxHoldMinutes": 1440,
+          "cooldownMinutes": 240,
+          "maintenance": 0.005,
+          "fundingReserve": 0.0003,
+          "costCases": [
+            {
+              "id": "base",
+              "fee": 0.0005,
+              "slippage": 0.0002
+            },
+            {
+              "id": "stress",
+              "fee": 0.001,
+              "slippage": 0.0004
+            }
+          ],
+          "periods": [
+            {
+              "id": "april",
+              "name": "Abril 2025",
+              "start": "2025-04-01T00:00:00Z",
+              "end": "2025-05-01T00:00:00Z"
+            },
+            {
+              "id": "may",
+              "name": "Maio 2025",
+              "start": "2025-05-01T00:00:00Z",
+              "end": "2025-06-01T00:00:00Z"
+            }
+          ],
+          "strategies": [
+            {
+              "id": "cross",
+              "name": "Controle · cruzamento EMA9/21"
+            },
+            {
+              "id": "vwap",
+              "name": "Pullback VWAP + EMA + volume"
+            },
+            {
+              "id": "bands",
+              "name": "Bollinger + RSI · retorno à média"
+            }
+          ],
+          "rules": [
+            "Todos os períodos já foram vistos em resolução maior. Esta rodada é exploratória, sem parâmetros otimizados.",
+            "Controle: novo cruzamento EMA9/21 no fechamento5m. Entrada na abertura do próximo minuto.",
+            "VWAP: EMA9 acima deEMA21 paraLONG e abaixo paraSHORT; candle anterior fechou do lado da tendência em relação aoVWAP; candle atual tocaVWAP anterior e fecha novamente do lado da tendência noVWAP atual; mesmo diaUTC, pelo menos4 candles da sessão e RVOL>=1.2.",
+            "Bollinger: candle anterior fechou fora deSMA20±2 desvios e RSI anterior<=30 paraLONG ou>=70 paraSHORT; candle atual retorna para dentro das bandas comRSI atual>30 paraLONG ou<70 paraSHORT. Alvo naSMA20 conhecida no sinal; alvo já ultrapassado na entrada rejeita operação.",
+            "RSI14 eATR14 Wilder. Stop1.5ATR, alvo2R no controle eVWAP; limite30min por posição, intervalo10min após saída.",
+            "MACD12/26/9 e delta agregado dos takers são somente contexto. Não há votos nem probabilidade de acerto derivada dos indicadores.",
+            "VWAP exato da sessão = soma quote volume/soma base volume. Delta agregado =2×taker buy base volume−base volume. Não reconstrói livro, ticks ou ordens institucionais.",
+            "Entrada e saída simulam ordens a mercado com taxas e slippage adverso. Stop prevalece se alvo e stop coexistem no mesmo minuto; liquidação estimada tem prioridade com mark price.",
+            "Funding histórico incluído. Liquidação aproximada, manutenção0.5%; mínimos da corretora consultados anteriormente, não reconstruídos para2025. Custos não equivalem à tarifa pessoal da conta.",
+            "O filtro de risco não será aumentado para gerar operações. Os testes de1h e a rodada prospectiva continuam preservados."
+          ],
+          "sources": [
+            {
+              "title": "Binance · dados públicos e esquema de volume",
+              "url": "https://github.com/binance/binance-public-data"
+            },
+            {
+              "title": "Binance · scalping",
+              "url": "https://www.binance.com/en/academy/articles/what-is-scalping-trading-in-cryptocurrency"
+            },
+            {
+              "title": "TradingView · MACD",
+              "url": "https://www.tradingview.com/support/solutions/43000502344-moving-average-convergence-divergence-macd-indicator/"
+            },
+            {
+              "title": "TradingView · Bollinger",
+              "url": "https://www.tradingview.com/support/solutions/43000501840-bollinger-bands-bb/"
+            }
+          ]
+        },
+        "donchian": {
+          "version": "donchian-adaptive-v1",
+          "registeredAt": "2026-10-16T21:03:26.535475+00:00",
+          "symbol": "ETHUSDT",
+          "interval": "1h",
+          "source": "web/data/eth-intraday.json",
+          "capitalBRL": 300,
+          "fx": 5,
+          "risk": 0.01,
+          "leverage": 10,
+          "dailyLimit": 0.03,
+          "totalLimit": 0.1,
+          "stopATR": 1.5,
+          "targetR": 2,
+          "maxHoldHours": 24,
+          "cooldownHours": 4,
+          "volumePeriod": 20,
+          "volumeMultiplier": 1.2,
+          "warmupBars": 64,
+          "adaptive": {
+            "base": 20,
+            "min": 10,
+            "max": 40,
+            "referenceBars": 168,
+            "volatility": "ATR14 / close",
+            "formula": "clamp(round(20 * mean(previous 168 ATR14/close) / previous ATR14/close), 10, 40)",
+            "direction": "Higher recent volatility shortens the window; lower recent volatility lengthens it."
+          },
+          "variants": [
+            {
+              "id": "fixed",
+              "name": "Donchian fixo · 20h"
+            },
+            {
+              "id": "adaptive",
+              "name": "Donchian adaptativo · 10–40h"
+            }
+          ],
+          "costCases": [
+            {
+              "id": "base",
+              "fee": 0.0005,
+              "slippage": 0.0002
+            },
+            {
+              "id": "stress",
+              "fee": 0.001,
+              "slippage": 0.0004
+            }
+          ],
+          "periods": [
+            {
+              "id": "development",
+              "label": "Jan–jun 2025 · desenvolvimento",
+              "start": "2025-01-01T00:00:00Z",
+              "end": "2025-07-01T00:00:00Z",
+              "status": "already_seen_exploratory"
+            },
+            {
+              "id": "validation",
+              "label": "Jul–dez 2025 · validação conhecida",
+              "start": "2025-07-01T00:00:00Z",
+              "end": "2026-01-01T00:00:00Z",
+              "status": "already_seen_exploratory"
+            },
+            {
+              "id": "known2026",
+              "label": "Jan–set 2026 · comparação retrospectiva",
+              "start": "2026-01-01T00:00:00Z",
+              "end": "2026-10-01T00:00:00Z",
+              "status": "already_seen_exploratory"
+            },
+            {
+              "id": "newOctober",
+              "label": "1–15 out 2026 · janela adicional",
+              "start": "2026-10-01T00:00:00Z",
+              "end": "2026-10-16T00:00:00Z",
+              "status": "already_seen_exploratory"
+            }
+          ],
+          "rules": [
+            "Hipótese própria inspirada no artigo; não é reprodução do código ou da gestão Agno.",
+            "A única diferença entre as duas carteiras é a janela do canal. Filtro de volume, stop, alvo, risco e execução são idênticos.",
+            "Janela escolhida antes do candle de sinal: ATR14/close até a hora anterior e média dos168 valores anteriores. ATR suavizado como no controle preservado, iniciado no primeiro true range.",
+            "Canal usa máxima/mínima dosN candles estritamente anteriores, excluindo o candle de sinal. Entrada só após fechamento além do canal e volume >1,2 vezes a média dos20 volumes anteriores.",
+            "Controle pronto após64 candles. Adaptativo exige também168 medidas anteriores; todos os blocos têm aquecimento suficiente anterior ao início.",
+            "Stop1,5ATR e alvo2R (3ATR), diferentes do alvo2ATR do pseudocódigo do artigo. Encerramento após24h, intervalo4h e fechamento por sinal contrário preservados.",
+            "Execução em1h, entrada na abertura seguinte; replay revela tentativa após fechar essa hora. Stop antes do alvo e liquidação estimada antes do stop em conflito na mesma hora.",
+            "Cada bloco reiniciaR$300; não somar retornos. Jan2025–out2026 já visto: nenhuma janela é validação inédita.",
+            "Custos base e dobrados; auditoria adicional das mesmas operações, sem recalcular decisões. Funding histórico incluído; filtros de lote consultados posteriormente e câmbio fixo são hipóteses.",
+            "Sem otimização de parâmetros, seleção de melhor período, notícias retroativas, IA ou promoção ao bot prospectivo nesta rodada. Publicar todos os16 cenários.",
+            "Limites são avaliados no fechamento horário e não garantem perda máxima. Não simula ticks, spread observado, fila ou latência."
+          ],
+          "sources": [
+            {
+              "title": "Joe Tay · artigo que motivou a hipótese (adaptação não divulgada)",
+              "url": "https://medium.com/@joetay_50959/from-failed-experiments-to-43-8-apr-how-i-finally-built-a-profitable-trading-bot-with-ai-64771995d38c"
+            },
+            {
+              "title": "Binance · arquivos públicos usados nos estudos locais",
+              "url": "https://data.binance.vision/?prefix=data/futures/um/"
+            }
+          ]
+        },
+        "btcPolicy": {
+          "version": "btc-context-v1",
+          "purpose": "Market context and separately registered historical ablation; no changes to the live frozen portfolios",
+          "ema": {
+            "fast": 20,
+            "slow": 50,
+            "minimumBars": 50
+          },
+          "correlationHours": 72,
+          "minimumCorrelation": 0.6,
+          "rule": "Veto ETH LONG only if BTC1h and4h EMA20/50 both point down and trailing72hour ETH/BTC log-return correlation >=0.6; symmetric for SHORT. Missing, stale, low/negative correlation or conflicting timeframes: no veto. Preserve opposite exit signals.",
+          "features": [
+            "BTC return1h",
+            "BTC return4h",
+            "BTC return24h",
+            "BTC EMA20/50 trend1h",
+            "BTC EMA20/50 trend4h",
+            "ETH/BTC log-return correlation72h",
+            "ETH beta to BTC72h",
+            "ETH/BTC relative return24h",
+            "BTC leads ETH by1h correlation (descriptive, not causality)",
+            "ETH leads BTC by1h correlation (descriptive, not causality)"
+          ],
+          "sources": [
+            {
+              "title": "Price Transmission from Bitcoin to Altcoins (2026)",
+              "url": "https://link.springer.com/article/10.1007/s10690-026-09589-z",
+              "note": "Reports simultaneous responses for ETH/LTC and stronger lagged responses for selected small caps. Selected event windows; does not prove this filter works."
+            },
+            {
+              "title": "Lead-Lag relationship between Bitcoin and Ethereum (2019)",
+              "url": "https://doi.org/10.1016/j.ribaf.2019.06.012",
+              "note": "Abstract reports mixed tests, largely bidirectional relationships, and limited hourly/daily exploitation."
+            }
+          ],
+          "limitations": [
+            "Correlation is not causality or a guarantee of a profitable lead.",
+            "Fixed exploratory thresholds, not tuned using the backtest.",
+            "Historical ETH period already seen; small number of trades, no independent proof.",
+            "Live context is diagnostic only. Existing portfolios and12-feature forests remain unchanged; adding features to their weights requires a separately trained model."
+          ]
+        },
+        "sentiment": {
+          "model": "mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis",
+          "revision": "ae0eab9ad336d7d548e0efe394b07c04bcaf6e91",
+          "feeds": [
+            "https://www.coindesk.com/arc/outboundfeeds/rss/",
+            "https://cointelegraph.com/rss"
+          ],
+          "language": "en",
+          "input": "headline only",
+          "ttlMinutes": 300,
+          "pollSeconds": 300,
+          "minimumArticles": 2,
+          "minimumPublishers": 2,
+          "minimumDirectionalConfidence": 0.8,
+          "minimumAbsoluteMean": 0.2,
+          "missingPolicy": "no veto; mark uncovered",
+          "rule": "Mean P(positive)-P(negative) on dated, recent, deduplicated, explicitly asset-related headlines with directional confidence >=0.8. At least2 articles and2 publishers; mean >=0.2 vetoes SHORT, <=-0.2 vetoes LONG. Neutral/conflicting evidence does not veto. Never infers high-risk events from sentiment."
+        },
+        "minimumCostRatio": 4,
+        "arms": [
+          {
+            "id": "ETHUSDT-trend1h",
+            "symbol": "ETHUSDT",
+            "strategy": "trend1h",
+            "label": "EMA9/21 · sinal1h",
+            "filters": [
+              {
+                "tickSize": "0.01",
+                "filterType": "PRICE_FILTER",
+                "minPrice": "39.86",
+                "maxPrice": "306177"
+              },
+              {
+                "minQty": "0.001",
+                "maxQty": "10000",
+                "stepSize": "0.001",
+                "filterType": "LOT_SIZE"
+              },
+              {
+                "stepSize": "0.001",
+                "minQty": "0.001",
+                "filterType": "MARKET_LOT_SIZE",
+                "maxQty": "2000"
+              },
+              {
+                "filterType": "MAX_NUM_ORDERS",
+                "limit": 200
+              },
+              {
+                "notional": "20",
+                "filterType": "MIN_NOTIONAL"
+              },
+              {
+                "filterType": "PERCENT_PRICE",
+                "multiplierUp": "1.0500",
+                "multiplierDecimal": "4",
+                "multiplierDown": "0.9500"
+              },
+              {
+                "filterType": "POSITION_RISK_CONTROL",
+                "positionControlSide": "NONE"
+              }
+            ]
+          },
+          {
+            "id": "ETHUSDT-donchian-fixed",
+            "symbol": "ETHUSDT",
+            "strategy": "donchian-fixed",
+            "label": "Donchian20h · fixo",
+            "filters": [
+              {
+                "tickSize": "0.01",
+                "filterType": "PRICE_FILTER",
+                "minPrice": "39.86",
+                "maxPrice": "306177"
+              },
+              {
+                "minQty": "0.001",
+                "maxQty": "10000",
+                "stepSize": "0.001",
+                "filterType": "LOT_SIZE"
+              },
+              {
+                "stepSize": "0.001",
+                "minQty": "0.001",
+                "filterType": "MARKET_LOT_SIZE",
+                "maxQty": "2000"
+              },
+              {
+                "filterType": "MAX_NUM_ORDERS",
+                "limit": 200
+              },
+              {
+                "notional": "20",
+                "filterType": "MIN_NOTIONAL"
+              },
+              {
+                "filterType": "PERCENT_PRICE",
+                "multiplierUp": "1.0500",
+                "multiplierDecimal": "4",
+                "multiplierDown": "0.9500"
+              },
+              {
+                "filterType": "POSITION_RISK_CONTROL",
+                "positionControlSide": "NONE"
+              }
+            ]
+          },
+          {
+            "id": "ETHUSDT-donchian-adaptive",
+            "symbol": "ETHUSDT",
+            "strategy": "donchian-adaptive",
+            "label": "Donchian10–40h · adaptativo",
+            "filters": [
+              {
+                "tickSize": "0.01",
+                "filterType": "PRICE_FILTER",
+                "minPrice": "39.86",
+                "maxPrice": "306177"
+              },
+              {
+                "minQty": "0.001",
+                "maxQty": "10000",
+                "stepSize": "0.001",
+                "filterType": "LOT_SIZE"
+              },
+              {
+                "stepSize": "0.001",
+                "minQty": "0.001",
+                "filterType": "MARKET_LOT_SIZE",
+                "maxQty": "2000"
+              },
+              {
+                "filterType": "MAX_NUM_ORDERS",
+                "limit": 200
+              },
+              {
+                "notional": "20",
+                "filterType": "MIN_NOTIONAL"
+              },
+              {
+                "filterType": "PERCENT_PRICE",
+                "multiplierUp": "1.0500",
+                "multiplierDecimal": "4",
+                "multiplierDown": "0.9500"
+              },
+              {
+                "filterType": "POSITION_RISK_CONTROL",
+                "positionControlSide": "NONE"
+              }
+            ]
+          },
+          {
+            "id": "BTCUSDT-trend1h",
+            "symbol": "BTCUSDT",
+            "strategy": "trend1h",
+            "label": "EMA9/21 · sinal1h",
+            "filters": [
+              {
+                "tickSize": "0.10",
+                "filterType": "PRICE_FILTER",
+                "minPrice": "556.80",
+                "maxPrice": "4529764"
+              },
+              {
+                "stepSize": "0.001",
+                "maxQty": "1000",
+                "filterType": "LOT_SIZE",
+                "minQty": "0.001"
+              },
+              {
+                "filterType": "MARKET_LOT_SIZE",
+                "minQty": "0.001",
+                "stepSize": "0.001",
+                "maxQty": "120"
+              },
+              {
+                "filterType": "MAX_NUM_ORDERS",
+                "limit": 200
+              },
+              {
+                "filterType": "MIN_NOTIONAL",
+                "notional": "50"
+              },
+              {
+                "multiplierDecimal": "4",
+                "multiplierDown": "0.9500",
+                "filterType": "PERCENT_PRICE",
+                "multiplierUp": "1.0500"
+              },
+              {
+                "filterType": "POSITION_RISK_CONTROL",
+                "positionControlSide": "NONE"
+              }
+            ]
+          },
+          {
+            "id": "BTCUSDT-donchian-fixed",
+            "symbol": "BTCUSDT",
+            "strategy": "donchian-fixed",
+            "label": "Donchian20h · fixo",
+            "filters": [
+              {
+                "tickSize": "0.10",
+                "filterType": "PRICE_FILTER",
+                "minPrice": "556.80",
+                "maxPrice": "4529764"
+              },
+              {
+                "stepSize": "0.001",
+                "maxQty": "1000",
+                "filterType": "LOT_SIZE",
+                "minQty": "0.001"
+              },
+              {
+                "filterType": "MARKET_LOT_SIZE",
+                "minQty": "0.001",
+                "stepSize": "0.001",
+                "maxQty": "120"
+              },
+              {
+                "filterType": "MAX_NUM_ORDERS",
+                "limit": 200
+              },
+              {
+                "filterType": "MIN_NOTIONAL",
+                "notional": "50"
+              },
+              {
+                "multiplierDecimal": "4",
+                "multiplierDown": "0.9500",
+                "filterType": "PERCENT_PRICE",
+                "multiplierUp": "1.0500"
+              },
+              {
+                "filterType": "POSITION_RISK_CONTROL",
+                "positionControlSide": "NONE"
+              }
+            ]
+          },
+          {
+            "id": "BTCUSDT-donchian-adaptive",
+            "symbol": "BTCUSDT",
+            "strategy": "donchian-adaptive",
+            "label": "Donchian10–40h · adaptativo",
+            "filters": [
+              {
+                "tickSize": "0.10",
+                "filterType": "PRICE_FILTER",
+                "minPrice": "556.80",
+                "maxPrice": "4529764"
+              },
+              {
+                "stepSize": "0.001",
+                "maxQty": "1000",
+                "filterType": "LOT_SIZE",
+                "minQty": "0.001"
+              },
+              {
+                "filterType": "MARKET_LOT_SIZE",
+                "minQty": "0.001",
+                "stepSize": "0.001",
+                "maxQty": "120"
+              },
+              {
+                "filterType": "MAX_NUM_ORDERS",
+                "limit": 200
+              },
+              {
+                "filterType": "MIN_NOTIONAL",
+                "notional": "50"
+              },
+              {
+                "multiplierDecimal": "4",
+                "multiplierDown": "0.9500",
+                "filterType": "PERCENT_PRICE",
+                "multiplierUp": "1.0500"
+              },
+              {
+                "filterType": "POSITION_RISK_CONTROL",
+                "positionControlSide": "NONE"
+              }
+            ]
+          }
+        ],
+        "exchangeFiltersAsOf": 1792423099916
+      },
+      "protocolSHA256": "9458e0d6d96b575f7c582959ff36c46c6b687d645b62b117af7052f12340a97f",
+      "sourceHashes": {
+        "daytrade-integrated-protocol.json": "39bf7418ce0c44cba773f736e7d95ff18baad6d60e2d3d1be766ccac05e62d16",
+        "donchian-protocol.json": "27b57b389be6b3b3dcd22f83d40090b65a3fa41ed919693abdf24f4cbe18f260",
+        "btc-context-protocol.json": "cc2ffefe2cbd1d0711ce765113c1d39ecbe44978991e4cf19d56b44f909f45b6",
+        "multiasset-sentiment-protocol.json": "082cef9687ab0be2f3c2f3249faf7cbe682302de20d654b9e2cbdc84e25715ab",
+        "scalping-protocol.json": "8d16a2b930ca9ceef771e88c7713b5f01086bb2125c15327b0d428fe5d950eaf",
+        "scripts/local-daytrade.mjs": "96d8c6d13a35a2bd3ce82f79af760593c93da2edc721ca5ee3fc740a569accf1",
+        "scripts/daytrade-core.mjs": "9057e41ae8c952f64f7707a1c2fc05acc40e45f34c736cc237d9672781da7505",
+        "scripts/multiasset-core.mjs": "ced09d368550a5257840426c3dc0f52818daea7ffdcecf7a1dd0537e0b69da90",
+        "scripts/multiasset-io.mjs": "1528b95a2903fcb0688eadfb330b357c537a72be84175dc7c2d7eb2647e905df",
+        "scripts/btc-context-core.mjs": "ba389bc33bc51b441ea53061b0e1a2a8e92fd12a95a0ada80ac1c120ec375d1e",
+        "scripts/news-filter-core.mjs": "cdf10fc4823440a3a2e9e35a66bac2846315433fc834e580fdd4e7b66b26c8e4",
+        "web/donchian.js": "e57981083a85265a5973e8a679645b8daac1ac00d6550274e37e8d3d7db9b1de",
+        "web/strategies.js": "0f8331cafe46fe464eac2d87756581451b90454c352ec86b66a67aa1293b23a2",
+        "web/scalping-context.js": "a718ea1e4bd0b441a6d32d31636715934e50d59f8f5cb62f1010d47b24143f6a",
+        "web/research-adaptive-funding.js": "ace93e5d95c393a88c3e138d7992f0452b80947de6b361c5484d10414c8a27dd",
+        "web/research-funding-buckets.js": "55bb8c4582c504a2e6ca5cdacbe123db5825b63cc5ae5b8f752ef7d33362ce6b",
+        "web/engine.js": "c107aad069cc10e83a1646efb2a84a1967dc3b26b11457f8fac435d26a92504f",
+        "web/filters.js": "10854d01d859f541a5e7e98bff4dd8d2f39181b97d7210e9c1dae2fce1916188"
+      }
+    },
+    "realOrders": false,
+    "arms": [
+      {
+        "id": "ETHUSDT-trend1h",
+        "symbol": "ETHUSDT",
+        "strategy": "trend1h",
+        "label": "EMA9/21 · sinal1h",
+        "filters": [
+          {
+            "tickSize": "0.01",
+            "filterType": "PRICE_FILTER",
+            "minPrice": "39.86",
+            "maxPrice": "306177"
+          },
+          {
+            "minQty": "0.001",
+            "maxQty": "10000",
+            "stepSize": "0.001",
+            "filterType": "LOT_SIZE"
+          },
+          {
+            "stepSize": "0.001",
+            "minQty": "0.001",
+            "filterType": "MARKET_LOT_SIZE",
+            "maxQty": "2000"
+          },
+          {
+            "filterType": "MAX_NUM_ORDERS",
+            "limit": 200
+          },
+          {
+            "notional": "20",
+            "filterType": "MIN_NOTIONAL"
+          },
+          {
+            "filterType": "PERCENT_PRICE",
+            "multiplierUp": "1.0500",
+            "multiplierDecimal": "4",
+            "multiplierDown": "0.9500"
+          },
+          {
+            "filterType": "POSITION_RISK_CONTROL",
+            "positionControlSide": "NONE"
+          }
+        ],
+        "coverage": {
+          "registered": 0,
+          "expectedSlots": 0,
+          "missedSlots": 0,
+          "directional": 0,
+          "newsCovered": 0,
+          "directionalNews": 0
+        },
+        "scenarios": [
+          {
+            "variant": "control",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "control",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "sentiment",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "sentiment",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "btc-context",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "btc-context",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "combined",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "combined",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          }
+        ]
+      },
+      {
+        "id": "ETHUSDT-donchian-fixed",
+        "symbol": "ETHUSDT",
+        "strategy": "donchian-fixed",
+        "label": "Donchian20h · fixo",
+        "filters": [
+          {
+            "tickSize": "0.01",
+            "filterType": "PRICE_FILTER",
+            "minPrice": "39.86",
+            "maxPrice": "306177"
+          },
+          {
+            "minQty": "0.001",
+            "maxQty": "10000",
+            "stepSize": "0.001",
+            "filterType": "LOT_SIZE"
+          },
+          {
+            "stepSize": "0.001",
+            "minQty": "0.001",
+            "filterType": "MARKET_LOT_SIZE",
+            "maxQty": "2000"
+          },
+          {
+            "filterType": "MAX_NUM_ORDERS",
+            "limit": 200
+          },
+          {
+            "notional": "20",
+            "filterType": "MIN_NOTIONAL"
+          },
+          {
+            "filterType": "PERCENT_PRICE",
+            "multiplierUp": "1.0500",
+            "multiplierDecimal": "4",
+            "multiplierDown": "0.9500"
+          },
+          {
+            "filterType": "POSITION_RISK_CONTROL",
+            "positionControlSide": "NONE"
+          }
+        ],
+        "coverage": {
+          "registered": 0,
+          "expectedSlots": 0,
+          "missedSlots": 0,
+          "directional": 0,
+          "newsCovered": 0,
+          "directionalNews": 0
+        },
+        "scenarios": [
+          {
+            "variant": "control",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "control",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "sentiment",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "sentiment",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "btc-context",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "btc-context",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "combined",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "combined",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          }
+        ]
+      },
+      {
+        "id": "ETHUSDT-donchian-adaptive",
+        "symbol": "ETHUSDT",
+        "strategy": "donchian-adaptive",
+        "label": "Donchian10–40h · adaptativo",
+        "filters": [
+          {
+            "tickSize": "0.01",
+            "filterType": "PRICE_FILTER",
+            "minPrice": "39.86",
+            "maxPrice": "306177"
+          },
+          {
+            "minQty": "0.001",
+            "maxQty": "10000",
+            "stepSize": "0.001",
+            "filterType": "LOT_SIZE"
+          },
+          {
+            "stepSize": "0.001",
+            "minQty": "0.001",
+            "filterType": "MARKET_LOT_SIZE",
+            "maxQty": "2000"
+          },
+          {
+            "filterType": "MAX_NUM_ORDERS",
+            "limit": 200
+          },
+          {
+            "notional": "20",
+            "filterType": "MIN_NOTIONAL"
+          },
+          {
+            "filterType": "PERCENT_PRICE",
+            "multiplierUp": "1.0500",
+            "multiplierDecimal": "4",
+            "multiplierDown": "0.9500"
+          },
+          {
+            "filterType": "POSITION_RISK_CONTROL",
+            "positionControlSide": "NONE"
+          }
+        ],
+        "coverage": {
+          "registered": 0,
+          "expectedSlots": 0,
+          "missedSlots": 0,
+          "directional": 0,
+          "newsCovered": 0,
+          "directionalNews": 0
+        },
+        "scenarios": [
+          {
+            "variant": "control",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "control",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "sentiment",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "sentiment",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "btc-context",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "btc-context",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "combined",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "combined",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          }
+        ]
+      },
+      {
+        "id": "BTCUSDT-trend1h",
+        "symbol": "BTCUSDT",
+        "strategy": "trend1h",
+        "label": "EMA9/21 · sinal1h",
+        "filters": [
+          {
+            "tickSize": "0.10",
+            "filterType": "PRICE_FILTER",
+            "minPrice": "556.80",
+            "maxPrice": "4529764"
+          },
+          {
+            "stepSize": "0.001",
+            "maxQty": "1000",
+            "filterType": "LOT_SIZE",
+            "minQty": "0.001"
+          },
+          {
+            "filterType": "MARKET_LOT_SIZE",
+            "minQty": "0.001",
+            "stepSize": "0.001",
+            "maxQty": "120"
+          },
+          {
+            "filterType": "MAX_NUM_ORDERS",
+            "limit": 200
+          },
+          {
+            "filterType": "MIN_NOTIONAL",
+            "notional": "50"
+          },
+          {
+            "multiplierDecimal": "4",
+            "multiplierDown": "0.9500",
+            "filterType": "PERCENT_PRICE",
+            "multiplierUp": "1.0500"
+          },
+          {
+            "filterType": "POSITION_RISK_CONTROL",
+            "positionControlSide": "NONE"
+          }
+        ],
+        "coverage": {
+          "registered": 0,
+          "expectedSlots": 0,
+          "missedSlots": 0,
+          "directional": 0,
+          "newsCovered": 0,
+          "directionalNews": 0
+        },
+        "scenarios": [
+          {
+            "variant": "control",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "control",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "sentiment",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "sentiment",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "btc-context",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "btc-context",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "combined",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "combined",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          }
+        ]
+      },
+      {
+        "id": "BTCUSDT-donchian-fixed",
+        "symbol": "BTCUSDT",
+        "strategy": "donchian-fixed",
+        "label": "Donchian20h · fixo",
+        "filters": [
+          {
+            "tickSize": "0.10",
+            "filterType": "PRICE_FILTER",
+            "minPrice": "556.80",
+            "maxPrice": "4529764"
+          },
+          {
+            "stepSize": "0.001",
+            "maxQty": "1000",
+            "filterType": "LOT_SIZE",
+            "minQty": "0.001"
+          },
+          {
+            "filterType": "MARKET_LOT_SIZE",
+            "minQty": "0.001",
+            "stepSize": "0.001",
+            "maxQty": "120"
+          },
+          {
+            "filterType": "MAX_NUM_ORDERS",
+            "limit": 200
+          },
+          {
+            "filterType": "MIN_NOTIONAL",
+            "notional": "50"
+          },
+          {
+            "multiplierDecimal": "4",
+            "multiplierDown": "0.9500",
+            "filterType": "PERCENT_PRICE",
+            "multiplierUp": "1.0500"
+          },
+          {
+            "filterType": "POSITION_RISK_CONTROL",
+            "positionControlSide": "NONE"
+          }
+        ],
+        "coverage": {
+          "registered": 0,
+          "expectedSlots": 0,
+          "missedSlots": 0,
+          "directional": 0,
+          "newsCovered": 0,
+          "directionalNews": 0
+        },
+        "scenarios": [
+          {
+            "variant": "control",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "control",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "sentiment",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "sentiment",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "btc-context",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "btc-context",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "combined",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "combined",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          }
+        ]
+      },
+      {
+        "id": "BTCUSDT-donchian-adaptive",
+        "symbol": "BTCUSDT",
+        "strategy": "donchian-adaptive",
+        "label": "Donchian10–40h · adaptativo",
+        "filters": [
+          {
+            "tickSize": "0.10",
+            "filterType": "PRICE_FILTER",
+            "minPrice": "556.80",
+            "maxPrice": "4529764"
+          },
+          {
+            "stepSize": "0.001",
+            "maxQty": "1000",
+            "filterType": "LOT_SIZE",
+            "minQty": "0.001"
+          },
+          {
+            "filterType": "MARKET_LOT_SIZE",
+            "minQty": "0.001",
+            "stepSize": "0.001",
+            "maxQty": "120"
+          },
+          {
+            "filterType": "MAX_NUM_ORDERS",
+            "limit": 200
+          },
+          {
+            "filterType": "MIN_NOTIONAL",
+            "notional": "50"
+          },
+          {
+            "multiplierDecimal": "4",
+            "multiplierDown": "0.9500",
+            "filterType": "PERCENT_PRICE",
+            "multiplierUp": "1.0500"
+          },
+          {
+            "filterType": "POSITION_RISK_CONTROL",
+            "positionControlSide": "NONE"
+          }
+        ],
+        "coverage": {
+          "registered": 0,
+          "expectedSlots": 0,
+          "missedSlots": 0,
+          "directional": 0,
+          "newsCovered": 0,
+          "directionalNews": 0
+        },
+        "scenarios": [
+          {
+            "variant": "control",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "control",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "sentiment",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "sentiment",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "btc-context",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "btc-context",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "combined",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          },
+          {
+            "variant": "combined",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "grossBRL": 0,
+            "slippageBRL": 0,
+            "avgHoldHours": null,
+            "maxHoldHours": null,
+            "vetoedSignals": 0
+          }
+        ]
+      }
+    ],
+    "latestSignals": {
+      "ETHUSDT": {
+        "signalAt": 1792422000000,
+        "signals": [
+          {
+            "strategy": "trend1h",
+            "signal": {
+              "signalAt": 1792375200000,
+              "side": 1,
+              "price": 2423.45,
+              "atr": 18.426974093407686,
+              "lookback": null,
+              "rvol": null
+            }
+          },
+          {
+            "strategy": "donchian-fixed",
+            "signal": {
+              "signalAt": 1792353600000,
+              "side": -1,
+              "price": 2337.17,
+              "atr": 16.752728748409318,
+              "lookback": 20,
+              "rvol": 3.4618990891239836
+            }
+          },
+          {
+            "strategy": "donchian-adaptive",
+            "signal": {
+              "signalAt": 1792353600000,
+              "side": -1,
+              "price": 2337.17,
+              "atr": 16.752728748409318,
+              "lookback": 24,
+              "rvol": 3.4618990891239836
+            }
+          }
+        ],
+        "lastClosed": [
+          1792418400000,
+          2399.4,
+          2423.45,
+          2383.58,
+          2410.1,
+          427280.015
+        ],
+        "btcContext": {
+          "at": 1792422000000,
+          "btcPrice": 82274.3,
+          "btcReturn1h": 0.0022646317871952704,
+          "btcReturn4h": -0.0012758043879901315,
+          "btcReturn24h": 0.014977757271756209,
+          "btcTrend1h": 1,
+          "btcTrend4h": -1,
+          "btcTrend4hAt": 1792411200000,
+          "correlation72h": 0.8938718653903005,
+          "beta72h": 1.592254855477138,
+          "relativeStrength24h": -0.0005030899054815352,
+          "btcLeads1hCorrelation": 0.058144872704021605,
+          "ethLeads1hCorrelation": 0.10058676526951003,
+          "samples": 72
+        }
+      },
+      "BTCUSDT": {
+        "signalAt": 1792422000000,
+        "signals": [
+          {
+            "strategy": "trend1h",
+            "signal": {
+              "signalAt": 1792371600000,
+              "side": 1,
+              "price": 82269.1,
+              "atr": 348.9083287513733,
+              "lookback": null,
+              "rvol": null
+            }
+          },
+          {
+            "strategy": "donchian-fixed",
+            "signal": {
+              "signalAt": 1792378800000,
+              "side": 1,
+              "price": 82682.5,
+              "atr": 353.6464671376639,
+              "lookback": 20,
+              "rvol": 1.3455656031446546
+            }
+          },
+          {
+            "strategy": "donchian-adaptive",
+            "signal": {
+              "signalAt": 1792378800000,
+              "side": 1,
+              "price": 82682.5,
+              "atr": 353.6464671376639,
+              "lookback": 25,
+              "rvol": 1.3455656031446546
+            }
+          }
+        ],
+        "lastClosed": [
+          1792418400000,
+          82088.4,
+          82539,
+          81724,
+          82274.3,
+          15280.703
+        ],
+        "btcContext": {
+          "at": 1792422000000,
+          "btcPrice": 82274.3,
+          "btcReturn1h": 0.0022646317871952704,
+          "btcReturn4h": -0.0012758043879901315,
+          "btcReturn24h": 0.014977757271756209,
+          "btcTrend1h": 1,
+          "btcTrend4h": -1,
+          "btcTrend4hAt": 1792411200000,
+          "correlation72h": 0.8938718653903005,
+          "beta72h": 1.592254855477138,
+          "relativeStrength24h": -0.0005030899054815352,
+          "btcLeads1hCorrelation": 0.058144872704021605,
+          "ethLeads1hCorrelation": 0.10058676526951003,
+          "samples": 72
+        }
+      }
+    },
+    "newsStatus": {
+      "status": "collecting",
+      "updatedAt": 1792423154820,
+      "articles": 6
+    },
+    "lastSuccessAt": 1792423205762,
+    "lastError": null
+  },
+  "testsPassed": 232,
+  "codeManifestSHA256": "2f52f9a1a1770c28dfc34bc446fc32f27a7b5368d3d1b06eb5e8da5908fd9fe2"
+}

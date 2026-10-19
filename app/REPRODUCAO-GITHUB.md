@@ -65,3 +65,5 @@ node --test tests/news-filter-experiment.test.mjs tests/g151-news.test.mjs tests
 ```
 
 A suíte completa de225testes exige os dados locais originais. [Relatório datado](../experimentos/btc-eth-sentimento/index.html); [painel local](http://127.0.0.1:4173/pesquisa-genetica/cripto-sentimento.html).
+
+Day trade integrado: veja [DAYTRADE-INTEGRADO.md](DAYTRADE-INTEGRADO.md). O teste `node --test tests/daytrade-integrated.test.mjs` roda sem dados grandes; a suíte completa atual tem232testes e exige históricos. Novos testes não alteram o resultado registrado dos snapshots antigos.

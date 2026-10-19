@@ -88,3 +88,12 @@ Nos 38 meses fora da seleção original: movimento de preço R$ 100,61, taxas R$
 Dois problemas reproduzidos: contador antigo de vetos exclui os eventos do roteador (zero exibido versus 27.592 minutos vetados); um alvo economicamente inviável foi atingido, mas perdeu R$ 0,11 após custos. O relatório recupera a contagem real e documenta a falta do filtro de alvo líquido; fontes e regras congeladas foram preservadas. Nenhum novo treino foi iniciado. Dos 28.099 sinais por família, 22.691 foram excluídos pela escolha de família do roteador, 5.215 ficaram abaixo do limiar do modelo, 192 foram liberados e um não tinha contexto. A maior parte dos bloqueios não foi uma decisão direta do classificador.
 
 19 testes passaram. Contabilidade, preços de abertura, taxas, slippage, risco/margem e causalidade temporal foram conferidos nos registros existentes. A verificação cobre 256 modelos e 1.195 conferências de hashes. A ausência de falhas nessas checagens não valida todos os caminhos possíveis do motor nem elimina as aproximações da simulação. [Dados](diagnostico-perdas.json), [operações CSV](diagnostico-perdas-operacoes.csv) e [verificação](diagnostico-perdas-verificacao.json).
+
+
+## Day trade integrado
+
+- [Método, limites e comandos](app/DAYTRADE-INTEGRADO.md)
+- [Relatório datado com todos os resultados](experimentos/daytrade/index.html)
+- [Painel local ao vivo](http://127.0.0.1:4173/pesquisa-genetica/daytrade-integrado.html)
+
+Reaproveita EMA1h e Donchian fixo/adaptativo em BTC/ETH, até24h por operação. Cada estratégia tem controle, sentimento local, contextoBTC e ambos;24carteiras simuladas. Não utiliza pesos de scalping em sinais horários. Comparação histórica nos mesmos quatro meses, sem promoção automática. `tools/snapshot-daytrade.py --source /caminho/do/trend-lab` atualiza o retrato sem fazer push ou alterar o estado da execução.

@@ -1,0 +1,22 @@
+{
+ "version":"daytrade-integrated-v1",
+ "symbols":["ETHUSDT","BTCUSDT"],
+ "strategies":[{"id":"trend1h","name":"EMA9/21 · sinal1h"},{"id":"donchian-fixed","name":"Donchian20h · fixo"},{"id":"donchian-adaptive","name":"Donchian10–40h · adaptativo"}],
+ "variants":["control","sentiment","btc-context","combined"],
+ "capitalBRL":1000,"risk":0.01,"leverage":10,"maxHoldMinutes":1440,"cooldownMinutes":240,"stopATR":1.5,"targetR":2,
+ "entryDelayMinutes":2,"closedHourBufferSeconds":30,"durationDays":30,
+ "historical":{"start":"2026-06-01T00:00:00Z","end":"2026-10-01T00:00:00Z","newsApplied":false,"independentHoldout":false},
+ "rules":[
+  "Reuse the existing EMA1h and fixed/adaptive Donchian signal functions; preserve frozen old sources and experiments.",
+  "Hourly closed signals, minute execution, fixed2min delay after signal for causal logging and30sec settlement buffer. Not an exact replay of older1h fills.",
+  "Risk1%,10x,R$1000 per independent portfolio; stops1.5ATR,target2R,max24h,cooldown4h. Corrected funding engine, modeled fees/slippage and contract-specific current filters.",
+  "Keep cost filter: stop distance / round-trip costs including funding reserve >=4, evaluated for each cost scenario; opposite exit signals always remain.",
+  "ETH BTC-context veto requires trailing72h correlation>=0.60 and BTC1h/4h both against entry; BTC own-trend variant requires both BTC1h/4h against entry, without self-correlation.",
+  "Sentiment model/revision and thresholds inherited from the local fixed model. Additionally deduplicate canonical article URLs and normalized titles, preserving earliest received version; do not change prior experiments.",
+  "Separate all4variants to measure BTC and sentiment independently; missing/expired/future/insufficient news does not veto, mark uncovered. No historical news backfill.",
+  "Original G151 forests were trained for5min signals and are not used to score hourly signals. No new RF fit or genetic search in this stage.",
+  "Historical BTC-context ablation is exploratory on already-seen Jun-Sep2026. Compare all strategies, including losses and inactive portfolios. No automatic winner promotion.",
+  "Longer holding does not imply higher probability of success; trading frequency, gross returns, fees, slippage, funding, drawdown and sample size are reported.",
+  "No real orders, paid AI or account keys. Honor local pause; never restart original server or edit private DB. Missing decisions are explicit and never filled retroactively."
+ ]
+}

@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-19T15:07:36.384795+00:00",
+  "exportedAt": "2026-10-19T15:20:09.543675+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -8,6 +8,10 @@
     "BASE-TEORICA.md": {
       "sha256": "287a3ca91074ce4030264c6f286ec179cdb74e43c08c9f5b037acf4046300213",
       "bytes": 6135
+    },
+    "DAYTRADE-INTEGRADO.md": {
+      "sha256": "495d32ea46454811ff4f8d2dffcc8f93c8bda2f5f20787872e21568de0aff2a3",
+      "bytes": 5017
     },
     "DONCHIAN-HISTORICO.md": {
       "sha256": "8bec5ac759aca2bac4ab642de26099482989e5d7aa06b635019d7def778cfb25",
@@ -112,6 +116,10 @@
     "context-protocol.json": {
       "sha256": "fae3999509b52632ed0eba49f19c50ab2d4ea86b49293abd5c7d9a959fd8ac12",
       "bytes": 4071
+    },
+    "daytrade-integrated-protocol.json": {
+      "sha256": "39bf7418ce0c44cba773f736e7d95ff18baad6d60e2d3d1be766ccac05e62d16",
+      "bytes": 2505
     },
     "direction-freeze.json": {
       "sha256": "97b8181689bd4033da8de81739e9ee4c0c11d8b8e8c3635a7c7d3014867ab5bc",
@@ -437,6 +445,14 @@
       "sha256": "11acab15f5bf96a5e5f7779dfbb08adb8d55bef61fe996ca75c899bbf3d314a7",
       "bytes": 8101
     },
+    "scripts/daytrade-core.mjs": {
+      "sha256": "9057e41ae8c952f64f7707a1c2fc05acc40e45f34c736cc237d9672781da7505",
+      "bytes": 6104
+    },
+    "scripts/daytrade-inputs.mjs": {
+      "sha256": "bb882b6a878c24bf0c3931ce013976402313f13c097a2daa1c3ef29609fe31e5",
+      "bytes": 1236
+    },
     "scripts/evaluate-btc-comparison.mjs": {
       "sha256": "73d8f448d99257bc66a0ee2849f51257e7325b8d5553b16329dba1eebe60bf08",
       "bytes": 3181
@@ -444,6 +460,10 @@
     "scripts/evaluate-btc-context.mjs": {
       "sha256": "d117d640ffe05bc21ef7ec84b8e7935764a15210f15ef70700048802ff5900d9",
       "bytes": 3420
+    },
+    "scripts/evaluate-daytrade.mjs": {
+      "sha256": "403bada738ea339eb7a1522fda27ca5682a3d2bb6403ddc1e186a4c4ba5fdc9b",
+      "bytes": 3962
     },
     "scripts/evaluate-exit-study.mjs": {
       "sha256": "e3b01153a30712788a036897eb0b45d30c9ec70db9859e2a4a33158e0dfc10a4",
@@ -568,6 +588,10 @@
     "scripts/local-compound.mjs": {
       "sha256": "c786b49013ab90a53f1bd2c6dabed7bc3d7827ec68234094d969f1be512bac9e",
       "bytes": 1685
+    },
+    "scripts/local-daytrade.mjs": {
+      "sha256": "96d8c6d13a35a2bd3ce82f79af760593c93da2edc721ca5ee3fc740a569accf1",
+      "bytes": 9229
     },
     "scripts/local-evolution.mjs": {
       "sha256": "963d8dee68f5646dd17c9bd4353ddc7fc7ad23d60c9c4950dd7154fc99e6448e",
@@ -808,6 +832,10 @@
     "tests/context.test.mjs": {
       "sha256": "2cb4001c4dbc016fd36d2fead6105135392eb30dc2154b981f78a8f46f3898c1",
       "bytes": 5946
+    },
+    "tests/daytrade-integrated.test.mjs": {
+      "sha256": "a1293bf30c5d9aaf2c044f79acdd0777b6d8b7a1bd27b3b30983cf41642fbec4",
+      "bytes": 4669
     },
     "tests/direction.test.mjs": {
       "sha256": "c6b5b943be24e4a4750f83057cb95e2917e3faad88cb47dbd6ed57317e69281d",
@@ -1070,12 +1098,20 @@
       "bytes": 467
     },
     "web/pesquisa-genetica/cripto-sentimento.html": {
-      "sha256": "b8a73d6f6abb4abae5c0c59aa23851dd6d7fd979c056f8184de18120e7f0ff19",
-      "bytes": 7510
+      "sha256": "a94edfc6b245ded2cdece376ab7d7d8da381f8963db79299502641c2da563ccb",
+      "bytes": 7572
     },
     "web/pesquisa-genetica/cripto-sentimento.js": {
       "sha256": "6bf8450d4496c2a44b7fd71c2c6fa2eef539ba71b35ed99152d0c54502e97a75",
       "bytes": 7707
+    },
+    "web/pesquisa-genetica/daytrade-integrado.html": {
+      "sha256": "ae017c18f0a4bf3475dbce799bc4b4b1d23fd13260a94cbcd7209b042bfea839",
+      "bytes": 5986
+    },
+    "web/pesquisa-genetica/daytrade-integrado.js": {
+      "sha256": "75910aa2789186cb6d31010cc36bf86975f81db7954696ef24144e498de16d3d",
+      "bytes": 4811
     },
     "web/pesquisa-genetica/experimento-noticias.css": {
       "sha256": "edabe57a0ee72d35f818e70c059ad2e8ffdc6d0bb2b77f0e5333ff4fcb6eff33",
