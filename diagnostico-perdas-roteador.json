@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-10-19T12:14:24.760Z",
+  "total": 28099,
+  "allowed": 192,
+  "counts": {
+    "Família não escolhida para o regime": 22691,
+    "Score abaixo do limiar": 5215,
+    "Liberado": 192,
+    "Contexto indisponível": 1
+  },
+  "families": {
+    "cross": 19986,
+    "vwap": 3588,
+    "bands": 4525
+  },
+  "regimes": {
+    "range": 25151,
+    "trend": 1653,
+    "volatile": 1294,
+    "sem contexto": 1
+  },
+  "sourceReportSHA256": "cf8c9a6deac150eecb1173563634141ff8e96899ce8a79da413011bf1aaa129e",
+  "notes": "Contagem por sinal/família; não confundir com eventos de veto por minuto. Não avalia novas carteiras nem muda rotas."
+}

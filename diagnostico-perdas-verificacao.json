@@ -1,0 +1,12 @@
+{
+  "verifiedAt": "2026-10-19T12:09:16.921Z",
+  "sourceHashChecks": 1195,
+  "causalModels": 256,
+  "feeChecks": 358,
+  "fillChecks": 358,
+  "riskAndMarginChecks": 358,
+  "gapStops": [],
+  "originalSourceHashesUnchanged": true,
+  "independentHoldout": false,
+  "realOrders": false
+}

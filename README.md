@@ -53,3 +53,13 @@ A V6 original concluiu 9 janelas e 1.296 avaliações. Os gráficos incluem evol
 Uma auditoria separada de estabilidade foi registrada com três sementes fixas (2026101911, 2026101912, 2026101913), sem escolher a melhor réplica. Reutiliza os 256 modelos; não faz novos ajustes dos classificadores. Uma réplica por vez e prazo agregado até 19/10/2026 às 06:38 de São Paulo, podendo concluir antes. [Protocolo da auditoria](validacao-v6-estabilidade-protocolo.json). O andamento das réplicas requer o servidor local.
 
 A V6 para conforme o protocolo registrado, sem prolongar o orçamento para perseguir lucro. Caixa é rejeição dos candidatos, não aprovação de rendimento. A versão GitHub fica congelada na data do snapshot; a página local acompanha o processo.
+
+## Auditoria das perdas · 19/10/2026
+
+[Diagnóstico completo, com filtros e operações](diagnostico-perdas.html). A página traz os dados embutidos e funciona por arquivo local. São 179 operações G151 em 47 meses, separando nove meses usados na seleção dos outros 38; não são períodos intocados. Carteiras mensais independentes de R$ 1.000, custos dobrados.
+
+Nos 38 meses fora da seleção original: movimento de preço R$ 100,61, taxas R$ 266,32, slippage R$ 106,53 e funding -R$ 0,05: líquido -R$ 272,28. A família EMA + suas saídas responde por -R$ 253,53; Bollinger por -R$ 18,75. São contribuições descritivas, não uma ablação causal ou uma nova estratégia sem custos.
+
+Dois problemas reproduzidos: contador antigo de vetos exclui os eventos do roteador (zero exibido versus 27.592 minutos vetados); um alvo economicamente inviável foi atingido, mas perdeu R$ 0,11 após custos. O relatório recupera a contagem real e documenta a falta do filtro de alvo líquido; fontes e regras congeladas foram preservadas. Nenhum novo treino foi iniciado. Dos 28.099 sinais por família, 22.691 foram excluídos pela escolha de família do roteador, 5.215 ficaram abaixo do limiar do modelo, 192 foram liberados e um não tinha contexto. A maior parte dos bloqueios não foi uma decisão direta do classificador.
+
+19 testes passaram. Contabilidade, preços de abertura, taxas, slippage, risco/margem e causalidade temporal foram conferidos nos registros existentes. A verificação cobre 256 modelos e 1.195 conferências de hashes. A ausência de falhas nessas checagens não valida todos os caminhos possíveis do motor nem elimina as aproximações da simulação. [Dados](diagnostico-perdas.json), [operações CSV](diagnostico-perdas-operacoes.csv) e [verificação](diagnostico-perdas-verificacao.json).
