@@ -1,0 +1,173 @@
+{
+  "version": "v6-nested-regularized-predictors-allocation-1",
+  "hypothesis": "Com a mesma validação temporal e exposição controlada, preditores mais simples podem generalizar melhor que aRF herdada. Escolher preditor/rotas/risco só no passado, com rejeição explícita se faltar vantagem.",
+  "parentRun": "search-v4-20261019T005751Z",
+  "sourceEvaluation": "work/expanded-validation/g151-fixed-funding-v2",
+  "seed": 2026101906,
+  "outerStarts": "all_eligible_contiguous_months",
+  "innerMonths": 12,
+  "gapMonths": 1,
+  "outerMonths": 3,
+  "populationSize": 24,
+  "eliteCount": 6,
+  "maxGenerations": 20,
+  "maximumDistinctCandidatesPerFold": 366,
+  "stopAfterStagnantGenerations": 4,
+  "maximumHours": 6,
+  "workers": 1,
+  "minimumFreeDiskGB": 12,
+  "capitalBRL": 1000,
+  "risk": "gene: até20% por operação, somente simulação",
+  "leverage": "gene: 1x a20x, somente simulação",
+  "criteria": {
+    "minimumTrades": 40,
+    "minimumTradesPerBlock": 3,
+    "minimumBlocksAboveCDI": 3,
+    "maximumDrawdown": 0.15
+  },
+  "fitness": "Após os critérios, ordenar pelo menor excesso trimestral sobre o CDI, considerando o pior entre custos base/dobrados. Desempate pela mediana dos excessos e identificador. Meses sem operações permanecem na conta.",
+  "genes": [
+    "limiares por regime",
+    "corte de tendência",
+    "corte de volatilidade",
+    "família por regime: cross/120, bands/240 ou caixa",
+    "risco por operação entre0,25%e20%",
+    "alavancagem1x/2x/5x/10x/15x/20x",
+    "preditor: RF herdada, árvore3, árvore6 ou regressão logística regularizada"
+  ],
+  "fixedPredictor": "RF do G151, 1200 árvores, profundidade10, folha100, janela9meses e média das cinco sementes. Reusar somente predições da avaliação com funding/rótulos corrigidos e treino causal verificado. Não testar hiperparâmetros de ML nesta rodada.",
+  "fallback": "Nenhum candidato elegível: caixa sem novas entradas, identificado como rejeição da busca, sem alegar que zero supera CDI.",
+  "rules": [
+    "Piloto retrospectivo do mecanismo de seleção de rotas. Preditor e regras herdados foram desenvolvidos com histórico já observado; não é validação aninhada de todo o desenvolvimento nem holdout independente.",
+    "Todos os 47 meses foram consultados na avaliação anterior. Nenhum deles volta a ser anunciado como intocado ao trocar o nome do protocolo.",
+    "Em cada janela externa, a genética usa apenas quatro blocos internos de três meses, terminando um mês antes da avaliação. Escolha gravada e hash conferido antes de calcular qualquer retorno externo.",
+    "Resultados externos nunca alimentam pais, mutações, critérios ou parada da mesma janela. Cada janela recomeça com o mesmo campeão e RNG próprio. O avanço temporal pode usar períodos externos anteriores, então já passados, na validação interna seguinte.",
+    "Treinos herdados contêm somente rótulos disponíveis antes de seu corte. Afastamento entre seleção interna e avaliação externa é um mês, superior aos1445min de maturação máxima. Sem misturar meses aleatoriamente.",
+    "Até366candidatos distintos por janela; todas as janelas cronologicamente elegíveis, sem ampliar orçamento após prejuízo ou estagnação. Quatro ciclos sem avanço encerram a busca daquela janela. Guardar rejeitados, pais e contagem de tentativas.",
+    "CapitalR$1000 por bloco trimestral; saldo e posições carregados dentro do bloco. Blocos separados não são uma carteira contínua. Risco e alavancagem são genes autorizados pelo usuário; stops, alvos, limites diário3%/global10%, funding corrigido e custos base/dobrados permanecem iguais.",
+    "Critério de40operações em12meses mantém a densidade mínima anterior de30em9meses. Três operações mínimas em cada trimestre e CDI em pelo menos3/4trimestres são restrições de pesquisa, não limites estatísticos comprovados.",
+    "Controles externos: G151 fixo com funding corrigido, caixa e100%CDI nas mesmas datas/capital, antes de impostos e câmbio fixoR$5/USDT.",
+    "Setembro2026 continua reservado e não é calculado neste piloto. Não executar teste final automaticamente ao terminar ou parar esta rodada.",
+    "Resultado retrospectivo positivo autoriza somente propor novo teste prospectivo registrado antes da coleta. Sem promoção automática, ordens reais ou mudança na simulação operacional existente.",
+    "Não calcular probabilidade de sobreajuste ou significância a partir de um único campeão; tentativas antigas continuam no histórico e os meses são dependentes.",
+    "Métricas de consistência para análise final: custos2x positivos, pelo menos75%dos blocos acima doCDI e200operações. Mesmo aprovação desses critérios retrospectivos não autoriza promoção. Critérios não podem ser relaxados após o resultado.",
+    "Teto de20%é risco planejado por posição, não20%de margem nem meta de perda. O dimensionamento pode ser limitado pela margem; gaps e discretização1m podem ultrapassar limites planejados.",
+    "Os escores deRF continuam classificando rótulos de referência a1%de risco. Não são probabilidades calibradas de lucro a20%. A genética escolhe exposição e rotas com nova simulação completa do caixa e risco em cada cenário, sem alegar retreino daRF para outro risco.",
+    "Início externo mais antigo determinado pela disponibilidade de12meses internos +1mês de afastamento e pelo treino prévio de9meses. Histórico insuficiente é aquecimento/treino/diagnóstico, nunca preenchido. Última janela pode ter2meses até a reserva.",
+    "Não afrouxar limites de perda para acomodar um gene de risco alto. Perfil que parar pelo limite global é inelegível. A decisão pode ser caixa mesmo com teto autorizado20%.",
+    "A V5 avaliou314candidatos e rejeitou todos em9janelas. Não repetir a mesma busca apenas para procurar positivo. EstaV6 testa uma hipótese nova: acrescentar preditores previamente especificados e de menor complexidade, mantendo critérios.",
+    "São96novos ajustes temporais (3preditores×2famílias×16cortes), além dos160modelosRF já treinados. As novas árvores e regressões têm configuração fixa, sem escolher a melhor semente.",
+    "Dados1m/3m/5m/15m/30m/1h/2h/4h/6h/8h/12h/1d estão no catálogo ampliado; esta hipótese mantém sinais5m e contexto1h/4h. Treinar sinais em outras resoluções exige rótulos e protocolo próprios; não alegar execução desse teste.",
+    "Usar todos os períodos compatíveis do histórico. Três meses ainda têm64mark prices ausentes; nenhum minuto é inventado. Cobertura atual da validação aninhada:26meses em9janelas;47meses do controle temporal anterior."
+  ],
+  "sources": [
+    {
+      "title": "scikit-learn: nested versus non-nested cross-validation",
+      "url": "https://scikit-learn.org/stable/auto_examples/model_selection/plot_nested_cross_validation_iris.html"
+    },
+    {
+      "title": "scikit-learn: TimeSeriesSplit and gap",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html"
+    },
+    {
+      "title": "Bailey et al.: The Probability of Backtest Overfitting",
+      "url": "https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf"
+    }
+  ],
+  "riskLevels": [
+    0.0025,
+    0.005,
+    0.01,
+    0.02,
+    0.03,
+    0.05,
+    0.1,
+    0.15,
+    0.2
+  ],
+  "leverageLevels": [
+    1,
+    2,
+    5,
+    10,
+    15,
+    20
+  ],
+  "initialProfiles": [
+    [
+      0.0025,
+      1
+    ],
+    [
+      0.005,
+      2
+    ],
+    [
+      0.01,
+      5
+    ],
+    [
+      0.02,
+      10
+    ],
+    [
+      0.03,
+      15
+    ],
+    [
+      0.05,
+      20
+    ],
+    [
+      0.1,
+      10
+    ],
+    [
+      0.15,
+      15
+    ],
+    [
+      0.2,
+      20
+    ]
+  ],
+  "finalCriteria": {
+    "minimumTrades": 200,
+    "minimumFractionAboveCDI": 0.75
+  },
+  "predictors": {
+    "rf_g151": {
+      "id": "rf_g151",
+      "algorithm": "random_forest",
+      "params": {
+        "n_estimators": 1200,
+        "max_depth": 10,
+        "min_samples_leaf": 100
+      },
+      "inherited": true
+    },
+    "tree_d3": {
+      "id": "tree_d3",
+      "algorithm": "tree",
+      "params": {
+        "max_depth": 3,
+        "min_samples_leaf": 100
+      }
+    },
+    "tree_d6": {
+      "id": "tree_d6",
+      "algorithm": "tree",
+      "params": {
+        "max_depth": 6,
+        "min_samples_leaf": 100
+      }
+    },
+    "logistic_c01": {
+      "id": "logistic_c01",
+      "algorithm": "logistic",
+      "params": {
+        "C": 0.1
+      }
+    }
+  }
+}

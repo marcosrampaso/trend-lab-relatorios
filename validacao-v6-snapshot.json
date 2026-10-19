@@ -1,0 +1,2454 @@
+{
+  "updatedAt": "2026-10-19T03:29:09.756Z",
+  "stage": "evaluating_outer",
+  "protocol": {
+    "version": "v6-nested-regularized-predictors-allocation-1",
+    "hypothesis": "Com a mesma validação temporal e exposição controlada, preditores mais simples podem generalizar melhor que aRF herdada. Escolher preditor/rotas/risco só no passado, com rejeição explícita se faltar vantagem.",
+    "parentRun": "search-v4-20261019T005751Z",
+    "sourceEvaluation": "work/expanded-validation/g151-fixed-funding-v2",
+    "seed": 2026101906,
+    "outerStarts": "all_eligible_contiguous_months",
+    "innerMonths": 12,
+    "gapMonths": 1,
+    "outerMonths": 3,
+    "populationSize": 24,
+    "eliteCount": 6,
+    "maxGenerations": 20,
+    "maximumDistinctCandidatesPerFold": 366,
+    "stopAfterStagnantGenerations": 4,
+    "maximumHours": 6,
+    "workers": 1,
+    "minimumFreeDiskGB": 12,
+    "capitalBRL": 1000,
+    "risk": "gene: até20% por operação, somente simulação",
+    "leverage": "gene: 1x a20x, somente simulação",
+    "criteria": {
+      "minimumTrades": 40,
+      "minimumTradesPerBlock": 3,
+      "minimumBlocksAboveCDI": 3,
+      "maximumDrawdown": 0.15
+    },
+    "fitness": "Após os critérios, ordenar pelo menor excesso trimestral sobre o CDI, considerando o pior entre custos base/dobrados. Desempate pela mediana dos excessos e identificador. Meses sem operações permanecem na conta.",
+    "genes": [
+      "limiares por regime",
+      "corte de tendência",
+      "corte de volatilidade",
+      "família por regime: cross/120, bands/240 ou caixa",
+      "risco por operação entre0,25%e20%",
+      "alavancagem1x/2x/5x/10x/15x/20x",
+      "preditor: RF herdada, árvore3, árvore6 ou regressão logística regularizada"
+    ],
+    "fixedPredictor": "RF do G151, 1200 árvores, profundidade10, folha100, janela9meses e média das cinco sementes. Reusar somente predições da avaliação com funding/rótulos corrigidos e treino causal verificado. Não testar hiperparâmetros de ML nesta rodada.",
+    "fallback": "Nenhum candidato elegível: caixa sem novas entradas, identificado como rejeição da busca, sem alegar que zero supera CDI.",
+    "rules": [
+      "Piloto retrospectivo do mecanismo de seleção de rotas. Preditor e regras herdados foram desenvolvidos com histórico já observado; não é validação aninhada de todo o desenvolvimento nem holdout independente.",
+      "Todos os 47 meses foram consultados na avaliação anterior. Nenhum deles volta a ser anunciado como intocado ao trocar o nome do protocolo.",
+      "Em cada janela externa, a genética usa apenas quatro blocos internos de três meses, terminando um mês antes da avaliação. Escolha gravada e hash conferido antes de calcular qualquer retorno externo.",
+      "Resultados externos nunca alimentam pais, mutações, critérios ou parada da mesma janela. Cada janela recomeça com o mesmo campeão e RNG próprio. O avanço temporal pode usar períodos externos anteriores, então já passados, na validação interna seguinte.",
+      "Treinos herdados contêm somente rótulos disponíveis antes de seu corte. Afastamento entre seleção interna e avaliação externa é um mês, superior aos1445min de maturação máxima. Sem misturar meses aleatoriamente.",
+      "Até366candidatos distintos por janela; todas as janelas cronologicamente elegíveis, sem ampliar orçamento após prejuízo ou estagnação. Quatro ciclos sem avanço encerram a busca daquela janela. Guardar rejeitados, pais e contagem de tentativas.",
+      "CapitalR$1000 por bloco trimestral; saldo e posições carregados dentro do bloco. Blocos separados não são uma carteira contínua. Risco e alavancagem são genes autorizados pelo usuário; stops, alvos, limites diário3%/global10%, funding corrigido e custos base/dobrados permanecem iguais.",
+      "Critério de40operações em12meses mantém a densidade mínima anterior de30em9meses. Três operações mínimas em cada trimestre e CDI em pelo menos3/4trimestres são restrições de pesquisa, não limites estatísticos comprovados.",
+      "Controles externos: G151 fixo com funding corrigido, caixa e100%CDI nas mesmas datas/capital, antes de impostos e câmbio fixoR$5/USDT.",
+      "Setembro2026 continua reservado e não é calculado neste piloto. Não executar teste final automaticamente ao terminar ou parar esta rodada.",
+      "Resultado retrospectivo positivo autoriza somente propor novo teste prospectivo registrado antes da coleta. Sem promoção automática, ordens reais ou mudança na simulação operacional existente.",
+      "Não calcular probabilidade de sobreajuste ou significância a partir de um único campeão; tentativas antigas continuam no histórico e os meses são dependentes.",
+      "Métricas de consistência para análise final: custos2x positivos, pelo menos75%dos blocos acima doCDI e200operações. Mesmo aprovação desses critérios retrospectivos não autoriza promoção. Critérios não podem ser relaxados após o resultado.",
+      "Teto de20%é risco planejado por posição, não20%de margem nem meta de perda. O dimensionamento pode ser limitado pela margem; gaps e discretização1m podem ultrapassar limites planejados.",
+      "Os escores deRF continuam classificando rótulos de referência a1%de risco. Não são probabilidades calibradas de lucro a20%. A genética escolhe exposição e rotas com nova simulação completa do caixa e risco em cada cenário, sem alegar retreino daRF para outro risco.",
+      "Início externo mais antigo determinado pela disponibilidade de12meses internos +1mês de afastamento e pelo treino prévio de9meses. Histórico insuficiente é aquecimento/treino/diagnóstico, nunca preenchido. Última janela pode ter2meses até a reserva.",
+      "Não afrouxar limites de perda para acomodar um gene de risco alto. Perfil que parar pelo limite global é inelegível. A decisão pode ser caixa mesmo com teto autorizado20%.",
+      "A V5 avaliou314candidatos e rejeitou todos em9janelas. Não repetir a mesma busca apenas para procurar positivo. EstaV6 testa uma hipótese nova: acrescentar preditores previamente especificados e de menor complexidade, mantendo critérios.",
+      "São96novos ajustes temporais (3preditores×2famílias×16cortes), além dos160modelosRF já treinados. As novas árvores e regressões têm configuração fixa, sem escolher a melhor semente.",
+      "Dados1m/3m/5m/15m/30m/1h/2h/4h/6h/8h/12h/1d estão no catálogo ampliado; esta hipótese mantém sinais5m e contexto1h/4h. Treinar sinais em outras resoluções exige rótulos e protocolo próprios; não alegar execução desse teste.",
+      "Usar todos os períodos compatíveis do histórico. Três meses ainda têm64mark prices ausentes; nenhum minuto é inventado. Cobertura atual da validação aninhada:26meses em9janelas;47meses do controle temporal anterior."
+    ],
+    "sources": [
+      {
+        "title": "scikit-learn: nested versus non-nested cross-validation",
+        "url": "https://scikit-learn.org/stable/auto_examples/model_selection/plot_nested_cross_validation_iris.html"
+      },
+      {
+        "title": "scikit-learn: TimeSeriesSplit and gap",
+        "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html"
+      },
+      {
+        "title": "Bailey et al.: The Probability of Backtest Overfitting",
+        "url": "https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf"
+      }
+    ],
+    "riskLevels": [
+      0.0025,
+      0.005,
+      0.01,
+      0.02,
+      0.03,
+      0.05,
+      0.1,
+      0.15,
+      0.2
+    ],
+    "leverageLevels": [
+      1,
+      2,
+      5,
+      10,
+      15,
+      20
+    ],
+    "initialProfiles": [
+      [
+        0.0025,
+        1
+      ],
+      [
+        0.005,
+        2
+      ],
+      [
+        0.01,
+        5
+      ],
+      [
+        0.02,
+        10
+      ],
+      [
+        0.03,
+        15
+      ],
+      [
+        0.05,
+        20
+      ],
+      [
+        0.1,
+        10
+      ],
+      [
+        0.15,
+        15
+      ],
+      [
+        0.2,
+        20
+      ]
+    ],
+    "finalCriteria": {
+      "minimumTrades": 200,
+      "minimumFractionAboveCDI": 0.75
+    },
+    "predictors": {
+      "rf_g151": {
+        "id": "rf_g151",
+        "algorithm": "random_forest",
+        "params": {
+          "n_estimators": 1200,
+          "max_depth": 10,
+          "min_samples_leaf": 100
+        },
+        "inherited": true
+      },
+      "tree_d3": {
+        "id": "tree_d3",
+        "algorithm": "tree",
+        "params": {
+          "max_depth": 3,
+          "min_samples_leaf": 100
+        }
+      },
+      "tree_d6": {
+        "id": "tree_d6",
+        "algorithm": "tree",
+        "params": {
+          "max_depth": 6,
+          "min_samples_leaf": 100
+        }
+      },
+      "logistic_c01": {
+        "id": "logistic_c01",
+        "algorithm": "logistic",
+        "params": {
+          "C": 0.1
+        }
+      }
+    }
+  },
+  "coverage": {
+    "folds": [
+      {
+        "id": "2024-07",
+        "innerStart": "2023-06",
+        "innerEnd": "2024-06",
+        "gapMonth": "2024-06",
+        "outerStart": "2024-07",
+        "outerEnd": "2024-10",
+        "innerMonths": [
+          "2023-06",
+          "2023-07",
+          "2023-08",
+          "2023-09",
+          "2023-10",
+          "2023-11",
+          "2023-12",
+          "2024-01",
+          "2024-02",
+          "2024-03",
+          "2024-04",
+          "2024-05"
+        ],
+        "outerMonths": [
+          "2024-07",
+          "2024-08",
+          "2024-09"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2023-06",
+            "end": "2023-09"
+          },
+          {
+            "start": "2023-09",
+            "end": "2023-12"
+          },
+          {
+            "start": "2023-12",
+            "end": "2024-03"
+          },
+          {
+            "start": "2024-03",
+            "end": "2024-06"
+          }
+        ]
+      },
+      {
+        "id": "2024-10",
+        "innerStart": "2023-09",
+        "innerEnd": "2024-09",
+        "gapMonth": "2024-09",
+        "outerStart": "2024-10",
+        "outerEnd": "2025-01",
+        "innerMonths": [
+          "2023-09",
+          "2023-10",
+          "2023-11",
+          "2023-12",
+          "2024-01",
+          "2024-02",
+          "2024-03",
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07",
+          "2024-08"
+        ],
+        "outerMonths": [
+          "2024-10",
+          "2024-11",
+          "2024-12"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2023-09",
+            "end": "2023-12"
+          },
+          {
+            "start": "2023-12",
+            "end": "2024-03"
+          },
+          {
+            "start": "2024-03",
+            "end": "2024-06"
+          },
+          {
+            "start": "2024-06",
+            "end": "2024-09"
+          }
+        ]
+      },
+      {
+        "id": "2025-01",
+        "innerStart": "2023-12",
+        "innerEnd": "2024-12",
+        "gapMonth": "2024-12",
+        "outerStart": "2025-01",
+        "outerEnd": "2025-04",
+        "innerMonths": [
+          "2023-12",
+          "2024-01",
+          "2024-02",
+          "2024-03",
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07",
+          "2024-08",
+          "2024-09",
+          "2024-10",
+          "2024-11"
+        ],
+        "outerMonths": [
+          "2025-01",
+          "2025-02",
+          "2025-03"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2023-12",
+            "end": "2024-03"
+          },
+          {
+            "start": "2024-03",
+            "end": "2024-06"
+          },
+          {
+            "start": "2024-06",
+            "end": "2024-09"
+          },
+          {
+            "start": "2024-09",
+            "end": "2024-12"
+          }
+        ]
+      },
+      {
+        "id": "2025-04",
+        "innerStart": "2024-03",
+        "innerEnd": "2025-03",
+        "gapMonth": "2025-03",
+        "outerStart": "2025-04",
+        "outerEnd": "2025-07",
+        "innerMonths": [
+          "2024-03",
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07",
+          "2024-08",
+          "2024-09",
+          "2024-10",
+          "2024-11",
+          "2024-12",
+          "2025-01",
+          "2025-02"
+        ],
+        "outerMonths": [
+          "2025-04",
+          "2025-05",
+          "2025-06"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2024-03",
+            "end": "2024-06"
+          },
+          {
+            "start": "2024-06",
+            "end": "2024-09"
+          },
+          {
+            "start": "2024-09",
+            "end": "2024-12"
+          },
+          {
+            "start": "2024-12",
+            "end": "2025-03"
+          }
+        ]
+      },
+      {
+        "id": "2025-07",
+        "innerStart": "2024-06",
+        "innerEnd": "2025-06",
+        "gapMonth": "2025-06",
+        "outerStart": "2025-07",
+        "outerEnd": "2025-10",
+        "innerMonths": [
+          "2024-06",
+          "2024-07",
+          "2024-08",
+          "2024-09",
+          "2024-10",
+          "2024-11",
+          "2024-12",
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05"
+        ],
+        "outerMonths": [
+          "2025-07",
+          "2025-08",
+          "2025-09"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2024-06",
+            "end": "2024-09"
+          },
+          {
+            "start": "2024-09",
+            "end": "2024-12"
+          },
+          {
+            "start": "2024-12",
+            "end": "2025-03"
+          },
+          {
+            "start": "2025-03",
+            "end": "2025-06"
+          }
+        ]
+      },
+      {
+        "id": "2025-10",
+        "innerStart": "2024-09",
+        "innerEnd": "2025-09",
+        "gapMonth": "2025-09",
+        "outerStart": "2025-10",
+        "outerEnd": "2026-01",
+        "innerMonths": [
+          "2024-09",
+          "2024-10",
+          "2024-11",
+          "2024-12",
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08"
+        ],
+        "outerMonths": [
+          "2025-10",
+          "2025-11",
+          "2025-12"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2024-09",
+            "end": "2024-12"
+          },
+          {
+            "start": "2024-12",
+            "end": "2025-03"
+          },
+          {
+            "start": "2025-03",
+            "end": "2025-06"
+          },
+          {
+            "start": "2025-06",
+            "end": "2025-09"
+          }
+        ]
+      },
+      {
+        "id": "2026-01",
+        "innerStart": "2024-12",
+        "innerEnd": "2025-12",
+        "gapMonth": "2025-12",
+        "outerStart": "2026-01",
+        "outerEnd": "2026-04",
+        "innerMonths": [
+          "2024-12",
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11"
+        ],
+        "outerMonths": [
+          "2026-01",
+          "2026-02",
+          "2026-03"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2024-12",
+            "end": "2025-03"
+          },
+          {
+            "start": "2025-03",
+            "end": "2025-06"
+          },
+          {
+            "start": "2025-06",
+            "end": "2025-09"
+          },
+          {
+            "start": "2025-09",
+            "end": "2025-12"
+          }
+        ]
+      },
+      {
+        "id": "2026-04",
+        "innerStart": "2025-03",
+        "innerEnd": "2026-03",
+        "gapMonth": "2026-03",
+        "outerStart": "2026-04",
+        "outerEnd": "2026-07",
+        "innerMonths": [
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12",
+          "2026-01",
+          "2026-02"
+        ],
+        "outerMonths": [
+          "2026-04",
+          "2026-05",
+          "2026-06"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2025-03",
+            "end": "2025-06"
+          },
+          {
+            "start": "2025-06",
+            "end": "2025-09"
+          },
+          {
+            "start": "2025-09",
+            "end": "2025-12"
+          },
+          {
+            "start": "2025-12",
+            "end": "2026-03"
+          }
+        ]
+      },
+      {
+        "id": "2026-07",
+        "innerStart": "2025-06",
+        "innerEnd": "2026-06",
+        "gapMonth": "2026-06",
+        "outerStart": "2026-07",
+        "outerEnd": "2026-09",
+        "innerMonths": [
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12",
+          "2026-01",
+          "2026-02",
+          "2026-03",
+          "2026-04",
+          "2026-05"
+        ],
+        "outerMonths": [
+          "2026-07",
+          "2026-08"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2025-06",
+            "end": "2025-09"
+          },
+          {
+            "start": "2025-09",
+            "end": "2025-12"
+          },
+          {
+            "start": "2025-12",
+            "end": "2026-03"
+          },
+          {
+            "start": "2026-03",
+            "end": "2026-06"
+          }
+        ]
+      }
+    ],
+    "availableModelMonths": 47,
+    "nestedMonths": 26,
+    "excluded": [
+      {
+        "month": "2021-11",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2021-12",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2022-01",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2022-02",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2022-03",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2022-04",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2022-05",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2022-06",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2023-06",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2023-07",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2023-08",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2023-09",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2023-10",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2023-11",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2023-12",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2024-01",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2024-02",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2024-03",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2024-04",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2024-05",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      },
+      {
+        "month": "2024-06",
+        "reason": "Sem12meses internos completos e1mês de afastamento após o treino causal; somente diagnóstico anterior."
+      }
+    ],
+    "reserved": "2026-09"
+  },
+  "summary": {
+    "foldsCompleted": 7,
+    "totalFolds": 9,
+    "monthsEvaluated": 21,
+    "selectedBaseBRL": 0,
+    "selectedStressBRL": 0,
+    "fixedChampionStressBRL": -9.643466554119442,
+    "selectedTrades": 0,
+    "cdiBRL": 223.3437358204319,
+    "blocksAboveCDI": 0,
+    "cashFallbacks": 7,
+    "totalCandidateEvaluations": 906
+  },
+  "retrospectiveGates": false,
+  "promoted": false,
+  "realOrders": false,
+  "independentHoldout": false,
+  "folds": [
+    {
+      "fold": {
+        "id": "2024-07",
+        "innerStart": "2023-06",
+        "innerEnd": "2024-06",
+        "gapMonth": "2024-06",
+        "outerStart": "2024-07",
+        "outerEnd": "2024-10",
+        "innerMonths": [
+          "2023-06",
+          "2023-07",
+          "2023-08",
+          "2023-09",
+          "2023-10",
+          "2023-11",
+          "2023-12",
+          "2024-01",
+          "2024-02",
+          "2024-03",
+          "2024-04",
+          "2024-05"
+        ],
+        "outerMonths": [
+          "2024-07",
+          "2024-08",
+          "2024-09"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2023-06",
+            "end": "2023-09"
+          },
+          {
+            "start": "2023-09",
+            "end": "2023-12"
+          },
+          {
+            "start": "2023-12",
+            "end": "2024-03"
+          },
+          {
+            "start": "2024-03",
+            "end": "2024-06"
+          }
+        ]
+      },
+      "history": [
+        {
+          "generation": 0,
+          "uniqueCandidates": 24,
+          "bestInnerWorstQuarterExcessBRL": -33.174698193802215,
+          "eligible": 0
+        },
+        {
+          "generation": 1,
+          "uniqueCandidates": 42,
+          "bestInnerWorstQuarterExcessBRL": -33.174698193802215,
+          "eligible": 0
+        },
+        {
+          "generation": 2,
+          "uniqueCandidates": 60,
+          "bestInnerWorstQuarterExcessBRL": -33.174698193802215,
+          "eligible": 0
+        },
+        {
+          "generation": 3,
+          "uniqueCandidates": 78,
+          "bestInnerWorstQuarterExcessBRL": -33.174698193802215,
+          "eligible": 0
+        },
+        {
+          "generation": 4,
+          "uniqueCandidates": 96,
+          "bestInnerWorstQuarterExcessBRL": -33.174698193802215,
+          "eligible": 0
+        }
+      ],
+      "candidateCount": 96,
+      "eligible": 0,
+      "frozen": {
+        "fold": "2024-07",
+        "createdAt": "2026-10-19T03:16:25.367Z",
+        "registrationSHA256": "df799ff3e8668089f7c28c3184172e99c6d17ed1ddec977d58ddf3f874714f27",
+        "genome": {
+          "id": "cash"
+        },
+        "reason": "Nenhum candidato elegível nos critérios internos; não operar",
+        "metrics": null,
+        "selectionWindow": {
+          "start": "2023-06",
+          "end": "2024-06"
+        },
+        "gapMonth": "2024-06",
+        "attempts": 96,
+        "searchSHA256": "1f5c4c0ec5a1aa86a59850fddca9864e0a4c6ba2549ddd58275b82469f4d665e",
+        "usedOuterResults": false,
+        "frozenSHA256": "66a1fa4d2c901ce4301e2cc44aab0e980b3992929b751350051890f110d26441"
+      },
+      "outer": {
+        "selected": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1026.3254752384412,
+            "profitBRL": 26.325475238441186,
+            "returnPct": 0.0263254752384412,
+            "observations": 66,
+            "checks": [
+              {
+                "month": "2024-07",
+                "count": 23,
+                "calculatedPct": 0.9071223424248709,
+                "publishedPct": 0.91,
+                "valid": true
+              },
+              {
+                "month": "2024-08",
+                "count": 22,
+                "calculatedPct": 0.8675116705918473,
+                "publishedPct": 0.87,
+                "valid": true
+              },
+              {
+                "month": "2024-09",
+                "count": 21,
+                "calculatedPct": 0.835157409379228,
+                "publishedPct": 0.84,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          }
+        },
+        "baseline": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1026.3254752384412,
+            "profitBRL": 26.325475238441186,
+            "returnPct": 0.0263254752384412,
+            "observations": 66,
+            "checks": [
+              {
+                "month": "2024-07",
+                "count": 23,
+                "calculatedPct": 0.9071223424248709,
+                "publishedPct": 0.91,
+                "valid": true
+              },
+              {
+                "month": "2024-08",
+                "count": 22,
+                "calculatedPct": 0.8675116705918473,
+                "publishedPct": 0.87,
+                "valid": true
+              },
+              {
+                "month": "2024-09",
+                "count": 21,
+                "calculatedPct": 0.835157409379228,
+                "publishedPct": 0.84,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 16.359998334656893,
+            "count": 5,
+            "maxDD": 0.009478551627088147,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 8.836477266603424,
+            "count": 5,
+            "maxDD": 0.009941010958162905,
+            "halted": false
+          }
+        },
+        "cash": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1026.3254752384412,
+            "profitBRL": 26.325475238441186,
+            "returnPct": 0.0263254752384412,
+            "observations": 66,
+            "checks": [
+              {
+                "month": "2024-07",
+                "count": 23,
+                "calculatedPct": 0.9071223424248709,
+                "publishedPct": 0.91,
+                "valid": true
+              },
+              {
+                "month": "2024-08",
+                "count": 22,
+                "calculatedPct": 0.8675116705918473,
+                "publishedPct": 0.87,
+                "valid": true
+              },
+              {
+                "month": "2024-09",
+                "count": 21,
+                "calculatedPct": 0.835157409379228,
+                "publishedPct": 0.84,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          }
+        }
+      }
+    },
+    {
+      "fold": {
+        "id": "2024-10",
+        "innerStart": "2023-09",
+        "innerEnd": "2024-09",
+        "gapMonth": "2024-09",
+        "outerStart": "2024-10",
+        "outerEnd": "2025-01",
+        "innerMonths": [
+          "2023-09",
+          "2023-10",
+          "2023-11",
+          "2023-12",
+          "2024-01",
+          "2024-02",
+          "2024-03",
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07",
+          "2024-08"
+        ],
+        "outerMonths": [
+          "2024-10",
+          "2024-11",
+          "2024-12"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2023-09",
+            "end": "2023-12"
+          },
+          {
+            "start": "2023-12",
+            "end": "2024-03"
+          },
+          {
+            "start": "2024-03",
+            "end": "2024-06"
+          },
+          {
+            "start": "2024-06",
+            "end": "2024-09"
+          }
+        ]
+      },
+      "history": [
+        {
+          "generation": 0,
+          "uniqueCandidates": 24,
+          "bestInnerWorstQuarterExcessBRL": -29.143003086270028,
+          "eligible": 0
+        },
+        {
+          "generation": 1,
+          "uniqueCandidates": 42,
+          "bestInnerWorstQuarterExcessBRL": -29.143003086270028,
+          "eligible": 0
+        },
+        {
+          "generation": 2,
+          "uniqueCandidates": 60,
+          "bestInnerWorstQuarterExcessBRL": -29.143003086270028,
+          "eligible": 0
+        },
+        {
+          "generation": 3,
+          "uniqueCandidates": 78,
+          "bestInnerWorstQuarterExcessBRL": -29.143003086270028,
+          "eligible": 0
+        },
+        {
+          "generation": 4,
+          "uniqueCandidates": 96,
+          "bestInnerWorstQuarterExcessBRL": -29.143003086270028,
+          "eligible": 0
+        }
+      ],
+      "candidateCount": 96,
+      "eligible": 0,
+      "frozen": {
+        "fold": "2024-10",
+        "createdAt": "2026-10-19T03:17:56.782Z",
+        "registrationSHA256": "df799ff3e8668089f7c28c3184172e99c6d17ed1ddec977d58ddf3f874714f27",
+        "genome": {
+          "id": "cash"
+        },
+        "reason": "Nenhum candidato elegível nos critérios internos; não operar",
+        "metrics": null,
+        "selectionWindow": {
+          "start": "2023-09",
+          "end": "2024-09"
+        },
+        "gapMonth": "2024-09",
+        "attempts": 96,
+        "searchSHA256": "5d920fa4a4991db368cd4be513e0cb0378e9881cd5643f697c78cc2c2306300f",
+        "usedOuterResults": false,
+        "frozenSHA256": "c1eef78bf1e43a5670a9eda0d40a43298c2aeb7a57c17ca91999376e661c55fa"
+      },
+      "outer": {
+        "selected": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1026.758356383728,
+            "profitBRL": 26.758356383727914,
+            "returnPct": 0.02675835638372792,
+            "observations": 63,
+            "checks": [
+              {
+                "month": "2024-10",
+                "count": 23,
+                "calculatedPct": 0.9279575755079428,
+                "publishedPct": 0.93,
+                "valid": true
+              },
+              {
+                "month": "2024-11",
+                "count": 19,
+                "calculatedPct": 0.7929903920274706,
+                "publishedPct": 0.79,
+                "valid": true
+              },
+              {
+                "month": "2024-12",
+                "count": 21,
+                "calculatedPct": 0.93143107189948,
+                "publishedPct": 0.93,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          }
+        },
+        "baseline": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1026.758356383728,
+            "profitBRL": 26.758356383727914,
+            "returnPct": 0.02675835638372792,
+            "observations": 63,
+            "checks": [
+              {
+                "month": "2024-10",
+                "count": 23,
+                "calculatedPct": 0.9279575755079428,
+                "publishedPct": 0.93,
+                "valid": true
+              },
+              {
+                "month": "2024-11",
+                "count": 19,
+                "calculatedPct": 0.7929903920274706,
+                "publishedPct": 0.79,
+                "valid": true
+              },
+              {
+                "month": "2024-12",
+                "count": 21,
+                "calculatedPct": 0.93143107189948,
+                "publishedPct": 0.93,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": -44.13232258183115,
+            "count": 25,
+            "maxDD": 0.07170466311145764,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": -66.36312946448328,
+            "count": 25,
+            "maxDD": 0.08867647607174986,
+            "halted": false
+          }
+        },
+        "cash": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1026.758356383728,
+            "profitBRL": 26.758356383727914,
+            "returnPct": 0.02675835638372792,
+            "observations": 63,
+            "checks": [
+              {
+                "month": "2024-10",
+                "count": 23,
+                "calculatedPct": 0.9279575755079428,
+                "publishedPct": 0.93,
+                "valid": true
+              },
+              {
+                "month": "2024-11",
+                "count": 19,
+                "calculatedPct": 0.7929903920274706,
+                "publishedPct": 0.79,
+                "valid": true
+              },
+              {
+                "month": "2024-12",
+                "count": 21,
+                "calculatedPct": 0.93143107189948,
+                "publishedPct": 0.93,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          }
+        }
+      }
+    },
+    {
+      "fold": {
+        "id": "2025-01",
+        "innerStart": "2023-12",
+        "innerEnd": "2024-12",
+        "gapMonth": "2024-12",
+        "outerStart": "2025-01",
+        "outerEnd": "2025-04",
+        "innerMonths": [
+          "2023-12",
+          "2024-01",
+          "2024-02",
+          "2024-03",
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07",
+          "2024-08",
+          "2024-09",
+          "2024-10",
+          "2024-11"
+        ],
+        "outerMonths": [
+          "2025-01",
+          "2025-02",
+          "2025-03"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2023-12",
+            "end": "2024-03"
+          },
+          {
+            "start": "2024-03",
+            "end": "2024-06"
+          },
+          {
+            "start": "2024-06",
+            "end": "2024-09"
+          },
+          {
+            "start": "2024-09",
+            "end": "2024-12"
+          }
+        ]
+      },
+      "history": [
+        {
+          "generation": 0,
+          "uniqueCandidates": 24,
+          "bestInnerWorstQuarterExcessBRL": -26.85025336096942,
+          "eligible": 0
+        },
+        {
+          "generation": 1,
+          "uniqueCandidates": 42,
+          "bestInnerWorstQuarterExcessBRL": -26.85025336096942,
+          "eligible": 0
+        },
+        {
+          "generation": 2,
+          "uniqueCandidates": 60,
+          "bestInnerWorstQuarterExcessBRL": -26.85025336096942,
+          "eligible": 0
+        },
+        {
+          "generation": 3,
+          "uniqueCandidates": 78,
+          "bestInnerWorstQuarterExcessBRL": -26.85025336096942,
+          "eligible": 0
+        },
+        {
+          "generation": 4,
+          "uniqueCandidates": 96,
+          "bestInnerWorstQuarterExcessBRL": -26.85025336096942,
+          "eligible": 0
+        }
+      ],
+      "candidateCount": 96,
+      "eligible": 0,
+      "frozen": {
+        "fold": "2025-01",
+        "createdAt": "2026-10-19T03:19:23.081Z",
+        "registrationSHA256": "df799ff3e8668089f7c28c3184172e99c6d17ed1ddec977d58ddf3f874714f27",
+        "genome": {
+          "id": "cash"
+        },
+        "reason": "Nenhum candidato elegível nos critérios internos; não operar",
+        "metrics": null,
+        "selectionWindow": {
+          "start": "2023-12",
+          "end": "2024-12"
+        },
+        "gapMonth": "2024-12",
+        "attempts": 96,
+        "searchSHA256": "cc9c09cb9eb32ac732355ba9e38a7a0d293241526a3d4b6d996c957fc333dade",
+        "usedOuterResults": false,
+        "frozenSHA256": "191848bdaf007b84f88793e976615d806adb73ebe5840ccb1935faed94024790"
+      },
+      "outer": {
+        "selected": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1029.918990800861,
+            "profitBRL": 29.91899080086091,
+            "returnPct": 0.0299189908008608,
+            "observations": 61,
+            "checks": [
+              {
+                "month": "2025-01",
+                "count": 22,
+                "calculatedPct": 1.013201356414828,
+                "publishedPct": 1.01,
+                "valid": true
+              },
+              {
+                "month": "2025-02",
+                "count": 20,
+                "calculatedPct": 0.9853222624513602,
+                "publishedPct": 0.99,
+                "valid": true
+              },
+              {
+                "month": "2025-03",
+                "count": 19,
+                "calculatedPct": 0.9640295622482142,
+                "publishedPct": 0.96,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          }
+        },
+        "baseline": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1029.918990800861,
+            "profitBRL": 29.91899080086091,
+            "returnPct": 0.0299189908008608,
+            "observations": 61,
+            "checks": [
+              {
+                "month": "2025-01",
+                "count": 22,
+                "calculatedPct": 1.013201356414828,
+                "publishedPct": 1.01,
+                "valid": true
+              },
+              {
+                "month": "2025-02",
+                "count": 20,
+                "calculatedPct": 0.9853222624513602,
+                "publishedPct": 0.99,
+                "valid": true
+              },
+              {
+                "month": "2025-03",
+                "count": 19,
+                "calculatedPct": 0.9640295622482142,
+                "publishedPct": 0.96,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": -58.68265066296743,
+            "count": 19,
+            "maxDD": 0.09008173067111146,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": -70.20267524530723,
+            "count": 19,
+            "maxDD": 0.09284451997745011,
+            "halted": false
+          }
+        },
+        "cash": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1029.918990800861,
+            "profitBRL": 29.91899080086091,
+            "returnPct": 0.0299189908008608,
+            "observations": 61,
+            "checks": [
+              {
+                "month": "2025-01",
+                "count": 22,
+                "calculatedPct": 1.013201356414828,
+                "publishedPct": 1.01,
+                "valid": true
+              },
+              {
+                "month": "2025-02",
+                "count": 20,
+                "calculatedPct": 0.9853222624513602,
+                "publishedPct": 0.99,
+                "valid": true
+              },
+              {
+                "month": "2025-03",
+                "count": 19,
+                "calculatedPct": 0.9640295622482142,
+                "publishedPct": 0.96,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          }
+        }
+      }
+    },
+    {
+      "fold": {
+        "id": "2025-04",
+        "innerStart": "2024-03",
+        "innerEnd": "2025-03",
+        "gapMonth": "2025-03",
+        "outerStart": "2025-04",
+        "outerEnd": "2025-07",
+        "innerMonths": [
+          "2024-03",
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07",
+          "2024-08",
+          "2024-09",
+          "2024-10",
+          "2024-11",
+          "2024-12",
+          "2025-01",
+          "2025-02"
+        ],
+        "outerMonths": [
+          "2025-04",
+          "2025-05",
+          "2025-06"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2024-03",
+            "end": "2024-06"
+          },
+          {
+            "start": "2024-06",
+            "end": "2024-09"
+          },
+          {
+            "start": "2024-09",
+            "end": "2024-12"
+          },
+          {
+            "start": "2024-12",
+            "end": "2025-03"
+          }
+        ]
+      },
+      "history": [
+        {
+          "generation": 0,
+          "uniqueCandidates": 24,
+          "bestInnerWorstQuarterExcessBRL": -46.57788139265824,
+          "eligible": 0
+        },
+        {
+          "generation": 1,
+          "uniqueCandidates": 42,
+          "bestInnerWorstQuarterExcessBRL": -46.57788139265824,
+          "eligible": 0
+        },
+        {
+          "generation": 2,
+          "uniqueCandidates": 60,
+          "bestInnerWorstQuarterExcessBRL": -29.586458468038245,
+          "eligible": 0
+        },
+        {
+          "generation": 3,
+          "uniqueCandidates": 78,
+          "bestInnerWorstQuarterExcessBRL": -29.586458468038245,
+          "eligible": 0
+        },
+        {
+          "generation": 4,
+          "uniqueCandidates": 96,
+          "bestInnerWorstQuarterExcessBRL": -29.586458468038245,
+          "eligible": 0
+        },
+        {
+          "generation": 5,
+          "uniqueCandidates": 114,
+          "bestInnerWorstQuarterExcessBRL": -29.586458468038245,
+          "eligible": 0
+        },
+        {
+          "generation": 6,
+          "uniqueCandidates": 132,
+          "bestInnerWorstQuarterExcessBRL": -29.586458468038245,
+          "eligible": 0
+        }
+      ],
+      "candidateCount": 132,
+      "eligible": 0,
+      "frozen": {
+        "fold": "2025-04",
+        "createdAt": "2026-10-19T03:21:26.171Z",
+        "registrationSHA256": "df799ff3e8668089f7c28c3184172e99c6d17ed1ddec977d58ddf3f874714f27",
+        "genome": {
+          "id": "cash"
+        },
+        "reason": "Nenhum candidato elegível nos critérios internos; não operar",
+        "metrics": null,
+        "selectionWindow": {
+          "start": "2024-03",
+          "end": "2025-03"
+        },
+        "gapMonth": "2025-03",
+        "attempts": 132,
+        "searchSHA256": "fa8721393b9f880afffdda129b0b43368e2ce85fa1a84ff99b1040eeeefefa75",
+        "usedOuterResults": false,
+        "frozenSHA256": "ddab0b7908e81c774fd451f7ad609f887b9cb795b7c5a918d1a0fa5e494da189"
+      },
+      "outer": {
+        "selected": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1033.2793925915487,
+            "profitBRL": 33.279392591548685,
+            "returnPct": 0.03327939259154866,
+            "observations": 61,
+            "checks": [
+              {
+                "month": "2025-04",
+                "count": 20,
+                "calculatedPct": 1.0558796236773471,
+                "publishedPct": 1.06,
+                "valid": true
+              },
+              {
+                "month": "2025-05",
+                "count": 21,
+                "calculatedPct": 1.1387758548166316,
+                "publishedPct": 1.14,
+                "valid": true
+              },
+              {
+                "month": "2025-06",
+                "count": 20,
+                "calculatedPct": 1.0970512720405834,
+                "publishedPct": 1.1,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          }
+        },
+        "baseline": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1033.2793925915487,
+            "profitBRL": 33.279392591548685,
+            "returnPct": 0.03327939259154866,
+            "observations": 61,
+            "checks": [
+              {
+                "month": "2025-04",
+                "count": 20,
+                "calculatedPct": 1.0558796236773471,
+                "publishedPct": 1.06,
+                "valid": true
+              },
+              {
+                "month": "2025-05",
+                "count": 21,
+                "calculatedPct": 1.1387758548166316,
+                "publishedPct": 1.14,
+                "valid": true
+              },
+              {
+                "month": "2025-06",
+                "count": 20,
+                "calculatedPct": 1.0970512720405834,
+                "publishedPct": 1.1,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 59.47816025687473,
+            "count": 15,
+            "maxDD": 0.030380431031150863,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 37.321406999256226,
+            "count": 15,
+            "maxDD": 0.031203239962522104,
+            "halted": false
+          }
+        },
+        "cash": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1033.2793925915487,
+            "profitBRL": 33.279392591548685,
+            "returnPct": 0.03327939259154866,
+            "observations": 61,
+            "checks": [
+              {
+                "month": "2025-04",
+                "count": 20,
+                "calculatedPct": 1.0558796236773471,
+                "publishedPct": 1.06,
+                "valid": true
+              },
+              {
+                "month": "2025-05",
+                "count": 21,
+                "calculatedPct": 1.1387758548166316,
+                "publishedPct": 1.14,
+                "valid": true
+              },
+              {
+                "month": "2025-06",
+                "count": 20,
+                "calculatedPct": 1.0970512720405834,
+                "publishedPct": 1.1,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          }
+        }
+      }
+    },
+    {
+      "fold": {
+        "id": "2025-07",
+        "innerStart": "2024-06",
+        "innerEnd": "2025-06",
+        "gapMonth": "2025-06",
+        "outerStart": "2025-07",
+        "outerEnd": "2025-10",
+        "innerMonths": [
+          "2024-06",
+          "2024-07",
+          "2024-08",
+          "2024-09",
+          "2024-10",
+          "2024-11",
+          "2024-12",
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05"
+        ],
+        "outerMonths": [
+          "2025-07",
+          "2025-08",
+          "2025-09"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2024-06",
+            "end": "2024-09"
+          },
+          {
+            "start": "2024-09",
+            "end": "2024-12"
+          },
+          {
+            "start": "2024-12",
+            "end": "2025-03"
+          },
+          {
+            "start": "2025-03",
+            "end": "2025-06"
+          }
+        ]
+      },
+      "history": [
+        {
+          "generation": 0,
+          "uniqueCandidates": 24,
+          "bestInnerWorstQuarterExcessBRL": -46.57788139265824,
+          "eligible": 0
+        },
+        {
+          "generation": 1,
+          "uniqueCandidates": 42,
+          "bestInnerWorstQuarterExcessBRL": -38.52430930513029,
+          "eligible": 0
+        },
+        {
+          "generation": 2,
+          "uniqueCandidates": 60,
+          "bestInnerWorstQuarterExcessBRL": -31.919821864546066,
+          "eligible": 0
+        },
+        {
+          "generation": 3,
+          "uniqueCandidates": 78,
+          "bestInnerWorstQuarterExcessBRL": -31.919821864546066,
+          "eligible": 0
+        },
+        {
+          "generation": 4,
+          "uniqueCandidates": 96,
+          "bestInnerWorstQuarterExcessBRL": -29.586458468038245,
+          "eligible": 0
+        },
+        {
+          "generation": 5,
+          "uniqueCandidates": 114,
+          "bestInnerWorstQuarterExcessBRL": -29.586458468038245,
+          "eligible": 0
+        },
+        {
+          "generation": 6,
+          "uniqueCandidates": 132,
+          "bestInnerWorstQuarterExcessBRL": -29.586458468038245,
+          "eligible": 0
+        },
+        {
+          "generation": 7,
+          "uniqueCandidates": 150,
+          "bestInnerWorstQuarterExcessBRL": -29.586458468038245,
+          "eligible": 0
+        },
+        {
+          "generation": 8,
+          "uniqueCandidates": 168,
+          "bestInnerWorstQuarterExcessBRL": -29.586458468038245,
+          "eligible": 0
+        }
+      ],
+      "candidateCount": 168,
+      "eligible": 0,
+      "frozen": {
+        "fold": "2025-07",
+        "createdAt": "2026-10-19T03:24:06.075Z",
+        "registrationSHA256": "df799ff3e8668089f7c28c3184172e99c6d17ed1ddec977d58ddf3f874714f27",
+        "genome": {
+          "id": "cash"
+        },
+        "reason": "Nenhum candidato elegível nos critérios internos; não operar",
+        "metrics": null,
+        "selectionWindow": {
+          "start": "2024-06",
+          "end": "2025-06"
+        },
+        "gapMonth": "2025-06",
+        "attempts": 168,
+        "searchSHA256": "efd4f46ac6f8fbd9ec2d7e320acefbccd25e8cb3c69e70c9a8cd271f02bf9b25",
+        "usedOuterResults": false,
+        "frozenSHA256": "bbecb337660893b6f9112df6e7c7c138ad180b33155fe7646a4d55bef93e39c3"
+      },
+      "outer": {
+        "selected": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1037.0461520150343,
+            "profitBRL": 37.046152015034295,
+            "returnPct": 0.03704615201503425,
+            "observations": 66,
+            "checks": [
+              {
+                "month": "2025-07",
+                "count": 23,
+                "calculatedPct": 1.275732508747951,
+                "publishedPct": 1.28,
+                "valid": true
+              },
+              {
+                "month": "2025-08",
+                "count": 21,
+                "calculatedPct": 1.1641561387977895,
+                "publishedPct": 1.16,
+                "valid": true
+              },
+              {
+                "month": "2025-09",
+                "count": 22,
+                "calculatedPct": 1.2199289497186738,
+                "publishedPct": 1.22,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          }
+        },
+        "baseline": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1037.0461520150343,
+            "profitBRL": 37.046152015034295,
+            "returnPct": 0.03704615201503425,
+            "observations": 66,
+            "checks": [
+              {
+                "month": "2025-07",
+                "count": 23,
+                "calculatedPct": 1.275732508747951,
+                "publishedPct": 1.28,
+                "valid": true
+              },
+              {
+                "month": "2025-08",
+                "count": 21,
+                "calculatedPct": 1.1641561387977895,
+                "publishedPct": 1.16,
+                "valid": true
+              },
+              {
+                "month": "2025-09",
+                "count": 22,
+                "calculatedPct": 1.2199289497186738,
+                "publishedPct": 1.22,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 21.655887967700238,
+            "count": 9,
+            "maxDD": 0.028880515450284017,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 8.429386399543404,
+            "count": 9,
+            "maxDD": 0.031477633550282186,
+            "halted": false
+          }
+        },
+        "cash": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1037.0461520150343,
+            "profitBRL": 37.046152015034295,
+            "returnPct": 0.03704615201503425,
+            "observations": 66,
+            "checks": [
+              {
+                "month": "2025-07",
+                "count": 23,
+                "calculatedPct": 1.275732508747951,
+                "publishedPct": 1.28,
+                "valid": true
+              },
+              {
+                "month": "2025-08",
+                "count": 21,
+                "calculatedPct": 1.1641561387977895,
+                "publishedPct": 1.16,
+                "valid": true
+              },
+              {
+                "month": "2025-09",
+                "count": 22,
+                "calculatedPct": 1.2199289497186738,
+                "publishedPct": 1.22,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          }
+        }
+      }
+    },
+    {
+      "fold": {
+        "id": "2025-10",
+        "innerStart": "2024-09",
+        "innerEnd": "2025-09",
+        "gapMonth": "2025-09",
+        "outerStart": "2025-10",
+        "outerEnd": "2026-01",
+        "innerMonths": [
+          "2024-09",
+          "2024-10",
+          "2024-11",
+          "2024-12",
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08"
+        ],
+        "outerMonths": [
+          "2025-10",
+          "2025-11",
+          "2025-12"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2024-09",
+            "end": "2024-12"
+          },
+          {
+            "start": "2024-12",
+            "end": "2025-03"
+          },
+          {
+            "start": "2025-03",
+            "end": "2025-06"
+          },
+          {
+            "start": "2025-06",
+            "end": "2025-09"
+          }
+        ]
+      },
+      "history": [
+        {
+          "generation": 0,
+          "uniqueCandidates": 24,
+          "bestInnerWorstQuarterExcessBRL": -46.57788139265824,
+          "eligible": 0
+        },
+        {
+          "generation": 1,
+          "uniqueCandidates": 42,
+          "bestInnerWorstQuarterExcessBRL": -38.78991796427226,
+          "eligible": 0
+        },
+        {
+          "generation": 2,
+          "uniqueCandidates": 60,
+          "bestInnerWorstQuarterExcessBRL": -38.78991796427226,
+          "eligible": 0
+        },
+        {
+          "generation": 3,
+          "uniqueCandidates": 78,
+          "bestInnerWorstQuarterExcessBRL": -35.7872119611643,
+          "eligible": 0
+        },
+        {
+          "generation": 4,
+          "uniqueCandidates": 96,
+          "bestInnerWorstQuarterExcessBRL": -35.7872119611643,
+          "eligible": 0
+        },
+        {
+          "generation": 5,
+          "uniqueCandidates": 114,
+          "bestInnerWorstQuarterExcessBRL": -35.7872119611643,
+          "eligible": 0
+        },
+        {
+          "generation": 6,
+          "uniqueCandidates": 132,
+          "bestInnerWorstQuarterExcessBRL": -35.7872119611643,
+          "eligible": 0
+        },
+        {
+          "generation": 7,
+          "uniqueCandidates": 150,
+          "bestInnerWorstQuarterExcessBRL": -35.7872119611643,
+          "eligible": 0
+        }
+      ],
+      "candidateCount": 150,
+      "eligible": 0,
+      "frozen": {
+        "fold": "2025-10",
+        "createdAt": "2026-10-19T03:26:27.134Z",
+        "registrationSHA256": "df799ff3e8668089f7c28c3184172e99c6d17ed1ddec977d58ddf3f874714f27",
+        "genome": {
+          "id": "cash"
+        },
+        "reason": "Nenhum candidato elegível nos critérios internos; não operar",
+        "metrics": null,
+        "selectionWindow": {
+          "start": "2024-09",
+          "end": "2025-09"
+        },
+        "gapMonth": "2025-09",
+        "attempts": 150,
+        "searchSHA256": "4033cf42e98b16b163cb54969ebc2f3f5eeedbf85a75c0ae2e4500714de33de6",
+        "usedOuterResults": false,
+        "frozenSHA256": "984f66e82ad3be10e39e8a0705004f21ad327113ca36bebae698908efc430c5f"
+      },
+      "outer": {
+        "selected": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1035.9036291001532,
+            "profitBRL": 35.90362910015324,
+            "returnPct": 0.03590362910015332,
+            "observations": 64,
+            "checks": [
+              {
+                "month": "2025-10",
+                "count": 23,
+                "calculatedPct": 1.275732508747951,
+                "publishedPct": 1.28,
+                "valid": true
+              },
+              {
+                "month": "2025-11",
+                "count": 19,
+                "calculatedPct": 1.0527026935209127,
+                "publishedPct": 1.05,
+                "valid": true
+              },
+              {
+                "month": "2025-12",
+                "count": 22,
+                "calculatedPct": 1.2199289497186738,
+                "publishedPct": 1.22,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          }
+        },
+        "baseline": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1035.9036291001532,
+            "profitBRL": 35.90362910015324,
+            "returnPct": 0.03590362910015332,
+            "observations": 64,
+            "checks": [
+              {
+                "month": "2025-10",
+                "count": 23,
+                "calculatedPct": 1.275732508747951,
+                "publishedPct": 1.28,
+                "valid": true
+              },
+              {
+                "month": "2025-11",
+                "count": 19,
+                "calculatedPct": 1.0527026935209127,
+                "publishedPct": 1.05,
+                "valid": true
+              },
+              {
+                "month": "2025-12",
+                "count": 22,
+                "calculatedPct": 1.2199289497186738,
+                "publishedPct": 1.22,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 37.21299786301884,
+            "count": 17,
+            "maxDD": 0.026482441641778376,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 13.851611444690235,
+            "count": 17,
+            "maxDD": 0.027997067516099674,
+            "halted": false
+          }
+        },
+        "cash": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1035.9036291001532,
+            "profitBRL": 35.90362910015324,
+            "returnPct": 0.03590362910015332,
+            "observations": 64,
+            "checks": [
+              {
+                "month": "2025-10",
+                "count": 23,
+                "calculatedPct": 1.275732508747951,
+                "publishedPct": 1.28,
+                "valid": true
+              },
+              {
+                "month": "2025-11",
+                "count": 19,
+                "calculatedPct": 1.0527026935209127,
+                "publishedPct": 1.05,
+                "valid": true
+              },
+              {
+                "month": "2025-12",
+                "count": 22,
+                "calculatedPct": 1.2199289497186738,
+                "publishedPct": 1.22,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          }
+        }
+      }
+    },
+    {
+      "fold": {
+        "id": "2026-01",
+        "innerStart": "2024-12",
+        "innerEnd": "2025-12",
+        "gapMonth": "2025-12",
+        "outerStart": "2026-01",
+        "outerEnd": "2026-04",
+        "innerMonths": [
+          "2024-12",
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11"
+        ],
+        "outerMonths": [
+          "2026-01",
+          "2026-02",
+          "2026-03"
+        ],
+        "innerBlocks": [
+          {
+            "start": "2024-12",
+            "end": "2025-03"
+          },
+          {
+            "start": "2025-03",
+            "end": "2025-06"
+          },
+          {
+            "start": "2025-06",
+            "end": "2025-09"
+          },
+          {
+            "start": "2025-09",
+            "end": "2025-12"
+          }
+        ]
+      },
+      "history": [
+        {
+          "generation": 0,
+          "uniqueCandidates": 24,
+          "bestInnerWorstQuarterExcessBRL": -46.57788139265824,
+          "eligible": 0
+        },
+        {
+          "generation": 1,
+          "uniqueCandidates": 42,
+          "bestInnerWorstQuarterExcessBRL": -46.57788139265824,
+          "eligible": 0
+        },
+        {
+          "generation": 2,
+          "uniqueCandidates": 60,
+          "bestInnerWorstQuarterExcessBRL": -42.60465288760554,
+          "eligible": 0
+        },
+        {
+          "generation": 3,
+          "uniqueCandidates": 78,
+          "bestInnerWorstQuarterExcessBRL": -35.90362910015324,
+          "eligible": 0
+        },
+        {
+          "generation": 4,
+          "uniqueCandidates": 96,
+          "bestInnerWorstQuarterExcessBRL": -31.919821864546066,
+          "eligible": 0
+        },
+        {
+          "generation": 5,
+          "uniqueCandidates": 114,
+          "bestInnerWorstQuarterExcessBRL": -31.919821864546066,
+          "eligible": 0
+        },
+        {
+          "generation": 6,
+          "uniqueCandidates": 132,
+          "bestInnerWorstQuarterExcessBRL": -31.919821864546066,
+          "eligible": 0
+        },
+        {
+          "generation": 7,
+          "uniqueCandidates": 150,
+          "bestInnerWorstQuarterExcessBRL": -31.919821864546066,
+          "eligible": 0
+        },
+        {
+          "generation": 8,
+          "uniqueCandidates": 168,
+          "bestInnerWorstQuarterExcessBRL": -31.919821864546066,
+          "eligible": 0
+        }
+      ],
+      "candidateCount": 168,
+      "eligible": 0,
+      "frozen": {
+        "fold": "2026-01",
+        "createdAt": "2026-10-19T03:29:09.169Z",
+        "registrationSHA256": "df799ff3e8668089f7c28c3184172e99c6d17ed1ddec977d58ddf3f874714f27",
+        "genome": {
+          "id": "cash"
+        },
+        "reason": "Nenhum candidato elegível nos critérios internos; não operar",
+        "metrics": null,
+        "selectionWindow": {
+          "start": "2024-12",
+          "end": "2025-12"
+        },
+        "gapMonth": "2025-12",
+        "attempts": 168,
+        "searchSHA256": "00cd4e857eba8155e77c43368859eb29cbb21eb564a9fca01d78274805d2f7b9",
+        "usedOuterResults": false,
+        "frozenSHA256": "e13495f53645c2db5edeefd4ebac51eb93803cf6d89965e9722bb047b7dc5249"
+      },
+      "outer": {
+        "selected": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1034.1117396906657,
+            "profitBRL": 34.11173969066567,
+            "returnPct": 0.03411173969066561,
+            "observations": 61,
+            "checks": [
+              {
+                "month": "2026-01",
+                "count": 21,
+                "calculatedPct": 1.1641561387977895,
+                "publishedPct": 1.16,
+                "valid": true
+              },
+              {
+                "month": "2026-02",
+                "count": 18,
+                "calculatedPct": 0.9970220253081363,
+                "publishedPct": 1,
+                "valid": true
+              },
+              {
+                "month": "2026-03",
+                "count": 22,
+                "calculatedPct": 1.2120535925043807,
+                "publishedPct": 1.21,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          }
+        },
+        "baseline": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1034.1117396906657,
+            "profitBRL": 34.11173969066567,
+            "returnPct": 0.03411173969066561,
+            "observations": 61,
+            "checks": [
+              {
+                "month": "2026-01",
+                "count": 21,
+                "calculatedPct": 1.1641561387977895,
+                "publishedPct": 1.16,
+                "valid": true
+              },
+              {
+                "month": "2026-02",
+                "count": 18,
+                "calculatedPct": 0.9970220253081363,
+                "publishedPct": 1,
+                "valid": true
+              },
+              {
+                "month": "2026-03",
+                "count": 22,
+                "calculatedPct": 1.2120535925043807,
+                "publishedPct": 1.21,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 100.1068965530547,
+            "count": 27,
+            "maxDD": 0.04635427143514902,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 58.48345604557778,
+            "count": 27,
+            "maxDD": 0.04859631400680939,
+            "halted": false
+          }
+        },
+        "cash": {
+          "cdi": {
+            "available": true,
+            "initialBRL": 1000,
+            "finalBRL": 1034.1117396906657,
+            "profitBRL": 34.11173969066567,
+            "returnPct": 0.03411173969066561,
+            "observations": 61,
+            "checks": [
+              {
+                "month": "2026-01",
+                "count": 21,
+                "calculatedPct": 1.1641561387977895,
+                "publishedPct": 1.16,
+                "valid": true
+              },
+              {
+                "month": "2026-02",
+                "count": 18,
+                "calculatedPct": 0.9970220253081363,
+                "publishedPct": 1,
+                "valid": true
+              },
+              {
+                "month": "2026-03",
+                "count": 22,
+                "calculatedPct": 1.2120535925043807,
+                "publishedPct": 1.21,
+                "valid": true
+              }
+            ]
+          },
+          "base": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          },
+          "stress": {
+            "pnlBRL": 0,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false
+          }
+        }
+      }
+    }
+  ],
+  "rejections": {
+    "Amostra insuficiente": 643,
+    "Poucas operações em um ou mais trimestres": 659,
+    "Resultado líquido não positivo": 727,
+    "Não supera CDI agregado": 890,
+    "Não supera CDI em pelo menos três trimestres": 906,
+    "Parada global de risco": 115,
+    "Drawdown acima do limite": 60
+  },
+  "newMLFits": 96,
+  "status": {
+    "stage": "selecting",
+    "updatedAt": "2026-10-19T03:29:15.500Z",
+    "pid": 10765,
+    "workers": 1,
+    "newMLFits": 96,
+    "caseCount": 6752,
+    "foldsTotal": 9,
+    "fold": "2026-04",
+    "generation": 0,
+    "candidatesThisFold": 15,
+    "candidatesCompleted": 921,
+    "frozenWinner": "cash"
+  }
+}

@@ -37,3 +37,16 @@ A auditoria detectou funding com timestamps dentro do minuto que a implementaç�
 Nos 38 meses fora da seleção: -R$7,17/mês para o bot contra R$9,52 do CDI, com R$1.000 por mês e custos dobrados. No conjunto dos 47 meses: -R$2,73 contra R$9,90. Não se trata de uma carteira contínua de vários anos. O campeão não demonstrou robustez; não foi promovido.
 
 A página contém um retrato embutido para abrir por arquivo local, além de JSON, CSV, protocolo e auditorias. Os resultados anteriores permanecem como registros históricos da implementação antiga. Os gráficos são retrospectivos; CDI e bot antes de impostos, com câmbio fixo no bot.
+
+
+## Redesenho da validação e genética V6 · 19/10/2026
+
+- [Por que mudamos a abordagem](mudanca-de-abordagem.html): avaliação temporal, correção de funding, critérios e limites da evidência.
+- [V6: resultados e evolução por geração](nova-genetica.html): retrato datado embutido, abre por arquivo local. Apenas seleção e mutação, sem cruzamento. 96 novos modelos já treinados; o processo local avalia as combinações. A V4 foi parada e preservada.
+- [Snapshot compacto](validacao-v6-snapshot.json), [protocolo registrado](validacao-v6-protocolo.json) e [auditoria](validacao-v6-auditoria.json).
+- [54 perfis de risco/alavancagem](alocacao-historico.csv): diagnóstico de 47 meses, separado da seleção genética.
+- [Histórico e gráficos](historico.html): requer o servidor local e seus dados; os candles não são publicados neste repositório.
+
+Catálogo ampliado: 82 meses, 3.575.708 candles de 1 minuto, 12 resoluções. Há 64 minutos de mark price ausentes em três meses, explicitamente sinalizados. A V6 mantém sinais de 5 minutos e contexto de 1h/4h; o catálogo não implica que todos os intervalos foram treinados. A avaliação aninhada tem 26 meses elegíveis em 9 janelas. Todos esses dados já foram vistos anteriormente; nenhum resultado é validação independente ou autorização de operação real.
+
+A V6 para conforme o protocolo registrado, sem prolongar o orçamento para perseguir lucro. Caixa é rejeição dos candidatos, não aprovação de rendimento. A versão GitHub fica congelada na data do snapshot; a página local acompanha o processo.

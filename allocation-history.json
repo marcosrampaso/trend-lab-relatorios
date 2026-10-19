@@ -1,0 +1,1311 @@
+{
+  "generatedAt": "2026-10-19T03:17:27.599Z",
+  "stage": "complete",
+  "months": 47,
+  "profileCount": 54,
+  "portfolios": 5076,
+  "profiles": [
+    {
+      "risk": 0.0025,
+      "leverage": 1,
+      "base": {
+        "months": 47,
+        "pnlBRL": 14.70401724759057,
+        "meanMonthlyBRL": 0.3128514307997994,
+        "trades": 175,
+        "maximumDrawdown": 0.018250758191039367,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 269.49443174137144
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -43.113575090780074,
+        "meanMonthlyBRL": -0.9173101083144697,
+        "trades": 175,
+        "maximumDrawdown": 0.017974176901468582,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 229.22249624342857
+      }
+    },
+    {
+      "risk": 0.0025,
+      "leverage": 2,
+      "base": {
+        "months": 47,
+        "pnlBRL": 14.70401724759057,
+        "meanMonthlyBRL": 0.3128514307997994,
+        "trades": 175,
+        "maximumDrawdown": 0.018250758191039367,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 134.74721587068572
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -43.113575090780074,
+        "meanMonthlyBRL": -0.9173101083144697,
+        "trades": 175,
+        "maximumDrawdown": 0.017974176901468582,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 114.61124812171428
+      }
+    },
+    {
+      "risk": 0.0025,
+      "leverage": 5,
+      "base": {
+        "months": 47,
+        "pnlBRL": 14.70401724759057,
+        "meanMonthlyBRL": 0.3128514307997994,
+        "trades": 175,
+        "maximumDrawdown": 0.018250758191039367,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 53.89888634827429
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -43.113575090780074,
+        "meanMonthlyBRL": -0.9173101083144697,
+        "trades": 175,
+        "maximumDrawdown": 0.017974176901468582,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 45.84449924868571
+      }
+    },
+    {
+      "risk": 0.0025,
+      "leverage": 10,
+      "base": {
+        "months": 47,
+        "pnlBRL": 14.70401724759057,
+        "meanMonthlyBRL": 0.3128514307997994,
+        "trades": 175,
+        "maximumDrawdown": 0.018250758191039367,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 26.949443174137144
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -43.113575090780074,
+        "meanMonthlyBRL": -0.9173101083144697,
+        "trades": 175,
+        "maximumDrawdown": 0.017974176901468582,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 22.922249624342854
+      }
+    },
+    {
+      "risk": 0.0025,
+      "leverage": 15,
+      "base": {
+        "months": 47,
+        "pnlBRL": 14.70401724759057,
+        "meanMonthlyBRL": 0.3128514307997994,
+        "trades": 175,
+        "maximumDrawdown": 0.018250758191039367,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 17.966295449424763
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -43.113575090780074,
+        "meanMonthlyBRL": -0.9173101083144697,
+        "trades": 175,
+        "maximumDrawdown": 0.017974176901468582,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 15.281499749561904
+      }
+    },
+    {
+      "risk": 0.0025,
+      "leverage": 20,
+      "base": {
+        "months": 47,
+        "pnlBRL": 14.70401724759057,
+        "meanMonthlyBRL": 0.3128514307997994,
+        "trades": 175,
+        "maximumDrawdown": 0.018250758191039367,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 13.474721587068572
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -43.113575090780074,
+        "meanMonthlyBRL": -0.9173101083144697,
+        "trades": 175,
+        "maximumDrawdown": 0.017974176901468582,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 11.461124812171427
+      }
+    },
+    {
+      "risk": 0.005,
+      "leverage": 1,
+      "base": {
+        "months": 47,
+        "pnlBRL": 51.53268152625358,
+        "meanMonthlyBRL": 1.0964400324734804,
+        "trades": 180,
+        "maximumDrawdown": 0.0359138801815234,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 500.76148156255545
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -72.60031322825611,
+        "meanMonthlyBRL": -1.544687515494811,
+        "trades": 181,
+        "maximumDrawdown": 0.035986208969998185,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 448.96313804983436
+      }
+    },
+    {
+      "risk": 0.005,
+      "leverage": 2,
+      "base": {
+        "months": 47,
+        "pnlBRL": 43.078135685744456,
+        "meanMonthlyBRL": 0.9165560784200948,
+        "trades": 180,
+        "maximumDrawdown": 0.03648017789659996,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 266.63656407963884
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -76.30209308288443,
+        "meanMonthlyBRL": -1.623448788997541,
+        "trades": 181,
+        "maximumDrawdown": 0.035986208969998185,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 226.78463391497237
+      }
+    },
+    {
+      "risk": 0.005,
+      "leverage": 5,
+      "base": {
+        "months": 47,
+        "pnlBRL": 43.078135685744456,
+        "meanMonthlyBRL": 0.9165560784200948,
+        "trades": 180,
+        "maximumDrawdown": 0.03648017789659996,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 106.65462563185554
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -76.30209308288443,
+        "meanMonthlyBRL": -1.623448788997541,
+        "trades": 181,
+        "maximumDrawdown": 0.035986208969998185,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 90.71385356598894
+      }
+    },
+    {
+      "risk": 0.005,
+      "leverage": 10,
+      "base": {
+        "months": 47,
+        "pnlBRL": 43.078135685744456,
+        "meanMonthlyBRL": 0.9165560784200948,
+        "trades": 180,
+        "maximumDrawdown": 0.03648017789659996,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 53.32731281592777
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -76.30209308288443,
+        "meanMonthlyBRL": -1.623448788997541,
+        "trades": 181,
+        "maximumDrawdown": 0.035986208969998185,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 45.35692678299447
+      }
+    },
+    {
+      "risk": 0.005,
+      "leverage": 15,
+      "base": {
+        "months": 47,
+        "pnlBRL": 43.078135685744456,
+        "meanMonthlyBRL": 0.9165560784200948,
+        "trades": 180,
+        "maximumDrawdown": 0.03648017789659996,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 35.55154187728519
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -76.30209308288443,
+        "meanMonthlyBRL": -1.623448788997541,
+        "trades": 181,
+        "maximumDrawdown": 0.035986208969998185,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 30.237951188662983
+      }
+    },
+    {
+      "risk": 0.005,
+      "leverage": 20,
+      "base": {
+        "months": 47,
+        "pnlBRL": 47.72844999517048,
+        "meanMonthlyBRL": 1.015498936067457,
+        "trades": 175,
+        "maximumDrawdown": 0.03648017789659996,
+        "haltedMonths": 1,
+        "liquidations": 1,
+        "meanMarginBRL": 26.887493449185712
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -71.48843953400103,
+        "meanMonthlyBRL": -1.5210306283830006,
+        "trades": 180,
+        "maximumDrawdown": 0.035986208969998185,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 22.77690426831667
+      }
+    },
+    {
+      "risk": 0.01,
+      "leverage": 1,
+      "base": {
+        "months": 47,
+        "pnlBRL": 141.2248941219299,
+        "meanMonthlyBRL": 3.0047849813176577,
+        "trades": 180,
+        "maximumDrawdown": 0.06641709886607217,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 735.6733100331667
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -45.04862021428565,
+        "meanMonthlyBRL": -0.9584812811550137,
+        "trades": 181,
+        "maximumDrawdown": 0.07083001464410231,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 714.8518614889505
+      }
+    },
+    {
+      "risk": 0.01,
+      "leverage": 2,
+      "base": {
+        "months": 47,
+        "pnlBRL": 100.38835153701925,
+        "meanMonthlyBRL": 2.135922373128069,
+        "trades": 179,
+        "maximumDrawdown": 0.07102917941625983,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 502.0565535001116
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -122.35843305697884,
+        "meanMonthlyBRL": -2.603370916105933,
+        "trades": 179,
+        "maximumDrawdown": 0.07133933390205044,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 446.80807350329616
+      }
+    },
+    {
+      "risk": 0.01,
+      "leverage": 5,
+      "base": {
+        "months": 47,
+        "pnlBRL": 88.4022357599845,
+        "meanMonthlyBRL": 1.8808986331911597,
+        "trades": 179,
+        "maximumDrawdown": 0.07216827871498352,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 213.23156058993294
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -128.28779519130282,
+        "meanMonthlyBRL": -2.729527557261762,
+        "trades": 179,
+        "maximumDrawdown": 0.07133933390205044,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 180.26218393260336
+      }
+    },
+    {
+      "risk": 0.01,
+      "leverage": 10,
+      "base": {
+        "months": 47,
+        "pnlBRL": 88.4022357599845,
+        "meanMonthlyBRL": 1.8808986331911597,
+        "trades": 179,
+        "maximumDrawdown": 0.07216827871498352,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 106.61578029496647
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -128.28779519130282,
+        "meanMonthlyBRL": -2.729527557261762,
+        "trades": 179,
+        "maximumDrawdown": 0.07133933390205044,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 90.13109196630168
+      }
+    },
+    {
+      "risk": 0.01,
+      "leverage": 15,
+      "base": {
+        "months": 47,
+        "pnlBRL": 88.4022357599845,
+        "meanMonthlyBRL": 1.8808986331911597,
+        "trades": 179,
+        "maximumDrawdown": 0.07216827871498352,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 71.07718686331101
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -128.28779519130282,
+        "meanMonthlyBRL": -2.729527557261762,
+        "trades": 179,
+        "maximumDrawdown": 0.07133933390205044,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 60.08739464420111
+      }
+    },
+    {
+      "risk": 0.01,
+      "leverage": 20,
+      "base": {
+        "months": 47,
+        "pnlBRL": 97.53988992471136,
+        "meanMonthlyBRL": 2.075316806908752,
+        "trades": 174,
+        "maximumDrawdown": 0.07216827871498352,
+        "haltedMonths": 1,
+        "liquidations": 1,
+        "meanMarginBRL": 53.7667954659023
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -118.66898038128866,
+        "meanMonthlyBRL": -2.524871923006142,
+        "trades": 178,
+        "maximumDrawdown": 0.07133933390205044,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 45.2702148104663
+      }
+    },
+    {
+      "risk": 0.02,
+      "leverage": 1,
+      "base": {
+        "months": 47,
+        "pnlBRL": 181.21975727339475,
+        "meanMonthlyBRL": 3.8557395164552073,
+        "trades": 180,
+        "maximumDrawdown": 0.07788813676683816,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 786.746423353111
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -13.072120424383655,
+        "meanMonthlyBRL": -0.2781302217953969,
+        "trades": 181,
+        "maximumDrawdown": 0.08110172210888081,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 783.185750625746
+      }
+    },
+    {
+      "risk": 0.02,
+      "leverage": 2,
+      "base": {
+        "months": 47,
+        "pnlBRL": 261.22280211143874,
+        "meanMonthlyBRL": 5.557931959817846,
+        "trades": 174,
+        "maximumDrawdown": 0.10065834396081783,
+        "haltedMonths": 1,
+        "liquidations": 0,
+        "meanMarginBRL": 737.6158602436495
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -93.31542928044632,
+        "meanMonthlyBRL": -1.9854346655414112,
+        "trades": 172,
+        "maximumDrawdown": 0.11642560975743496,
+        "haltedMonths": 1,
+        "liquidations": 0,
+        "meanMarginBRL": 715.5866854947676
+      }
+    },
+    {
+      "risk": 0.02,
+      "leverage": 5,
+      "base": {
+        "months": 47,
+        "pnlBRL": 245.721726520959,
+        "meanMonthlyBRL": 5.228121840871468,
+        "trades": 163,
+        "maximumDrawdown": 0.11236983102360402,
+        "haltedMonths": 2,
+        "liquidations": 0,
+        "meanMarginBRL": 414.61946123548466
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -197.04800710688292,
+        "meanMonthlyBRL": -4.192510789508147,
+        "trades": 163,
+        "maximumDrawdown": 0.11677683990729293,
+        "haltedMonths": 2,
+        "liquidations": 0,
+        "meanMarginBRL": 356.5524683029694
+      }
+    },
+    {
+      "risk": 0.02,
+      "leverage": 10,
+      "base": {
+        "months": 47,
+        "pnlBRL": 236.45379567922873,
+        "meanMonthlyBRL": 5.030931822962313,
+        "trades": 163,
+        "maximumDrawdown": 0.11236983102360402,
+        "haltedMonths": 2,
+        "liquidations": 0,
+        "meanMarginBRL": 210.70704916263193
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -197.04800710688292,
+        "meanMonthlyBRL": -4.192510789508147,
+        "trades": 163,
+        "maximumDrawdown": 0.11677683990729293,
+        "haltedMonths": 2,
+        "liquidations": 0,
+        "meanMarginBRL": 178.2762341514847
+      }
+    },
+    {
+      "risk": 0.02,
+      "leverage": 15,
+      "base": {
+        "months": 47,
+        "pnlBRL": 236.45379567922873,
+        "meanMonthlyBRL": 5.030931822962313,
+        "trades": 163,
+        "maximumDrawdown": 0.11236983102360402,
+        "haltedMonths": 2,
+        "liquidations": 0,
+        "meanMarginBRL": 140.47136610842122
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -197.04800710688292,
+        "meanMonthlyBRL": -4.192510789508147,
+        "trades": 163,
+        "maximumDrawdown": 0.11677683990729293,
+        "haltedMonths": 2,
+        "liquidations": 0,
+        "meanMarginBRL": 118.85082276765642
+      }
+    },
+    {
+      "risk": 0.02,
+      "leverage": 20,
+      "base": {
+        "months": 47,
+        "pnlBRL": 236.45379567922873,
+        "meanMonthlyBRL": 5.030931822962313,
+        "trades": 163,
+        "maximumDrawdown": 0.11236983102360402,
+        "haltedMonths": 2,
+        "liquidations": 0,
+        "meanMarginBRL": 105.35352458131597
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -183.44973956735967,
+        "meanMonthlyBRL": -3.903185948241695,
+        "trades": 162,
+        "maximumDrawdown": 0.10892637393346541,
+        "haltedMonths": 2,
+        "liquidations": 0,
+        "meanMarginBRL": 89.59213982516052
+      }
+    },
+    {
+      "risk": 0.03,
+      "leverage": 1,
+      "base": {
+        "months": 47,
+        "pnlBRL": 132.96505557076017,
+        "meanMonthlyBRL": 2.8290437355480886,
+        "trades": 180,
+        "maximumDrawdown": 0.07788813676683816,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 789.8845879503332
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -57.95587698849772,
+        "meanMonthlyBRL": -1.2331037657127175,
+        "trades": 181,
+        "maximumDrawdown": 0.08110172210888081,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 786.7454315202212
+      }
+    },
+    {
+      "risk": 0.03,
+      "leverage": 2,
+      "base": {
+        "months": 47,
+        "pnlBRL": 193.1852037347565,
+        "meanMonthlyBRL": 4.110323483718223,
+        "trades": 172,
+        "maximumDrawdown": 0.12687539701615116,
+        "haltedMonths": 1,
+        "liquidations": 0,
+        "meanMarginBRL": 777.6736142083721
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -201.11982807301814,
+        "meanMonthlyBRL": -4.279145278149322,
+        "trades": 168,
+        "maximumDrawdown": 0.13382948536146907,
+        "haltedMonths": 2,
+        "liquidations": 0,
+        "meanMarginBRL": 771.250663700893
+      }
+    },
+    {
+      "risk": 0.03,
+      "leverage": 5,
+      "base": {
+        "months": 47,
+        "pnlBRL": 381.0785286447475,
+        "meanMonthlyBRL": 8.108053800952074,
+        "trades": 157,
+        "maximumDrawdown": 0.14575073750699757,
+        "haltedMonths": 5,
+        "liquidations": 0,
+        "meanMarginBRL": 577.4045863340891
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -207.1605187817869,
+        "meanMonthlyBRL": -4.407670612378444,
+        "trades": 153,
+        "maximumDrawdown": 0.1415651026821277,
+        "haltedMonths": 5,
+        "liquidations": 0,
+        "meanMarginBRL": 520.3120774562353
+      }
+    },
+    {
+      "risk": 0.03,
+      "leverage": 10,
+      "base": {
+        "months": 47,
+        "pnlBRL": 111.57239527217988,
+        "meanMonthlyBRL": 2.3738807504719124,
+        "trades": 154,
+        "maximumDrawdown": 0.14575073750699757,
+        "haltedMonths": 6,
+        "liquidations": 0,
+        "meanMarginBRL": 318.3033472454676
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -390.3201433391386,
+        "meanMonthlyBRL": -8.304683900832737,
+        "trades": 150,
+        "maximumDrawdown": 0.1415651026821277,
+        "haltedMonths": 6,
+        "liquidations": 0,
+        "meanMarginBRL": 269.63413645209334
+      }
+    },
+    {
+      "risk": 0.03,
+      "leverage": 15,
+      "base": {
+        "months": 47,
+        "pnlBRL": 111.34500376156134,
+        "meanMonthlyBRL": 2.3690426332247094,
+        "trades": 154,
+        "maximumDrawdown": 0.14575073750699757,
+        "haltedMonths": 6,
+        "liquidations": 0,
+        "meanMarginBRL": 212.2328153789783
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -390.3201433391386,
+        "meanMonthlyBRL": -8.304683900832737,
+        "trades": 150,
+        "maximumDrawdown": 0.1415651026821277,
+        "haltedMonths": 6,
+        "liquidations": 0,
+        "meanMarginBRL": 179.75609096806224
+      }
+    },
+    {
+      "risk": 0.03,
+      "leverage": 20,
+      "base": {
+        "months": 47,
+        "pnlBRL": 111.34500376156134,
+        "meanMonthlyBRL": 2.3690426332247094,
+        "trades": 154,
+        "maximumDrawdown": 0.14575073750699757,
+        "haltedMonths": 6,
+        "liquidations": 0,
+        "meanMarginBRL": 159.1746115342338
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -390.2691583526086,
+        "meanMonthlyBRL": -8.303599113885289,
+        "trades": 150,
+        "maximumDrawdown": 0.1415651026821277,
+        "haltedMonths": 6,
+        "liquidations": 0,
+        "meanMarginBRL": 135.29743817483333
+      }
+    },
+    {
+      "risk": 0.05,
+      "leverage": 1,
+      "base": {
+        "months": 47,
+        "pnlBRL": 128.47321595349086,
+        "meanMonthlyBRL": 2.733472679861508,
+        "trades": 180,
+        "maximumDrawdown": 0.07788813676683816,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 790.9627391438887
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -65.54510953057076,
+        "meanMonthlyBRL": -1.394576798522782,
+        "trades": 181,
+        "maximumDrawdown": 0.08110172210888081,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 788.1724112254147
+      }
+    },
+    {
+      "risk": 0.05,
+      "leverage": 2,
+      "base": {
+        "months": 47,
+        "pnlBRL": 194.37269832705954,
+        "meanMonthlyBRL": 4.13558932610765,
+        "trades": 170,
+        "maximumDrawdown": 0.13820773729550165,
+        "haltedMonths": 2,
+        "liquidations": 0,
+        "meanMarginBRL": 790.7205993635001
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -149.1955168659948,
+        "meanMonthlyBRL": -3.1743726992764847,
+        "trades": 167,
+        "maximumDrawdown": 0.1444286629128487,
+        "haltedMonths": 3,
+        "liquidations": 0,
+        "meanMarginBRL": 787.4903206208384
+      }
+    },
+    {
+      "risk": 0.05,
+      "leverage": 5,
+      "base": {
+        "months": 47,
+        "pnlBRL": 643.1923853050606,
+        "meanMonthlyBRL": 13.68494436819278,
+        "trades": 136,
+        "maximumDrawdown": 0.18251157995545872,
+        "haltedMonths": 6,
+        "liquidations": 0,
+        "meanMarginBRL": 760.9111761775589
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -0.9844095517288167,
+        "meanMonthlyBRL": -0.020944884079336527,
+        "trades": 129,
+        "maximumDrawdown": 0.1790498319093391,
+        "haltedMonths": 6,
+        "liquidations": 0,
+        "meanMarginBRL": 738.2863223131163
+      }
+    },
+    {
+      "risk": 0.05,
+      "leverage": 10,
+      "base": {
+        "months": 47,
+        "pnlBRL": 579.6114575438637,
+        "meanMonthlyBRL": 12.332158671146036,
+        "trades": 121,
+        "maximumDrawdown": 0.1896343258813469,
+        "haltedMonths": 7,
+        "liquidations": 0,
+        "meanMarginBRL": 516.5703836224133
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -253.5382278580629,
+        "meanMonthlyBRL": -5.394430379958785,
+        "trades": 119,
+        "maximumDrawdown": 0.1795288639373264,
+        "haltedMonths": 8,
+        "liquidations": 0,
+        "meanMarginBRL": 455.52687257196646
+      }
+    },
+    {
+      "risk": 0.05,
+      "leverage": 15,
+      "base": {
+        "months": 47,
+        "pnlBRL": 417.66962997707094,
+        "meanMonthlyBRL": 8.886587871852573,
+        "trades": 120,
+        "maximumDrawdown": 0.1896343258813469,
+        "haltedMonths": 8,
+        "liquidations": 0,
+        "meanMarginBRL": 363.18425858287225
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -257.3102599371811,
+        "meanMonthlyBRL": -5.474686381642152,
+        "trades": 118,
+        "maximumDrawdown": 0.1795288639373264,
+        "haltedMonths": 8,
+        "liquidations": 0,
+        "meanMarginBRL": 307.2964684751073
+      }
+    },
+    {
+      "risk": 0.05,
+      "leverage": 20,
+      "base": {
+        "months": 47,
+        "pnlBRL": 413.2213496228551,
+        "meanMonthlyBRL": 8.791943608996917,
+        "trades": 120,
+        "maximumDrawdown": 0.1896343258813469,
+        "haltedMonths": 8,
+        "liquidations": 0,
+        "meanMarginBRL": 273.09554158515834
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -257.3102599371811,
+        "meanMonthlyBRL": -5.474686381642152,
+        "trades": 118,
+        "maximumDrawdown": 0.1795288639373264,
+        "haltedMonths": 8,
+        "liquidations": 0,
+        "meanMarginBRL": 230.47235135633056
+      }
+    },
+    {
+      "risk": 0.1,
+      "leverage": 1,
+      "base": {
+        "months": 47,
+        "pnlBRL": 128.47321595349086,
+        "meanMonthlyBRL": 2.733472679861508,
+        "trades": 180,
+        "maximumDrawdown": 0.07788813676683816,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 790.9627391438887
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -65.54510953057076,
+        "meanMonthlyBRL": -1.394576798522782,
+        "trades": 181,
+        "maximumDrawdown": 0.08110172210888081,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 788.1724112254147
+      }
+    },
+    {
+      "risk": 0.1,
+      "leverage": 2,
+      "base": {
+        "months": 47,
+        "pnlBRL": 200.3216940679755,
+        "meanMonthlyBRL": 4.262163703573947,
+        "trades": 169,
+        "maximumDrawdown": 0.13820773729550165,
+        "haltedMonths": 2,
+        "liquidations": 0,
+        "meanMarginBRL": 794.4478588938758
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -141.79157996140563,
+        "meanMonthlyBRL": -3.0168421268384176,
+        "trades": 167,
+        "maximumDrawdown": 0.1444286629128487,
+        "haltedMonths": 3,
+        "liquidations": 0,
+        "meanMarginBRL": 791.2640404786827
+      }
+    },
+    {
+      "risk": 0.1,
+      "leverage": 5,
+      "base": {
+        "months": 47,
+        "pnlBRL": 1045.741258260891,
+        "meanMonthlyBRL": 22.249814005550874,
+        "trades": 136,
+        "maximumDrawdown": 0.20662721832004913,
+        "haltedMonths": 6,
+        "liquidations": 0,
+        "meanMarginBRL": 809.2627936920295
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": 401.57178569852,
+        "meanMonthlyBRL": 8.544080546777021,
+        "trades": 128,
+        "maximumDrawdown": 0.2059733795485944,
+        "haltedMonths": 6,
+        "liquidations": 0,
+        "meanMarginBRL": 803.5586575586876
+      }
+    },
+    {
+      "risk": 0.1,
+      "leverage": 10,
+      "base": {
+        "months": 47,
+        "pnlBRL": 360.05202290108,
+        "meanMonthlyBRL": 7.660681338320852,
+        "trades": 111,
+        "maximumDrawdown": 0.25888701422989313,
+        "haltedMonths": 12,
+        "liquidations": 0,
+        "meanMarginBRL": 771.827288196739
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -988.6260921677157,
+        "meanMonthlyBRL": -21.03459770569608,
+        "trades": 100,
+        "maximumDrawdown": 0.18896274676902947,
+        "haltedMonths": 14,
+        "liquidations": 0,
+        "meanMarginBRL": 744.1977523911601
+      }
+    },
+    {
+      "risk": 0.1,
+      "leverage": 15,
+      "base": {
+        "months": 47,
+        "pnlBRL": 346.44541533069383,
+        "meanMonthlyBRL": 7.37117904958923,
+        "trades": 107,
+        "maximumDrawdown": 0.25435957045278207,
+        "haltedMonths": 12,
+        "liquidations": 0,
+        "meanMarginBRL": 648.6168119664985
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -1568.364563263921,
+        "meanMonthlyBRL": -33.36945879284938,
+        "trades": 92,
+        "maximumDrawdown": 0.1910688016518782,
+        "haltedMonths": 16,
+        "liquidations": 0,
+        "meanMarginBRL": 588.3914446655652
+      }
+    },
+    {
+      "risk": 0.1,
+      "leverage": 20,
+      "base": {
+        "months": 47,
+        "pnlBRL": -215.46678198168377,
+        "meanMonthlyBRL": -4.584399616631569,
+        "trades": 101,
+        "maximumDrawdown": 0.25435957045278207,
+        "haltedMonths": 13,
+        "liquidations": 0,
+        "meanMarginBRL": 527.1282278748416
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -1622.9542145853784,
+        "meanMonthlyBRL": -34.53094073585911,
+        "trades": 92,
+        "maximumDrawdown": 0.2038692409187344,
+        "haltedMonths": 17,
+        "liquidations": 0,
+        "meanMarginBRL": 464.13843965509795
+      }
+    },
+    {
+      "risk": 0.15,
+      "leverage": 1,
+      "base": {
+        "months": 47,
+        "pnlBRL": 128.47321595349086,
+        "meanMonthlyBRL": 2.733472679861508,
+        "trades": 180,
+        "maximumDrawdown": 0.07788813676683816,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 790.9627391438887
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -65.54510953057076,
+        "meanMonthlyBRL": -1.394576798522782,
+        "trades": 181,
+        "maximumDrawdown": 0.08110172210888081,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 788.1724112254147
+      }
+    },
+    {
+      "risk": 0.15,
+      "leverage": 2,
+      "base": {
+        "months": 47,
+        "pnlBRL": 200.3216940679755,
+        "meanMonthlyBRL": 4.262163703573947,
+        "trades": 169,
+        "maximumDrawdown": 0.13820773729550165,
+        "haltedMonths": 2,
+        "liquidations": 0,
+        "meanMarginBRL": 794.4478588938758
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -141.79157996140563,
+        "meanMonthlyBRL": -3.0168421268384176,
+        "trades": 167,
+        "maximumDrawdown": 0.1444286629128487,
+        "haltedMonths": 3,
+        "liquidations": 0,
+        "meanMarginBRL": 791.2640404786827
+      }
+    },
+    {
+      "risk": 0.15,
+      "leverage": 5,
+      "base": {
+        "months": 47,
+        "pnlBRL": 1095.8873371840493,
+        "meanMonthlyBRL": 23.316751854979774,
+        "trades": 136,
+        "maximumDrawdown": 0.20662721832004913,
+        "haltedMonths": 6,
+        "liquidations": 0,
+        "meanMarginBRL": 812.3799428926911
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": 179.52917971242277,
+        "meanMonthlyBRL": 3.819769781115378,
+        "trades": 126,
+        "maximumDrawdown": 0.2059733795485944,
+        "haltedMonths": 7,
+        "liquidations": 0,
+        "meanMarginBRL": 803.1079160928573
+      }
+    },
+    {
+      "risk": 0.15,
+      "leverage": 10,
+      "base": {
+        "months": 47,
+        "pnlBRL": 697.3370775873806,
+        "meanMonthlyBRL": 14.836959097603842,
+        "trades": 110,
+        "maximumDrawdown": 0.2126567399909044,
+        "haltedMonths": 13,
+        "liquidations": 0,
+        "meanMarginBRL": 816.0500719042277
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -1015.2932331811849,
+        "meanMonthlyBRL": -21.60198368470606,
+        "trades": 97,
+        "maximumDrawdown": 0.1991125167939792,
+        "haltedMonths": 15,
+        "liquidations": 0,
+        "meanMarginBRL": 793.0737685714847
+      }
+    },
+    {
+      "risk": 0.15,
+      "leverage": 15,
+      "base": {
+        "months": 47,
+        "pnlBRL": -656.3391982916723,
+        "meanMonthlyBRL": -13.964663793439836,
+        "trades": 95,
+        "maximumDrawdown": 0.2617502622890776,
+        "haltedMonths": 14,
+        "liquidations": 0,
+        "meanMarginBRL": 777.0029253054037
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -2197.9828125265212,
+        "meanMonthlyBRL": -46.76559175588343,
+        "trades": 81,
+        "maximumDrawdown": 0.21872300161734898,
+        "haltedMonths": 19,
+        "liquidations": 0,
+        "meanMarginBRL": 746.3046796664196
+      }
+    },
+    {
+      "risk": 0.15,
+      "leverage": 20,
+      "base": {
+        "months": 47,
+        "pnlBRL": -1687.9803347569145,
+        "meanMonthlyBRL": -35.914475207593924,
+        "trades": 92,
+        "maximumDrawdown": 0.265706631761742,
+        "haltedMonths": 17,
+        "liquidations": 0,
+        "meanMarginBRL": 692.8580642244403
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -2477.2552112882713,
+        "meanMonthlyBRL": -52.707557686984494,
+        "trades": 76,
+        "maximumDrawdown": 0.2769953097378487,
+        "haltedMonths": 21,
+        "liquidations": 0,
+        "meanMarginBRL": 640.4311283843815
+      }
+    },
+    {
+      "risk": 0.2,
+      "leverage": 1,
+      "base": {
+        "months": 47,
+        "pnlBRL": 128.47321595349086,
+        "meanMonthlyBRL": 2.733472679861508,
+        "trades": 180,
+        "maximumDrawdown": 0.07788813676683816,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 790.9627391438887
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -65.54510953057076,
+        "meanMonthlyBRL": -1.394576798522782,
+        "trades": 181,
+        "maximumDrawdown": 0.08110172210888081,
+        "haltedMonths": 0,
+        "liquidations": 0,
+        "meanMarginBRL": 788.1724112254147
+      }
+    },
+    {
+      "risk": 0.2,
+      "leverage": 2,
+      "base": {
+        "months": 47,
+        "pnlBRL": 200.3216940679755,
+        "meanMonthlyBRL": 4.262163703573947,
+        "trades": 169,
+        "maximumDrawdown": 0.13820773729550165,
+        "haltedMonths": 2,
+        "liquidations": 0,
+        "meanMarginBRL": 794.4478588938758
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -141.79157996140563,
+        "meanMonthlyBRL": -3.0168421268384176,
+        "trades": 167,
+        "maximumDrawdown": 0.1444286629128487,
+        "haltedMonths": 3,
+        "liquidations": 0,
+        "meanMarginBRL": 791.2640404786827
+      }
+    },
+    {
+      "risk": 0.2,
+      "leverage": 5,
+      "base": {
+        "months": 47,
+        "pnlBRL": 1095.8873371840493,
+        "meanMonthlyBRL": 23.316751854979774,
+        "trades": 136,
+        "maximumDrawdown": 0.20662721832004913,
+        "haltedMonths": 6,
+        "liquidations": 0,
+        "meanMarginBRL": 812.3799428926911
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": 177.79442191800172,
+        "meanMonthlyBRL": 3.782860040808547,
+        "trades": 126,
+        "maximumDrawdown": 0.2059733795485944,
+        "haltedMonths": 7,
+        "liquidations": 0,
+        "meanMarginBRL": 803.2379920453018
+      }
+    },
+    {
+      "risk": 0.2,
+      "leverage": 10,
+      "base": {
+        "months": 47,
+        "pnlBRL": 884.3772259810024,
+        "meanMonthlyBRL": 18.816536723000052,
+        "trades": 110,
+        "maximumDrawdown": 0.2348650719624892,
+        "haltedMonths": 13,
+        "liquidations": 0,
+        "meanMarginBRL": 831.3871146187641
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -961.6766524743109,
+        "meanMonthlyBRL": -20.46120537179385,
+        "trades": 97,
+        "maximumDrawdown": 0.22194090319066137,
+        "haltedMonths": 15,
+        "liquidations": 0,
+        "meanMarginBRL": 806.595187308
+      }
+    },
+    {
+      "risk": 0.2,
+      "leverage": 15,
+      "base": {
+        "months": 47,
+        "pnlBRL": -421.3951474079779,
+        "meanMonthlyBRL": -8.965854200169742,
+        "trades": 94,
+        "maximumDrawdown": 0.2607950787077965,
+        "haltedMonths": 15,
+        "liquidations": 0,
+        "meanMarginBRL": 805.6106323231913
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -2046.943835481381,
+        "meanMonthlyBRL": -43.55199649960385,
+        "trades": 83,
+        "maximumDrawdown": 0.23349428778571718,
+        "haltedMonths": 20,
+        "liquidations": 0,
+        "meanMarginBRL": 786.7383381448191
+      }
+    },
+    {
+      "risk": 0.2,
+      "leverage": 20,
+      "base": {
+        "months": 47,
+        "pnlBRL": -1426.1202012191122,
+        "meanMonthlyBRL": -30.342983004661964,
+        "trades": 86,
+        "maximumDrawdown": 0.26184215537104555,
+        "haltedMonths": 19,
+        "liquidations": 0,
+        "meanMarginBRL": 777.6134672211396
+      },
+      "stress": {
+        "months": 47,
+        "pnlBRL": -2454.8255768815593,
+        "meanMonthlyBRL": -52.2303314230119,
+        "trades": 76,
+        "maximumDrawdown": 0.2932353401903381,
+        "haltedMonths": 22,
+        "liquidations": 0,
+        "meanMarginBRL": 749.2461381532893
+      }
+    }
+  ],
+  "capitalBRL": 1000,
+  "monthlyReset": true,
+  "noSelectionUse": true,
+  "newMLFits": 0,
+  "realOrders": false,
+  "caveat": "Sensibilidade retrospectiva do G151 fixo, não seleção do maior lucro. Não alimenta a genéticaV6. Resets mensais diferem dos blocos trimestrais daV6."
+}
