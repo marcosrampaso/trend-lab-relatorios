@@ -131,3 +131,9 @@ Atualizar este retrato: `python3 tools/snapshot-cdi.py --source /caminho/do/tren
 [Retrato dos resultados V2](experimentos/donchian-genetico-v2/index.html) · [Método e mudanças](app/DONCHIAN-GENETICO-V2.md) · [Painel local V2](http://127.0.0.1:4173/pesquisa-genetica/donchian-genetico.html?run=v2)
 
 Sem teto artificial de gerações/horas e sem a trava acumulada de −10%, exclusivamente na pesquisa. Risco de1% por entrada, limite diário3%, stops, custos, saldo contínuo e insolvência preservados. V1 arquivada na geração119; todos os genomas importados são reavaliados. Nenhuma ordem real ou promoção automática.
+
+## Donchian V3 · alvos da estratégia e saídas 50/50
+
+[Retrato V3 e comparação de saídas](experimentos/donchian-genetico-v3/index.html) · [Método e contabilidade](app/DONCHIAN-GENETICO-V3.md) · [Painel local](http://127.0.0.1:4173/pesquisa-genetica/donchian-genetico.html?run=v3#exits-section)
+
+A genética compara saída inteira com metade no primeiro alvo e restante no segundo. Alvos em múltiplos do stop calculado pelo ATR; os3% são limite diário de perda. Funding usa a quantidade restante, parciais respeitam lote mínimo e uma posição conta uma vez. V2 preservada na geração59; sem reutilizar suas pontuações.
