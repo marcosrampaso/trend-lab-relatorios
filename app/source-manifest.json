@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-19T20:08:56.466306+00:00",
+  "exportedAt": "2026-10-19T20:31:51.243380+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -52,6 +52,14 @@
     "EVOLUCAO-GENETICA.md": {
       "sha256": "7caaa88230b4bc0959af5ca703c583bcc2f956699b38a3fab6d830266b2fb745",
       "bytes": 3916
+    },
+    "FOCO-G151.md": {
+      "sha256": "f34d612a8abfdd8413f39af8a83a484d63d67bc907031e6cee655918414586d8",
+      "bytes": 2313
+    },
+    "G151-SAIDAS-TRAILING.md": {
+      "sha256": "77b56955b78e4978550986d1ee7ddc1b98e6cd9c2defa9e3ed2112547cca087c",
+      "bytes": 7302
     },
     "GENETICA-ADAPTATIVA.md": {
       "sha256": "02ff9a48aeaa362b7ab34f866781b860878957d9eb4f9a364d9b3aa6d5a9e7d2",
@@ -413,6 +421,10 @@
       "sha256": "d88cba7aa3154feb8c27fc00230a5aa9d2d38bdf06265077edb9871929f2a239",
       "bytes": 3920
     },
+    "scripts/audit-g151-exits.mjs": {
+      "sha256": "b79e9aa0b2635b9fb6710609620f1f2697e6be5d04347c82fa58080de40b5ded",
+      "bytes": 2753
+    },
     "scripts/audit-routing-losses.mjs": {
       "sha256": "c66d59e4a62ffa4e11b673c0485f9146d25074ac7f5778b363e62d4648e79d30",
       "bytes": 2160
@@ -645,6 +657,14 @@
       "sha256": "d7b6dafca76fff76f8361ce76c036663f89149899223045d1b64e22f8e62cd60",
       "bytes": 3533
     },
+    "scripts/g151-exit-engine.mjs": {
+      "sha256": "f9cf31d5e3695b9895c0ab99a4f9182be34a674ebc2e467fb93b13ac3dc0d1b5",
+      "bytes": 13880
+    },
+    "scripts/g151-exit-study-core.mjs": {
+      "sha256": "41d185e4e82b948e5f8cfa5dd0e7f33b7a40fdbed63e77fdbb0863436c3def65",
+      "bytes": 2851
+    },
     "scripts/g151-inference.py": {
       "sha256": "64be59924bb4c988f5bbb268c0c23ddd11ba176f03d366a9ed8eaff0abdfc5d4",
       "bytes": 2689
@@ -853,6 +873,10 @@
       "sha256": "9cdff7d775bb987017f5e1e9f2fe3fcd49cdb861ccd9080ba463599e0f29f8a2",
       "bytes": 671
     },
+    "scripts/run-g151-exit-study.mjs": {
+      "sha256": "9f188104ef7f3b3962c830a0bddc9d946da58095124ca27b7bb9352d27351fa1",
+      "bytes": 11670
+    },
     "scripts/run-genetic-stability-v6.mjs": {
       "sha256": "9b2c4b9565b586b38a4667917427011c044adb013183c4abdcb9ede8f608edf1",
       "bytes": 13629
@@ -1032,6 +1056,10 @@
     "tests/extended-ml.test.mjs": {
       "sha256": "ff2eacbf75fc169b9260441b8ebc847590e01f11ca15be24402efc5b29112d31",
       "bytes": 1883
+    },
+    "tests/g151-exits.test.mjs": {
+      "sha256": "4dceddae6a2a33f3ffa41d4e21e9e7add1bfa6d5dc6a8fc0243043c1f0e1c303",
+      "bytes": 5363
     },
     "tests/g151-news.test.mjs": {
       "sha256": "b9da01d138d3278d0d23517e584710c1df0279b487e99ad7c10879ea8f097f7f",
@@ -1242,8 +1270,8 @@
       "bytes": 7448
     },
     "web/index.html": {
-      "sha256": "78c9ca6258946ef015f09b11366e0b5a4218014826ca1cf252cf1fd227c7cccb",
-      "bytes": 52798
+      "sha256": "a62474bd43fb326d68b7726bdd10c5e25951827382a59c2e4e8e8286aef2861c",
+      "bytes": 52929
     },
     "web/lab.js": {
       "sha256": "73d211b70178393330410fa351effe2a90bd202fb66c316b8efa3880ceae7f9e",
@@ -1332,6 +1360,18 @@
     "web/pesquisa-genetica/experimento-noticias.js": {
       "sha256": "9049698e62a4374782fcf7129edccf663bc14258b3668c4ce3689b63e9b36e28",
       "bytes": 9322
+    },
+    "web/pesquisa-genetica/g151-evolucao.css": {
+      "sha256": "2be81b733d1fce417d209f08b5d2cacf19a6609d86e6388b9d7cb9dbfbecfeb2",
+      "bytes": 2380
+    },
+    "web/pesquisa-genetica/g151-evolucao.html": {
+      "sha256": "a3fc6cb8a020b467e3fd6afee2d532340ef67cb185c1e84ada52ace2cb7b1c74",
+      "bytes": 7260
+    },
+    "web/pesquisa-genetica/g151-evolucao.js": {
+      "sha256": "56315731af7f2dd2d272353e1d5a2760c64b19f90a89b30ab827bbad75a791d9",
+      "bytes": 14383
     },
     "web/profitability.js": {
       "sha256": "c5654f4881aa27433e57a0056b72baec8a60c17797a07a964bf74501c7dac928",

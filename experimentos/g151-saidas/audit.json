@@ -1,0 +1,14 @@
+{
+  "checkedAt": 1792441896937,
+  "windows": 928,
+  "positions": 5229,
+  "legs": 3149,
+  "stopUpdates": 6812,
+  "inputHashesVerified": 193,
+  "legacyMonthlyBRL": 18.402207221636612,
+  "correctedMonthlyBRL": 18.4032973176639,
+  "reportSHA256": "428c4f01a5c316c68a5eb379681c067979eb47cc96e9decc3106301161cdae49",
+  "allContinuousStressHalted": true,
+  "realOrders": false,
+  "independentHoldout": false
+}

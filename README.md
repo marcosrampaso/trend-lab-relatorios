@@ -149,3 +149,9 @@ Sem vencimento por operação. Após parcial válida, genética escolhe proteç�
 [Auditoria e seis perfis de defesa](experimentos/donchian-defesa/index.html) · [Método, limites e custos](app/DONCHIAN-DEFESA-MERCADO.md) · [Painel local](http://127.0.0.1:4173/pesquisa-genetica/donchian-defesa.html)
 
 ControleV4 congelado: ganho inicial em2020–2021, perdas posteriores e custos maiores que a vantagem bruta. Nenhuma defesa passou o critério de desenvolvimento contraCDI. Coleta prospectiva pública deBTC/ETH em observação, sem ordens ou vetos nos bots.
+
+## G151 · saídas e trailing
+
+[Dashboard e retrato dos resultados](experimentos/g151-saidas/index.html) · [Método e interpretação](app/G151-SAIDAS-TRAILING.md) · [Código da simulação](app/scripts/g151-exit-engine.mjs).
+
+928 avaliações concluídas, com controles reproduzidos e 301 testes passando. O trailing 2 ATR reduziu a perda média de −R$7,17 para −R$6,75/mês nos 38 meses fora da seleção, mas piorou os nove meses originais. Todas as carteiras contínuas atingiram o limite de perda de 10%; nenhuma variante foi promovida. Sem novo treino nem ordens reais.
