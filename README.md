@@ -97,3 +97,14 @@ Dois problemas reproduzidos: contador antigo de vetos exclui os eventos do rotea
 - [Painel local ao vivo](http://127.0.0.1:4173/pesquisa-genetica/daytrade-integrado.html)
 
 Reaproveita EMA1h e Donchian fixo/adaptativo em BTC/ETH, até24h por operação. Cada estratégia tem controle, sentimento local, contextoBTC e ambos;24carteiras simuladas. Não utiliza pesos de scalping em sinais horários. Comparação histórica nos mesmos quatro meses, sem promoção automática. `tools/snapshot-daytrade.py --source /caminho/do/trend-lab` atualiza o retrato sem fazer push ou alterar o estado da execução.
+
+
+## Comparação de todos os experimentos com o CDI
+
+- [Painel local com filtros e curvas](http://127.0.0.1:4173/pesquisa-genetica/cdi-comparativo.html).
+- [Retrato estático dos 324 cenários](experimentos/cdi/index.html) e [números e proveniência](experimentos/cdi/snapshot.json).
+- [Método e limitações](app/COMPARACAO-CDI.md), [cálculo](app/scripts/cdi-reference-core.mjs) e [testes](app/tests/cdi-reference.test.mjs).
+
+100% do CDI bruto teórico, juros reinvestidos, mesmo capital e datas por carteira. Robôs após custos modelados; ambos antes de impostos. Fontes BCB/Ipeadata, reconciliação diária/mensal, sem taxa futura estimada ou taxa anual atual retroativa. A referência de outubro fica provisória; sem ranking ou percentual enquanto faltar reconciliação. Arquivos antigos, regras dos bots e critérios de seleção preservados. As páginas de day trade, BTC/ETH e notícias incluem a seção CDI; os relatórios antigos da genética conservam seu próprio benchmark.
+
+Atualizar este retrato: `python3 tools/snapshot-cdi.py --source /caminho/do/trend-lab`, após exportar os fontes. O comando não faz push, backtest ou operação real. 239 testes passaram na implantação.

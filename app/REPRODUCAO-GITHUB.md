@@ -67,3 +67,8 @@ node --test tests/news-filter-experiment.test.mjs tests/g151-news.test.mjs tests
 A suíte completa de225testes exige os dados locais originais. [Relatório datado](../experimentos/btc-eth-sentimento/index.html); [painel local](http://127.0.0.1:4173/pesquisa-genetica/cripto-sentimento.html).
 
 Day trade integrado: veja [DAYTRADE-INTEGRADO.md](DAYTRADE-INTEGRADO.md). O teste `node --test tests/daytrade-integrated.test.mjs` roda sem dados grandes; a suíte completa atual tem232testes e exige históricos. Novos testes não alteram o resultado registrado dos snapshots antigos.
+
+
+## Comparador CDI
+
+Veja [COMPARACAO-CDI.md](COMPARACAO-CDI.md). O código novo lê os resultados publicados e mantém a referência em pasta separada, sem recalcular bots. Testes sem dados privados: `node --test tests/cdi-reference.test.mjs`. Para atualizar a fonte, restaure os insumos auditados de `data/cdi/extended/` e os arquivos brutos cujos hashes constam no manifesto dessa referência; eles não são fornecidos pelo exportador de código. No checkout completo: `node scripts/local-cdi-comparison.mjs start`. O servidor local precisa estar ativo e não pausado. O serviço não o inicia.

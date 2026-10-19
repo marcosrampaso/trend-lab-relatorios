@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-19T15:20:09.543675+00:00",
+  "exportedAt": "2026-10-19T15:45:46.467875+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -8,6 +8,10 @@
     "BASE-TEORICA.md": {
       "sha256": "287a3ca91074ce4030264c6f286ec179cdb74e43c08c9f5b037acf4046300213",
       "bytes": 6135
+    },
+    "COMPARACAO-CDI.md": {
+      "sha256": "9b78b978638e41f93d06ef59252c5462d8d9ae68f941e71ae9ebd1fdf781677f",
+      "bytes": 5729
     },
     "DAYTRADE-INTEGRADO.md": {
       "sha256": "495d32ea46454811ff4f8d2dffcc8f93c8bda2f5f20787872e21568de0aff2a3",
@@ -425,6 +429,14 @@
       "sha256": "d3ee5b1a90242ff9935a2a69dbc7acd3281414cd3884a3ef429970d83cd49b12",
       "bytes": 1868
     },
+    "scripts/cdi-reference-core.mjs": {
+      "sha256": "a14c35b9872549e52718fa67a2186bb8481e032fd4fb6c45a242c0d128bdeaa2",
+      "bytes": 2592
+    },
+    "scripts/cdi-scenarios.mjs": {
+      "sha256": "11ae1d4937dd17a338fa72c73657f72c682011e05a1b2d68e5400692df2240a4",
+      "bytes": 3050
+    },
     "scripts/champion-report-stats.mjs": {
       "sha256": "8ff5a3b8a3489e59b7af465a5df484c090aa81486ba0a8ec7d3226861bb12851",
       "bytes": 1684
@@ -585,6 +597,10 @@
       "sha256": "15a5f291c695acbc99709437997564238398050a2dfbb119a3029ad61874e256",
       "bytes": 3749
     },
+    "scripts/local-cdi-comparison.mjs": {
+      "sha256": "334e03c63fb11ba7a6b9722e11fae64679b607e70796cafb7a4d593471bd32be",
+      "bytes": 4645
+    },
     "scripts/local-compound.mjs": {
       "sha256": "c786b49013ab90a53f1bd2c6dabed7bc3d7827ec68234094d969f1be512bac9e",
       "bytes": 1685
@@ -700,6 +716,10 @@
     "scripts/publish-news.mjs": {
       "sha256": "b98b249cb7e7a8e5cd2cb1f08aaeb631fd7a3db5fa859f410b48c3d859692e0f",
       "bytes": 1790
+    },
+    "scripts/refresh-cdi-reference.py": {
+      "sha256": "a2b02be563205e6a748d25ef5435b7668678ad29c7da131eac75cb0f8a823efd",
+      "bytes": 4392
     },
     "scripts/repair-history-v2.py": {
       "sha256": "673473a11712aa9a86c775ef61b860f66f236535103136b50f8477882c37047f",
@@ -820,6 +840,10 @@
     "tests/btc-context.test.mjs": {
       "sha256": "bcc7af815c92eb638878049ae9533fa5fb3ff3477ce59372e54a192c59d1b275",
       "bytes": 1908
+    },
+    "tests/cdi-reference.test.mjs": {
+      "sha256": "b7e291be7060ade5608ee59a3c0a2a6e3c65ff2b4acfb5e8327b3a29f60ee974",
+      "bytes": 3272
     },
     "tests/champion-report.test.mjs": {
       "sha256": "5289c3406b96b1c04f8354f5f5840a6fda0e3e7c05ebd4735083fa9b4b93271f",
@@ -1093,21 +1117,33 @@
       "sha256": "5e5d040178d51b41f8dbbe6bef53a4dc94dd9a975fbb732b83baa75caea2763b",
       "bytes": 7280
     },
+    "web/pesquisa-genetica/cdi-comparativo.html": {
+      "sha256": "716a1fe4bbf3956924f14d2f5fb5d530cbc3c938fe905b037bed0ca5e90dc1bc",
+      "bytes": 1595
+    },
+    "web/pesquisa-genetica/cdi-overlay.css": {
+      "sha256": "80576a3f9cfbfb6077f278e1b04bfe0cf79d1ef197d0226b60cdaae0bf144fc6",
+      "bytes": 565
+    },
+    "web/pesquisa-genetica/cdi-overlay.js": {
+      "sha256": "38a8d69ed099d9b7525f6ab1a00e6859838abce39fc22af663ff36fe739af651",
+      "bytes": 7300
+    },
     "web/pesquisa-genetica/cripto-sentimento.css": {
       "sha256": "2815dad967758ac392bfe596adda5d1e1c56934fc314acfd85f7185d39c7f5a6",
       "bytes": 467
     },
     "web/pesquisa-genetica/cripto-sentimento.html": {
-      "sha256": "a94edfc6b245ded2cdece376ab7d7d8da381f8963db79299502641c2da563ccb",
-      "bytes": 7572
+      "sha256": "68919b131735e219d7238c293e03a3c643df6bf67b8ae57d01f69a496a358807",
+      "bytes": 7791
     },
     "web/pesquisa-genetica/cripto-sentimento.js": {
       "sha256": "6bf8450d4496c2a44b7fd71c2c6fa2eef539ba71b35ed99152d0c54502e97a75",
       "bytes": 7707
     },
     "web/pesquisa-genetica/daytrade-integrado.html": {
-      "sha256": "ae017c18f0a4bf3475dbce799bc4b4b1d23fd13260a94cbcd7209b042bfea839",
-      "bytes": 5986
+      "sha256": "dac1bfa22e26e7e63fd11e10abe7d2def1aac2139d76ed3f8ac51ee9def9181a",
+      "bytes": 6205
     },
     "web/pesquisa-genetica/daytrade-integrado.js": {
       "sha256": "75910aa2789186cb6d31010cc36bf86975f81db7954696ef24144e498de16d3d",
@@ -1118,8 +1154,8 @@
       "bytes": 2513
     },
     "web/pesquisa-genetica/experimento-noticias.html": {
-      "sha256": "26348d7e35dbdbf327933b74ba9b6b041b1fa0b60735b9000556d331589462c7",
-      "bytes": 5432
+      "sha256": "caba1b8bd12b0468bebc7c690e4b7acd82169e189187410fa8d615cfa49092a6",
+      "bytes": 5630
     },
     "web/pesquisa-genetica/experimento-noticias.js": {
       "sha256": "9049698e62a4374782fcf7129edccf663bc14258b3668c4ce3689b63e9b36e28",
