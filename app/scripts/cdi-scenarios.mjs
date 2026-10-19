@@ -10,6 +10,7 @@ export function publishedScenarios(documents){
  };
  for(const[file,d]of Object.entries(documents)){
   const key=file.replace(/\.json$/,'');
+  if(key==='donchian-lab-study'){for(const s of d.results??[])add(key,file,s.id,s.label+' · '+s.stage+' · '+s.blockId,s.symbol,s.cost,s.start,s.end,s.initialBRL,s.pnlBRL,s.curve);continue;}
   if(['multiasset-history','daytrade-integrated-history','btc-context-study'].includes(key)){
    for(const [i,s]of d.results.entries())add(key,file,i,[s.label??s.arm??'ETH G151',s.variant??'controle'].join(' · '),s.symbol??'ETHUSDT',s.cost,d.start,d.end,s.initialBRL,s.pnlBRL,s.equity);continue;
   }

@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-19T15:45:46.467875+00:00",
+  "exportedAt": "2026-10-19T16:04:11.249932+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -20,6 +20,10 @@
     "DONCHIAN-HISTORICO.md": {
       "sha256": "8bec5ac759aca2bac4ab642de26099482989e5d7aa06b635019d7def778cfb25",
       "bytes": 5363
+    },
+    "DONCHIAN-LAB.md": {
+      "sha256": "0dcf43b06ed6bf1ac174b44e96688d55d8ab5865d0fa66ea7aa936667fa824c0",
+      "bytes": 6566
     },
     "DONCHIAN.md": {
       "sha256": "4f70dcfe0605d4b0fd7e77c6e7625571cd46eee87e665bdf9607b84b0bda9332",
@@ -434,8 +438,8 @@
       "bytes": 2592
     },
     "scripts/cdi-scenarios.mjs": {
-      "sha256": "11ae1d4937dd17a338fa72c73657f72c682011e05a1b2d68e5400692df2240a4",
-      "bytes": 3050
+      "sha256": "cc6e864374970ea4e9ee698cf21f2e0cdd1cc40ced4b27e47304913619e0ac1d",
+      "bytes": 3242
     },
     "scripts/champion-report-stats.mjs": {
       "sha256": "8ff5a3b8a3489e59b7af465a5df484c090aa81486ba0a8ec7d3226861bb12851",
@@ -465,6 +469,14 @@
       "sha256": "bb882b6a878c24bf0c3931ce013976402313f13c097a2daa1c3ef29609fe31e5",
       "bytes": 1236
     },
+    "scripts/donchian-lab-core.mjs": {
+      "sha256": "c5ae5b032811160896403d5ae2a1ab917b0c52eb6f44ca26bf22fc64b5668eaf",
+      "bytes": 2664
+    },
+    "scripts/donchian-streaming-core.mjs": {
+      "sha256": "6dc3db5acf560ca61baa42b9d34c029991845f23ae1c7495a58d779a9821ae9d",
+      "bytes": 7121
+    },
     "scripts/evaluate-btc-comparison.mjs": {
       "sha256": "73d8f448d99257bc66a0ee2849f51257e7325b8d5553b16329dba1eebe60bf08",
       "bytes": 3181
@@ -476,6 +488,10 @@
     "scripts/evaluate-daytrade.mjs": {
       "sha256": "403bada738ea339eb7a1522fda27ca5682a3d2bb6403ddc1e186a4c4ba5fdc9b",
       "bytes": 3962
+    },
+    "scripts/evaluate-donchian-lab.mjs": {
+      "sha256": "e9ab13ff42de68cd1f0b3312e6ba704f12813d30675d1837659125ea6004506b",
+      "bytes": 10765
     },
     "scripts/evaluate-exit-study.mjs": {
       "sha256": "e3b01153a30712788a036897eb0b45d30c9ec70db9859e2a4a33158e0dfc10a4",
@@ -598,8 +614,8 @@
       "bytes": 3749
     },
     "scripts/local-cdi-comparison.mjs": {
-      "sha256": "334e03c63fb11ba7a6b9722e11fae64679b607e70796cafb7a4d593471bd32be",
-      "bytes": 4645
+      "sha256": "a3e1f834d3bfe042681dd36b85e982e46ebcde34465970826b3bf617d1a59a42",
+      "bytes": 4671
     },
     "scripts/local-compound.mjs": {
       "sha256": "c786b49013ab90a53f1bd2c6dabed7bc3d7827ec68234094d969f1be512bac9e",
@@ -869,6 +885,14 @@
       "sha256": "c239d94bb096f21595574d12bdcedcd6073c251d72352b09b9c62eb796968085",
       "bytes": 4960
     },
+    "tests/donchian-lab.test.mjs": {
+      "sha256": "13fc611e4157fa6279d7b7f1be37324fd3dd2ec11c7a324006658fe48cd2cf84",
+      "bytes": 2795
+    },
+    "tests/donchian-streaming.test.mjs": {
+      "sha256": "5a7e69a3eacf3734ae4f266d625c377840df916b5e36c20067a52ea836baa00c",
+      "bytes": 3072
+    },
     "tests/donchian.test.mjs": {
       "sha256": "9cde8b3e58a98a48616446ed4f615e0d142b09f6cd4f33d8388a4792fde4efbc",
       "bytes": 6689
@@ -1118,16 +1142,16 @@
       "bytes": 7280
     },
     "web/pesquisa-genetica/cdi-comparativo.html": {
-      "sha256": "716a1fe4bbf3956924f14d2f5fb5d530cbc3c938fe905b037bed0ca5e90dc1bc",
-      "bytes": 1595
+      "sha256": "7e5812b4bb6539fd49772baeecf0153bf2c24eaf5834051974534fc9ff23bf83",
+      "bytes": 1648
     },
     "web/pesquisa-genetica/cdi-overlay.css": {
       "sha256": "80576a3f9cfbfb6077f278e1b04bfe0cf79d1ef197d0226b60cdaae0bf144fc6",
       "bytes": 565
     },
     "web/pesquisa-genetica/cdi-overlay.js": {
-      "sha256": "38a8d69ed099d9b7525f6ab1a00e6859838abce39fc22af663ff36fe739af651",
-      "bytes": 7300
+      "sha256": "2d18b742c312fb251f07fb8793050bb65a069f1d994a26d8d2a39e98fcde13e8",
+      "bytes": 7360
     },
     "web/pesquisa-genetica/cripto-sentimento.css": {
       "sha256": "2815dad967758ac392bfe596adda5d1e1c56934fc314acfd85f7185d39c7f5a6",
@@ -1142,12 +1166,20 @@
       "bytes": 7707
     },
     "web/pesquisa-genetica/daytrade-integrado.html": {
-      "sha256": "dac1bfa22e26e7e63fd11e10abe7d2def1aac2139d76ed3f8ac51ee9def9181a",
-      "bytes": 6205
+      "sha256": "2fffe7b1f9244069ff20497a9befb11b753260d2cb58e8b041c12d392e3282ed",
+      "bytes": 6258
     },
     "web/pesquisa-genetica/daytrade-integrado.js": {
       "sha256": "75910aa2789186cb6d31010cc36bf86975f81db7954696ef24144e498de16d3d",
       "bytes": 4811
+    },
+    "web/pesquisa-genetica/donchian-lab.html": {
+      "sha256": "2a193cfca48f4f362b2170463a75811b6c1a8e8b051dbe0e5d34a34ba4868374",
+      "bytes": 4895
+    },
+    "web/pesquisa-genetica/donchian-lab.js": {
+      "sha256": "f03a6388358607e843af0ee766d4bd5ad8c4b5aa233b846920a3d5eb935fd2c5",
+      "bytes": 5722
     },
     "web/pesquisa-genetica/experimento-noticias.css": {
       "sha256": "edabe57a0ee72d35f818e70c059ad2e8ffdc6d0bb2b77f0e5333ff4fcb6eff33",

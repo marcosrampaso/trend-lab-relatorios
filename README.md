@@ -108,3 +108,11 @@ Reaproveita EMA1h e Donchian fixo/adaptativo em BTC/ETH, até24h por operação.
 100% do CDI bruto teórico, juros reinvestidos, mesmo capital e datas por carteira. Robôs após custos modelados; ambos antes de impostos. Fontes BCB/Ipeadata, reconciliação diária/mensal, sem taxa futura estimada ou taxa anual atual retroativa. A referência de outubro fica provisória; sem ranking ou percentual enquanto faltar reconciliação. Arquivos antigos, regras dos bots e critérios de seleção preservados. As páginas de day trade, BTC/ETH e notícias incluem a seção CDI; os relatórios antigos da genética conservam seu próprio benchmark.
 
 Atualizar este retrato: `python3 tools/snapshot-cdi.py --source /caminho/do/trend-lab`, após exportar os fontes. O comando não faz push, backtest ou operação real. 239 testes passaram na implantação.
+
+
+## Donchian adaptativo desde o início · 19/10/2026
+
+- [Painel local de saldo contínuo, filtros e prospectivo](http://127.0.0.1:4173/pesquisa-genetica/donchian-lab.html).
+- [Método e conclusões](app/DONCHIAN-LAB.md), [retrato estático](experimentos/donchian/index.html), [dados](experimentos/donchian/snapshot.json).
+
+50cenários:12de isolamento do filtro,6carteiras contínuas em82meses e32diagnósticos por blocos. Capital contínuo R$1.000 sem aportes/reset, janeiro/2020 a19/10/2026 03:08UTC. A configuração que ganhouR$67,95 emjun–set/2026 terminou a conta contínua comR$900,43; limite global acionado em31/01/2020, depois permanece em caixa. Não foi promovida. Os64minutos sem mark price foram explicitados e ocorreram sem exposição em todas ascarteiras. CDI de outubro ainda provisório.248testes e auditoria de paridade com o motor preservado passaram; fontes/dados antigos preservados. O comparativo geral CDI agora reúne374cenários.
