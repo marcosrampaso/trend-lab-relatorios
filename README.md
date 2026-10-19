@@ -21,3 +21,9 @@ Nenhum banco privado, credencial, modelo binário ou histórico bruto foi inclu�
 [Acompanhamento local](acompanhamento/index.html): relatórios HTML por novo recorde; revisões agrupadas a cada25gerações ou ganho. Relatórios de50gerações e registro de diagnóstico a cada100, contados daG79, preservando marcos e histórico. A versão GitHub é um retrato estático; treino, cota e fila ao vivo ficam somente no computador. A primeira entrega por evento ainda precisa de recibo; o painel distingue conexão verificada de revisão realmente entregue.
 
 O monitor lê checkpoints semIA e só aciona o Codex por evento. A rotina antiga de30min está pausada. Não há API paga nem ordens reais. Um diagnóstico de histórico enfileirado não é apresentado como teste concluído.
+
+## Nova campanha: campeão daG151 comoG0
+
+[Novo plano de testes](nova-campanha.html): aG0 reproduziu exatamenteR$18,402207/mês, diferença zero. A primeira geração testa61variações controladas e3candidatos exploratórios. Alterações ainda são hipóteses, com mesmo capital, risco, custos e validação. O cache agora recicla artefatos descartáveis e protegeG0, campeão atual e pais diversos.
+
+[Campanha anterior arquivada](campanhas/search-v3-20261018T183222773Z/index.html). O campeão completo foi salvo localmente em umZIP independente antes da limpeza. Modelos descartados da rodada encerrada foram removidos com auditoria. Os históricos e a base de simulação foram preservados.

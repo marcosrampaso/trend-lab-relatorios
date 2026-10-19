@@ -1,0 +1,1377 @@
+{
+  "kind": "report",
+  "generation": 129,
+  "from": 80,
+  "createdAt": "2026-10-18T20:57:52.948Z",
+  "history": [
+    {
+      "generation": 80,
+      "bestValidationMonthlyBRL": 17.290749526124216,
+      "eligible": 44,
+      "improved": true,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.024263612467453177,
+      "positiveMonths": 7,
+      "generationBestBRL": 17.290749526124216,
+      "uniqueBehaviors": 46,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 81,
+      "bestValidationMonthlyBRL": 17.705361692874973,
+      "eligible": 48,
+      "improved": true,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.024263612467453177,
+      "positiveMonths": 7,
+      "generationBestBRL": 17.705361692874973,
+      "uniqueBehaviors": 49,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 82,
+      "bestValidationMonthlyBRL": 17.705361692874973,
+      "eligible": 44,
+      "improved": false,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.024263612467453177,
+      "positiveMonths": 7,
+      "generationBestBRL": 17.705361692874973,
+      "uniqueBehaviors": 48,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 6,
+        "logistic": 2,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 83,
+      "bestValidationMonthlyBRL": 17.705361692874973,
+      "eligible": 39,
+      "improved": false,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.024263612467453177,
+      "positiveMonths": 7,
+      "generationBestBRL": 17.705361692874973,
+      "uniqueBehaviors": 44,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 84,
+      "bestValidationMonthlyBRL": 17.705361692874973,
+      "eligible": 38,
+      "improved": false,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.024263612467453177,
+      "positiveMonths": 7,
+      "generationBestBRL": 17.705361692874973,
+      "uniqueBehaviors": 45,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 85,
+      "bestValidationMonthlyBRL": 17.705361692874973,
+      "eligible": 43,
+      "improved": false,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.024263612467453177,
+      "positiveMonths": 7,
+      "generationBestBRL": 17.705361692874973,
+      "uniqueBehaviors": 42,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 86,
+      "bestValidationMonthlyBRL": 17.705361692874973,
+      "eligible": 41,
+      "improved": false,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.024263612467453177,
+      "positiveMonths": 7,
+      "generationBestBRL": 17.705361692874973,
+      "uniqueBehaviors": 47,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 87,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 40,
+      "improved": true,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 45,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 88,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 38,
+      "improved": false,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 44,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 89,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 42,
+      "improved": false,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 43,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 90,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 47,
+      "improved": false,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 41,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 91,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 42,
+      "improved": false,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 38,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 92,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 37,
+      "improved": false,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 48,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 93,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 43,
+      "improved": false,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 52,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 94,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 43,
+      "improved": false,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 52,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 95,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 45,
+      "improved": false,
+      "burst": false,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 50,
+      "lanes": {
+        "local": 24,
+        "crossover": 16,
+        "immigrant": 16,
+        "niche_jump": 8
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 96,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 45,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.705361692874973,
+      "uniqueBehaviors": 51,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 97,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 50,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 53,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 98,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 46,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 48,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 99,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 49,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.705361692874973,
+      "uniqueBehaviors": 46,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 100,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 42,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.71634107304398,
+      "uniqueBehaviors": 42,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 101,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 44,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.71634107304398,
+      "uniqueBehaviors": 49,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 102,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 42,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 41,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 103,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 50,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 53,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 104,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 44,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.71634107304398,
+      "uniqueBehaviors": 45,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 105,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 45,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.71634107304398,
+      "uniqueBehaviors": 48,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 106,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 42,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.71634107304398,
+      "uniqueBehaviors": 49,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 107,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 47,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 49,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 108,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 45,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 50,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 109,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 47,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 45,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 110,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 41,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 41,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 111,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 49,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.71634107304398,
+      "uniqueBehaviors": 51,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 112,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 37,
+      "improved": false,
+      "burst": true,
+      "restart": true,
+      "immigrants": 24,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 51,
+      "lanes": {
+        "local": 16,
+        "crossover": 8,
+        "immigrant": 24,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 1,
+        "logistic": 2,
+        "random_forest": 2,
+        "extra_trees": 1,
+        "hist_boosting": 2,
+        "mlp": 4
+      }
+    },
+    {
+      "generation": 113,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 47,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 47,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 114,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 38,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 47,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 115,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 46,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.71634107304398,
+      "uniqueBehaviors": 57,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 116,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 45,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 47,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 117,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 43,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.71634107304398,
+      "uniqueBehaviors": 44,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 118,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 47,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 48,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 119,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 43,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 50,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 120,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 46,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 47,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 121,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 47,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.71634107304398,
+      "uniqueBehaviors": 46,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 122,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 44,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.71634107304398,
+      "uniqueBehaviors": 48,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 123,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 44,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 54,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 124,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 48,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.71634107304398,
+      "uniqueBehaviors": 51,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 125,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 53,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 50,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 126,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 41,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.71634107304398,
+      "uniqueBehaviors": 49,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 127,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 38,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 17.705361692874973,
+      "uniqueBehaviors": 46,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 128,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 37,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 18.130953239794742,
+      "uniqueBehaviors": 42,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    },
+    {
+      "generation": 129,
+      "bestValidationMonthlyBRL": 18.130953239794742,
+      "eligible": 44,
+      "improved": false,
+      "burst": true,
+      "restart": false,
+      "immigrants": 16,
+      "maxDD": 0.02429739844509681,
+      "positiveMonths": 6,
+      "generationBestBRL": 16.351973488261663,
+      "uniqueBehaviors": 45,
+      "lanes": {
+        "local": 24,
+        "crossover": 8,
+        "immigrant": 16,
+        "niche_jump": 16
+      },
+      "parentAlgorithms": {
+        "tree": 7,
+        "logistic": 1,
+        "random_forest": 1,
+        "extra_trees": 1,
+        "hist_boosting": 1,
+        "mlp": 1
+      }
+    }
+  ],
+  "recordGenerations": [
+    80,
+    81,
+    87
+  ],
+  "hypotheses": [
+    {
+      "id": "H001",
+      "status": "proposed",
+      "proposedAt": "2026-10-18T19:40:27.989323+00:00",
+      "proposedGeneration": 79,
+      "question": "Retirar somente a invalidaçãoEMA5min melhora a variante de trailing para o campeão de reversão?",
+      "evidence": "34 de47operações da variante anterior encerradas por invalidação; comparação não isolou trailing.",
+      "nextAction": "Registrar ablação isolada com referência congelada, mesmos custos e dados; não incorporar sem evidência."
+    }
+  ],
+  "reviews": [],
+  "fullHistory": [],
+  "realOrders": false
+}
