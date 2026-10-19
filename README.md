@@ -125,3 +125,9 @@ Atualizar este retrato: `python3 tools/snapshot-cdi.py --source /caminho/do/tren
 - [Retrato datado da execução](experimentos/donchian-genetico/index.html) e [dados do retrato](experimentos/donchian-genetico/snapshot.json).
 
 24candidatos por geração, seleção, cruzamento, mutação,4elites e imigrantes aleatórios. Busca entradas por reteste/contexto1h/4h, stop, alvo e prazo com risco1% fixo. Até200gerações ou12horas, checkpoints e aumento de diversidade após5gerações sem recorde. Catálogo desde2020 e804minutos recentes adicionados até19/10/2026 13:32 deSãoPaulo, congelados antes da seleção. Fitness usa apenas45meses completos de2020–2023;2024–2025 e2026 são diagnósticos separados, sem orientar os pais. A conta contínua desde2020 mantém seu limite global, sem repor dinheiro. Não há promoção nem ordens reais.259testes passaram; resultados antigos preservados. O GitHub é um retrato estático, não uma tela de monitoramento da máquina.
+
+## Donchian V2 · pesquisa sem trava acumulada
+
+[Retrato dos resultados V2](experimentos/donchian-genetico-v2/index.html) · [Método e mudanças](app/DONCHIAN-GENETICO-V2.md) · [Painel local V2](http://127.0.0.1:4173/pesquisa-genetica/donchian-genetico.html?run=v2)
+
+Sem teto artificial de gerações/horas e sem a trava acumulada de −10%, exclusivamente na pesquisa. Risco de1% por entrada, limite diário3%, stops, custos, saldo contínuo e insolvência preservados. V1 arquivada na geração119; todos os genomas importados são reavaliados. Nenhuma ordem real ou promoção automática.
