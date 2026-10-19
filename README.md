@@ -11,6 +11,18 @@ O GitHub guarda versões do código e retratos dos resultados. A execução perm
 
 Os relatórios abaixo documentam as rodadas históricas e suas limitações; os resultados de seleção antigos não foram substituídos por resultados prospectivos.
 
+
+## BTC × ETH e sentimento local
+
+- [Código, método e reprodução](app/MULTIATIVOS-SENTIMENTO.md)
+- [Relatório e retrato datado](experimentos/btc-eth-sentimento/index.html)
+- [Painel local ao vivo](http://127.0.0.1:4173/pesquisa-genetica/cripto-sentimento.html)
+
+Três braços (ETH/G151, BTC/pesos ETH e BTC/treino próprio), cada um com controle e filtro DistilRoBERTa executado localmente. Comparação histórica jun–set/2026 é exploratória, sem notícias do futuro. O treino do BTC usa apenas rótulos maturados anteriores ao teste; poucas operações e limiares herdados limitam conclusões. Sem ordens reais.
+
+O classificador usa ambiente separado; pesos e dados não estão neste repositório. Exportação e atualização do retrato: `tools/sync-local-source.py` e `tools/snapshot-multiasset.py`, ambos com `--source /caminho/do/trend-lab`. Esses comandos não fazem push nem substituem o estado da execução.
+
+
 ## Arquivo dos relatórios da genética
 
 Retrato da geração 68, gerado em 2026-10-18T19:10:58.829Z. Campeão: a5aa4a77566c08fbc23b.

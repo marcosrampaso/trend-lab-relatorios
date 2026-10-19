@@ -1,0 +1,2178 @@
+{
+  "snapshotAt": "2026-10-19T15:07:36.516583+00:00",
+  "mode": "paper_only_static_snapshot",
+  "historical": {
+    "status": "complete",
+    "generatedAt": 1792421730399,
+    "start": 1780272000000,
+    "end": 1790812800000,
+    "registration": {
+      "registeredAt": 1792421722070,
+      "protocol": {
+        "version": "multiasset-sentiment-v1",
+        "symbols": [
+          "ETHUSDT",
+          "BTCUSDT"
+        ],
+        "arms": [
+          "eth-g151",
+          "btc-transfer",
+          "btc-trained"
+        ],
+        "capitalBRL": 1000,
+        "risk": 0.01,
+        "leverage": 10,
+        "entryDelayMinutes": 1,
+        "durationDays": 30,
+        "history": {
+          "warmupStart": "2025-08-01T00:00:00Z",
+          "trainStart": "2025-09-01T00:00:00Z",
+          "trainEnd": "2026-06-01T00:00:00Z",
+          "testStart": "2026-06-01T00:00:00Z",
+          "testEnd": "2026-10-01T00:00:00Z",
+          "labelMaturityMinutes": 1440
+        },
+        "forest": {
+          "seeds": [
+            2026101802,
+            2026101803,
+            2026101804,
+            2026101805,
+            2026101806
+          ],
+          "params": {
+            "max_depth": 10,
+            "min_samples_leaf": 100,
+            "n_estimators": 1200
+          },
+          "families": {
+            "cross": 120,
+            "bands": 240
+          },
+          "workers": 4
+        },
+        "sentiment": {
+          "model": "mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis",
+          "revision": "ae0eab9ad336d7d548e0efe394b07c04bcaf6e91",
+          "feeds": [
+            "https://www.coindesk.com/arc/outboundfeeds/rss/",
+            "https://cointelegraph.com/rss"
+          ],
+          "language": "en",
+          "input": "headline only",
+          "ttlMinutes": 300,
+          "pollSeconds": 300,
+          "minimumArticles": 2,
+          "minimumPublishers": 2,
+          "minimumDirectionalConfidence": 0.8,
+          "minimumAbsoluteMean": 0.2,
+          "missingPolicy": "no veto; mark uncovered",
+          "rule": "Mean P(positive)-P(negative) on dated, recent, deduplicated, explicitly asset-related headlines with directional confidence >=0.8. At least2 articles and2 publishers; mean >=0.2 vetoes SHORT, <=-0.2 vetoes LONG. Neutral/conflicting evidence does not veto. Never infers high-risk events from sentiment."
+        },
+        "rules": [
+          "Separate ETH G151, BTC with ETH weights, and BTC trained forests; each has control and local-sentiment portfolios with base/stress costs.",
+          "Freeze all rules, data checksums and model hashes; no parameter search or automatic promotion.",
+          "BTC forests use only matured labels before01jun2026 and the preserved G151 hyperparameters/routes/thresholds. Corrected funding and explicit1min entry delay are adaptations; no claim of exact historical reproduction.",
+          "Historical comparison uses the same Jun-Sep2026 dates without news; those ETH periods were already explored and are not an independent holdout. Modern news is never applied to historical trades.",
+          "Prospective arms share start/end. First observation after registration must precede next-minute entry. No missing-decision backfill.",
+          "Per-symbol current Binance filters; retroactive historical application is an approximation. Modeled costs and fixedFX, no personal fee or tax reconstruction.",
+          "News is classified locally from English headlines; asset relevance is explicit keyword matching, not causal impact detection. Duplicate events with different headlines may remain. Scores are not price/profit probabilities.",
+          "Preserve all earlier experiments and state; no real orders, account keys, paid AI or model retraining during the30day prospective run."
+        ]
+      },
+      "inputHashes": {
+        "btc-training.json": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b",
+        "btc-test-features.json": "ef9f80ba002280c26f5a4b426367103da4018bab2e4d28ec4ea245f3fbe7e9a7",
+        "btc-test-market.json": "510571dfedffb780791879ebdeff1edfbec344c999d2232c02b65edd4e253885",
+        "eth-test-features.json": "6f9265fcc3831cc2b12a55305a5d20402db45a92a7aa97aad8027f5c9ce64efc",
+        "eth-test-market.json": "ff9c7f9341e755cd872b6dcc12932de1b7944855b542c33ea7bdb6163466c179"
+      },
+      "sourceHashes": {
+        "scripts/evaluate-btc-comparison.mjs": "73d8f448d99257bc66a0ee2849f51257e7325b8d5553b16329dba1eebe60bf08",
+        "scripts/multiasset-core.mjs": "ced09d368550a5257840426c3dc0f52818daea7ffdcecf7a1dd0537e0b69da90",
+        "scripts/multiasset-io.mjs": "1528b95a2903fcb0688eadfb330b357c537a72be84175dc7c2d7eb2647e905df",
+        "scripts/multiasset-inference.py": "02bbb69fefdda986d1e0abfa27446e04283e42b125fd586bd588eafef2f9d33a"
+      },
+      "models": {
+        "genome": {
+          "algorithm": "random_forest",
+          "params": {
+            "max_depth": 10,
+            "min_samples_leaf": 100,
+            "n_estimators": 1200
+          },
+          "routes": {
+            "range": {
+              "family": "bands",
+              "hold": 240,
+              "threshold": 0.643
+            },
+            "trend": {
+              "family": "cross",
+              "hold": 120,
+              "threshold": 0.326
+            },
+            "volatile": {
+              "family": "bands",
+              "hold": 240,
+              "threshold": 0.411
+            }
+          },
+          "trainMonths": 9,
+          "trendCut": 1.702,
+          "volatilityCut": 0.005408,
+          "id": "c6cb2a8370cd058b0be0"
+        },
+        "original": {
+          "cross": [
+            {
+              "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101802.joblib",
+              "sha256": "b932e5769346fdb1f1ee843a342871fe73a977f3c33d1d2899081f69f4c199b5",
+              "trainEnd": 1780272000000,
+              "seed": 2026101802
+            },
+            {
+              "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101803.joblib",
+              "sha256": "16c788debd287031255e2f4bab83add35b66771923c98e90075dd2f808ab8a4d",
+              "trainEnd": 1780272000000,
+              "seed": 2026101803
+            },
+            {
+              "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101804.joblib",
+              "sha256": "f18a446b4c354b315a86526cb8075a169fd6edea3baa4e5b9980484f68a4621b",
+              "trainEnd": 1780272000000,
+              "seed": 2026101804
+            },
+            {
+              "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101805.joblib",
+              "sha256": "48b57da0a725ad3eb3bb9b3a4eb56fc18105189f5cecf8c8efc155c370558086",
+              "trainEnd": 1780272000000,
+              "seed": 2026101805
+            },
+            {
+              "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101806.joblib",
+              "sha256": "85ca33b386f305578e63fd3f526ec6f74f7903be36b3e85797cf41e94a9b3b1b",
+              "trainEnd": 1780272000000,
+              "seed": 2026101806
+            }
+          ],
+          "bands": [
+            {
+              "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101802.joblib",
+              "sha256": "63bb9c2a0e2d4c7bad8d016c4659b842b781f5c8d2c4827134923f07166cd1be",
+              "trainEnd": 1780272000000,
+              "seed": 2026101802
+            },
+            {
+              "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101803.joblib",
+              "sha256": "4866b6eb951cb68b25297d8501926191b0c3f476729b8360bf2385ddea4c27fd",
+              "trainEnd": 1780272000000,
+              "seed": 2026101803
+            },
+            {
+              "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101804.joblib",
+              "sha256": "7bbf564841213116514bef6f96801a9e363cd9e1d15d39ab54a12705c05bf5a8",
+              "trainEnd": 1780272000000,
+              "seed": 2026101804
+            },
+            {
+              "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101805.joblib",
+              "sha256": "e149438099ea73d652aadd15024dfcd7b2973419da0c728669aa7c20dd12823f",
+              "trainEnd": 1780272000000,
+              "seed": 2026101805
+            },
+            {
+              "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101806.joblib",
+              "sha256": "fda19a2cec208aaf1765f05daed26fd4c7e1a9be46f394102c1f15cafec7deb0",
+              "trainEnd": 1780272000000,
+              "seed": 2026101806
+            }
+          ]
+        },
+        "btc": {
+          "cross": [
+            {
+              "family": "cross",
+              "seed": 2026101802,
+              "path": "work/multiasset-v1/models/cross-2026101802.joblib",
+              "sha256": "b9b906b80c08e0dd54428cc78a385ed1d1529a99e01f7103af7d4e2bd90a308f",
+              "trainStart": 1756684800000,
+              "trainEnd": 1780272000000,
+              "maxLabelAvailableAt": 1780264200000,
+              "trainCount": 3735,
+              "positive": 757,
+              "params": {
+                "max_depth": 10,
+                "min_samples_leaf": 100,
+                "n_estimators": 1200
+              },
+              "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+            },
+            {
+              "family": "cross",
+              "seed": 2026101803,
+              "path": "work/multiasset-v1/models/cross-2026101803.joblib",
+              "sha256": "884ee803e31f92b00b0ede38cd4dfe4b20e2a7587f95869afd8e3e7953b949ca",
+              "trainStart": 1756684800000,
+              "trainEnd": 1780272000000,
+              "maxLabelAvailableAt": 1780264200000,
+              "trainCount": 3735,
+              "positive": 757,
+              "params": {
+                "max_depth": 10,
+                "min_samples_leaf": 100,
+                "n_estimators": 1200
+              },
+              "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+            },
+            {
+              "family": "cross",
+              "seed": 2026101804,
+              "path": "work/multiasset-v1/models/cross-2026101804.joblib",
+              "sha256": "fe9491403d10c02403a5fc04c528933028c69cb53a385204d0264656bc6c7b4b",
+              "trainStart": 1756684800000,
+              "trainEnd": 1780272000000,
+              "maxLabelAvailableAt": 1780264200000,
+              "trainCount": 3735,
+              "positive": 757,
+              "params": {
+                "max_depth": 10,
+                "min_samples_leaf": 100,
+                "n_estimators": 1200
+              },
+              "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+            },
+            {
+              "family": "cross",
+              "seed": 2026101805,
+              "path": "work/multiasset-v1/models/cross-2026101805.joblib",
+              "sha256": "753e086344877da0e97a92beb748f467a425273c8751619caa94e6ad5b9bc06e",
+              "trainStart": 1756684800000,
+              "trainEnd": 1780272000000,
+              "maxLabelAvailableAt": 1780264200000,
+              "trainCount": 3735,
+              "positive": 757,
+              "params": {
+                "max_depth": 10,
+                "min_samples_leaf": 100,
+                "n_estimators": 1200
+              },
+              "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+            },
+            {
+              "family": "cross",
+              "seed": 2026101806,
+              "path": "work/multiasset-v1/models/cross-2026101806.joblib",
+              "sha256": "e2d774ef1632f99cdeb81003f4b318bd9ff0ac0fb79343d69be433bedf1e93db",
+              "trainStart": 1756684800000,
+              "trainEnd": 1780272000000,
+              "maxLabelAvailableAt": 1780264200000,
+              "trainCount": 3735,
+              "positive": 757,
+              "params": {
+                "max_depth": 10,
+                "min_samples_leaf": 100,
+                "n_estimators": 1200
+              },
+              "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+            }
+          ],
+          "bands": [
+            {
+              "family": "bands",
+              "seed": 2026101802,
+              "path": "work/multiasset-v1/models/bands-2026101802.joblib",
+              "sha256": "33a56917eb98e06206738f4e229739d002e563ae5b6d653eb639fdfe35a7522c",
+              "trainStart": 1756684800000,
+              "trainEnd": 1780272000000,
+              "maxLabelAvailableAt": 1780233300000,
+              "trainCount": 779,
+              "positive": 172,
+              "params": {
+                "max_depth": 10,
+                "min_samples_leaf": 100,
+                "n_estimators": 1200
+              },
+              "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+            },
+            {
+              "family": "bands",
+              "seed": 2026101803,
+              "path": "work/multiasset-v1/models/bands-2026101803.joblib",
+              "sha256": "05ad9947b532145a411581ee953b195991a05daa51b6bf9df984754d301d4ee5",
+              "trainStart": 1756684800000,
+              "trainEnd": 1780272000000,
+              "maxLabelAvailableAt": 1780233300000,
+              "trainCount": 779,
+              "positive": 172,
+              "params": {
+                "max_depth": 10,
+                "min_samples_leaf": 100,
+                "n_estimators": 1200
+              },
+              "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+            },
+            {
+              "family": "bands",
+              "seed": 2026101804,
+              "path": "work/multiasset-v1/models/bands-2026101804.joblib",
+              "sha256": "121efdbebeb3e437593d16cafca55f28f4936eb546a12a07a6bcbf23c6e7a1f4",
+              "trainStart": 1756684800000,
+              "trainEnd": 1780272000000,
+              "maxLabelAvailableAt": 1780233300000,
+              "trainCount": 779,
+              "positive": 172,
+              "params": {
+                "max_depth": 10,
+                "min_samples_leaf": 100,
+                "n_estimators": 1200
+              },
+              "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+            },
+            {
+              "family": "bands",
+              "seed": 2026101805,
+              "path": "work/multiasset-v1/models/bands-2026101805.joblib",
+              "sha256": "17232714e6dd53b994123a410429526a9b37413db63dca324b9dd204d6be65cf",
+              "trainStart": 1756684800000,
+              "trainEnd": 1780272000000,
+              "maxLabelAvailableAt": 1780233300000,
+              "trainCount": 779,
+              "positive": 172,
+              "params": {
+                "max_depth": 10,
+                "min_samples_leaf": 100,
+                "n_estimators": 1200
+              },
+              "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+            },
+            {
+              "family": "bands",
+              "seed": 2026101806,
+              "path": "work/multiasset-v1/models/bands-2026101806.joblib",
+              "sha256": "442534589c85f4d522d1443e1e4851f0b6fce977c482c70b597c4e672d7aec50",
+              "trainStart": 1756684800000,
+              "trainEnd": 1780272000000,
+              "maxLabelAvailableAt": 1780233300000,
+              "trainCount": 779,
+              "positive": 172,
+              "params": {
+                "max_depth": 10,
+                "min_samples_leaf": 100,
+                "n_estimators": 1200
+              },
+              "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+            }
+          ]
+        },
+        "trainedAt": 1792421648112
+      }
+    },
+    "results": [
+      {
+        "arm": "eth-g151",
+        "label": "ETH · pesos G151",
+        "symbol": "ETHUSDT",
+        "cost": "base",
+        "pnlBRL": 27.49764014937881,
+        "finalBRL": 1027.4976401493789,
+        "initialBRL": 1000,
+        "count": 8,
+        "maxDD": 0.023654548732830745,
+        "halted": false,
+        "feesBRL": 7.224904932078609,
+        "fundingBRL": 0.22997826088732104,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2438,
+        "signals": 2475,
+        "modelAllowed": 9
+      },
+      {
+        "arm": "eth-g151",
+        "label": "ETH · pesos G151",
+        "symbol": "ETHUSDT",
+        "cost": "stress",
+        "pnlBRL": 15.17001589384762,
+        "finalBRL": 1015.1700158938477,
+        "initialBRL": 1000,
+        "count": 8,
+        "maxDD": 0.023074680255362946,
+        "halted": false,
+        "feesBRL": 12.700689450735451,
+        "fundingBRL": 0.20219666112417622,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2438,
+        "signals": 2475,
+        "modelAllowed": 9
+      },
+      {
+        "arm": "btc-transfer",
+        "label": "BTC · pesos ETH transferidos",
+        "symbol": "BTCUSDT",
+        "cost": "base",
+        "pnlBRL": 23.054103156934787,
+        "finalBRL": 1023.0541031569348,
+        "initialBRL": 1000,
+        "count": 6,
+        "maxDD": 0.014527453245233662,
+        "halted": false,
+        "feesBRL": 5.764526400848698,
+        "fundingBRL": 0,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2332,
+        "signals": 2365,
+        "modelAllowed": 6
+      },
+      {
+        "arm": "btc-transfer",
+        "label": "BTC · pesos ETH transferidos",
+        "symbol": "BTCUSDT",
+        "cost": "stress",
+        "pnlBRL": 11.868546640484823,
+        "finalBRL": 1011.8685466404849,
+        "initialBRL": 1000,
+        "count": 6,
+        "maxDD": 0.009825552021709667,
+        "halted": false,
+        "feesBRL": 8.264313262239135,
+        "fundingBRL": 0,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2332,
+        "signals": 2365,
+        "modelAllowed": 6
+      },
+      {
+        "arm": "btc-trained",
+        "label": "BTC · floresta treinada no BTC",
+        "symbol": "BTCUSDT",
+        "cost": "base",
+        "pnlBRL": 0,
+        "finalBRL": 1000,
+        "initialBRL": 1000,
+        "count": 0,
+        "maxDD": 0,
+        "halted": false,
+        "feesBRL": 0,
+        "fundingBRL": 0,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2338,
+        "signals": 2365,
+        "modelAllowed": 0
+      },
+      {
+        "arm": "btc-trained",
+        "label": "BTC · floresta treinada no BTC",
+        "symbol": "BTCUSDT",
+        "cost": "stress",
+        "pnlBRL": 0,
+        "finalBRL": 1000,
+        "initialBRL": 1000,
+        "count": 0,
+        "maxDD": 0,
+        "halted": false,
+        "feesBRL": 0,
+        "fundingBRL": 0,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2338,
+        "signals": 2365,
+        "modelAllowed": 0
+      }
+    ],
+    "newsApplied": false,
+    "independentHoldout": false,
+    "conclusion": "Exploratório: mesmos4meses para os3braços. ETH já visto na pesquisa anterior. Sem sentimento histórico; nenhum vencedor promovido.",
+    "limitations": [
+      "Separate ETH G151, BTC with ETH weights, and BTC trained forests; each has control and local-sentiment portfolios with base/stress costs.",
+      "Freeze all rules, data checksums and model hashes; no parameter search or automatic promotion.",
+      "BTC forests use only matured labels before01jun2026 and the preserved G151 hyperparameters/routes/thresholds. Corrected funding and explicit1min entry delay are adaptations; no claim of exact historical reproduction.",
+      "Historical comparison uses the same Jun-Sep2026 dates without news; those ETH periods were already explored and are not an independent holdout. Modern news is never applied to historical trades.",
+      "Prospective arms share start/end. First observation after registration must precede next-minute entry. No missing-decision backfill.",
+      "Per-symbol current Binance filters; retroactive historical application is an approximation. Modeled costs and fixedFX, no personal fee or tax reconstruction.",
+      "News is classified locally from English headlines; asset relevance is explicit keyword matching, not causal impact detection. Duplicate events with different headlines may remain. Scores are not price/profit probabilities.",
+      "Preserve all earlier experiments and state; no real orders, account keys, paid AI or model retraining during the30day prospective run."
+    ],
+    "realOrders": false
+  },
+  "forward": {
+    "app": "trend-lab-multiasset",
+    "status": "collecting",
+    "updatedAt": 1792422452101,
+    "registration": {
+      "registeredAt": 1792421895583,
+      "protocol": {
+        "version": "multiasset-sentiment-v1",
+        "symbols": [
+          "ETHUSDT",
+          "BTCUSDT"
+        ],
+        "arms": [
+          {
+            "id": "eth-g151",
+            "symbol": "ETHUSDT",
+            "label": "ETH · G151 preservado",
+            "models": {
+              "cross": [
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101802.joblib",
+                  "sha256": "b932e5769346fdb1f1ee843a342871fe73a977f3c33d1d2899081f69f4c199b5",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101802
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101803.joblib",
+                  "sha256": "16c788debd287031255e2f4bab83add35b66771923c98e90075dd2f808ab8a4d",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101803
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101804.joblib",
+                  "sha256": "f18a446b4c354b315a86526cb8075a169fd6edea3baa4e5b9980484f68a4621b",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101804
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101805.joblib",
+                  "sha256": "48b57da0a725ad3eb3bb9b3a4eb56fc18105189f5cecf8c8efc155c370558086",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101805
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101806.joblib",
+                  "sha256": "85ca33b386f305578e63fd3f526ec6f74f7903be36b3e85797cf41e94a9b3b1b",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101806
+                }
+              ],
+              "bands": [
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101802.joblib",
+                  "sha256": "63bb9c2a0e2d4c7bad8d016c4659b842b781f5c8d2c4827134923f07166cd1be",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101802
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101803.joblib",
+                  "sha256": "4866b6eb951cb68b25297d8501926191b0c3f476729b8360bf2385ddea4c27fd",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101803
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101804.joblib",
+                  "sha256": "7bbf564841213116514bef6f96801a9e363cd9e1d15d39ab54a12705c05bf5a8",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101804
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101805.joblib",
+                  "sha256": "e149438099ea73d652aadd15024dfcd7b2973419da0c728669aa7c20dd12823f",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101805
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101806.joblib",
+                  "sha256": "fda19a2cec208aaf1765f05daed26fd4c7e1a9be46f394102c1f15cafec7deb0",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101806
+                }
+              ]
+            },
+            "filters": [
+              {
+                "minPrice": "39.86",
+                "filterType": "PRICE_FILTER",
+                "tickSize": "0.01",
+                "maxPrice": "306177"
+              },
+              {
+                "minQty": "0.001",
+                "maxQty": "10000",
+                "filterType": "LOT_SIZE",
+                "stepSize": "0.001"
+              },
+              {
+                "minQty": "0.001",
+                "stepSize": "0.001",
+                "maxQty": "2000",
+                "filterType": "MARKET_LOT_SIZE"
+              },
+              {
+                "limit": 200,
+                "filterType": "MAX_NUM_ORDERS"
+              },
+              {
+                "filterType": "MIN_NOTIONAL",
+                "notional": "20"
+              },
+              {
+                "filterType": "PERCENT_PRICE",
+                "multiplierDecimal": "4",
+                "multiplierUp": "1.0500",
+                "multiplierDown": "0.9500"
+              },
+              {
+                "positionControlSide": "NONE",
+                "filterType": "POSITION_RISK_CONTROL"
+              }
+            ]
+          },
+          {
+            "id": "btc-transfer",
+            "symbol": "BTCUSDT",
+            "label": "BTC · pesos ETH transferidos",
+            "models": {
+              "cross": [
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101802.joblib",
+                  "sha256": "b932e5769346fdb1f1ee843a342871fe73a977f3c33d1d2899081f69f4c199b5",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101802
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101803.joblib",
+                  "sha256": "16c788debd287031255e2f4bab83add35b66771923c98e90075dd2f808ab8a4d",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101803
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101804.joblib",
+                  "sha256": "f18a446b4c354b315a86526cb8075a169fd6edea3baa4e5b9980484f68a4621b",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101804
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101805.joblib",
+                  "sha256": "48b57da0a725ad3eb3bb9b3a4eb56fc18105189f5cecf8c8efc155c370558086",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101805
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101806.joblib",
+                  "sha256": "85ca33b386f305578e63fd3f526ec6f74f7903be36b3e85797cf41e94a9b3b1b",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101806
+                }
+              ],
+              "bands": [
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101802.joblib",
+                  "sha256": "63bb9c2a0e2d4c7bad8d016c4659b842b781f5c8d2c4827134923f07166cd1be",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101802
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101803.joblib",
+                  "sha256": "4866b6eb951cb68b25297d8501926191b0c3f476729b8360bf2385ddea4c27fd",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101803
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101804.joblib",
+                  "sha256": "7bbf564841213116514bef6f96801a9e363cd9e1d15d39ab54a12705c05bf5a8",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101804
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101805.joblib",
+                  "sha256": "e149438099ea73d652aadd15024dfcd7b2973419da0c728669aa7c20dd12823f",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101805
+                },
+                {
+                  "path": "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101806.joblib",
+                  "sha256": "fda19a2cec208aaf1765f05daed26fd4c7e1a9be46f394102c1f15cafec7deb0",
+                  "trainEnd": 1780272000000,
+                  "seed": 2026101806
+                }
+              ]
+            },
+            "filters": [
+              {
+                "maxPrice": "4529764",
+                "tickSize": "0.10",
+                "filterType": "PRICE_FILTER",
+                "minPrice": "556.80"
+              },
+              {
+                "stepSize": "0.001",
+                "minQty": "0.001",
+                "maxQty": "1000",
+                "filterType": "LOT_SIZE"
+              },
+              {
+                "minQty": "0.001",
+                "maxQty": "120",
+                "filterType": "MARKET_LOT_SIZE",
+                "stepSize": "0.001"
+              },
+              {
+                "filterType": "MAX_NUM_ORDERS",
+                "limit": 200
+              },
+              {
+                "notional": "50",
+                "filterType": "MIN_NOTIONAL"
+              },
+              {
+                "multiplierDown": "0.9500",
+                "multiplierUp": "1.0500",
+                "multiplierDecimal": "4",
+                "filterType": "PERCENT_PRICE"
+              },
+              {
+                "filterType": "POSITION_RISK_CONTROL",
+                "positionControlSide": "NONE"
+              }
+            ]
+          },
+          {
+            "id": "btc-trained",
+            "symbol": "BTCUSDT",
+            "label": "BTC · floresta treinada no BTC",
+            "models": {
+              "cross": [
+                {
+                  "family": "cross",
+                  "seed": 2026101802,
+                  "path": "work/multiasset-v1/models/cross-2026101802.joblib",
+                  "sha256": "b9b906b80c08e0dd54428cc78a385ed1d1529a99e01f7103af7d4e2bd90a308f",
+                  "trainStart": 1756684800000,
+                  "trainEnd": 1780272000000,
+                  "maxLabelAvailableAt": 1780264200000,
+                  "trainCount": 3735,
+                  "positive": 757,
+                  "params": {
+                    "max_depth": 10,
+                    "min_samples_leaf": 100,
+                    "n_estimators": 1200
+                  },
+                  "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+                },
+                {
+                  "family": "cross",
+                  "seed": 2026101803,
+                  "path": "work/multiasset-v1/models/cross-2026101803.joblib",
+                  "sha256": "884ee803e31f92b00b0ede38cd4dfe4b20e2a7587f95869afd8e3e7953b949ca",
+                  "trainStart": 1756684800000,
+                  "trainEnd": 1780272000000,
+                  "maxLabelAvailableAt": 1780264200000,
+                  "trainCount": 3735,
+                  "positive": 757,
+                  "params": {
+                    "max_depth": 10,
+                    "min_samples_leaf": 100,
+                    "n_estimators": 1200
+                  },
+                  "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+                },
+                {
+                  "family": "cross",
+                  "seed": 2026101804,
+                  "path": "work/multiasset-v1/models/cross-2026101804.joblib",
+                  "sha256": "fe9491403d10c02403a5fc04c528933028c69cb53a385204d0264656bc6c7b4b",
+                  "trainStart": 1756684800000,
+                  "trainEnd": 1780272000000,
+                  "maxLabelAvailableAt": 1780264200000,
+                  "trainCount": 3735,
+                  "positive": 757,
+                  "params": {
+                    "max_depth": 10,
+                    "min_samples_leaf": 100,
+                    "n_estimators": 1200
+                  },
+                  "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+                },
+                {
+                  "family": "cross",
+                  "seed": 2026101805,
+                  "path": "work/multiasset-v1/models/cross-2026101805.joblib",
+                  "sha256": "753e086344877da0e97a92beb748f467a425273c8751619caa94e6ad5b9bc06e",
+                  "trainStart": 1756684800000,
+                  "trainEnd": 1780272000000,
+                  "maxLabelAvailableAt": 1780264200000,
+                  "trainCount": 3735,
+                  "positive": 757,
+                  "params": {
+                    "max_depth": 10,
+                    "min_samples_leaf": 100,
+                    "n_estimators": 1200
+                  },
+                  "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+                },
+                {
+                  "family": "cross",
+                  "seed": 2026101806,
+                  "path": "work/multiasset-v1/models/cross-2026101806.joblib",
+                  "sha256": "e2d774ef1632f99cdeb81003f4b318bd9ff0ac0fb79343d69be433bedf1e93db",
+                  "trainStart": 1756684800000,
+                  "trainEnd": 1780272000000,
+                  "maxLabelAvailableAt": 1780264200000,
+                  "trainCount": 3735,
+                  "positive": 757,
+                  "params": {
+                    "max_depth": 10,
+                    "min_samples_leaf": 100,
+                    "n_estimators": 1200
+                  },
+                  "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+                }
+              ],
+              "bands": [
+                {
+                  "family": "bands",
+                  "seed": 2026101802,
+                  "path": "work/multiasset-v1/models/bands-2026101802.joblib",
+                  "sha256": "33a56917eb98e06206738f4e229739d002e563ae5b6d653eb639fdfe35a7522c",
+                  "trainStart": 1756684800000,
+                  "trainEnd": 1780272000000,
+                  "maxLabelAvailableAt": 1780233300000,
+                  "trainCount": 779,
+                  "positive": 172,
+                  "params": {
+                    "max_depth": 10,
+                    "min_samples_leaf": 100,
+                    "n_estimators": 1200
+                  },
+                  "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+                },
+                {
+                  "family": "bands",
+                  "seed": 2026101803,
+                  "path": "work/multiasset-v1/models/bands-2026101803.joblib",
+                  "sha256": "05ad9947b532145a411581ee953b195991a05daa51b6bf9df984754d301d4ee5",
+                  "trainStart": 1756684800000,
+                  "trainEnd": 1780272000000,
+                  "maxLabelAvailableAt": 1780233300000,
+                  "trainCount": 779,
+                  "positive": 172,
+                  "params": {
+                    "max_depth": 10,
+                    "min_samples_leaf": 100,
+                    "n_estimators": 1200
+                  },
+                  "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+                },
+                {
+                  "family": "bands",
+                  "seed": 2026101804,
+                  "path": "work/multiasset-v1/models/bands-2026101804.joblib",
+                  "sha256": "121efdbebeb3e437593d16cafca55f28f4936eb546a12a07a6bcbf23c6e7a1f4",
+                  "trainStart": 1756684800000,
+                  "trainEnd": 1780272000000,
+                  "maxLabelAvailableAt": 1780233300000,
+                  "trainCount": 779,
+                  "positive": 172,
+                  "params": {
+                    "max_depth": 10,
+                    "min_samples_leaf": 100,
+                    "n_estimators": 1200
+                  },
+                  "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+                },
+                {
+                  "family": "bands",
+                  "seed": 2026101805,
+                  "path": "work/multiasset-v1/models/bands-2026101805.joblib",
+                  "sha256": "17232714e6dd53b994123a410429526a9b37413db63dca324b9dd204d6be65cf",
+                  "trainStart": 1756684800000,
+                  "trainEnd": 1780272000000,
+                  "maxLabelAvailableAt": 1780233300000,
+                  "trainCount": 779,
+                  "positive": 172,
+                  "params": {
+                    "max_depth": 10,
+                    "min_samples_leaf": 100,
+                    "n_estimators": 1200
+                  },
+                  "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+                },
+                {
+                  "family": "bands",
+                  "seed": 2026101806,
+                  "path": "work/multiasset-v1/models/bands-2026101806.joblib",
+                  "sha256": "442534589c85f4d522d1443e1e4851f0b6fce977c482c70b597c4e672d7aec50",
+                  "trainStart": 1756684800000,
+                  "trainEnd": 1780272000000,
+                  "maxLabelAvailableAt": 1780233300000,
+                  "trainCount": 779,
+                  "positive": 172,
+                  "params": {
+                    "max_depth": 10,
+                    "min_samples_leaf": 100,
+                    "n_estimators": 1200
+                  },
+                  "trainingDataSHA256": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b"
+                }
+              ]
+            },
+            "filters": [
+              {
+                "maxPrice": "4529764",
+                "tickSize": "0.10",
+                "filterType": "PRICE_FILTER",
+                "minPrice": "556.80"
+              },
+              {
+                "stepSize": "0.001",
+                "minQty": "0.001",
+                "maxQty": "1000",
+                "filterType": "LOT_SIZE"
+              },
+              {
+                "minQty": "0.001",
+                "maxQty": "120",
+                "filterType": "MARKET_LOT_SIZE",
+                "stepSize": "0.001"
+              },
+              {
+                "filterType": "MAX_NUM_ORDERS",
+                "limit": 200
+              },
+              {
+                "notional": "50",
+                "filterType": "MIN_NOTIONAL"
+              },
+              {
+                "multiplierDown": "0.9500",
+                "multiplierUp": "1.0500",
+                "multiplierDecimal": "4",
+                "filterType": "PERCENT_PRICE"
+              },
+              {
+                "filterType": "POSITION_RISK_CONTROL",
+                "positionControlSide": "NONE"
+              }
+            ]
+          }
+        ],
+        "capitalBRL": 1000,
+        "risk": 0.01,
+        "leverage": 10,
+        "entryDelayMinutes": 1,
+        "durationDays": 30,
+        "history": {
+          "warmupStart": "2025-08-01T00:00:00Z",
+          "trainStart": "2025-09-01T00:00:00Z",
+          "trainEnd": "2026-06-01T00:00:00Z",
+          "testStart": "2026-06-01T00:00:00Z",
+          "testEnd": "2026-10-01T00:00:00Z",
+          "labelMaturityMinutes": 1440
+        },
+        "forest": {
+          "seeds": [
+            2026101802,
+            2026101803,
+            2026101804,
+            2026101805,
+            2026101806
+          ],
+          "params": {
+            "max_depth": 10,
+            "min_samples_leaf": 100,
+            "n_estimators": 1200
+          },
+          "families": {
+            "cross": 120,
+            "bands": 240
+          },
+          "workers": 4
+        },
+        "sentiment": {
+          "model": "mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis",
+          "revision": "ae0eab9ad336d7d548e0efe394b07c04bcaf6e91",
+          "feeds": [
+            "https://www.coindesk.com/arc/outboundfeeds/rss/",
+            "https://cointelegraph.com/rss"
+          ],
+          "language": "en",
+          "input": "headline only",
+          "ttlMinutes": 300,
+          "pollSeconds": 300,
+          "minimumArticles": 2,
+          "minimumPublishers": 2,
+          "minimumDirectionalConfidence": 0.8,
+          "minimumAbsoluteMean": 0.2,
+          "missingPolicy": "no veto; mark uncovered",
+          "rule": "Mean P(positive)-P(negative) on dated, recent, deduplicated, explicitly asset-related headlines with directional confidence >=0.8. At least2 articles and2 publishers; mean >=0.2 vetoes SHORT, <=-0.2 vetoes LONG. Neutral/conflicting evidence does not veto. Never infers high-risk events from sentiment."
+        },
+        "rules": [
+          "Separate ETH G151, BTC with ETH weights, and BTC trained forests; each has control and local-sentiment portfolios with base/stress costs.",
+          "Freeze all rules, data checksums and model hashes; no parameter search or automatic promotion.",
+          "BTC forests use only matured labels before01jun2026 and the preserved G151 hyperparameters/routes/thresholds. Corrected funding and explicit1min entry delay are adaptations; no claim of exact historical reproduction.",
+          "Historical comparison uses the same Jun-Sep2026 dates without news; those ETH periods were already explored and are not an independent holdout. Modern news is never applied to historical trades.",
+          "Prospective arms share start/end. First observation after registration must precede next-minute entry. No missing-decision backfill.",
+          "Per-symbol current Binance filters; retroactive historical application is an approximation. Modeled costs and fixedFX, no personal fee or tax reconstruction.",
+          "News is classified locally from English headlines; asset relevance is explicit keyword matching, not causal impact detection. Duplicate events with different headlines may remain. Scores are not price/profit probabilities.",
+          "Preserve all earlier experiments and state; no real orders, account keys, paid AI or model retraining during the30day prospective run."
+        ],
+        "id": "multiasset-1792421895583",
+        "start": 1792422360000,
+        "end": 1795014360000,
+        "genome": {
+          "algorithm": "random_forest",
+          "params": {
+            "max_depth": 10,
+            "min_samples_leaf": 100,
+            "n_estimators": 1200
+          },
+          "routes": {
+            "range": {
+              "family": "bands",
+              "hold": 240,
+              "threshold": 0.643
+            },
+            "trend": {
+              "family": "cross",
+              "hold": 120,
+              "threshold": 0.326
+            },
+            "volatile": {
+              "family": "bands",
+              "hold": 240,
+              "threshold": 0.411
+            }
+          },
+          "trainMonths": 9,
+          "trendCut": 1.702,
+          "volatilityCut": 0.005408,
+          "id": "c6cb2a8370cd058b0be0"
+        },
+        "strategy": {
+          "version": "scalping-5m-v1",
+          "registeredAt": "2026-10-16T20:27:05.641Z",
+          "capitalBRL": 1000,
+          "fx": 5,
+          "leverage": 10,
+          "risk": 0.01,
+          "dailyLimit": 0.03,
+          "totalLimit": 0.1,
+          "signalMinutes": 5,
+          "executionMinutes": 1,
+          "warmupStart": "2025-03-31T00:00:00Z",
+          "end": "2025-06-01T00:00:00Z",
+          "ema": [
+            9,
+            21
+          ],
+          "rsi": 14,
+          "bollinger": {
+            "length": 20,
+            "std": 2
+          },
+          "macd": [
+            12,
+            26,
+            9
+          ],
+          "rvol": {
+            "length": 20,
+            "min": 1.2
+          },
+          "stopATR": 1.5,
+          "targetR": 2,
+          "maxHoldMinutes": 30,
+          "cooldownMinutes": 10,
+          "maintenance": 0.005,
+          "fundingReserve": 0.0003,
+          "costCases": [
+            {
+              "id": "base",
+              "fee": 0.0005,
+              "slippage": 0.0002
+            },
+            {
+              "id": "stress",
+              "fee": 0.001,
+              "slippage": 0.0004
+            }
+          ],
+          "periods": [
+            {
+              "id": "april",
+              "name": "Abril 2025",
+              "start": "2025-04-01T00:00:00Z",
+              "end": "2025-05-01T00:00:00Z"
+            },
+            {
+              "id": "may",
+              "name": "Maio 2025",
+              "start": "2025-05-01T00:00:00Z",
+              "end": "2025-06-01T00:00:00Z"
+            }
+          ],
+          "strategies": [
+            {
+              "id": "cross",
+              "name": "Controle · cruzamento EMA9/21"
+            },
+            {
+              "id": "vwap",
+              "name": "Pullback VWAP + EMA + volume"
+            },
+            {
+              "id": "bands",
+              "name": "Bollinger + RSI · retorno à média"
+            }
+          ],
+          "rules": [
+            "Todos os períodos já foram vistos em resolução maior. Esta rodada é exploratória, sem parâmetros otimizados.",
+            "Controle: novo cruzamento EMA9/21 no fechamento5m. Entrada na abertura do próximo minuto.",
+            "VWAP: EMA9 acima deEMA21 paraLONG e abaixo paraSHORT; candle anterior fechou do lado da tendência em relação aoVWAP; candle atual tocaVWAP anterior e fecha novamente do lado da tendência noVWAP atual; mesmo diaUTC, pelo menos4 candles da sessão e RVOL>=1.2.",
+            "Bollinger: candle anterior fechou fora deSMA20±2 desvios e RSI anterior<=30 paraLONG ou>=70 paraSHORT; candle atual retorna para dentro das bandas comRSI atual>30 paraLONG ou<70 paraSHORT. Alvo naSMA20 conhecida no sinal; alvo já ultrapassado na entrada rejeita operação.",
+            "RSI14 eATR14 Wilder. Stop1.5ATR, alvo2R no controle eVWAP; limite30min por posição, intervalo10min após saída.",
+            "MACD12/26/9 e delta agregado dos takers são somente contexto. Não há votos nem probabilidade de acerto derivada dos indicadores.",
+            "VWAP exato da sessão = soma quote volume/soma base volume. Delta agregado =2×taker buy base volume−base volume. Não reconstrói livro, ticks ou ordens institucionais.",
+            "Entrada e saída simulam ordens a mercado com taxas e slippage adverso. Stop prevalece se alvo e stop coexistem no mesmo minuto; liquidação estimada tem prioridade com mark price.",
+            "Funding histórico incluído. Liquidação aproximada, manutenção0.5%; mínimos da corretora consultados anteriormente, não reconstruídos para2025. Custos não equivalem à tarifa pessoal da conta.",
+            "O filtro de risco não será aumentado para gerar operações. Os testes de1h e a rodada prospectiva continuam preservados."
+          ],
+          "sources": [
+            {
+              "title": "Binance · dados públicos e esquema de volume",
+              "url": "https://github.com/binance/binance-public-data"
+            },
+            {
+              "title": "Binance · scalping",
+              "url": "https://www.binance.com/en/academy/articles/what-is-scalping-trading-in-cryptocurrency"
+            },
+            {
+              "title": "TradingView · MACD",
+              "url": "https://www.tradingview.com/support/solutions/43000502344-moving-average-convergence-divergence-macd-indicator/"
+            },
+            {
+              "title": "TradingView · Bollinger",
+              "url": "https://www.tradingview.com/support/solutions/43000501840-bollinger-bands-bb/"
+            }
+          ]
+        },
+        "trend": {
+          "hours": [
+            1,
+            4
+          ],
+          "fast": 20,
+          "slow": 50,
+          "minimumBars": 150
+        },
+        "exchangeFiltersAsOf": 1792421895583,
+        "btcTrainingCompletedAt": 1792421648112
+      },
+      "protocolSHA256": "8e9eb7334b5462b87c2a14bcb6dc70c8393d715ceb08aff6001127e4be49e9e3",
+      "sourceHashes": {
+        "multiasset-sentiment-protocol.json": "082cef9687ab0be2f3c2f3249faf7cbe682302de20d654b9e2cbdc84e25715ab",
+        "scripts/local-multiasset.mjs": "6f12687d0e79dd107c51713ec95cc8b3a61587f3010a3bee607cea6402382f38",
+        "scripts/multiasset-core.mjs": "ced09d368550a5257840426c3dc0f52818daea7ffdcecf7a1dd0537e0b69da90",
+        "scripts/multiasset-io.mjs": "1528b95a2903fcb0688eadfb330b357c537a72be84175dc7c2d7eb2647e905df",
+        "scripts/multiasset-inference.py": "02bbb69fefdda986d1e0abfa27446e04283e42b125fd586bd588eafef2f9d33a",
+        "scripts/local-sentiment.py": "dd817e8340bf7d6dede9a6d1d093e5392de9869e5753b3d1467b609e87eb068b",
+        "scripts/news-filter-core.mjs": "cdf10fc4823440a3a2e9e35a66bac2846315433fc834e580fdd4e7b66b26c8e4",
+        "scripts/g151-news-core.mjs": "74697b9678f348992e6722eade87d1ebb17b2cf51fe842151aabe2ff07151a6a",
+        "web/scalping.js": "ecbf0b43f5f32d362c3d7319def59270de60c6991d630d3763d593e904d59390",
+        "web/scalp-tree.js": "768b98cd4bfd3301eae8634805c67b69a0c898444d69da8889d04dd508d87ed4",
+        "web/scalping-context.js": "a718ea1e4bd0b441a6d32d31636715934e50d59f8f5cb62f1010d47b24143f6a",
+        "web/tree-ml.js": "2b45004c0e588564a85b6389d7aabfcdd84b0ee38254230735a3f03fd71bdb82",
+        "web/adaptive-policy.js": "6dc7b6d06037ede5156d1855fd4efa4d505bf82df13a4574f023465b56028796",
+        "web/research-adaptive-funding.js": "ace93e5d95c393a88c3e138d7992f0452b80947de6b361c5484d10414c8a27dd",
+        "web/research-funding-buckets.js": "55bb8c4582c504a2e6ca5cdacbe123db5825b63cc5ae5b8f752ef7d33362ce6b",
+        "web/engine.js": "c107aad069cc10e83a1646efb2a84a1967dc3b26b11457f8fac435d26a92504f",
+        "web/strategies.js": "0f8331cafe46fe464eac2d87756581451b90454c352ec86b66a67aa1293b23a2",
+        "scalping-protocol.json": "8d16a2b930ca9ceef771e88c7713b5f01086bb2125c15327b0d428fe5d950eaf",
+        "scalping-context-protocol.json": "945b0b6ac51a490b01ef456e3881a4ed6aeacfa895112d1565634842778f6ca4",
+        "work/local-sentiment/model-manifest.json": "171e3c6341d1904829210c91859f49f3f37f9b336d837a12b675edc12353381b",
+        "work/multiasset-v1/btc-models.json": "3effef127c83e26631b198dd9a29d484f82aeb5b8c79be79415fef2daf3b4638",
+        "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101802.joblib": "b932e5769346fdb1f1ee843a342871fe73a977f3c33d1d2899081f69f4c199b5",
+        "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101803.joblib": "16c788debd287031255e2f4bab83add35b66771923c98e90075dd2f808ab8a4d",
+        "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101804.joblib": "f18a446b4c354b315a86526cb8075a169fd6edea3baa4e5b9980484f68a4621b",
+        "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101805.joblib": "48b57da0a725ad3eb3bb9b3a4eb56fc18105189f5cecf8c8efc155c370558086",
+        "champions/g151-c6cb2a8370cd058b0be0/models/90339bee6dc7135cca2d-2026-09-s2026101806.joblib": "85ca33b386f305578e63fd3f526ec6f74f7903be36b3e85797cf41e94a9b3b1b",
+        "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101802.joblib": "63bb9c2a0e2d4c7bad8d016c4659b842b781f5c8d2c4827134923f07166cd1be",
+        "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101803.joblib": "4866b6eb951cb68b25297d8501926191b0c3f476729b8360bf2385ddea4c27fd",
+        "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101804.joblib": "7bbf564841213116514bef6f96801a9e363cd9e1d15d39ab54a12705c05bf5a8",
+        "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101805.joblib": "e149438099ea73d652aadd15024dfcd7b2973419da0c728669aa7c20dd12823f",
+        "champions/g151-c6cb2a8370cd058b0be0/models/4ca854359bda476c374c-2026-09-s2026101806.joblib": "fda19a2cec208aaf1765f05daed26fd4c7e1a9be46f394102c1f15cafec7deb0",
+        "work/multiasset-v1/models/cross-2026101802.joblib": "b9b906b80c08e0dd54428cc78a385ed1d1529a99e01f7103af7d4e2bd90a308f",
+        "work/multiasset-v1/models/cross-2026101803.joblib": "884ee803e31f92b00b0ede38cd4dfe4b20e2a7587f95869afd8e3e7953b949ca",
+        "work/multiasset-v1/models/cross-2026101804.joblib": "fe9491403d10c02403a5fc04c528933028c69cb53a385204d0264656bc6c7b4b",
+        "work/multiasset-v1/models/cross-2026101805.joblib": "753e086344877da0e97a92beb748f467a425273c8751619caa94e6ad5b9bc06e",
+        "work/multiasset-v1/models/cross-2026101806.joblib": "e2d774ef1632f99cdeb81003f4b318bd9ff0ac0fb79343d69be433bedf1e93db",
+        "work/multiasset-v1/models/bands-2026101802.joblib": "33a56917eb98e06206738f4e229739d002e563ae5b6d653eb639fdfe35a7522c",
+        "work/multiasset-v1/models/bands-2026101803.joblib": "05ad9947b532145a411581ee953b195991a05daa51b6bf9df984754d301d4ee5",
+        "work/multiasset-v1/models/bands-2026101804.joblib": "121efdbebeb3e437593d16cafca55f28f4936eb546a12a07a6bcbf23c6e7a1f4",
+        "work/multiasset-v1/models/bands-2026101805.joblib": "17232714e6dd53b994123a410429526a9b37413db63dca324b9dd204d6be65cf",
+        "work/multiasset-v1/models/bands-2026101806.joblib": "442534589c85f4d522d1443e1e4851f0b6fce977c482c70b597c4e672d7aec50"
+      }
+    },
+    "realOrders": false,
+    "arms": [
+      {
+        "id": "eth-g151",
+        "symbol": "ETHUSDT",
+        "label": "ETH · G151 preservado",
+        "coverage": {
+          "registered": 1,
+          "expectedSlots": 1,
+          "missedSlots": 0,
+          "signals": 0,
+          "modelAllowed": 0,
+          "covered": 0,
+          "directionalCovered": 0,
+          "vetoed": 0
+        },
+        "latestContext": {
+          "at": 1792422300000,
+          "close": 2409.33,
+          "rsi": 52.36056655022051,
+          "atr": 8.592283720825419,
+          "rvol": 0.6440921297409781,
+          "ready": true
+        },
+        "scenarios": [
+          {
+            "arm": "eth-g151",
+            "symbol": "ETHUSDT",
+            "variant": "control",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "vetoedSignals": 0
+          },
+          {
+            "arm": "eth-g151",
+            "symbol": "ETHUSDT",
+            "variant": "control",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "vetoedSignals": 0
+          },
+          {
+            "arm": "eth-g151",
+            "symbol": "ETHUSDT",
+            "variant": "local-sentiment",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "vetoedSignals": 0
+          },
+          {
+            "arm": "eth-g151",
+            "symbol": "ETHUSDT",
+            "variant": "local-sentiment",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "vetoedSignals": 0
+          }
+        ]
+      },
+      {
+        "id": "btc-transfer",
+        "symbol": "BTCUSDT",
+        "label": "BTC · pesos ETH transferidos",
+        "coverage": {
+          "registered": 1,
+          "expectedSlots": 1,
+          "missedSlots": 0,
+          "signals": 0,
+          "modelAllowed": 0,
+          "covered": 0,
+          "directionalCovered": 0,
+          "vetoed": 0
+        },
+        "latestContext": {
+          "at": 1792422300000,
+          "close": 82249.9,
+          "rsi": 51.71481410134864,
+          "atr": 198.87277691280678,
+          "rvol": 0.3989782665522259,
+          "ready": true
+        },
+        "scenarios": [
+          {
+            "arm": "btc-transfer",
+            "symbol": "BTCUSDT",
+            "variant": "control",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "vetoedSignals": 0
+          },
+          {
+            "arm": "btc-transfer",
+            "symbol": "BTCUSDT",
+            "variant": "control",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "vetoedSignals": 0
+          },
+          {
+            "arm": "btc-transfer",
+            "symbol": "BTCUSDT",
+            "variant": "local-sentiment",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "vetoedSignals": 0
+          },
+          {
+            "arm": "btc-transfer",
+            "symbol": "BTCUSDT",
+            "variant": "local-sentiment",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "vetoedSignals": 0
+          }
+        ]
+      },
+      {
+        "id": "btc-trained",
+        "symbol": "BTCUSDT",
+        "label": "BTC · floresta treinada no BTC",
+        "coverage": {
+          "registered": 1,
+          "expectedSlots": 1,
+          "missedSlots": 0,
+          "signals": 0,
+          "modelAllowed": 0,
+          "covered": 0,
+          "directionalCovered": 0,
+          "vetoed": 0
+        },
+        "latestContext": {
+          "at": 1792422300000,
+          "close": 82249.9,
+          "rsi": 51.71481410134864,
+          "atr": 198.87277691280678,
+          "rvol": 0.3989782665522259,
+          "ready": true
+        },
+        "scenarios": [
+          {
+            "arm": "btc-trained",
+            "symbol": "BTCUSDT",
+            "variant": "control",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "vetoedSignals": 0
+          },
+          {
+            "arm": "btc-trained",
+            "symbol": "BTCUSDT",
+            "variant": "control",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "vetoedSignals": 0
+          },
+          {
+            "arm": "btc-trained",
+            "symbol": "BTCUSDT",
+            "variant": "local-sentiment",
+            "cost": "base",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "vetoedSignals": 0
+          },
+          {
+            "arm": "btc-trained",
+            "symbol": "BTCUSDT",
+            "variant": "local-sentiment",
+            "cost": "stress",
+            "pnlBRL": 0,
+            "finalBRL": 1000,
+            "initialBRL": 1000,
+            "count": 0,
+            "maxDD": 0,
+            "halted": false,
+            "feesBRL": 0,
+            "fundingBRL": 0,
+            "position": null,
+            "rejected": 0,
+            "skipped": 0,
+            "vetoedSignals": 0
+          }
+        ]
+      }
+    ],
+    "sentiment": {
+      "status": "collecting",
+      "updatedAt": 1792422253740,
+      "articles": 6
+    },
+    "lastSuccessAt": 1792422452099,
+    "lastError": null
+  },
+  "sentiment": {
+    "status": "collecting",
+    "updatedAt": 1792422253740,
+    "lastSuccessAt": 1792422253740,
+    "model": "mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis",
+    "revision": "ae0eab9ad336d7d548e0efe394b07c04bcaf6e91",
+    "device": "cpu",
+    "threads": 2,
+    "articles": [
+      {
+        "id": "c3426e45fd5c9b26bd6bc22e4c6208505c4ceaa3bf02f0a76d37ed39027a936b",
+        "title": "Strategy buys $22M in Bitcoin, repurchases $193M in STRC",
+        "url": "https://cointelegraph.com/news/strategy-btc-22-million-buy-strc-buyback-193-million?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+        "publisher": "cointelegraph.com",
+        "feed": "https://cointelegraph.com/rss",
+        "publishedAt": 1792413000000,
+        "firstSeenAt": 1792421558164,
+        "assets": [
+          "BTCUSDT"
+        ],
+        "language": "en",
+        "input": "headline only",
+        "scores": {
+          "negative": 5.241797771304846e-05,
+          "neutral": 0.9998372793197632,
+          "positive": 0.00011028457811335102
+        },
+        "classifiedAt": 1792421558485,
+        "revision": "ae0eab9ad336d7d548e0efe394b07c04bcaf6e91",
+        "feedSHA256": "f7c708f6799248a12b6be0c596e4bca70b613d740960059a4ddd8b963dcaf55a"
+      },
+      {
+        "id": "46d57df2a5a717f9fad7ec2054c473aa6547d2a4af66c3bb09745dea27db134d",
+        "title": "Strategy's price chart is about to flash a major bullish signal weeks after bitcoin did",
+        "url": "https://www.coindesk.com/daybook-us/2026/10/19/strategy-on-verge-of-golden-cross-just-weeks-after-bitcoin-flashed-same-bullish-signal",
+        "publisher": "www.coindesk.com",
+        "feed": "https://www.coindesk.com/arc/outboundfeeds/rss/",
+        "publishedAt": 1792408500000,
+        "firstSeenAt": 1792421558164,
+        "assets": [
+          "BTCUSDT"
+        ],
+        "language": "en",
+        "input": "headline only",
+        "scores": {
+          "negative": 0.0002493495703674853,
+          "neutral": 0.00028364890022203326,
+          "positive": 0.9994669556617737
+        },
+        "classifiedAt": 1792421558378,
+        "revision": "ae0eab9ad336d7d548e0efe394b07c04bcaf6e91",
+        "feedSHA256": "2decda21b2e04a653e849df2f554e945c0c452170992b2f8c5395bb73beeff70"
+      },
+      {
+        "id": "eae1e7be5726e3c83f6b957e240dc0159c12b953a5a646e130b8f6cfb63f07d5",
+        "title": "Live updates: Bitcoin edges higher as U.S. stocks rebound early Monday",
+        "url": "https://www.coindesk.com/markets/2026/10/19/live-updates-bitcoin-tags-usd83-000-and-slips-back-as-chip-stocks-lead-a-rebound",
+        "publisher": "www.coindesk.com",
+        "feed": "https://www.coindesk.com/arc/outboundfeeds/rss/",
+        "publishedAt": 1792407954000,
+        "firstSeenAt": 1792421558164,
+        "assets": [
+          "BTCUSDT"
+        ],
+        "language": "en",
+        "input": "headline only",
+        "scores": {
+          "negative": 0.0002549382334109396,
+          "neutral": 0.0002426870196359232,
+          "positive": 0.999502420425415
+        },
+        "classifiedAt": 1792421558385,
+        "revision": "ae0eab9ad336d7d548e0efe394b07c04bcaf6e91",
+        "feedSHA256": "2decda21b2e04a653e849df2f554e945c0c452170992b2f8c5395bb73beeff70"
+      },
+      {
+        "id": "0e4077078833ebf701ab5f2d8c81e21fc7843c492afd5e0cee7e73a817d3bc6a",
+        "title": "Live updates: Bitcoin holds near $82,000 as Nasdaq rebounds more than 1%",
+        "url": "https://www.coindesk.com/markets/2026/10/19/live-updates-bitcoin-tags-usd83-000-and-slips-back-as-chip-stocks-lead-a-rebound",
+        "publisher": "www.coindesk.com",
+        "feed": "https://www.coindesk.com/arc/outboundfeeds/rss/",
+        "publishedAt": 1792407954000,
+        "firstSeenAt": 1792422252675,
+        "assets": [
+          "BTCUSDT"
+        ],
+        "language": "en",
+        "input": "headline only",
+        "scores": {
+          "negative": 0.00022068839462008327,
+          "neutral": 0.00025458261370658875,
+          "positive": 0.999524712562561
+        },
+        "classifiedAt": 1792422253536,
+        "revision": "ae0eab9ad336d7d548e0efe394b07c04bcaf6e91",
+        "feedSHA256": "49d721df7870a5c8f8f4daac84a00f79516c6090c78af05d5a8b75d6126e57d5"
+      },
+      {
+        "id": "b507f35644f30c5b223e3163c1f8caf0b7c7431f2658d2883c148fd09eb92c0b",
+        "title": "Bitcoin extends bounce above $82,000 as stocks rebound, DeFi tokens lead altcoin gains",
+        "url": "https://www.coindesk.com/markets/2026/10/19/bitcoin-extends-bounce-above-usd82-000-as-stocks-rebound-defi-tokens-lead-altcoin-gains",
+        "publisher": "www.coindesk.com",
+        "feed": "https://www.coindesk.com/arc/outboundfeeds/rss/",
+        "publishedAt": 1792405593000,
+        "firstSeenAt": 1792421558164,
+        "assets": [
+          "BTCUSDT"
+        ],
+        "language": "en",
+        "input": "headline only",
+        "scores": {
+          "negative": 0.00020419027714524418,
+          "neutral": 0.00017355337331537157,
+          "positive": 0.9996222257614136
+        },
+        "classifiedAt": 1792421558392,
+        "revision": "ae0eab9ad336d7d548e0efe394b07c04bcaf6e91",
+        "feedSHA256": "2decda21b2e04a653e849df2f554e945c0c452170992b2f8c5395bb73beeff70"
+      },
+      {
+        "id": "f4ad15a376bc06a6cace8902a31437ffd7434916dc80cd69e9a785e31d7417cc",
+        "title": "Stocks rebound into key tech earnings: Three things to know in Bitcoin this week",
+        "url": "https://cointelegraph.com/markets/stocks-rebound-into-key-tech-earnings-three-things-to-know-in-bitcoin-this-week?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+        "publisher": "cointelegraph.com",
+        "feed": "https://cointelegraph.com/rss",
+        "publishedAt": 1792405200000,
+        "firstSeenAt": 1792421558164,
+        "assets": [
+          "BTCUSDT"
+        ],
+        "language": "en",
+        "input": "headline only",
+        "scores": {
+          "negative": 0.0002669809910003096,
+          "neutral": 0.0003113134007435292,
+          "positive": 0.9994217157363892
+        },
+        "classifiedAt": 1792421558492,
+        "revision": "ae0eab9ad336d7d548e0efe394b07c04bcaf6e91",
+        "feedSHA256": "f7c708f6799248a12b6be0c596e4bca70b613d740960059a4ddd8b963dcaf55a"
+      }
+    ],
+    "errors": [],
+    "input": "English headlines only; asset relevance by explicit keyword; no profit forecast",
+    "training": false,
+    "paidAPI": false
+  },
+  "btcContext": {
+    "status": "collecting",
+    "updatedAt": 1792422453771,
+    "registeredAt": 1792422233650,
+    "mode": "diagnostic_shadow_only",
+    "noPortfolioChanges": true,
+    "context": {
+      "at": 1792422000000,
+      "btcPrice": 82274.4,
+      "btcReturn1h": 0.002265849986112567,
+      "btcReturn4h": -0.0012745904922832896,
+      "btcReturn24h": 0.014978990922795532,
+      "btcTrend1h": 1,
+      "btcTrend4h": -1,
+      "btcTrend4hAt": 1792411200000,
+      "correlation72h": 0.893873596199615,
+      "beta72h": 1.5922490347171088,
+      "relativeStrength24h": -0.0005043047389046151,
+      "btcLeads1hCorrelation": 0.058144872704021605,
+      "ethLeads1hCorrelation": 0.1005717245943978,
+      "samples": 72
+    },
+    "policy": {
+      "version": "btc-context-v1",
+      "purpose": "Market context and separately registered historical ablation; no changes to the live frozen portfolios",
+      "ema": {
+        "fast": 20,
+        "slow": 50,
+        "minimumBars": 50
+      },
+      "correlationHours": 72,
+      "minimumCorrelation": 0.6,
+      "rule": "Veto ETH LONG only if BTC1h and4h EMA20/50 both point down and trailing72hour ETH/BTC log-return correlation >=0.6; symmetric for SHORT. Missing, stale, low/negative correlation or conflicting timeframes: no veto. Preserve opposite exit signals.",
+      "features": [
+        "BTC return1h",
+        "BTC return4h",
+        "BTC return24h",
+        "BTC EMA20/50 trend1h",
+        "BTC EMA20/50 trend4h",
+        "ETH/BTC log-return correlation72h",
+        "ETH beta to BTC72h",
+        "ETH/BTC relative return24h",
+        "BTC leads ETH by1h correlation (descriptive, not causality)",
+        "ETH leads BTC by1h correlation (descriptive, not causality)"
+      ],
+      "sources": [
+        {
+          "title": "Price Transmission from Bitcoin to Altcoins (2026)",
+          "url": "https://link.springer.com/article/10.1007/s10690-026-09589-z",
+          "note": "Reports simultaneous responses for ETH/LTC and stronger lagged responses for selected small caps. Selected event windows; does not prove this filter works."
+        },
+        {
+          "title": "Lead-Lag relationship between Bitcoin and Ethereum (2019)",
+          "url": "https://doi.org/10.1016/j.ribaf.2019.06.012",
+          "note": "Abstract reports mixed tests, largely bidirectional relationships, and limited hourly/daily exploitation."
+        }
+      ],
+      "limitations": [
+        "Correlation is not causality or a guarantee of a profitable lead.",
+        "Fixed exploratory thresholds, not tuned using the backtest.",
+        "Historical ETH period already seen; small number of trades, no independent proof.",
+        "Live context is diagnostic only. Existing portfolios and12-feature forests remain unchanged; adding features to their weights requires a separately trained model."
+      ]
+    },
+    "decisions": [
+      {
+        "signalAt": 1792422300000,
+        "entryAt": 1792422360000,
+        "observedAt": 1792422303757,
+        "sourcePayloadSHA256": "e393cc3541f72eff8edd63f455149a1846d808fdad158a0b32130b7fb299fddb",
+        "rows": [],
+        "mode": "diagnostic_shadow_only"
+      }
+    ],
+    "note": "BTC é contexto diagnóstico; o filtro só foi aplicado no estudo histórico separado, não nas carteiras já registradas."
+  },
+  "btcContextStudy": {
+    "status": "complete",
+    "generatedAt": 1792422202607,
+    "start": 1780272000000,
+    "end": 1790812800000,
+    "registration": {
+      "registeredAt": 1792422199117,
+      "policy": {
+        "version": "btc-context-v1",
+        "purpose": "Market context and separately registered historical ablation; no changes to the live frozen portfolios",
+        "ema": {
+          "fast": 20,
+          "slow": 50,
+          "minimumBars": 50
+        },
+        "correlationHours": 72,
+        "minimumCorrelation": 0.6,
+        "rule": "Veto ETH LONG only if BTC1h and4h EMA20/50 both point down and trailing72hour ETH/BTC log-return correlation >=0.6; symmetric for SHORT. Missing, stale, low/negative correlation or conflicting timeframes: no veto. Preserve opposite exit signals.",
+        "features": [
+          "BTC return1h",
+          "BTC return4h",
+          "BTC return24h",
+          "BTC EMA20/50 trend1h",
+          "BTC EMA20/50 trend4h",
+          "ETH/BTC log-return correlation72h",
+          "ETH beta to BTC72h",
+          "ETH/BTC relative return24h",
+          "BTC leads ETH by1h correlation (descriptive, not causality)",
+          "ETH leads BTC by1h correlation (descriptive, not causality)"
+        ],
+        "sources": [
+          {
+            "title": "Price Transmission from Bitcoin to Altcoins (2026)",
+            "url": "https://link.springer.com/article/10.1007/s10690-026-09589-z",
+            "note": "Reports simultaneous responses for ETH/LTC and stronger lagged responses for selected small caps. Selected event windows; does not prove this filter works."
+          },
+          {
+            "title": "Lead-Lag relationship between Bitcoin and Ethereum (2019)",
+            "url": "https://doi.org/10.1016/j.ribaf.2019.06.012",
+            "note": "Abstract reports mixed tests, largely bidirectional relationships, and limited hourly/daily exploitation."
+          }
+        ],
+        "limitations": [
+          "Correlation is not causality or a guarantee of a profitable lead.",
+          "Fixed exploratory thresholds, not tuned using the backtest.",
+          "Historical ETH period already seen; small number of trades, no independent proof.",
+          "Live context is diagnostic only. Existing portfolios and12-feature forests remain unchanged; adding features to their weights requires a separately trained model."
+        ]
+      },
+      "sourceHashes": {
+        "btc-context-protocol.json": "cc2ffefe2cbd1d0711ce765113c1d39ecbe44978991e4cf19d56b44f909f45b6",
+        "scripts/btc-context-core.mjs": "ba389bc33bc51b441ea53061b0e1a2a8e92fd12a95a0ada80ac1c120ec375d1e",
+        "scripts/evaluate-btc-context.mjs": "d117d640ffe05bc21ef7ec84b8e7935764a15210f15ef70700048802ff5900d9",
+        "scripts/multiasset-core.mjs": "ced09d368550a5257840426c3dc0f52818daea7ffdcecf7a1dd0537e0b69da90",
+        "web/scalping-context.js": "a718ea1e4bd0b441a6d32d31636715934e50d59f8f5cb62f1010d47b24143f6a",
+        "web/research-adaptive-funding.js": "ace93e5d95c393a88c3e138d7992f0452b80947de6b361c5484d10414c8a27dd"
+      },
+      "inputHashes": {
+        "btc-training.json": "d8aa6f0c9291cd509d126b5bf6dd6ecf29c7d5d03d65986cffdfe93d8542b15b",
+        "btc-test-features.json": "ef9f80ba002280c26f5a4b426367103da4018bab2e4d28ec4ea245f3fbe7e9a7",
+        "btc-test-market.json": "510571dfedffb780791879ebdeff1edfbec344c999d2232c02b65edd4e253885",
+        "eth-test-features.json": "6f9265fcc3831cc2b12a55305a5d20402db45a92a7aa97aad8027f5c9ce64efc",
+        "eth-test-market.json": "ff9c7f9341e755cd872b6dcc12932de1b7944855b542c33ea7bdb6163466c179"
+      }
+    },
+    "results": [
+      {
+        "variant": "control",
+        "cost": "base",
+        "pnlBRL": 27.49764014937881,
+        "finalBRL": 1027.4976401493789,
+        "initialBRL": 1000,
+        "count": 8,
+        "maxDD": 0.023654548732830745,
+        "halted": false,
+        "feesBRL": 7.224904932078609,
+        "fundingBRL": 0.22997826088732104,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2438
+      },
+      {
+        "variant": "control",
+        "cost": "stress",
+        "pnlBRL": 15.17001589384762,
+        "finalBRL": 1015.1700158938477,
+        "initialBRL": 1000,
+        "count": 8,
+        "maxDD": 0.023074680255362946,
+        "halted": false,
+        "feesBRL": 12.700689450735451,
+        "fundingBRL": 0.20219666112417622,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2438
+      },
+      {
+        "variant": "btc-context",
+        "cost": "base",
+        "pnlBRL": 13.947732476218988,
+        "finalBRL": 1013.947732476219,
+        "initialBRL": 1000,
+        "count": 1,
+        "maxDD": 0.0063162306763840555,
+        "halted": false,
+        "feesBRL": 1.3011098796020895,
+        "fundingBRL": 0,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2445
+      },
+      {
+        "variant": "btc-context",
+        "cost": "stress",
+        "pnlBRL": 10.459622327066,
+        "finalBRL": 1010.459622327066,
+        "initialBRL": 1000,
+        "count": 1,
+        "maxDD": 0.005346656962188537,
+        "halted": false,
+        "feesBRL": 2.196859957475459,
+        "fundingBRL": 0,
+        "position": null,
+        "rejected": 0,
+        "skipped": 2445
+      }
+    ],
+    "signalsAllowedByG151": 9,
+    "vetoedSignals": 8,
+    "decisions": [
+      {
+        "family": "bands",
+        "signalAt": 1780533300000,
+        "side": 1,
+        "price": 1800.47,
+        "atr": 9.877419694220174,
+        "target": 1815.0345000000002,
+        "regime": "volatile",
+        "score": 0.43218559751979174,
+        "holdMinutes": 240,
+        "modelAllowed": true,
+        "btc": {
+          "context": {
+            "at": 1780531200000,
+            "btcPrice": 64117.7,
+            "btcReturn1h": -0.011781369591921331,
+            "btcReturn4h": -0.020035580770488726,
+            "btcReturn24h": -0.03914731005544736,
+            "btcTrend1h": -1,
+            "btcTrend4h": -1,
+            "btcTrend4hAt": 1780531200000,
+            "correlation72h": 0.8355217763526909,
+            "beta72h": 1.170192168835513,
+            "relativeStrength24h": 0.014709147290136837,
+            "btcLeads1hCorrelation": -0.059585073536287926,
+            "ethLeads1hCorrelation": -0.149621406076276,
+            "samples": 72
+          },
+          "ready": true,
+          "coupled": true,
+          "veto": true,
+          "reason": "BTC1h/4h contra o sinal de ETH com correlação alta"
+        }
+      },
+      {
+        "family": "bands",
+        "signalAt": 1780539000000,
+        "side": 1,
+        "price": 1736.68,
+        "atr": 15.077242841917778,
+        "target": 1776.6689999999999,
+        "regime": "volatile",
+        "score": 0.4430587969658961,
+        "holdMinutes": 240,
+        "modelAllowed": true,
+        "btc": {
+          "context": {
+            "at": 1780538400000,
+            "btcPrice": 62140.3,
+            "btcReturn1h": -0.018543964722085304,
+            "btcReturn4h": -0.05473648663038155,
+            "btcReturn24h": -0.07101873501288669,
+            "btcTrend1h": -1,
+            "btcTrend4h": -1,
+            "btcTrend4hAt": 1780531200000,
+            "correlation72h": 0.8452310008656126,
+            "beta72h": 1.14069676468351,
+            "relativeStrength24h": 0.016040469480811836,
+            "btcLeads1hCorrelation": 0.06054461305486723,
+            "ethLeads1hCorrelation": -0.036204356844846686,
+            "samples": 72
+          },
+          "ready": true,
+          "coupled": true,
+          "veto": true,
+          "reason": "BTC1h/4h contra o sinal de ETH com correlação alta"
+        }
+      },
+      {
+        "family": "bands",
+        "signalAt": 1780668600000,
+        "side": 1,
+        "price": 1618.66,
+        "atr": 13.030292382200344,
+        "target": 1650.6980000000003,
+        "regime": "volatile",
+        "score": 0.44930540019702264,
+        "holdMinutes": 240,
+        "modelAllowed": true,
+        "btc": {
+          "context": {
+            "at": 1780668000000,
+            "btcPrice": 60700.4,
+            "btcReturn1h": -0.020008169235562923,
+            "btcReturn4h": -0.033933076035491117,
+            "btcReturn24h": -0.05455066531469854,
+            "btcTrend1h": -1,
+            "btcTrend4h": -1,
+            "btcTrend4hAt": 1780660800000,
+            "correlation72h": 0.8802689417539213,
+            "beta72h": 1.0741753922937163,
+            "relativeStrength24h": -0.04346675412604728,
+            "btcLeads1hCorrelation": 0.00878698621745392,
+            "ethLeads1hCorrelation": -0.10570309879217582,
+            "samples": 72
+          },
+          "ready": true,
+          "coupled": true,
+          "veto": true,
+          "reason": "BTC1h/4h contra o sinal de ETH com correlação alta"
+        }
+      },
+      {
+        "family": "bands",
+        "signalAt": 1780674300000,
+        "side": 1,
+        "price": 1584.08,
+        "atr": 14.124392675641237,
+        "target": 1599.3365000000001,
+        "regime": "volatile",
+        "score": 0.43029302013569026,
+        "holdMinutes": 240,
+        "modelAllowed": true,
+        "btc": {
+          "context": {
+            "at": 1780671600000,
+            "btcPrice": 60832.7,
+            "btcReturn1h": 0.002179557301104973,
+            "btcReturn4h": -0.026834063615319814,
+            "btcReturn24h": -0.04835750008995077,
+            "btcTrend1h": -1,
+            "btcTrend4h": -1,
+            "btcTrend4hAt": 1780660800000,
+            "correlation72h": 0.8710245101172277,
+            "beta72h": 1.060929191435491,
+            "relativeStrength24h": -0.05215934931479471,
+            "btcLeads1hCorrelation": 0.009386811624462026,
+            "ethLeads1hCorrelation": -0.13702306075063278,
+            "samples": 72
+          },
+          "ready": true,
+          "coupled": true,
+          "veto": true,
+          "reason": "BTC1h/4h contra o sinal de ETH com correlação alta"
+        }
+      },
+      {
+        "family": "bands",
+        "signalAt": 1780676100000,
+        "side": 1,
+        "price": 1586.4,
+        "atr": 16.22363330042106,
+        "target": 1589.6700000000005,
+        "regime": "volatile",
+        "score": 0.43811541918472124,
+        "holdMinutes": 240,
+        "modelAllowed": true,
+        "btc": {
+          "context": {
+            "at": 1780675200000,
+            "btcPrice": 60400.8,
+            "btcReturn1h": -0.007099799943122598,
+            "btcReturn4h": -0.024684520301310298,
+            "btcReturn24h": -0.05423958111510563,
+            "btcTrend1h": -1,
+            "btcTrend4h": -1,
+            "btcTrend4hAt": 1780675200000,
+            "correlation72h": 0.869829326852805,
+            "beta72h": 1.0610071453221397,
+            "relativeStrength24h": -0.05797649649549863,
+            "btcLeads1hCorrelation": 0.01248087088274237,
+            "ethLeads1hCorrelation": -0.12636544684087408,
+            "samples": 72
+          },
+          "ready": true,
+          "coupled": true,
+          "veto": true,
+          "reason": "BTC1h/4h contra o sinal de ETH com correlação alta"
+        }
+      },
+      {
+        "family": "bands",
+        "signalAt": 1780702800000,
+        "side": 1,
+        "price": 1570.32,
+        "atr": 9.356067363194038,
+        "target": 1590.9875,
+        "regime": "volatile",
+        "score": 0.4276251211287808,
+        "holdMinutes": 240,
+        "modelAllowed": true,
+        "btc": {
+          "context": {
+            "at": 1780700400000,
+            "btcPrice": 61556.6,
+            "btcReturn1h": -0.001344916814704833,
+            "btcReturn4h": 0.03696628494226961,
+            "btcReturn24h": -0.033681725277933894,
+            "btcTrend1h": -1,
+            "btcTrend4h": -1,
+            "btcTrend4hAt": 1780689600000,
+            "correlation72h": 0.8910493890609691,
+            "beta72h": 1.0556460139195125,
+            "relativeStrength24h": -0.06532804950027349,
+            "btcLeads1hCorrelation": 0.019311094656296792,
+            "ethLeads1hCorrelation": -0.11147337229855744,
+            "samples": 72
+          },
+          "ready": true,
+          "coupled": true,
+          "veto": true,
+          "reason": "BTC1h/4h contra o sinal de ETH com correlação alta"
+        }
+      },
+      {
+        "family": "cross",
+        "signalAt": 1780739700000,
+        "side": -1,
+        "price": 1566.17,
+        "atr": 6.1906138596539515,
+        "target": null,
+        "regime": "trend",
+        "score": 0.33530250716581445,
+        "holdMinutes": 120,
+        "modelAllowed": true,
+        "btc": {
+          "context": {
+            "at": 1780736400000,
+            "btcPrice": 61239.6,
+            "btcReturn1h": 0.004336189139191093,
+            "btcReturn4h": 0.01949777253930507,
+            "btcReturn24h": -0.019066184632684058,
+            "btcTrend1h": -1,
+            "btcTrend4h": -1,
+            "btcTrend4hAt": 1780732800000,
+            "correlation72h": 0.8873538722851677,
+            "beta72h": 1.1248651512228847,
+            "relativeStrength24h": -0.030314579215397153,
+            "btcLeads1hCorrelation": -0.026209072177844215,
+            "ethLeads1hCorrelation": -0.14762607177750398,
+            "samples": 72
+          },
+          "ready": true,
+          "coupled": true,
+          "veto": false,
+          "reason": "Sem oposição conjunta de BTC1h/4h"
+        }
+      },
+      {
+        "family": "bands",
+        "signalAt": 1787303100000,
+        "side": -1,
+        "price": 2404.5,
+        "atr": 15.344769292830966,
+        "target": 2393.648,
+        "regime": "volatile",
+        "score": 0.4374721731357498,
+        "holdMinutes": 240,
+        "modelAllowed": true,
+        "btc": {
+          "context": {
+            "at": 1787302800000,
+            "btcPrice": 79269,
+            "btcReturn1h": 0.038770600075481276,
+            "btcReturn4h": 0.057056712668171805,
+            "btcReturn24h": 0.10771849313728499,
+            "btcTrend1h": 1,
+            "btcTrend4h": 1,
+            "btcTrend4hAt": 1787299200000,
+            "correlation72h": 0.7748328401607889,
+            "beta72h": 1.1001839960510622,
+            "relativeStrength24h": -0.03277056815466706,
+            "btcLeads1hCorrelation": 0.14200218772757547,
+            "ethLeads1hCorrelation": 0.07370583630078496,
+            "samples": 72
+          },
+          "ready": true,
+          "coupled": true,
+          "veto": true,
+          "reason": "BTC1h/4h contra o sinal de ETH com correlação alta"
+        }
+      },
+      {
+        "family": "cross",
+        "signalAt": 1787586600000,
+        "side": -1,
+        "price": 2494.68,
+        "atr": 12.594970062968645,
+        "target": null,
+        "regime": "trend",
+        "score": 0.3290305751051844,
+        "holdMinutes": 120,
+        "modelAllowed": true,
+        "btc": {
+          "context": {
+            "at": 1787583600000,
+            "btcPrice": 79481.1,
+            "btcReturn1h": 0.011657833239144155,
+            "btcReturn4h": 0.024052268718522285,
+            "btcReturn24h": 0.029893448708828485,
+            "btcTrend1h": 1,
+            "btcTrend4h": 1,
+            "btcTrend4hAt": 1787572800000,
+            "correlation72h": 0.849546626525383,
+            "beta72h": 1.3351081717085678,
+            "relativeStrength24h": 0.0016654193698752984,
+            "btcLeads1hCorrelation": -0.014958797007709499,
+            "ethLeads1hCorrelation": -0.06830795973756444,
+            "samples": 72
+          },
+          "ready": true,
+          "coupled": true,
+          "veto": true,
+          "reason": "BTC1h/4h contra o sinal de ETH com correlação alta"
+        }
+      }
+    ],
+    "independentHoldout": false,
+    "promoted": false,
+    "conclusion": "Ablação exploratória do filtro BTC. Poucas operações, período ETH já visto; não altera as carteiras prospectivas."
+  },
+  "testsPassed": 225,
+  "codeManifestSHA256": "8b3ccd7622eb3d0613e0d0ce28184eb9b2d138b44d38cd57a5674394fef5d362"
+}

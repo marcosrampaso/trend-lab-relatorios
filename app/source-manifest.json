@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-19T13:57:01.414904+00:00",
+  "exportedAt": "2026-10-19T15:07:36.384795+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -36,6 +36,10 @@
     "ML-ESTRATEGIAS.md": {
       "sha256": "759ca880ffbe4f8a2c6ce4955b01d3c81ac525dd445d0032f508b4728c5b68ea",
       "bytes": 7920
+    },
+    "MULTIATIVOS-SENTIMENTO.md": {
+      "sha256": "af834a249c020b25779448d5f00b1c2dd41722777d689a0b296bd1fc2cd49d2c",
+      "bytes": 8066
     },
     "PESQUISA-ML-MERCADOS.md": {
       "sha256": "0de1890c2bf19a7cbc54807340189a005d4bf31c94c85a32a2ff532c6a8c82c7",
@@ -92,6 +96,10 @@
     "adaptive-search-v4-protocol.json": {
       "sha256": "4dc4e332decbe263b52ee1ab46a1cd375b7a2648461db493941f18f129edb528",
       "bytes": 7102
+    },
+    "btc-context-protocol.json": {
+      "sha256": "cc2ffefe2cbd1d0711ce765113c1d39ecbe44978991e4cf19d56b44f909f45b6",
+      "bytes": 1775
     },
     "compound-benchmark-protocol.json": {
       "sha256": "877f30c901f272bf2c727298bb0cb1856857e184e006f2cc5678d7503619845b",
@@ -213,6 +221,10 @@
       "sha256": "fc84c773dc6b38b8f6a4ca26df438103b6807d7fbe7b1b2689a8327945631859",
       "bytes": 4477
     },
+    "multiasset-sentiment-protocol.json": {
+      "sha256": "082cef9687ab0be2f3c2f3249faf7cbe682302de20d654b9e2cbdc84e25715ab",
+      "bytes": 2832
+    },
     "news-filter-operations.md": {
       "sha256": "41d0210d0b0d37b4f99bf44dd3b3003a2b29babb372ea7eb34cc5346c0391a76",
       "bytes": 2863
@@ -244,6 +256,10 @@
     "requirements-local-ml.txt": {
       "sha256": "865281c0be0296672729bfc4db0b26126788912879321d05b17831ae753265c0",
       "bytes": 56
+    },
+    "requirements-local-sentiment.lock.txt": {
+      "sha256": "437d824af2d746c32d6a5bbc48735ac2f8025a729d5c54fa2364c3454c6a907a",
+      "bytes": 556
     },
     "research-freeze.json": {
       "sha256": "5d89bb2ab3940bdf046f60015d6bee2957974aa06f4c999bcf42ec0a75bdf045",
@@ -373,9 +389,17 @@
       "sha256": "d57d851a4ab49f19fd24581e9998d32dab2791d80a42ff3449153ed15af735ce",
       "bytes": 8049
     },
+    "scripts/btc-context-core.mjs": {
+      "sha256": "ba389bc33bc51b441ea53061b0e1a2a8e92fd12a95a0ada80ac1c120ec375d1e",
+      "bytes": 2318
+    },
     "scripts/build-adaptive-labels.mjs": {
       "sha256": "e2bee5e5f8f028223723e0d4b798512117eb40f161c419b83354282f232d532d",
       "bytes": 3254
+    },
+    "scripts/build-btc-comparison.mjs": {
+      "sha256": "cfc88b2c0596bd6a8bdb226f90bc21e7f2215415335365f4ec0df4f8ac6467ed",
+      "bytes": 5330
     },
     "scripts/build-extended-ml-labels.mjs": {
       "sha256": "7b0390ecb768db16a9f4d97e451d382c22b8178470df4bb16a44a046617012d5",
@@ -412,6 +436,14 @@
     "scripts/compound-benchmark.mjs": {
       "sha256": "11acab15f5bf96a5e5f7779dfbb08adb8d55bef61fe996ca75c899bbf3d314a7",
       "bytes": 8101
+    },
+    "scripts/evaluate-btc-comparison.mjs": {
+      "sha256": "73d8f448d99257bc66a0ee2849f51257e7325b8d5553b16329dba1eebe60bf08",
+      "bytes": 3181
+    },
+    "scripts/evaluate-btc-context.mjs": {
+      "sha256": "d117d640ffe05bc21ef7ec84b8e7935764a15210f15ef70700048802ff5900d9",
+      "bytes": 3420
     },
     "scripts/evaluate-exit-study.mjs": {
       "sha256": "e3b01153a30712788a036897eb0b45d30c9ec70db9859e2a4a33158e0dfc10a4",
@@ -456,6 +488,10 @@
     "scripts/fetch-15m.py": {
       "sha256": "8353578de3a840c6d9500f4b277a631f32cd548fb5415b157d4550af07bd46ae",
       "bytes": 3305
+    },
+    "scripts/fetch-btc-comparison.py": {
+      "sha256": "b93e016f7f1bc023171ad62b1cd30713c78fef0004705f9945c0b312b6dddd93",
+      "bytes": 5575
     },
     "scripts/fetch-cdi.py": {
       "sha256": "03aa948e478c4730fbefe0892a3be58d29ec4b3f920e978b4b5bc191c1d2f1bc",
@@ -525,6 +561,10 @@
       "sha256": "75cd7fac2a61aa6fdf215ebd4f902b0f55bd0e9c81c2d454e913b9df8b4cd4e2",
       "bytes": 3138
     },
+    "scripts/local-btc-context.mjs": {
+      "sha256": "15a5f291c695acbc99709437997564238398050a2dfbb119a3029ad61874e256",
+      "bytes": 3749
+    },
     "scripts/local-compound.mjs": {
       "sha256": "c786b49013ab90a53f1bd2c6dabed7bc3d7827ec68234094d969f1be512bac9e",
       "bytes": 1685
@@ -549,6 +589,10 @@
       "sha256": "92335caaeafdb2d740bc037d23d4e249f80f3b06b3e2c828e6cda0a6ff032caa",
       "bytes": 2916
     },
+    "scripts/local-multiasset.mjs": {
+      "sha256": "6f12687d0e79dd107c51713ec95cc8b3a61587f3010a3bee607cea6402382f38",
+      "bytes": 9932
+    },
     "scripts/local-news-experiment.mjs": {
       "sha256": "06d1828cc239b2039b1dc58298ac1f7e8caaa257dbea63a3d3023964d1705a38",
       "bytes": 12518
@@ -561,6 +605,14 @@
       "sha256": "e5a94fe01722fccc974edb4462fda2cf08b24758a20662794fc5f74a49d7cf43",
       "bytes": 2362
     },
+    "scripts/local-sentiment-service.mjs": {
+      "sha256": "a1b52ccd42f595c7a7fa8a766e7e7e61eca011efec89fda23bc69779da4010ab",
+      "bytes": 1321
+    },
+    "scripts/local-sentiment.py": {
+      "sha256": "dd817e8340bf7d6dede9a6d1d093e5392de9869e5753b3d1467b609e87eb068b",
+      "bytes": 5728
+    },
     "scripts/local-service.mjs": {
       "sha256": "a196359b7a237286afe0ca262b99e915bf04904ec0b53b74dfaf3f9809e38cda",
       "bytes": 2205
@@ -572,6 +624,18 @@
     "scripts/ml-labels.mjs": {
       "sha256": "481e40d4994d454f345b10195a8f0802d6f3f7e53bca0ac1b388cdc87ab354cd",
       "bytes": 3112
+    },
+    "scripts/multiasset-core.mjs": {
+      "sha256": "ced09d368550a5257840426c3dc0f52818daea7ffdcecf7a1dd0537e0b69da90",
+      "bytes": 7178
+    },
+    "scripts/multiasset-inference.py": {
+      "sha256": "02bbb69fefdda986d1e0abfa27446e04283e42b125fd586bd588eafef2f9d33a",
+      "bytes": 1690
+    },
+    "scripts/multiasset-io.mjs": {
+      "sha256": "1528b95a2903fcb0688eadfb330b357c537a72be84175dc7c2d7eb2647e905df",
+      "bytes": 2256
     },
     "scripts/news-filter-core.mjs": {
       "sha256": "cdf10fc4823440a3a2e9e35a66bac2846315433fc834e580fdd4e7b66b26c8e4",
@@ -592,6 +656,10 @@
     "scripts/prepare-extended-cdi.py": {
       "sha256": "91252c26eebb8ad8cec02dbf6b28b7eb9f54f8209f1084b030b16673f9c6bafb",
       "bytes": 2721
+    },
+    "scripts/prepare-local-sentiment.py": {
+      "sha256": "71046b2eb7a0e1e4500febbde75fcb4cdc9925e29618d5614aa771176fed8efe",
+      "bytes": 1176
     },
     "scripts/prepare-search-v4.py": {
       "sha256": "6b2d1fad498a08c147ee754227afdf7d5b37840c941eb5f43ca4e556133280f9",
@@ -673,6 +741,10 @@
       "sha256": "a9c483edecb2ef4b7c30d7b01ea746e9d18eb6152f5f7919a42913b3cb1dfd0e",
       "bytes": 462
     },
+    "scripts/train-btc-comparison.py": {
+      "sha256": "200f0496b411b970812ff4fa32375afb04b59294c22080e58a4ce4c88592d812",
+      "bytes": 3123
+    },
     "scripts/train-expanded-validation-funding.py": {
       "sha256": "3127f3fbff9d6e0cebc29e083b5d832a8c558bcc86745d699f6d675fd6ae3e80",
       "bytes": 5348
@@ -720,6 +792,10 @@
     "tests/adaptive.test.mjs": {
       "sha256": "256a6fdf45fe9ab892af1e9a0e662b2d3fdc8e1271222fb59ac3462520db0331",
       "bytes": 4580
+    },
+    "tests/btc-context.test.mjs": {
+      "sha256": "bcc7af815c92eb638878049ae9533fa5fb3ff3477ce59372e54a192c59d1b275",
+      "bytes": 1908
     },
     "tests/champion-report.test.mjs": {
       "sha256": "5289c3406b96b1c04f8354f5f5840a6fda0e3e7c05ebd4735083fa9b4b93271f",
@@ -804,6 +880,10 @@
     "tests/ml.test.mjs": {
       "sha256": "0256fa6d37ebee2ef6ba05614121269ddfd0dddac1c3f6bf14c250d9efb9b552",
       "bytes": 7524
+    },
+    "tests/multiasset-sentiment.test.mjs": {
+      "sha256": "aa35b7218d30dd73211cf8d18be79f34f7f5599772ae26ca5001373cf5fe7f83",
+      "bytes": 5161
     },
     "tests/news-filter-experiment.test.mjs": {
       "sha256": "78ad16746f72a88bcadf8c0bb31bb4bb7261e70cf1bebb82cb8aec20599fa8e7",
@@ -985,13 +1065,25 @@
       "sha256": "5e5d040178d51b41f8dbbe6bef53a4dc94dd9a975fbb732b83baa75caea2763b",
       "bytes": 7280
     },
+    "web/pesquisa-genetica/cripto-sentimento.css": {
+      "sha256": "2815dad967758ac392bfe596adda5d1e1c56934fc314acfd85f7185d39c7f5a6",
+      "bytes": 467
+    },
+    "web/pesquisa-genetica/cripto-sentimento.html": {
+      "sha256": "b8a73d6f6abb4abae5c0c59aa23851dd6d7fd979c056f8184de18120e7f0ff19",
+      "bytes": 7510
+    },
+    "web/pesquisa-genetica/cripto-sentimento.js": {
+      "sha256": "6bf8450d4496c2a44b7fd71c2c6fa2eef539ba71b35ed99152d0c54502e97a75",
+      "bytes": 7707
+    },
     "web/pesquisa-genetica/experimento-noticias.css": {
       "sha256": "edabe57a0ee72d35f818e70c059ad2e8ffdc6d0bb2b77f0e5333ff4fcb6eff33",
       "bytes": 2513
     },
     "web/pesquisa-genetica/experimento-noticias.html": {
-      "sha256": "00636f005a1e34be4d6e4bacb319e2ca85a2f3870272d15e1e682665554002eb",
-      "bytes": 5365
+      "sha256": "26348d7e35dbdbf327933b74ba9b6b041b1fa0b60735b9000556d331589462c7",
+      "bytes": 5432
     },
     "web/pesquisa-genetica/experimento-noticias.js": {
       "sha256": "9049698e62a4374782fcf7129edccf663bc14258b3668c4ce3689b63e9b36e28",

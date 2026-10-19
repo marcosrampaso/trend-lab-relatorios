@@ -1,0 +1,31 @@
+{
+  "version": "multiasset-sentiment-v1",
+  "symbols": ["ETHUSDT", "BTCUSDT"],
+  "arms": ["eth-g151", "btc-transfer", "btc-trained"],
+  "capitalBRL": 1000,
+  "risk": 0.01,
+  "leverage": 10,
+  "entryDelayMinutes": 1,
+  "durationDays": 30,
+  "history": {"warmupStart":"2025-08-01T00:00:00Z","trainStart":"2025-09-01T00:00:00Z","trainEnd":"2026-06-01T00:00:00Z","testStart":"2026-06-01T00:00:00Z","testEnd":"2026-10-01T00:00:00Z","labelMaturityMinutes": 1440},
+  "forest": {"seeds":[2026101802,2026101803,2026101804,2026101805,2026101806],"params":{"max_depth":10,"min_samples_leaf":100,"n_estimators":1200},"families":{"cross":120,"bands":240},"workers":4},
+  "sentiment": {
+    "model":"mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis",
+    "revision":"ae0eab9ad336d7d548e0efe394b07c04bcaf6e91",
+    "feeds":["https://www.coindesk.com/arc/outboundfeeds/rss/","https://cointelegraph.com/rss"],
+    "language":"en","input":"headline only","ttlMinutes":300,"pollSeconds":300,
+    "minimumArticles":2,"minimumPublishers":2,"minimumDirectionalConfidence":0.8,"minimumAbsoluteMean":0.2,
+    "missingPolicy":"no veto; mark uncovered",
+    "rule":"Mean P(positive)-P(negative) on dated, recent, deduplicated, explicitly asset-related headlines with directional confidence >=0.8. At least2 articles and2 publishers; mean >=0.2 vetoes SHORT, <=-0.2 vetoes LONG. Neutral/conflicting evidence does not veto. Never infers high-risk events from sentiment."
+  },
+  "rules":[
+    "Separate ETH G151, BTC with ETH weights, and BTC trained forests; each has control and local-sentiment portfolios with base/stress costs.",
+    "Freeze all rules, data checksums and model hashes; no parameter search or automatic promotion.",
+    "BTC forests use only matured labels before01jun2026 and the preserved G151 hyperparameters/routes/thresholds. Corrected funding and explicit1min entry delay are adaptations; no claim of exact historical reproduction.",
+    "Historical comparison uses the same Jun-Sep2026 dates without news; those ETH periods were already explored and are not an independent holdout. Modern news is never applied to historical trades.",
+    "Prospective arms share start/end. First observation after registration must precede next-minute entry. No missing-decision backfill.",
+    "Per-symbol current Binance filters; retroactive historical application is an approximation. Modeled costs and fixedFX, no personal fee or tax reconstruction.",
+    "News is classified locally from English headlines; asset relevance is explicit keyword matching, not causal impact detection. Duplicate events with different headlines may remain. Scores are not price/profit probabilities.",
+    "Preserve all earlier experiments and state; no real orders, account keys, paid AI or model retraining during the30day prospective run."
+  ]
+}

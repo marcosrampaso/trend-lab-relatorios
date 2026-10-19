@@ -52,3 +52,16 @@ python3 tools/sync-local-source.py --source /caminho/do/trend-lab
 ```
 
 Revise o diff e faça commit/push. O exportador não copia credenciais, banco, candles, pesos nem processos locais. Resultados novos precisam de outro snapshot datado, preservando os anteriores.
+
+
+## BTC, ETH e sentimento local
+
+Consulte [MULTIATIVOS-SENTIMENTO.md](MULTIATIVOS-SENTIMENTO.md) para preparação do ambiente separado, download da revisão fixada, coleta de manchetes e treino BTC. O GitHub não contém os331MBde pesos DistilRoBERTa, os pesos das florestas ou os históricos. O novo download exige internet; a inferência usaCPU local, sem API deIA. Não repetir a preparação/treino no diretório de uma execução já congelada.
+
+Os28testes específicos de notícias/G151/multiativos/contextoBTC podem rodar sem os grandes datasets:
+
+```sh
+node --test tests/news-filter-experiment.test.mjs tests/g151-news.test.mjs tests/multiasset-sentiment.test.mjs tests/btc-context.test.mjs
+```
+
+A suíte completa de225testes exige os dados locais originais. [Relatório datado](../experimentos/btc-eth-sentimento/index.html); [painel local](http://127.0.0.1:4173/pesquisa-genetica/cripto-sentimento.html).

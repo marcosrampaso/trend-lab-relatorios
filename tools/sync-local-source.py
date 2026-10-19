@@ -11,12 +11,12 @@ for directory in ['local','worker','scripts','tests']:
  for f in (src/directory).rglob('*'):
   if f.is_file() and '__pycache__' not in f.parts and f.suffix in allowed:files.append(f)
 for f in src.iterdir():
- if f.is_file() and (f.suffix in {'.md','.command'} or f.name.startswith('requirements-local-ml') or f.name=='package.json' or f.name.endswith(('-protocol.json','-freeze.json'))):files.append(f)
+ if f.is_file() and (f.suffix in {'.md','.command'} or f.name.startswith(('requirements-local-ml','requirements-local-sentiment')) or f.name=='package.json' or f.name.endswith(('-protocol.json','-freeze.json'))):files.append(f)
 for f in (src/'web').iterdir():
  if f.is_file() and f.suffix in {'.js','.css','.html'}:files.append(f)
 if (src/'web/vendor').exists():files += [f for f in (src/'web/vendor').rglob('*') if f.is_file() and f.suffix in {'.js','.css'}]
 files.append(src/'web/data/forward-protocol.json')
-for name in ['experimento-noticias.html','experimento-noticias.js','experimento-noticias.css']:
+for name in ['experimento-noticias.html','experimento-noticias.js','experimento-noticias.css','cripto-sentimento.html','cripto-sentimento.js','cripto-sentimento.css']:
  files.append(src/'web/pesquisa-genetica'/name)
 manifest={}
 for f in sorted(set(files)):

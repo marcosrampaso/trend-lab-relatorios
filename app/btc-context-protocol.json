@@ -1,0 +1,11 @@
+{
+  "version":"btc-context-v1",
+  "purpose":"Market context and separately registered historical ablation; no changes to the live frozen portfolios",
+  "ema":{"fast":20,"slow":50,"minimumBars":50},
+  "correlationHours":72,
+  "minimumCorrelation":0.6,
+  "rule":"Veto ETH LONG only if BTC1h and4h EMA20/50 both point down and trailing72hour ETH/BTC log-return correlation >=0.6; symmetric for SHORT. Missing, stale, low/negative correlation or conflicting timeframes: no veto. Preserve opposite exit signals.",
+  "features":["BTC return1h","BTC return4h","BTC return24h","BTC EMA20/50 trend1h","BTC EMA20/50 trend4h","ETH/BTC log-return correlation72h","ETH beta to BTC72h","ETH/BTC relative return24h","BTC leads ETH by1h correlation (descriptive, not causality)","ETH leads BTC by1h correlation (descriptive, not causality)"],
+  "sources":[{"title":"Price Transmission from Bitcoin to Altcoins (2026)","url":"https://link.springer.com/article/10.1007/s10690-026-09589-z","note":"Reports simultaneous responses for ETH/LTC and stronger lagged responses for selected small caps. Selected event windows; does not prove this filter works."},{"title":"Lead-Lag relationship between Bitcoin and Ethereum (2019)","url":"https://doi.org/10.1016/j.ribaf.2019.06.012","note":"Abstract reports mixed tests, largely bidirectional relationships, and limited hourly/daily exploitation."}],
+  "limitations":["Correlation is not causality or a guarantee of a profitable lead.","Fixed exploratory thresholds, not tuned using the backtest.","Historical ETH period already seen; small number of trades, no independent proof.","Live context is diagnostic only. Existing portfolios and12-feature forests remain unchanged; adding features to their weights requires a separately trained model."]
+}
