@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-19T20:31:51.243380+00:00",
+  "exportedAt": "2026-10-19T21:16:51.587981+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -80,6 +80,10 @@
     "MULTIATIVOS-SENTIMENTO.md": {
       "sha256": "af834a249c020b25779448d5f00b1c2dd41722777d689a0b296bd1fc2cd49d2c",
       "bytes": 8066
+    },
+    "PEPE-FINRL-PBT.md": {
+      "sha256": "46c17f3e268a54ab9238785e4fae07a7d7e1061de0f6ba37fc200a73e013fd72",
+      "bytes": 8521
     },
     "PESQUISA-ML-MERCADOS.md": {
       "sha256": "0de1890c2bf19a7cbc54807340189a005d4bf31c94c85a32a2ff532c6a8c82c7",
@@ -281,6 +285,10 @@
       "sha256": "048e7a0ce4ecc95089c6907c9d3402d0dbaa85f709d0b658edfb756801460c73",
       "bytes": 2124
     },
+    "pepe-finrl-protocol.json": {
+      "sha256": "7549f3f9b7a0ab3ec99c9c147de92ee3830963dd8fb1f2554b403524a58c3894",
+      "bytes": 6600
+    },
     "range-vwap-freeze.json": {
       "sha256": "e4ab1c5a0042f77a18f44ee98a232ececf156667914773ffb74d1293e33bd68d",
       "bytes": 1941
@@ -300,6 +308,10 @@
     "requirements-local-ml.txt": {
       "sha256": "865281c0be0296672729bfc4db0b26126788912879321d05b17831ae753265c0",
       "bytes": 56
+    },
+    "requirements-local-rl.lock.txt": {
+      "sha256": "f04896b9c3c57d545f3a0936972010755f18ace9e49c4a9f29fa4e0180ede653",
+      "bytes": 900
     },
     "requirements-local-sentiment.lock.txt": {
       "sha256": "437d824af2d746c32d6a5bbc48735ac2f8025a729d5c54fa2364c3454c6a907a",
@@ -561,6 +573,10 @@
       "sha256": "a0fa43a349b1aa26f4b27a0d54b405a570327208d199223ff7dee5dc8d93d074",
       "bytes": 6398
     },
+    "scripts/download-pepe-finrl.py": {
+      "sha256": "e9ac86031e9d31cdf51b7b1fecf49dfa240868a5bf7087c6bd5f368245a2710e",
+      "bytes": 7264
+    },
     "scripts/evaluate-btc-comparison.mjs": {
       "sha256": "73d8f448d99257bc66a0ee2849f51257e7325b8d5553b16329dba1eebe60bf08",
       "bytes": 3181
@@ -596,6 +612,10 @@
     "scripts/evaluate-local-ml.mjs": {
       "sha256": "7618c601a1f3ce5b0374c73f0dda3db3f85639a6400c6d3cf85b72cc25c7a1c9",
       "bytes": 8954
+    },
+    "scripts/evaluate-pepe-finrl.py": {
+      "sha256": "b0cd9d9646fee61e8e60efb4c6af93972024fc57202da1fe6f6dc5b0cb945d56",
+      "bytes": 1417
     },
     "scripts/expanded-validation-common.mjs": {
       "sha256": "287f98a9e539ab025fa4ca034f528d7a932bd1515983b0a5e707b4687aba4499",
@@ -657,6 +677,10 @@
       "sha256": "d7b6dafca76fff76f8361ce76c036663f89149899223045d1b64e22f8e62cd60",
       "bytes": 3533
     },
+    "scripts/finrl-futures-engine.mjs": {
+      "sha256": "ed8c9d8ec83106f3996b5adde9631ef763c8f200ffe20a6425c4a4655a423f05",
+      "bytes": 18505
+    },
     "scripts/g151-exit-engine.mjs": {
       "sha256": "f9cf31d5e3695b9895c0ab99a4f9182be34a674ebc2e467fb93b13ac3dc0d1b5",
       "bytes": 13880
@@ -672,6 +696,10 @@
     "scripts/g151-news-core.mjs": {
       "sha256": "74697b9678f348992e6722eade87d1ebb17b2cf51fe842151aabe2ff07151a6a",
       "bytes": 6458
+    },
+    "scripts/generate-architecture-pdf.py": {
+      "sha256": "15bb42cc963ef07ecb4897a4f1589e7779ef98184dc494ad90420623564b7623",
+      "bytes": 11924
     },
     "scripts/generate-champion-reports.mjs": {
       "sha256": "b3738340159f31b7d1075b08b53dab761ef4d6e6cacb62ec9dabd17315b6cc3a",
@@ -765,6 +793,14 @@
       "sha256": "06d1828cc239b2039b1dc58298ac1f7e8caaa257dbea63a3d3023964d1705a38",
       "bytes": 12518
     },
+    "scripts/local-pepe-finrl.mjs": {
+      "sha256": "e5242f400c3db32c3b4835d06d429796c605a9bdc39f93b97a15bf84f5a63271",
+      "bytes": 117
+    },
+    "scripts/local-pepe-pbt.mjs": {
+      "sha256": "8b3438ea9d4e366f67fa37a5793445474d1046a5f709c09ef94395464947415d",
+      "bytes": 215
+    },
     "scripts/local-research-monitor.mjs": {
       "sha256": "2537a929feaa0f5e981511f957f991587d2f2a792c2481bddd17549709ca4273",
       "bytes": 1661
@@ -809,6 +845,38 @@
       "sha256": "cdf10fc4823440a3a2e9e35a66bac2846315433fc834e580fdd4e7b66b26c8e4",
       "bytes": 7073
     },
+    "scripts/pepe-finrl-bridge.mjs": {
+      "sha256": "e4d16fd3009f5a42cf3dbdd85f0a7546b3993f8554b591d3bb49208425c32e0c",
+      "bytes": 5515
+    },
+    "scripts/pepe-finrl-references.mjs": {
+      "sha256": "2b25d6820d95e9849105d56640915b40787781216a4641cb817165c2d800cabf",
+      "bytes": 5209
+    },
+    "scripts/pepe-pbt-control.mjs": {
+      "sha256": "b74821ef91669691138e457a00c0f2d0dcdd03d1cf5be58a4824d2e16c83d17d",
+      "bytes": 1904
+    },
+    "scripts/pepe-pbt-core.mjs": {
+      "sha256": "2f6075e524eb53d56537b9316bc428242eb05cbe3a879535b03f8db9ee0f4448",
+      "bytes": 3237
+    },
+    "scripts/pepe-pbt-service.mjs": {
+      "sha256": "c3050315d8cfbe79084e2254f536d55b502b54a72b3b6c5b7b28d93f02baa21f",
+      "bytes": 2304
+    },
+    "scripts/pepe-pbt-worker.py": {
+      "sha256": "104eaf11407b5ede66a2bd869bbd2b54e406f9d56a823dc8ae394523744831ab",
+      "bytes": 4771
+    },
+    "scripts/pepe-reference-engine.mjs": {
+      "sha256": "b2b0144ad6a35dfbcadbb72111e5533ff8a48c4018bd1ceb8b0002ad083c6531",
+      "bytes": 13622
+    },
+    "scripts/pepe_finrl_env.py": {
+      "sha256": "ebf946a4ca6cd77220dc81dd69d39c4a5bda76858650ed92aa4ba61c31438560",
+      "bytes": 4405
+    },
     "scripts/prepare-exit-study.mjs": {
       "sha256": "9bf9e632476570b53ce7aec423b24e563b1075ae772842e2484818f1fe7916ff",
       "bytes": 4703
@@ -828,6 +896,14 @@
     "scripts/prepare-local-sentiment.py": {
       "sha256": "71046b2eb7a0e1e4500febbde75fcb4cdc9925e29618d5614aa771176fed8efe",
       "bytes": 1176
+    },
+    "scripts/prepare-pepe-finrl.mjs": {
+      "sha256": "7003420406dc9d33d59099903c8deda99551419eae444849874ad7d86a9829ec",
+      "bytes": 3506
+    },
+    "scripts/prepare-pepe-pbt.mjs": {
+      "sha256": "774226fb1d0531addc9d5950b89903ea409a65bd72760ef05fb4ff34c1c160e5",
+      "bytes": 3039
     },
     "scripts/prepare-search-v4.py": {
       "sha256": "6b2d1fad498a08c147ee754227afdf7d5b37840c941eb5f43ca4e556133280f9",
@@ -889,6 +965,14 @@
       "sha256": "b99f1d559ec8beb04299da8d0afd4c0355279ecacc235ed016b32a2a16491ebe",
       "bytes": 13291
     },
+    "scripts/run-pepe-finrl.mjs": {
+      "sha256": "2b9aae871f0e1a0228b1d60207bada87ebf0c87263968ee9e5b41bd4a0d0bcfe",
+      "bytes": 123
+    },
+    "scripts/run-pepe-pbt.mjs": {
+      "sha256": "b536fdd07155b26e6566513c5d75f6aed28d0c0068457161992c92ee52d087d1",
+      "bytes": 9465
+    },
     "scripts/scalp-tree-data.mjs": {
       "sha256": "c51e40d301c4f2135e5d7971ecefe02dd3db7f0d8729625aa64a8d461c890e8a",
       "bytes": 1798
@@ -921,6 +1005,10 @@
       "sha256": "a9c483edecb2ef4b7c30d7b01ea746e9d18eb6152f5f7919a42913b3cb1dfd0e",
       "bytes": 462
     },
+    "scripts/start-pepe-pbt-control.mjs": {
+      "sha256": "faaafb061f7e2c810a896a716d8900efcbaf43dd9a325d4f347ea7814dac8cb4",
+      "bytes": 1077
+    },
     "scripts/train-btc-comparison.py": {
       "sha256": "200f0496b411b970812ff4fa32375afb04b59294c22080e58a4ce4c88592d812",
       "bytes": 3123
@@ -944,6 +1032,10 @@
     "scripts/train-ml.mjs": {
       "sha256": "1e800d82cba9a8f7a8adc4409e154e48bfe9c53f12fc2b33e28ffa348eb189e2",
       "bytes": 3972
+    },
+    "scripts/train-pepe-finrl.py": {
+      "sha256": "4a15fead77b14f112c2580aa0c572d3d6eda48dc10300fc5d33b402862c2add4",
+      "bytes": 5239
     },
     "scripts/train-rich-tree.py": {
       "sha256": "c0ebce7aad578da762d1681c55fe6afda531035522769ba95fef91edf59cc78c",
@@ -1057,6 +1149,10 @@
       "sha256": "ff2eacbf75fc169b9260441b8ebc847590e01f11ca15be24402efc5b29112d31",
       "bytes": 1883
     },
+    "tests/finrl-futures-engine.test.mjs": {
+      "sha256": "9bfb897dbcd45c72b4904a09bd87baec0b6d27fb76cfc24bbc81054359ecdcce",
+      "bytes": 7109
+    },
     "tests/g151-exits.test.mjs": {
       "sha256": "4dceddae6a2a33f3ffa41d4e21e9e7add1bfa6d5dc6a8fc0243043c1f0e1c303",
       "bytes": 5363
@@ -1116,6 +1212,14 @@
     "tests/news.test.mjs": {
       "sha256": "e1906effc6405b6b63600fb618bd3af8daf7f284cfe9f54f009a7f1a74e6debc",
       "bytes": 3814
+    },
+    "tests/pepe-dashboard.test.mjs": {
+      "sha256": "8b466877aa9b8c796dfd66045cc4f95fdd087494aa34db37e42b6e4196b8d02a",
+      "bytes": 2861
+    },
+    "tests/pepe-pbt.test.mjs": {
+      "sha256": "49983b63e935a8d7bc53f7c6092bb5c62fc36d5481bdd1138e0a6fbbc2d17c34",
+      "bytes": 3525
     },
     "tests/profitability.test.mjs": {
       "sha256": "397010de6ba8f969cf623c7de06779b2966bb066410f4a6d816716c1d8e1b501",
@@ -1213,6 +1317,10 @@
       "sha256": "ce3425f6700b97e2dd33486c929bd2f8b462972853520401894fbe032596a996",
       "bytes": 30482
     },
+    "web/arquitetura-trend-lab.pdf": {
+      "sha256": "0c13f290ce5d4ca900d999d3ab4527574102528988a2fd756dcd4ebe45dc4e3b",
+      "bytes": 13375
+    },
     "web/compound-math.js": {
       "sha256": "9c0ac275b1f6e2b986ea0e248a8b3cf6bb917b42524bb7f45e7d8237dd6421ce",
       "bytes": 2735
@@ -1270,8 +1378,8 @@
       "bytes": 7448
     },
     "web/index.html": {
-      "sha256": "a62474bd43fb326d68b7726bdd10c5e25951827382a59c2e4e8e8286aef2861c",
-      "bytes": 52929
+      "sha256": "c37e046aea4db1847d12def52062b4da1acebc46b760a77db9f3cd792ed889bf",
+      "bytes": 53062
     },
     "web/lab.js": {
       "sha256": "73d211b70178393330410fa351effe2a90bd202fb66c316b8efa3880ceae7f9e",
@@ -1372,6 +1480,18 @@
     "web/pesquisa-genetica/g151-evolucao.js": {
       "sha256": "56315731af7f2dd2d272353e1d5a2760c64b19f90a89b30ab827bbad75a791d9",
       "bytes": 14383
+    },
+    "web/pesquisa-genetica/pepe-finrl.css": {
+      "sha256": "9199fd5e7910a88170fa470f1e231834937ce90862fdab029fbe6eb8e97ca055",
+      "bytes": 1244
+    },
+    "web/pesquisa-genetica/pepe-finrl.html": {
+      "sha256": "4132d298e4d98895738fcd2b840f413b79d4cf08884f26ffc54692167704bd68",
+      "bytes": 9141
+    },
+    "web/pesquisa-genetica/pepe-finrl.js": {
+      "sha256": "f75633758a5c887cbe43b1f3f80fe65a9d33c75967b164e3808fe297bd4f1c28",
+      "bytes": 12083
     },
     "web/profitability.js": {
       "sha256": "c5654f4881aa27433e57a0056b72baec8a60c17797a07a964bf74501c7dac928",

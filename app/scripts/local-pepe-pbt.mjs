@@ -1,0 +1,1 @@
+import {serviceAction,serviceStatus} from './pepe-pbt-service.mjs';const action=process.argv[2]??'status';console.log(JSON.stringify(action==='status'?serviceStatus():serviceAction(action,process.argv[3]),null,2));
