@@ -27,3 +27,13 @@ O monitor lê checkpoints semIA e só aciona o Codex por evento. A rotina antiga
 [Novo plano de testes](nova-campanha.html): aG0 reproduziu exatamenteR$18,402207/mês, diferença zero. A primeira geração testa61variações controladas e3candidatos exploratórios. Alterações ainda são hipóteses, com mesmo capital, risco, custos e validação. O cache agora recicla artefatos descartáveis e protegeG0, campeão atual e pais diversos.
 
 [Campanha anterior arquivada](campanhas/search-v3-20261018T183222773Z/index.html). O campeão completo foi salvo localmente em umZIP independente antes da limpeza. Modelos descartados da rodada encerrada foram removidos com auditoria. Os históricos e a base de simulação foram preservados.
+
+## Avaliação do G151 em outros anos · 18/10/2026
+
+[Relatório completo](validacao-ampliada.html): 47 meses avaliados em 16 blocos, depois de aquecimento e nove meses de treino em cada trecho contínuo. Parâmetros fixos, cinco sementes, 160 modelos retreinados. Setembro/2026 não avaliado.
+
+A auditoria detectou funding com timestamps dentro do minuto que a implementação antiga ignorava. A correção ficou em motores e rótulos separados; fontes congeladas e a genética em andamento não foram alteradas. Cinco rótulos mudaram de classe. Mesmo modelo, só corrigindo a contabilidade: R$18,402 → R$18,403/mês no controle original. Após recalcular rótulos e retreinar, esses nove meses ficaram em R$16,00/mês.
+
+Nos 38 meses fora da seleção: -R$7,17/mês para o bot contra R$9,52 do CDI, com R$1.000 por mês e custos dobrados. No conjunto dos 47 meses: -R$2,73 contra R$9,90. Não se trata de uma carteira contínua de vários anos. O campeão não demonstrou robustez; não foi promovido.
+
+A página contém um retrato embutido para abrir por arquivo local, além de JSON, CSV, protocolo e auditorias. Os resultados anteriores permanecem como registros históricos da implementação antiga. Os gráficos são retrospectivos; CDI e bot antes de impostos, com câmbio fixo no bot.
