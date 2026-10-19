@@ -1,0 +1,158 @@
+{
+  "version": "strategy-tree-ml-v1",
+  "registeredAt": "2026-10-16T21:28:04.910852+00:00",
+  "source": "web/data/eth-donchian-history.json",
+  "signalVariant": "adaptive",
+  "strategyProtocol": "donchian-history-protocol.json",
+  "train": {
+    "start": "2020-02-01T00:00:00Z",
+    "end": "2023-01-01T00:00:00Z"
+  },
+  "validation": {
+    "start": "2023-01-01T00:00:00Z",
+    "end": "2024-01-01T00:00:00Z"
+  },
+  "modelAvailableAt": "2024-01-02T00:00:00Z",
+  "features": [
+    "side",
+    "return1hDirection",
+    "return6hDirection",
+    "return24hDirection",
+    "atrPct",
+    "logRvol",
+    "emaSpreadDirection",
+    "rsiDirection",
+    "adx",
+    "vwapDistanceDirection",
+    "channelWidthATR",
+    "breakoutATR"
+  ],
+  "learner": {
+    "kind": "logistic-regression-l2",
+    "steps": 1500,
+    "learningRate": 0.05,
+    "lambda": 0.01,
+    "clipZ": 5,
+    "minimumSamples": 200,
+    "minimumClassSamples": 20
+  },
+  "label": {
+    "costCase": "base",
+    "horizonHours": 24,
+    "availableAfterHours": 25,
+    "positive": "isolated simulated trade netUSDT > 0",
+    "sampleCapitalBRL": 300,
+    "includes": "market fills, stops, target, opposite signal, maximum24h, fees, funding, lot sizing and conservative liquidation from frozen engine"
+  },
+  "thresholdSelection": {
+    "candidates": [
+      0,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6
+    ],
+    "minimumAcceptedFraction": 0.2,
+    "minimumTrades": 20,
+    "objective": "maximum minimum(basePnL, stressPnL) on2023; ties favor basePnL, smaller threshold, control then logistic then tree and declared family order",
+    "minimumTradesBothCosts": 20
+  },
+  "periods": [
+    {
+      "id": "test2024",
+      "label": "2024 · avaliação posterior",
+      "start": "2024-01-02T00:00:00Z",
+      "end": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "development",
+      "label": "Jan–jun 2025 · desenvolvimento",
+      "start": "2025-01-01T00:00:00Z",
+      "end": "2025-07-01T00:00:00Z"
+    },
+    {
+      "id": "validation",
+      "label": "Jul–dez 2025 · validação conhecida",
+      "start": "2025-07-01T00:00:00Z",
+      "end": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "known2026",
+      "label": "Jan–set 2026 · comparação retrospectiva",
+      "start": "2026-01-01T00:00:00Z",
+      "end": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "newOctober",
+      "label": "1–15 out 2026 · janela adicional",
+      "start": "2026-10-01T00:00:00Z",
+      "end": "2026-10-16T00:00:00Z"
+    }
+  ],
+  "rules": [
+    "Preservar todos os estudos, capital, risco, alavancagem e custos. ML só veta novas entradas; sinais contrários ainda encerram posições.",
+    "Cada amostra é um sinal causal de sua família, com12 features conhecidas no fechamento. Nenhuma notícia atual ou informação futura entra nas features.",
+    "Rótulo é o resultado de uma entrada isolada aR$300; descartar amostras sem entrada viável ou sem25h futuras completas. Esse resultado não equivale ao resultado de uma carteira.",
+    "O label fica disponível apenas25h após o sinal, mesmo se a posição sair antes. Treino e validação excluem labels que cruzam suas fronteiras; treino temporal, sem embaralhar.",
+    "Padronização, clipping e pesos são ajustados somente nas amostras de treino2020–2022. Sem balancear classes, buscar hiperparâmetros, escolher features após o teste ou usar validação no gradiente.",
+    "Modelo, coeficientes e limiar devem ser gravados e congelados antes de rodar a avaliação2024–2026. Sem re-treino após esses resultados nesta rodada.",
+    "Os anos2024–2026 foram vistos em estudos anteriores: fora do ajuste deste modelo, mas continuam retrospectivos e não são validação futura intocada.",
+    "Amostras próximas podem ter horizontes sobrepostos: métricas descrevem a amostra e não geram intervalos de confiança de independência.",
+    "Score é estimativa do classificador para resultado isolado positivo, não probabilidade calibrada garantida nem expectativa de retorno.",
+    "Publicar todas as comparações, inclusive zero operações, perdas e controle superior. Limiar0 significa que nenhum filtro venceu o controle na seleção.",
+    "Não promover ao processo prospectivo ou a ordens reais. Sem chamadas de API deIA ou uso automático de tokens.",
+    "Nova rodada pedida pelo usuário: árvores de decisão e comparação de estratégias. Preservar a primeira regressão e seus resultados.",
+    "Treinar uma regressão e uma árvore separadas por família, com as mesmas12 features e cortes temporais. Controle não filtra. Nenhuma família é combinada na mesma carteira nem recebe risco adicional.",
+    "Árvore CART usa Gini, profundidade3, ao menos50 amostras por folha,32 candidatos por feature e suavização deLaplace1. Sem busca desses hiperparâmetros após os resultados.",
+    "Donchian reutiliza exatamente as3312 amostras da primeira rodada. EMA e reversão usam o mesmo esquema causal; suas features de canal usam máximas/mínimas dos20 candles estritamente anteriores.",
+    "A família reversão conserva alvo na média conhecida e máximo12h; as outras têm alvo2R e máximo24h. Regras são comparadas completas, sem trocar saídas para favorecer um modelo.",
+    "Selecionar limiar por combinação e combinação vencedora usando2023, maximizando o pior resultado entre custos base e dobrados. Publicar os9 candidatos e todos os limiares, inclusive negativos.",
+    "A escolha de vencedor é retrospectiva de2023 e deve ser congelada antes das avaliações posteriores. Nenhum resultado de2024–2026 pode alterar a escolha.",
+    "Scalping5min e range/VWAP15min não são simulados com candles1h. Somente famílias compatíveis com este histórico entram nesta comparação."
+  ],
+  "parentProtocol": "ml-protocol.json",
+  "families": [
+    {
+      "id": "donchian",
+      "label": "Donchian adaptativo",
+      "engine": "breakout",
+      "stopATR": 1.5,
+      "targetR": 2,
+      "maxHoldHours": 24,
+      "cooldownHours": 4
+    },
+    {
+      "id": "trend",
+      "label": "Tendência EMA9/21 · 1h",
+      "engine": "trend1h",
+      "stopATR": 1.5,
+      "targetR": 2,
+      "maxHoldHours": 24,
+      "cooldownHours": 4
+    },
+    {
+      "id": "reversion",
+      "label": "Reversão Bollinger20 · 1h",
+      "engine": "reversion",
+      "stopATR": 1.5,
+      "targetR": null,
+      "maxHoldHours": 12,
+      "cooldownHours": 4
+    }
+  ],
+  "tree": {
+    "kind": "decision-tree-gini",
+    "maxDepth": 3,
+    "minLeaf": 50,
+    "thresholdCandidatesPerFeature": 32,
+    "minimumGain": 1e-08,
+    "laplace": 1
+  },
+  "models": [
+    "control",
+    "logistic",
+    "tree"
+  ]
+}

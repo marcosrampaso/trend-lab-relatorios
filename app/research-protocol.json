@@ -1,0 +1,39 @@
+{
+  "version": "profitability-v1",
+  "purpose": "Medir rentabilidade histórica de regras fixas; não selecionar retrospectivamente apenas um cenário positivo.",
+  "symbol": "ETHUSDT",
+  "dataStart": "2024-12-01T00:00:00Z",
+  "dataEndExclusive": "2026-10-01T00:00:00Z",
+  "fixedStrategy": {"fast": 16, "slow": 64, "atrPeriod": 14, "atrMult": 2, "signalIntervalHours": 4},
+  "fixedCapitalBRL": 300,
+  "fixedFX": 5,
+  "fixedLeverage": 10,
+  "risks": [0.01, 0.02, 0.03],
+  "costCases": [
+    {"id": "base", "fee": 0.0005, "slippage": 0.0002},
+    {"id": "stress", "fee": 0.001, "slippage": 0.0004}
+  ],
+  "dailyLossLimit": 0.03,
+  "totalLossLimit": 0.1,
+  "maintenanceApproximation": 0.005,
+  "fundingReserveForSizing": 0.0003,
+  "closePositionsAtPeriodEnd": true,
+  "periods": [
+    {"id": "development", "label": "Jan–jun 2025 · desenvolvimento", "start": "2025-01-01T00:00:00Z", "end": "2025-07-01T00:00:00Z"},
+    {"id": "validation", "label": "Jul–dez 2025 · validação", "start": "2025-07-01T00:00:00Z", "end": "2026-01-01T00:00:00Z"},
+    {"id": "test", "label": "Jan–set 2026 · teste posterior", "start": "2026-01-01T00:00:00Z", "end": "2026-10-01T00:00:00Z"},
+    {"id": "continuous", "label": "Jan 2025–set 2026 · contínuo", "start": "2025-01-01T00:00:00Z", "end": "2026-10-01T00:00:00Z"}
+  ],
+  "metrics": ["retorno líquido", "saldo final", "queda máxima em fechamentos de 1h", "operações encerradas", "taxa de acerto", "fator de lucro líquido", "resultado médio líquido por operação", "taxas", "funding", "slippage estimado", "rejeições", "liquidações estimadas", "resultado mensal"],
+  "resampling": {"method": "circular moving block bootstrap das operações líquidas", "blockLength": 5, "iterations": 2000, "seed": 16102026, "interval": 0.95, "purpose": "descrever incerteza da média histórica, sem promessa de retorno futuro"},
+  "honestyRules": [
+    "Publicar todos os cenários, inclusive perdas, pausas e operações inviáveis.",
+    "Não alterar a estratégia ou escolher novas datas após ver os resultados desta rodada.",
+    "Cada bloco independente começa com R$300; não somar os retornos desses blocos.",
+    "O período contínuo preserva saldo, posições e limites entre meses; não reinicia após perdas.",
+    "Abril e maio de 2025 já foram consultados antes: não são dados inéditos nesta rodada.",
+    "2026 é teste posterior desta rodada, mas não representa resultado ao vivo nem avaliação independente cega.",
+    "Filtros atuais de negociação são aplicados retroativamente e a liquidação é aproximada.",
+    "Não chamar um backtest positivo de rentabilidade futura comprovada."
+  ]
+}

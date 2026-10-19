@@ -1,0 +1,24 @@
+{
+  "registeredAt": "2026-10-18T05:37:29Z",
+  "files": {
+    "web/engine.js": "c107aad069cc10e83a1646efb2a84a1967dc3b26b11457f8fac435d26a92504f",
+    "web/strategies.js": "0f8331cafe46fe464eac2d87756581451b90454c352ec86b66a67aa1293b23a2",
+    "web/decision-context.js": "b852dd13a15e18cf79d7c93aa09d71c77860859e9947a0551bf8294e23b0b7dc",
+    "context-protocol.json": "fae3999509b52632ed0eba49f19c50ab2d4ea86b49293abd5c7d9a959fd8ac12",
+    "context-freeze.json": "5533a25c5c716c66e6d23139f2c414d6a10558236a258c4af7db8de0ddd695f0",
+    "web/data/context-results.json": "ff6218eaeb27a457fe234b15993fb0e3577b045cea7e793bcd9f6aeb656d1f3a",
+    "worker/forward.js": "585606d2c8dc1d9f4b119bcc534626de81db15b7271b2fe07abebbc05a7c7c16",
+    "local/runtime.mjs": "0c50b1c9adb9d6a2aa09eef9f9bbe51784fbb20588ae77b95c2db198c0a6d415",
+    "web/data/eth-2025.json": "7fbbc12483fb2967451f3ca87294fbd12e79318a87e2a14817371bc02fb1d9dc",
+    "scalping-protocol.json": "8d16a2b930ca9ceef771e88c7713b5f01086bb2125c15327b0d428fe5d950eaf",
+    "web/scalping.js": "ecbf0b43f5f32d362c3d7319def59270de60c6991d630d3763d593e904d59390",
+    "web/data/scalping-market.json": "7f702b1edef00109a3f0602b5b5b6da2f4c99d5c466a76105cb98384b6660d62",
+    "web/data/scalping-results.json": "d81f13df8684603ca193defcb4031d6323070d87066926109f8b7570d51c2a7e",
+    "web/data/eth-donchian-history.json": "10a000c31e940a9c95ea99b7a945c0722ec648ce25f4183ea48c7658f5f19e91",
+    "scalping-context-protocol.json": "945b0b6ac51a490b01ef456e3881a4ed6aeacfa895112d1565634842778f6ca4",
+    "web/scalping-context.js": "a718ea1e4bd0b441a6d32d31636715934e50d59f8f5cb62f1010d47b24143f6a",
+    "web/scalping-context-engine.js": "330c0585a316927d09e8de31736e3199a65e05234a4e4611a1d051ae33241c5e",
+    "scripts/analyze-scalping-context.mjs": "db8f13e77b88b99e2bbf6d13e53d46df2b52ac461bb6e805ab97a6454d0de82c",
+    "web/data/scalping-context-results.json": "bfa9eaec3016760c8a98f22adc20dcd32012834ed80cd8bab727d7e418a56620"
+  }
+}

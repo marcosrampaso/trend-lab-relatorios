@@ -1,4 +1,17 @@
-# Trend Lab · relatórios da genética
+# Trend Lab · código e relatórios
+
+O laboratório agora tem código e relatórios neste mesmo repositório privado.
+
+- **[Código do aplicativo](app/)** e [instruções de reprodução](app/REPRODUCAO-GITHUB.md).
+- **[Experimento de notícias com G151 e rompimento](experimentos/noticias/index.html)**: retrato datado, com resultados e protocolo.
+- [Painel ao vivo na máquina](http://127.0.0.1:4173/pesquisa-genetica/experimento-noticias.html?strategy=g151).
+- [Hashes dos arquivos exportados](app/source-manifest.json), [exportador de código](tools/sync-local-source.py) e [gerador do snapshot](tools/snapshot-news.py).
+
+O GitHub guarda versões do código e retratos dos resultados. A execução permanece local; não há deploy nem atualização automática do snapshot. Pesos, candles, bancoSQLite, credenciais e pastas de execução ficam fora do Git. O G151 usa pesos preservados e entra com1min de atraso explícito em relação ao fechamento5m, sem retreino.
+
+Os relatórios abaixo documentam as rodadas históricas e suas limitações; os resultados de seleção antigos não foram substituídos por resultados prospectivos.
+
+## Arquivo dos relatórios da genética
 
 Retrato da geração 68, gerado em 2026-10-18T19:10:58.829Z. Campeão: a5aa4a77566c08fbc23b.
 

@@ -1,0 +1,107 @@
+{
+  "version": "donchian-ml-v1",
+  "registeredAt": "2026-10-16T21:21:37.438117+00:00",
+  "source": "web/data/eth-donchian-history.json",
+  "signalVariant": "adaptive",
+  "strategyProtocol": "donchian-history-protocol.json",
+  "train": {
+    "start": "2020-02-01T00:00:00Z",
+    "end": "2023-01-01T00:00:00Z"
+  },
+  "validation": {
+    "start": "2023-01-01T00:00:00Z",
+    "end": "2024-01-01T00:00:00Z"
+  },
+  "modelAvailableAt": "2024-01-02T00:00:00Z",
+  "features": [
+    "side",
+    "return1hDirection",
+    "return6hDirection",
+    "return24hDirection",
+    "atrPct",
+    "logRvol",
+    "emaSpreadDirection",
+    "rsiDirection",
+    "adx",
+    "vwapDistanceDirection",
+    "channelWidthATR",
+    "breakoutATR"
+  ],
+  "learner": {
+    "kind": "logistic-regression-l2",
+    "steps": 1500,
+    "learningRate": 0.05,
+    "lambda": 0.01,
+    "clipZ": 5,
+    "minimumSamples": 200,
+    "minimumClassSamples": 20
+  },
+  "label": {
+    "costCase": "base",
+    "horizonHours": 24,
+    "availableAfterHours": 25,
+    "positive": "isolated simulated trade netUSDT > 0",
+    "sampleCapitalBRL": 300,
+    "includes": "market fills, stops, target, opposite signal, maximum24h, fees, funding, lot sizing and conservative liquidation from frozen engine"
+  },
+  "thresholdSelection": {
+    "candidates": [
+      0,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6
+    ],
+    "minimumAcceptedFraction": 0.2,
+    "minimumTrades": 20,
+    "objective": "maximum base-cost validation portfolio pnl; ties favor smaller threshold;0 is the always-accept control; no forced profitable choice"
+  },
+  "periods": [
+    {
+      "id": "test2024",
+      "label": "2024 · avaliação posterior",
+      "start": "2024-01-02T00:00:00Z",
+      "end": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "development",
+      "label": "Jan–jun 2025 · desenvolvimento",
+      "start": "2025-01-01T00:00:00Z",
+      "end": "2025-07-01T00:00:00Z"
+    },
+    {
+      "id": "validation",
+      "label": "Jul–dez 2025 · validação conhecida",
+      "start": "2025-07-01T00:00:00Z",
+      "end": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "known2026",
+      "label": "Jan–set 2026 · comparação retrospectiva",
+      "start": "2026-01-01T00:00:00Z",
+      "end": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "newOctober",
+      "label": "1–15 out 2026 · janela adicional",
+      "start": "2026-10-01T00:00:00Z",
+      "end": "2026-10-16T00:00:00Z"
+    }
+  ],
+  "rules": [
+    "Preservar todos os estudos, capital, risco, alavancagem e custos. ML só veta novas entradas; sinais contrários ainda encerram posições.",
+    "Cada amostra é um rompimento adaptativo causal, com12 features conhecidas no fechamento. Nenhuma notícia atual ou informação futura entra nas features.",
+    "Rótulo é o resultado de uma entrada isolada aR$300; descartar amostras sem entrada viável ou sem25h futuras completas. Esse resultado não equivale ao resultado de uma carteira.",
+    "O label fica disponível apenas25h após o sinal, mesmo se a posição sair antes. Treino e validação excluem labels que cruzam suas fronteiras; treino temporal, sem embaralhar.",
+    "Padronização, clipping e pesos são ajustados somente nas amostras de treino2020–2022. Sem balancear classes, buscar hiperparâmetros, escolher features após o teste ou usar validação no gradiente.",
+    "Limiar escolhido em2023 por uma grade declarada e comparação financeira com controle que aceita tudo. Basear seleção no resultado líquido com custos base; reportar também todos os custos dobrados.",
+    "Modelo, coeficientes e limiar devem ser gravados e congelados antes de rodar a avaliação2024–2026. Sem re-treino após esses resultados nesta rodada.",
+    "Os anos2024–2026 foram vistos em estudos anteriores: fora do ajuste deste modelo, mas continuam retrospectivos e não são validação futura intocada.",
+    "Amostras próximas podem ter horizontes sobrepostos: métricas descrevem a amostra e não geram intervalos de confiança de independência.",
+    "Score é estimativa do classificador para resultado isolado positivo, não probabilidade calibrada garantida nem expectativa de retorno.",
+    "Publicar todas as comparações, inclusive zero operações, perdas e controle superior. Limiar0 significa que nenhum filtro venceu o controle na seleção.",
+    "Não promover ao processo prospectivo ou a ordens reais. Sem chamadas de API deIA ou uso automático de tokens."
+  ]
+}

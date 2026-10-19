@@ -1,0 +1,37 @@
+{
+  "version": "adaptive-exits-and-features-v1",
+  "capitalBRL": 1000,
+  "risk": 0.01,
+  "leverage": 10,
+  "validationFolds": ["2025-09", "2026-03", "2026-09"],
+  "policies": [
+    {"id":"champion","name":"Campeão · saída original","clock":true,"target":"original","trail":false,"invalidation":false},
+    {"id":"no-clock","name":"Sem relógio · stop e alvo originais","clock":false,"target":"original","trail":false,"invalidation":false},
+    {"id":"trailing","name":"Sem relógio · trailing sem alvo fixo","clock":false,"target":"none","trail":true,"invalidation":true},
+    {"id":"adaptive-target","name":"Sem relógio · alvo por contexto e trailing","clock":false,"target":"adaptive","trail":true,"invalidation":true}
+  ],
+  "activationR": 1,
+  "trailATR": 2,
+  "strongTrendADX": 25,
+  "normalTargetR": 2,
+  "strongTargetR": 3,
+  "featureExperiment": {"algorithm":"tree","featureCounts":[12,30],"tuneParameters":false,"tuneThresholds":false,"workers":1,"seed":2026101802},
+  "rules": [
+    "Congelar o campeão de referência e protocolo antes de calcular resultados. Não mudar a campanha genética em andamento.",
+    "Comparar quatro políticas com as mesmas predições de entrada. A primeira deve reproduzir cada mês salvo do campeão.",
+    "Sem relógio significa sem prazo individual. Limites de risco, stop inicial, sinal contrário da mesma família, funding, custos e encerramento da janela continuam ativos.",
+    "Trailing após fechar5min com pelo menos1R a favor: melhor fechamento desde a entrada menos2ATR paraLONG ou mais2ATR paraSHORT, com piso de equilíbrio que considera taxas/slippage/funding. Stop nunca afrouxa. Gaps podem causar perdas mesmo depois da ativação.",
+    "Invalidação: candle5min fechado contraEMA21 e direçãoEMA9/21 contrária, ambos conhecidos antes da abertura em que se sai.",
+    "Alvo adaptativo é definido na entrada:3R seADX>=25 eEMA9/21 e histogramaMACD concordam com o lado;2R nos demais casos. O alvo original de reversão é substituído explicitamente nesta variante. Não esticar alvo indefinidamente durante a posição.",
+    "Atualizar stop somente com candle5min já fechado; verificar stop/target no minuto seguinte. Liquidação estimada tem prioridade; stop antes de alvo se ambos no mesmo minuto.",
+    "Avaliar nove meses reiniciados e, separadamente, três blocos contínuos de três meses. Nunca somar os blocos com lacunas como uma única carteira.",
+    "Comparar12 e30entradas com os mesmos exemplos, janelas, árvore, sementes, rótulos e limiares. Usar rótulos originais para esta ablação de entradas; não alegar que o modelo aprendeu as saídas dinâmicas. Isso exigirá novos rótulos.",
+    "Rótulos de treino precisam estar maduros antes do corte, com purga original1445min. Não calcular predições do teste final nem usar notícia atual no passado.",
+    "Todos os testes são exploratórios em validação conhecida, incluindo falhas. Sem promoção automática ou ordens reais."
+  ],
+  "sources": [
+    {"title":"TradingView · ATR","url":"https://www.tradingview.com/support/solutions/43000501823-average-true-range-atr/"},
+    {"title":"TradingView · DMI e ADX","url":"https://www.tradingview.com/support/solutions/43000502250-directional-movement-dmi/"},
+    {"title":"TradingView · trailing stops","url":"https://www.tradingview.com/support/solutions/43000754965-introduction-to-trailing-stops/"}
+  ]
+}

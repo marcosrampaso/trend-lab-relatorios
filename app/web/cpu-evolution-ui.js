@@ -1,0 +1,17 @@
+const states={waiting_base:'Na fila após o treino ampliado',training:'Treinando mutações',evaluating_generation:'Calculando lucro líquido da geração',generation_completed:'Geração salva',final_test:'Avaliando o vencedor congelado',completed:'Evolução concluída',time_limit:'Limite de tempo · resultados parciais salvos',stopped:'Evolução interrompida',base_incomplete:'Treino base interrompido · genética pendente',failed:'Falha · consulte o log local'};
+export function installEvolutionUI({panel,money,download}){
+ let result,status;const section=document.createElement('section');section.className='cpu-evolution';section.hidden=true;
+ section.innerHTML=`<h3>Evolução genética · dez variações por geração</h3><p id="cpu-evolution-state" role="status"></p><p id="cpu-evolution-detail" class="micro"></p><p id="cpu-evolution-fitness"></p><p class="micro">O candidato inicial e as mutações são selecionados pelo lucro líquido na validação. Até30 gerações; parada após8 sem melhora ou no limite de horário. A avaliação final vem depois de congelar o vencedor. Histórico conhecido: isso não prova lucro futuro.</p><details><summary>Revelar vencedor e avaliação final da genética</summary><p id="cpu-evolution-verdict"></p><pre id="cpu-evolution-genome"></pre><button id="cpu-evolution-export" class="button subtle">Exportar evolução genética ↓</button></details>`;
+ panel.querySelector('#cpu-results').before(section);const $=s=>section.querySelector(s);
+ $('#cpu-evolution-export').onclick=()=>result&&download('trend-lab-evolucao-genetica.json',JSON.stringify(result,null,2),'application/json');
+ return{async refresh(){
+  try{const r=await fetch('./data/cpu-evolution-status.json',{cache:'no-store'});if(!r.ok)return;status=await r.json();section.hidden=false;
+   $('#cpu-evolution-state').textContent=(states[status.state]??status.state)+' · geração '+status.generation+'/'+status.maxGenerations;
+   $('#cpu-evolution-detail').textContent=(status.state==='waiting_base'?'Grade base: '+status.baseCompleted+'/'+status.baseTotal+' ajustes. ':status.modelJobsCompleted+' novos ajustes salvos na genética. ')+'Limite '+new Date(status.deadlineAt).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})+' · '+status.runId;
+   $('#cpu-evolution-fitness').textContent=status.bestValidationMonthlyBRL==null?'O primeiro candidato será escolhido após a grade base terminar.':'Melhor média mensal na validação: '+money(status.bestValidationMonthlyBRL)+' · 9 meses, considerando o pior resultado entre custos base e2×. Isso não é resultado do teste posterior.';
+   section.querySelector('details').hidden=!['completed','time_limit','stopped'].includes(status.state);
+   if(['completed','time_limit','stopped'].includes(status.state)&&result?.runId!==status.runId){const q=await fetch('./data/cpu-evolution-results.json',{cache:'no-store'});if(q.ok)result=await q.json();}
+   if(result?.runId===status.runId){$('#cpu-evolution-genome').textContent=JSON.stringify(result.winner.genome,null,2);$('#cpu-evolution-verdict').textContent=result.finalTest?'Teste final '+result.finalTest.month+': '+money(result.finalTest.base.pnlUSDT*5)+' com custos base e '+money(result.finalTest.stress.pnlUSDT*5)+' com custos2×. Vencedor escolhido antes de consultar esse resultado.':'Avaliação final ainda indisponível; consulte os checkpoints e o motivo de encerramento.';}
+  }catch{/* Training checkpoints are independent of the browser. */}
+ }};
+}

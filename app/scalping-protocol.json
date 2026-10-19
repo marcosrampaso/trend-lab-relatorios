@@ -1,0 +1,108 @@
+{
+  "version": "scalping-5m-v1",
+  "registeredAt": "2026-10-16T20:27:05.641Z",
+  "capitalBRL": 300,
+  "fx": 5,
+  "leverage": 10,
+  "risk": 0.01,
+  "dailyLimit": 0.03,
+  "totalLimit": 0.1,
+  "signalMinutes": 5,
+  "executionMinutes": 1,
+  "warmupStart": "2025-03-31T00:00:00Z",
+  "end": "2025-06-01T00:00:00Z",
+  "ema": [
+    9,
+    21
+  ],
+  "rsi": 14,
+  "bollinger": {
+    "length": 20,
+    "std": 2
+  },
+  "macd": [
+    12,
+    26,
+    9
+  ],
+  "rvol": {
+    "length": 20,
+    "min": 1.2
+  },
+  "stopATR": 1.5,
+  "targetR": 2,
+  "maxHoldMinutes": 30,
+  "cooldownMinutes": 10,
+  "maintenance": 0.005,
+  "fundingReserve": 0.0003,
+  "costCases": [
+    {
+      "id": "base",
+      "fee": 0.0005,
+      "slippage": 0.0002
+    },
+    {
+      "id": "stress",
+      "fee": 0.001,
+      "slippage": 0.0004
+    }
+  ],
+  "periods": [
+    {
+      "id": "april",
+      "name": "Abril 2025",
+      "start": "2025-04-01T00:00:00Z",
+      "end": "2025-05-01T00:00:00Z"
+    },
+    {
+      "id": "may",
+      "name": "Maio 2025",
+      "start": "2025-05-01T00:00:00Z",
+      "end": "2025-06-01T00:00:00Z"
+    }
+  ],
+  "strategies": [
+    {
+      "id": "cross",
+      "name": "Controle · cruzamento EMA9/21"
+    },
+    {
+      "id": "vwap",
+      "name": "Pullback VWAP + EMA + volume"
+    },
+    {
+      "id": "bands",
+      "name": "Bollinger + RSI · retorno à média"
+    }
+  ],
+  "rules": [
+    "Todos os períodos já foram vistos em resolução maior. Esta rodada é exploratória, sem parâmetros otimizados.",
+    "Controle: novo cruzamento EMA9/21 no fechamento5m. Entrada na abertura do próximo minuto.",
+    "VWAP: EMA9 acima deEMA21 paraLONG e abaixo paraSHORT; candle anterior fechou do lado da tendência em relação aoVWAP; candle atual tocaVWAP anterior e fecha novamente do lado da tendência noVWAP atual; mesmo diaUTC, pelo menos4 candles da sessão e RVOL>=1.2.",
+    "Bollinger: candle anterior fechou fora deSMA20±2 desvios e RSI anterior<=30 paraLONG ou>=70 paraSHORT; candle atual retorna para dentro das bandas comRSI atual>30 paraLONG ou<70 paraSHORT. Alvo naSMA20 conhecida no sinal; alvo já ultrapassado na entrada rejeita operação.",
+    "RSI14 eATR14 Wilder. Stop1.5ATR, alvo2R no controle eVWAP; limite30min por posição, intervalo10min após saída.",
+    "MACD12/26/9 e delta agregado dos takers são somente contexto. Não há votos nem probabilidade de acerto derivada dos indicadores.",
+    "VWAP exato da sessão = soma quote volume/soma base volume. Delta agregado =2×taker buy base volume−base volume. Não reconstrói livro, ticks ou ordens institucionais.",
+    "Entrada e saída simulam ordens a mercado com taxas e slippage adverso. Stop prevalece se alvo e stop coexistem no mesmo minuto; liquidação estimada tem prioridade com mark price.",
+    "Funding histórico incluído. Liquidação aproximada, manutenção0.5%; mínimos da corretora consultados anteriormente, não reconstruídos para2025. Custos não equivalem à tarifa pessoal da conta.",
+    "O filtro de risco não será aumentado para gerar operações. Os testes de1h e a rodada prospectiva continuam preservados."
+  ],
+  "sources": [
+    {
+      "title": "Binance · dados públicos e esquema de volume",
+      "url": "https://github.com/binance/binance-public-data"
+    },
+    {
+      "title": "Binance · scalping",
+      "url": "https://www.binance.com/en/academy/articles/what-is-scalping-trading-in-cryptocurrency"
+    },
+    {
+      "title": "TradingView · MACD",
+      "url": "https://www.tradingview.com/support/solutions/43000502344-moving-average-convergence-divergence-macd-indicator/"
+    },
+    {
+      "title": "TradingView · Bollinger",
+      "url": "https://www.tradingview.com/support/solutions/43000501840-bollinger-bands-bb/"
+    }
+  ]
+}

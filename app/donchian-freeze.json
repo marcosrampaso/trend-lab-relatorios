@@ -1,0 +1,19 @@
+{
+  "registeredAt": "2026-10-16T21:03:26.535475+00:00",
+  "protocolSHA256": "27b57b389be6b3b3dcd22f83d40090b65a3fa41ed919693abdf24f4cbe18f260",
+  "preservedFiles": {
+    "web/engine.js": "c107aad069cc10e83a1646efb2a84a1967dc3b26b11457f8fac435d26a92504f",
+    "web/strategies.js": "0f8331cafe46fe464eac2d87756581451b90454c352ec86b66a67aa1293b23a2",
+    "web/data/eth-intraday.json": "da046b948189ba2286e8f74f81e369fd1978ee6d3c8999eda64566fe940fc690",
+    "web/data/intraday-results.json": "762f1f50068f0b7831f66deac251894bb5d23052f5f3dbbf2739b54f8ef73ada",
+    "web/scalping.js": "ecbf0b43f5f32d362c3d7319def59270de60c6991d630d3763d593e904d59390",
+    "scalping-freeze.json": "10d5bd18f3a45fd44e95779b848ae237e39940bfd5fef40c22e4452194c3c33e",
+    "context-freeze.json": "5533a25c5c716c66e6d23139f2c414d6a10558236a258c4af7db8de0ddd695f0",
+    "range-vwap-freeze.json": "e4ab1c5a0042f77a18f44ee98a232ececf156667914773ffb74d1293e33bd68d",
+    "worker/forward.js": "585606d2c8dc1d9f4b119bcc534626de81db15b7271b2fe07abebbc05a7c7c16",
+    "local/runtime.mjs": "0c50b1c9adb9d6a2aa09eef9f9bbe51784fbb20588ae77b95c2db198c0a6d415"
+  },
+  "implementationSHA256": "e57981083a85265a5973e8a679645b8daac1ac00d6550274e37e8d3d7db9b1de",
+  "analysisSHA256": "dd51e5a32a424dbca503ec4beb6f8c6726cdb70d515fd2ac2d7b739fb0733b8c",
+  "resultSHA256": "2c89311add925670821e11b3258a2512b06d7768cb8e255b9a312de542711007"
+}

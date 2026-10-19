@@ -1,0 +1,16 @@
+{
+  "id":"breakout-direction4h-v1",
+  "capitalBRL":300,"fx":5,"risk":0.01,"leverage":10,
+  "signal":"breakout","stopATR":1.5,"targetR":2,"maxHoldHours":24,"cooldownHours":4,"entryDelayHours":0,
+  "fast":16,"slow":64,
+  "costCases":[{"id":"base","fee":0.0005,"slippage":0.0002},{"id":"stress","fee":0.001,"slippage":0.0004}],
+  "variants":[{"id":"control","name":"Rompimento · controle15min"},{"id":"direction4h","name":"Rompimento + direção4h"}],
+  "rules":[
+    "Comparação exploratória em todos os quatro períodos já vistos, sem notícias. Nenhuma busca ou otimização de parâmetros.",
+    "Única alteração: novas compras exigem EMA16>EMA64 nos candles4h encerrados até o instante do sinal; novas vendas exigem EMA16<EMA64. Usar o último candle4h completo, com pelo menos64 candles4h de aquecimento; neutro ou sem histórico veta entrada.",
+    "Execução15min e regras de stop, alvo, liquidação, saídas por sinal contrário e limites de risco preservadas. A direção filtra só novas entradas. O filtro amplitude/custo não é usado em nenhuma das duas variantes.",
+    "Sensibilidade de custo com operações fixas: mesmos horários, quantidades e preços de referência dos trades base, mesmas saídas e funding; recalcular somente taxas e slippage adverso. É uma conta contrafactual, sem recalcular limites, margem, execução ou risco e não representa outra carteira executável.",
+    "Nova simulação com custos maiores: recalcular tamanho, execução, elegibilidade e limites. Pode mudar operações. No relatório antigo, o filtro amplitude/custo também é recalculado. Separar do efeito contábil nas mesmas operações.",
+    "Protocolo e motor da rodada prospectiva existente permanecem inalterados; esta hipótese não é inserida retroativamente nela. Critérios futuros existentes continuam válidos. Não há ordens reais."
+  ]
+}

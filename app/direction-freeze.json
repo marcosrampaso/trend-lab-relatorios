@@ -1,0 +1,16 @@
+{
+  "frozenAt": "2026-10-16T17:58:23.785Z",
+  "protocolSHA256": "880255d3fb970278ba2d2bf6e8dcb11f075418bd34a2e1ff5a1a7d3683e84ab1",
+  "preservedFiles": {
+    "web/engine.js": "c107aad069cc10e83a1646efb2a84a1967dc3b26b11457f8fac435d26a92504f",
+    "web/strategies.js": "0f8331cafe46fe464eac2d87756581451b90454c352ec86b66a67aa1293b23a2",
+    "web/filters.js": "10854d01d859f541a5e7e98bff4dd8d2f39181b97d7210e9c1dae2fce1916188",
+    "worker/forward.js": "585606d2c8dc1d9f4b119bcc534626de81db15b7271b2fe07abebbc05a7c7c16",
+    "web/market-collector.js": "3b29c3cf9af633420c525d7d02d62ddf40ce2386bf8246160309a9236bce21e5",
+    "web/data/forward-protocol.json": "e9047e8e85e21829bd4b1b08a3e76c91390afb50370406f4a2d158e10f77ae98",
+    "improvements-protocol.json": "b301b6b0b439a228e9d685ff71f11e07c088110ac0277502d30c62668cc90ab0",
+    "improvements-freeze.json": "b7ea3369ae7e6ff2b06573195ea6fd1f0e80c27d603b9b76a76f2feba468f0a0",
+    "web/data/improvements-results.json": "f01b24b339dcdf8be697bf1e0efa9f84336c710cc0d95f03b09e9701f2867eaa"
+  },
+  "note": "Registro local antes dos cálculos desta variante; todos os períodos históricos já eram conhecidos. Não é auditoria externa."
+}

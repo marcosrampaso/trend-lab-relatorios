@@ -1,0 +1,31 @@
+{
+  "version": "intraday-v1",
+  "capitalBRL": 300,
+  "fx": 5,
+  "risk": 0.01,
+  "leverage": 10,
+  "costCases": [{"id":"base","fee":0.0005,"slippage":0.0002},{"id":"stress","fee":0.001,"slippage":0.0004}],
+  "strategies": [
+    {"id":"control24","name":"Tendência 4h · controle 24h","maxHoldHours":24,"stopATR":2,"targetR":null,"cooldownHours":0},
+    {"id":"trend1h","name":"Tendência EMA9/21 · 1h","maxHoldHours":24,"stopATR":1.5,"targetR":2,"cooldownHours":4},
+    {"id":"breakout","name":"Rompimento 20h + volume","maxHoldHours":24,"stopATR":1.5,"targetR":2,"cooldownHours":4},
+    {"id":"reversion","name":"Reversão Bollinger20 · 1h","maxHoldHours":12,"stopATR":1.5,"targetR":null,"cooldownHours":4}
+  ],
+  "periods": [
+    {"id":"development","label":"Jan–jun 2025 · desenvolvimento","start":"2025-01-01T00:00:00Z","end":"2025-07-01T00:00:00Z","status":"exploratory"},
+    {"id":"validation","label":"Jul–dez 2025 · validação conhecida","start":"2025-07-01T00:00:00Z","end":"2026-01-01T00:00:00Z","status":"exploratory"},
+    {"id":"known2026","label":"Jan–set 2026 · comparação retrospectiva","start":"2026-01-01T00:00:00Z","end":"2026-10-01T00:00:00Z","status":"already_seen"},
+    {"id":"newOctober","label":"1–15 out 2026 · janela adicional","start":"2026-10-01T00:00:00Z","end":"2026-10-16T00:00:00Z","status":"short_new_window"}
+  ],
+  "rules": [
+    "Sem otimização de parâmetros nesta rodada; todos os resultados serão publicados.",
+    "Tendência1h: cruzamento EMA9/21 em fechamento, entrada na abertura seguinte, ATR14, stop1.5ATR e alvo2R.",
+    "Rompimento: fechamento acima da máxima ou abaixo da mínima dos20 candles anteriores e volume maior que1.2 vezes a média dos20 volumes anteriores. Stop1.5ATR e alvo2R.",
+    "Reversão: retorno do fechamento para dentro de bandas SMA20 ±2 desvios, após fechar fora da banda. Alvo na média conhecida no sinal, stop1.5ATR e limite12h.",
+    "Stops e alvos concorrentes na mesma hora: stop primeiro. Liquidação concorrente: liquidação primeiro.",
+    "Limites e custos iguais aos da rodada original. Manter risco1%, sem aumentá-lo para obter lucro.",
+    "2025 e janeiro–setembro2026 já foram examinados; novos resultados nesses dados são exploratórios.",
+    "A janela adicional de15 dias é curta e não comprova consistência.",
+    "Notícias só serão usadas prospectivamente com hora de disponibilidade registrada. Nenhuma notícia atual será inserida retroativamente no backtest."
+  ]
+}

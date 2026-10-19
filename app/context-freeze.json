@@ -1,0 +1,19 @@
+{
+  "registeredAt": "2026-10-16T19:32:56.677Z",
+  "protocolSHA256": "fae3999509b52632ed0eba49f19c50ab2d4ea86b49293abd5c7d9a959fd8ac12",
+  "preservedFiles": {
+    "web/engine.js": "c107aad069cc10e83a1646efb2a84a1967dc3b26b11457f8fac435d26a92504f",
+    "web/strategies.js": "0f8331cafe46fe464eac2d87756581451b90454c352ec86b66a67aa1293b23a2",
+    "web/data/eth-intraday.json": "da046b948189ba2286e8f74f81e369fd1978ee6d3c8999eda64566fe940fc690",
+    "web/data/intraday-results.json": "762f1f50068f0b7831f66deac251894bb5d23052f5f3dbbf2739b54f8ef73ada",
+    "web/data/forward-protocol.json": "e9047e8e85e21829bd4b1b08a3e76c91390afb50370406f4a2d158e10f77ae98",
+    "worker/forward.js": "585606d2c8dc1d9f4b119bcc534626de81db15b7271b2fe07abebbc05a7c7c16",
+    "local/runtime.mjs": "0c50b1c9adb9d6a2aa09eef9f9bbe51784fbb20588ae77b95c2db198c0a6d415",
+    "web/data/direction-results.json": "22795a5d325a22072d2cd6e3829e62a4f9f86d2d48cd53ba76be2208cb4a67b1",
+    "web/data/range-vwap-results.json": "00d2b9c9610f993fa0f79994b9ef783198fe915c1702e2705b9b42c2ceabefcf",
+    "web/data/eth-2025.json": "7fbbc12483fb2967451f3ca87294fbd12e79318a87e2a14817371bc02fb1d9dc"
+  },
+  "implementationSHA256": "b852dd13a15e18cf79d7c93aa09d71c77860859e9947a0551bf8294e23b0b7dc",
+  "analysisSHA256": "2e7aaceb629dfdcfd0d9fea8b5b6fccd3f8e37c3cc3db2d00f902ca2504627d2",
+  "resultSHA256": "ff6218eaeb27a457fe234b15993fb0e3577b045cea7e793bcd9f6aeb656d1f3a"
+}

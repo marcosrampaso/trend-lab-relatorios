@@ -1,0 +1,121 @@
+{
+  "version": "adaptive-search-v3",
+  "baseRun": "extended-20261018-v2",
+  "previousRun": "genetic-20261018T064632829Z",
+  "seed": 2026101805,
+  "capitalBRL": 1000,
+  "fx": 5,
+  "risk": 0.01,
+  "leverage": 10,
+  "families": [
+    "cross",
+    "vwap",
+    "bands"
+  ],
+  "algorithms": [
+    "tree",
+    "logistic",
+    "random_forest",
+    "extra_trees",
+    "hist_boosting",
+    "mlp"
+  ],
+  "holdingMinutes": [
+    30,
+    60,
+    120,
+    240,
+    720,
+    1440
+  ],
+  "trainWindows": [
+    6,
+    9,
+    12
+  ],
+  "validationFolds": [
+    "2025-09",
+    "2026-03",
+    "2026-09"
+  ],
+  "finalTestFold": "2026-09",
+  "datasetStart": "2024-01-01T00:00:00Z",
+  "datasetEnd": "2026-10-01T00:00:00Z",
+  "labelAvailableAfterMinutes": 1445,
+  "populationSize": 64,
+  "eliteCount": 12,
+  "maxGenerations": 1000,
+  "maxHours": 24,
+  "workers": 10,
+  "threadsPerWorker": 1,
+  "seeds": [
+    2026101802,
+    2026101803,
+    2026101804,
+    2026101805,
+    2026101806
+  ],
+  "repeatAlgorithms": [
+    "random_forest",
+    "extra_trees",
+    "mlp"
+  ],
+  "minimumFreeDiskGB": 8,
+  "maxRunDiskGB": 30,
+  "minimumTotalTradesBothCosts": 30,
+  "minimumFoldTradesBothCosts": 3,
+  "maximumValidationDrawdown": 0.15,
+  "burstAfter": 8,
+  "restartAfter": 24,
+  "immigrantFraction": 0.25,
+  "burstImmigrantFraction": 0.65,
+  "improvementEpsilonUSDT": 0.01,
+  "fitness": "Maior pior média mensal entre os custos base e dobrados nos nove meses de validação, após recalcular a carteira única com R$1000. Empate favorece menor queda máxima e mais meses positivos. Comparar também com caixa (zero); não aprovar média negativa.",
+  "regimes": "Volátil quando ATR5m/preço supera o gene de volatilidade; senão tendência quando as direções fechadas1h/4h concordam e a média absoluta da separação das EMAs/ATR supera o gene de força; demais casos são lateralização. Cada regime escolhe uma família, prazo e limiar, ou caixa.",
+  "selection": "Reserva de pais para cada algoritmo disponível, diversidade de comportamento por métricas mensais e quatro pistas: refinamento de uma coordenada, cruzamento, imigrantes e saltos de nicho. Preservar campeão, risco, custos e fitness anteriores; herdar prazo original e checkpoints, sem consultar teste final.",
+  "rules": [
+    "Pesquisa retrospectiva em histórico já conhecido; a busca extensa aumenta o risco de sobreajuste. Não há holdout novo nem promessa de lucro.",
+    "O melhor candidato anterior é escolhido pela validação de nove meses: árvore Bollinger,60min,9meses,limiar0.4. Também semear os melhores de cada família/algoritmo na mesma validação. Todos são reavaliados com capitalR$1000 e rótulos próprios.",
+    "Sinais5min e contexto fechado1h/4h. Cada braço tem rótulos próprios para30/60/120/240/720/1440min, custos2x e purga1445min nas fronteiras, sem usar notícias atuais no passado.",
+    "Rotas são escolhidas no sinal com dados já disponíveis. Família e duração ficam congeladas ao abrir a posição. Somente sinal contrário da mesma família fecha a posição; vetos nunca escondem esse sinal.",
+    "Uma carteira e uma posição por vez. Estratégias compartilham saldo, funding, margem e limites diário3%/global10%. Nunca somar retornos de carteiras independentes como se fossem portfólio.",
+    "CapitalR$1000,risco1%,alavancagem10x,stops/alvos/custos e mínimos da corretora preservados; risco e alavancagem não são genes. Cada mês reiniciaR$1000; média não é retorno composto.",
+    "Florestas e MLP agregam cinco sementes; sem escolher a mais lucrativa. Reusar predições de modelos idênticos quando apenas rotas ou limiares mudam.",
+    "Máximo24h ou1000gerações, disco livre8GB ou30GB de artefatos novos; checkpoints retomáveis. Não encerrar só por estagnação nem por lucro positivo. Não executar ordens nem promover automaticamente o modelo.",
+    "Setembro2026 consultado uma vez ao encerrar, após congelar o vencedor; já conhecido no projeto. A revisão precisa de simulação prospectiva separada.",
+    "As quatro pistas continuam ativas em estagnação; nunca trocar todo o refinamento por mutações amplas. A população reserva espaço entre algoritmos e a seleção de pais mantém ao menos um de cada algoritmo disponível. Mesma função de fitness daV2; não reclassificar perdas por trocar objetivo."
+  ],
+  "sources": [
+    {
+      "title": "pymoo · genetic algorithm and duplicate elimination",
+      "url": "https://www.pymoo.org/algorithms/soo/ga.html"
+    },
+    {
+      "title": "pymoo · elite, offspring and mutants",
+      "url": "https://www.pymoo.org/algorithms/soo/brkga.html"
+    },
+    {
+      "title": "Bailey et al. · The Probability of Backtest Overfitting",
+      "url": "https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf"
+    }
+  ],
+  "lanes": {
+    "local": 24,
+    "crossover": 16,
+    "immigrant": 16,
+    "niche_jump": 8
+  },
+  "burstLanes": {
+    "local": 24,
+    "crossover": 8,
+    "immigrant": 16,
+    "niche_jump": 16
+  },
+  "restartLanes": {
+    "local": 16,
+    "crossover": 8,
+    "immigrant": 24,
+    "niche_jump": 16
+  },
+  "continuationPolicy": "Continuação explícita daV2 após estagnação observada: copiar estado, reutilizar predições/rótulos imutáveis por links, manter gerações, contagens e prazo originais. Código e protocolo daV2 permanecem preservados."
+}

@@ -1,0 +1,3 @@
+import{spawnSync}from'node:child_process';import{read}from'./scalp-tree-data.mjs';
+function step(command,args){const result=spawnSync(command,args,{stdio:'inherit',timeout:900000});if(result.error)throw result.error;if(result.status!==0)throw Error('Etapa interrompida: '+args[0]);}
+step(process.execPath,['scripts/prepare-exit-study.mjs']);const{run}=read('web/data/exit-study-status.json');step('.venv-ml/bin/python',['scripts/train-rich-tree.py',run]);step(process.execPath,['scripts/evaluate-exit-study.mjs',run]);step('.venv-ml/bin/python',['scripts/annotate-exit-study.py',run]);console.log('Relatório local: http://127.0.0.1:4173/pesquisa-genetica/saidas.html');

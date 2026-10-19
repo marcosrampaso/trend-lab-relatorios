@@ -1,0 +1,19 @@
+{
+  "id":"range-vwap-15m-v1","capitalBRL":300,"fx":5,"risk":0.01,"leverage":10,
+  "signalMinutes":15,"stopATR":1.5,"atrPeriod":14,"cooldownHours":4,
+  "strategies":[{"id":"range","name":"Range · rejeição de borda","maxHoldHours":12,"target":"midpoint"},{"id":"vwap","name":"Pullback VWAP + direção4h","maxHoldHours":24,"targetR":2}],
+  "range":{"lookbackBars":32,"maxTrendGapATR":0.5},
+  "vwap":{"method":"hlc3_volume_candle_approximation","anchor":"00:00 UTC","minSessionBars":4,"trendFast":16,"trendSlow":64},
+  "costCases":[{"id":"base","fee":0.0005,"slippage":0.0002},{"id":"stress","fee":0.001,"slippage":0.0004}],
+  "rules":[
+    "Apenas duas hipóteses, sem otimização e sem combinação retrospectiva de regimes vencedores. Mesmos quatro períodos conhecidos; todos os resultados exploratórios serão publicados.",
+    "Sinais e execução15min. ATR14 de15min por Wilder, semente média dos14 primeiros true ranges e atualização(13*ATR+TR)/14; aquecimento anterior ao teste. Entrada na abertura imediatamente após o sinal.",
+    "Range: último4h completo e aquecido, abs(EMA16-EMA64)/ATR14 <=0.5; canal máxima/mínima dos32 candles15min anteriores, excluindo o atual; close estritamente dentro do canal e pavio toca/rompe só uma borda. Long na inferior, short na superior. Tocar ambas veta. Stop1.5ATR; alvo meio do canal conhecido; rejeitar se ultrapassado na abertura; máximo12h.",
+    "VWAP: soma(HLC3*volume)/soma(volume) desde00:00UTC, com candles15min completos; aproximação por candle, sem quote volume. Exigir4 candles do dia e volume acumulado positivo. Ignorar sinal na primeira barra do dia e entrada na mudança de dia. Long se direçãoEMA16/64 do último4h completo positiva, close anterior>VWAP anterior, low atual<=VWAP anterior e close atual>VWAP atual; short simétrico. Stop1.5ATR, alvo2R, máximo24h.",
+    "Cada período reinicia R$300 sem posição; sinais de aquecimento encerrados exatamente na primeira abertura são elegíveis. Uma posição por carteira; cooldown4h após saída. Sinal contrário encerra posição antes de considerar nova entrada, conforme o motor existente.",
+    "Mesmo motor de caixa, tamanho, filtros da corretora, funding, liquidação estimada e limites diário3%/global10% do capital inicial; limite não garante perda máxima por gaps/custos. Stop primeiro em conflito15min, liquidação estimada primeiro em conflito de mark price.",
+    "Custos base e custos2x com nova simulação operacional recalculada. Separar sensibilidade contábil nos mesmos trades/quantidades/saídas/funding, sem recalcular stops, margem ou limites.",
+    "Sem notícias retroativas, sem RSI/MACD adicionais, sem escolha do melhor parâmetro após observar resultado e sem aumentar risco. Preservar protocolos, motores e rodada futura existentes.",
+    "O resultado é antes de impostos, com câmbio hipotético5BRL/USDT. Sem ordens reais."
+  ]
+}

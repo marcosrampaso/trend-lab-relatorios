@@ -1,0 +1,24 @@
+{
+  "frozenAt": "2026-10-16T18:52:00.588Z",
+  "protocolSHA256": "90f6914e43af580f443bcf8d217351a90e8f15e37a8d642d19729eac5e6c2fec",
+  "preservedFiles": {
+    "web/engine.js": "c107aad069cc10e83a1646efb2a84a1967dc3b26b11457f8fac435d26a92504f",
+    "web/strategies.js": "0f8331cafe46fe464eac2d87756581451b90454c352ec86b66a67aa1293b23a2",
+    "web/filters.js": "10854d01d859f541a5e7e98bff4dd8d2f39181b97d7210e9c1dae2fce1916188",
+    "worker/forward.js": "585606d2c8dc1d9f4b119bcc534626de81db15b7271b2fe07abebbc05a7c7c16",
+    "web/market-collector.js": "3b29c3cf9af633420c525d7d02d62ddf40ce2386bf8246160309a9236bce21e5",
+    "web/data/forward-protocol.json": "e9047e8e85e21829bd4b1b08a3e76c91390afb50370406f4a2d158e10f77ae98",
+    "improvements-protocol.json": "b301b6b0b439a228e9d685ff71f11e07c088110ac0277502d30c62668cc90ab0",
+    "improvements-freeze.json": "b7ea3369ae7e6ff2b06573195ea6fd1f0e80c27d603b9b76a76f2feba468f0a0",
+    "web/data/improvements-results.json": "f01b24b339dcdf8be697bf1e0efa9f84336c710cc0d95f03b09e9701f2867eaa",
+    "direction-protocol.json": "880255d3fb970278ba2d2bf6e8dcb11f075418bd34a2e1ff5a1a7d3683e84ab1",
+    "direction-freeze.json": "97b8181689bd4033da8de81739e9ee4c0c11d8b8e8c3635a7c7d3014867ab5bc",
+    "web/data/direction-results.json": "22795a5d325a22072d2cd6e3829e62a4f9f86d2d48cd53ba76be2208cb4a67b1",
+    "web/data/theory-plan.json": "f869ddf1fb93c0b00359236302618b973fef07a31889df1462c84cbc05fa0f50",
+    "data/eth-15m.json": "1162e2cc27785f6638971fef32b822174033f14782da67849284e4c4fcdcd111",
+    "web/cost-audit.js": "bbb3eca070e428f9a04f7185e863e0671aa61f666045a630f25666dcceb93fb6"
+  },
+  "note": "Registro local antes do cálculo de performance das duas hipóteses; dados históricos já vistos, sem otimização e sem validação independente.",
+  "implementationFrozenAt": "2026-10-16T18:53:28.386Z",
+  "implementationSHA256": "452b9279767916fb2f2525251be2bed995c218456a3e3a4b903a32c08007ab96"
+}

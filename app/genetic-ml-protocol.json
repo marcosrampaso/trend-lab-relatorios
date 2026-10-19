@@ -1,0 +1,107 @@
+{
+  "version": "local-genetic-v1",
+  "baseRun": "extended-20261018-v2",
+  "baseProtocolSHA256": "1feb8956a9d68c40baa3876a410993da0b51922e12d027e1d44cfa670c824336",
+  "seed": 2026101803,
+  "validationFolds": [
+    "2025-09",
+    "2026-03",
+    "2026-09"
+  ],
+  "finalTestFold": "2026-09",
+  "childrenPerGeneration": 10,
+  "maxGenerations": 30,
+  "stagnationGenerations": 8,
+  "workers": 10,
+  "minimumFreeDiskGB": 4,
+  "deadlinePolicy": "Mesmo limite11h38 deSão Paulo da rodada base; não reiniciar8h ao começar a genética.",
+  "fitness": "Maior piorPnL entre soma base e soma custos2x em9 meses de validação (3 blocos de3 meses), dividido por9. Todos os3 blocos precisam passar cobertura, operações e queda máxima daV2. Nunca usar PnL do teste na seleção.",
+  "selection": "Melhor candidato não constante da gradeV2 pelos3 blocos de validação registrados; manter elite e criar10 mutações únicas por geração. Registrar todas, inclusive perdas. Parar em30 gerações,8 gerações sem melhora, prazo ou disco mínimo.",
+  "mutations": {
+    "holdingMinutes": [
+      30,
+      60,
+      120,
+      240
+    ],
+    "trainWindows": [
+      6,
+      9,
+      12
+    ],
+    "thresholdRange": [
+      0.2,
+      0.8
+    ],
+    "logisticC": [
+      0.0001,
+      100
+    ],
+    "maxDepth": [
+      2,
+      16
+    ],
+    "minLeaf": [
+      50,
+      300
+    ],
+    "forestTrees": [
+      400,
+      2000
+    ],
+    "boostIterations": [
+      100,
+      1000
+    ],
+    "boostLeaves": [
+      7,
+      15,
+      31,
+      63
+    ],
+    "boostL2": [
+      0.1,
+      100
+    ],
+    "mlpIterations": [
+      600,
+      5000
+    ],
+    "mlpAlpha": [
+      1e-05,
+      5
+    ],
+    "mlpLayers": [
+      [
+        16
+      ],
+      [
+        32,
+        16
+      ],
+      [
+        64,
+        32
+      ],
+      [
+        96,
+        48
+      ],
+      [
+        128,
+        64
+      ]
+    ],
+    "mlpLearningRate": [
+      0.0001,
+      0.01
+    ]
+  },
+  "rules": [
+    "Histórico já visto e genética solicitada após conhecerV1; pesquisa exploratória, sem prova de melhor lucro global.",
+    "Família e algoritmo do candidato inicial são preservados; mutar prazo, janela, limiar e hiperparâmetros aplicáveis. Risco, alavancagem, stops, custos e execução não são genes.",
+    "Sementes das florestas/MLP são agregadas; jamais escolher a melhor semente. Reusar modelos idênticos quando só o limiar muda.",
+    "Modelo de referência é selecionado apenas pelas validações anteriores dos3 cortes. Avaliar setembro2026 somente uma vez após congelar o vencedor da genética; esse mês já é conhecido no projeto, sem novo holdout intocado.",
+    "Não parar apenas porque apareceu lucro. Nenhuma ordem real, API paga deIA ou promoção automática ao replay."
+  ]
+}

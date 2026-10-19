@@ -1,0 +1,20 @@
+{
+  "version": "compound-cdi-v1",
+  "capitalBRL": 1000,
+  "fx": 5,
+  "risk": 0.01,
+  "benchmark": "100% do CDI bruto, com composição das taxas diárias doBCB, conferidas contra o acumulado mensal publicado. A API direta doSGS rejeitou as consultas; usar a republicação oficial noIpeadata, sériesSGS366_CDI366 eBM12_TJCDI12, com metadados e hashes. Não projetar taxas nem completar lacunas.",
+  "scope": "Somente os três blocos contíguos de validação já usados pela campanha adaptativa. Cada bloco iniciaR$1000 e carrega saldo, posição e limites entre os três meses. Não encadear os intervalos sem avaliação nem consultar o teste final durante o treino.",
+  "comparison": "Mesmos dias e capital inicial; bot com taxas, slippage e funding modelados, CDI bruto sem tributação. Ambos antes de impostos; CDI é índice de referência, não produto contratado. Bot convertido com câmbio hipotético fixoR$5/USDT, sem variação cambial. Não remunerar simultaneamente o caixa do bot peloCDI.",
+  "riskRules": "Dimensionar pelo saldo disponível de cada entrada com risco1%, como no motor original. Saldo e perdas são carregados; limite diário3% e global10% da origem de cada bloco, sem reset mensal. Fechar posição somente no fim do bloco ou pelas saídas originais.",
+  "coverage": "Exigir todos os meses do intervalo, pelo menos15 observações diárias por mês e acordo do produto diário com o acumulado mensal publicado a até0.0055 ponto percentual. Se fontes ou cobertura faltarem, CDI indisponível, nunca zero.",
+  "selection": "Diagnóstico adicional do campeão atual: não altera fitness, seleção, genes, prazo ou modelos da campanha em execução. O vencedor já usa esses meses para seleção, portanto a comparação é retrospectiva exploratória.",
+  "refreshSeconds": 60,
+  "sources": [
+    "https://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='SGS366_CDI366')",
+    "https://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='BM12_TJCDI12')",
+    "https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados",
+    "https://api.bcb.gov.br/dados/serie/bcdata.sgs.4391/dados",
+    "https://www.b3.com.br/pt_br/market-data-e-indices/indices/indices-de-segmentos-e-setoriais/di/metodologia-de-calcudo-acumulado-de-di/"
+  ]
+}

@@ -1,0 +1,1 @@
+export const adapt=sql=>({prepare(query){let bindings=[];return {bind(...args){bindings=args;return this;},async run(){return sql.prepare(query).run(...bindings);},async all(){return {results:sql.prepare(query).all(...bindings)};}};}});

@@ -1,0 +1,10 @@
+{
+  "version": "leverage-comparison-v1",
+  "leverage": [10,15,20],
+  "capitalBRL": 1000,
+  "risk": 0.01,
+  "scope": "Diagnóstico separado do campeão avaliado em saldo contínuo: mesmos modelos, sinais, três blocos de validação, custos base/2x e saldo inicial. Não alterar o treino em execução nem consultar o teste final.",
+  "sizing": "Mesmo risco1% do saldo por entrada, stops e limite de margem de80% do patrimônio. Alavancagem altera margem e liquidação, não multiplica automaticamente a posição. Recusar entrada quando stop ficar além da liquidação aproximada.",
+  "costs": "Base: taxa0.05% e slippage0.02% por execução. Stress: taxa0.10% e slippage0.04%. Funding histórico preservado, não dobrado. Custos incidem sobre notional.",
+  "caveat": "Liquidação estimada com manutenção0.5%, sem reconstrução de faixas históricas, tarifas de liquidação ou ticks. Apenas pesquisa, sem ordens reais ou garantia de proteção por stop. Antes de impostos; câmbio fixo hipotéticoR$5/USDT."
+}

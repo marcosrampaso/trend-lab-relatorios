@@ -1,0 +1,160 @@
+{
+  "version": "donchian-history-v2",
+  "registeredAt": "2026-10-16T21:12:06.397525+00:00",
+  "symbol": "ETHUSDT",
+  "interval": "1h",
+  "source": "web/data/eth-donchian-history.json",
+  "capitalBRL": 300,
+  "fx": 5,
+  "risk": 0.01,
+  "leverage": 10,
+  "dailyLimit": 0.03,
+  "totalLimit": 0.1,
+  "stopATR": 1.5,
+  "targetR": 2,
+  "maxHoldHours": 24,
+  "cooldownHours": 4,
+  "volumePeriod": 20,
+  "volumeMultiplier": 1.2,
+  "warmupBars": 64,
+  "adaptive": {
+    "base": 20,
+    "min": 10,
+    "max": 40,
+    "referenceBars": 168,
+    "volatility": "ATR14 / close",
+    "formula": "clamp(round(20 * mean(previous 168 ATR14/close) / previous ATR14/close), 10, 40)",
+    "direction": "Higher recent volatility shortens the window; lower recent volatility lengthens it."
+  },
+  "variants": [
+    {
+      "id": "fixed",
+      "name": "Donchian fixo · 20h"
+    },
+    {
+      "id": "adaptive",
+      "name": "Donchian adaptativo · 10–40h"
+    }
+  ],
+  "costCases": [
+    {
+      "id": "base",
+      "fee": 0.0005,
+      "slippage": 0.0002
+    },
+    {
+      "id": "stress",
+      "fee": 0.001,
+      "slippage": 0.0004
+    }
+  ],
+  "periods": [
+    {
+      "id": "year2020",
+      "label": "Fev–dez 2020 · histórico ampliado",
+      "start": "2020-02-01T00:00:00Z",
+      "end": "2021-01-01T00:00:00Z",
+      "status": "retrospective_extension",
+      "source": "web/data/eth-donchian-history.json"
+    },
+    {
+      "id": "year2021",
+      "label": "2021 · histórico ampliado",
+      "start": "2021-01-01T00:00:00Z",
+      "end": "2022-01-01T00:00:00Z",
+      "status": "retrospective_extension",
+      "source": "web/data/eth-donchian-history.json"
+    },
+    {
+      "id": "year2022",
+      "label": "2022 · histórico ampliado",
+      "start": "2022-01-01T00:00:00Z",
+      "end": "2023-01-01T00:00:00Z",
+      "status": "retrospective_extension",
+      "source": "web/data/eth-donchian-history.json"
+    },
+    {
+      "id": "year2023",
+      "label": "2023 · histórico ampliado",
+      "start": "2023-01-01T00:00:00Z",
+      "end": "2024-01-01T00:00:00Z",
+      "status": "retrospective_extension",
+      "source": "web/data/eth-donchian-history.json"
+    },
+    {
+      "id": "year2024",
+      "label": "2024 · histórico ampliado",
+      "start": "2024-01-01T00:00:00Z",
+      "end": "2025-01-01T00:00:00Z",
+      "status": "retrospective_extension",
+      "source": "web/data/eth-donchian-history.json"
+    },
+    {
+      "id": "development",
+      "label": "Jan–jun 2025 · desenvolvimento",
+      "start": "2025-01-01T00:00:00Z",
+      "end": "2025-07-01T00:00:00Z",
+      "status": "already_seen_exploratory",
+      "source": "web/data/eth-intraday.json"
+    },
+    {
+      "id": "validation",
+      "label": "Jul–dez 2025 · validação conhecida",
+      "start": "2025-07-01T00:00:00Z",
+      "end": "2026-01-01T00:00:00Z",
+      "status": "already_seen_exploratory",
+      "source": "web/data/eth-intraday.json"
+    },
+    {
+      "id": "known2026",
+      "label": "Jan–set 2026 · comparação retrospectiva",
+      "start": "2026-01-01T00:00:00Z",
+      "end": "2026-10-01T00:00:00Z",
+      "status": "already_seen_exploratory",
+      "source": "web/data/eth-intraday.json"
+    },
+    {
+      "id": "newOctober",
+      "label": "1–15 out 2026 · janela adicional",
+      "start": "2026-10-01T00:00:00Z",
+      "end": "2026-10-16T00:00:00Z",
+      "status": "already_seen_exploratory",
+      "source": "web/data/eth-intraday.json"
+    }
+  ],
+  "rules": [
+    "Hipótese própria inspirada no artigo; não é reprodução do código ou da gestão Agno.",
+    "A única diferença entre as duas carteiras é a janela do canal. Filtro de volume, stop, alvo, risco e execução são idênticos.",
+    "Janela escolhida antes do candle de sinal: ATR14/close até a hora anterior e média dos168 valores anteriores. ATR suavizado como no controle preservado, iniciado no primeiro true range.",
+    "Canal usa máxima/mínima dosN candles estritamente anteriores, excluindo o candle de sinal. Entrada só após fechamento além do canal e volume >1,2 vezes a média dos20 volumes anteriores.",
+    "Controle pronto após64 candles. Adaptativo exige também168 medidas anteriores; todos os blocos têm aquecimento suficiente anterior ao início.",
+    "Stop1,5ATR e alvo2R (3ATR), diferentes do alvo2ATR do pseudocódigo do artigo. Encerramento após24h, intervalo4h e fechamento por sinal contrário preservados.",
+    "Execução em1h, entrada na abertura seguinte; replay revela tentativa após fechar essa hora. Stop antes do alvo e liquidação estimada antes do stop em conflito na mesma hora.",
+    "Custos base e dobrados; auditoria adicional das mesmas operações, sem recalcular decisões. Funding histórico incluído; filtros de lote consultados posteriormente e câmbio fixo são hipóteses.",
+    "Limites são avaliados no fechamento horário e não garantem perda máxima. Não simula ticks, spread observado, fila ou latência.",
+    "Ampliação retrospectiva para2020–2024 sem mudar qualquer regra de negociação registrada na versão1. Sem treino deML ou seleção de parâmetros nesta rodada.",
+    "Janeiro2020 é aquecimento, com primeira avaliação em1fev2020. Cada novo ano/bloco começa comR$300; a pausa global permanece até o fim desse bloco.",
+    "Os quatro blocos antigos continuam usando exatamente seu arquivo-fonte e aquecimento originais. Os novos anos usam o histórico ampliado. Os16 cenários antigos precisam ser reproduzidos sem nenhuma diferença.",
+    "Dados obtidos dos arquivos mensais oficiais, com checksums, continuidade e alinhamento de mark price. Lacunas não serão preenchidas com preço negociado nem interpolação. Funding histórico deve estar disponível; lacuna impede a publicação do período afetado.",
+    "Publicar todos os36 cenários (9 blocos ×2 variantes ×2 custos), sem escolher anos favoráveis. Períodos adicionais são retrospectivos e não constituem validação futura."
+  ],
+  "sources": [
+    {
+      "title": "Joe Tay · artigo que motivou a hipótese (adaptação não divulgada)",
+      "url": "https://medium.com/@joetay_50959/from-failed-experiments-to-43-8-apr-how-i-finally-built-a-profitable-trading-bot-with-ai-64771995d38c"
+    },
+    {
+      "title": "Binance · arquivos públicos usados nos estudos locais",
+      "url": "https://data.binance.vision/?prefix=data/futures/um/"
+    }
+  ],
+  "dataPlan": {
+    "downloadStart": "2020-01-01T00:00:00Z",
+    "downloadEnd": "2024-12-01T00:00:00Z",
+    "mergeSource": "web/data/eth-intraday.json",
+    "replayEnd": "2026-10-16T00:00:00Z",
+    "firstTestStart": "2020-02-01T00:00:00Z",
+    "warmup": "Janeiro2020 reservado para aquecimento; cobertura de janeiro depende do início do contrato.",
+    "granularity": "1h; não substitui dados1min do laboratório de scalping"
+  }
+}

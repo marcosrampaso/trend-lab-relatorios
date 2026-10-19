@@ -1,0 +1,105 @@
+{
+  "version": "scalp-tree-v1",
+  "registeredAt": "2026-10-18T05:50:00Z",
+  "status": "retrospective_research_only",
+  "warmupStart": "2023-12-01T00:00:00Z",
+  "start": "2024-01-01T00:00:00Z",
+  "end": "2026-10-01T00:00:00Z",
+  "initialTrain": {
+    "start": "2024-01-01T00:00:00Z",
+    "end": "2024-10-01T00:00:00Z"
+  },
+  "initialValidation": {
+    "start": "2024-10-01T00:00:00Z",
+    "end": "2025-01-01T00:00:00Z"
+  },
+  "testStart": "2025-01-01T00:00:00Z",
+  "holdoutStart": "2026-07-01T00:00:00Z",
+  "holdoutPolicy": "Congelar o último retreino disponível em1jul2026 e avaliar julho–setembro sem novo ajuste ou treino. Os dados horários desses meses já foram vistos; não é futuro prospectivo intocado.",
+  "families": [
+    "cross",
+    "vwap",
+    "bands"
+  ],
+  "maxHoldMinutes": 30,
+  "labelAvailableAfterMinutes": 245,
+  "labelCostCase": "stress",
+  "label": "Resultado líquido positivo de uma operação isolada, com custos dobrados, sinais contrários originais e risco original. Não é retorno da carteira. Todos os gatilhos executáveis entram, inclusive os que a carteira teria vetado; perdas e ganhos.",
+  "features": [
+    "side",
+    "directionalRSI5m",
+    "atrPrice5m",
+    "logRvol5m",
+    "directionalVwapATR5m",
+    "directionalEmaSpreadATR5m",
+    "alignment1h",
+    "alignment4h",
+    "directionalEmaSpreadATR1h",
+    "directionalEmaSpreadATR4h",
+    "costStopRatio",
+    "directionalTakerDelta5m"
+  ],
+  "tree": {
+    "kind": "decision-tree-gini",
+    "maxDepth": 3,
+    "minLeaf": 100,
+    "thresholdCandidatesPerFeature": 32,
+    "minimumGain": 1e-06,
+    "laplace": 1
+  },
+  "learner": {
+    "minimumSamples": 300
+  },
+  "thresholds": [
+    0,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65
+  ],
+  "selection": {
+    "minimumTradesBothCosts": 20,
+    "minimumAcceptedFraction": 0.15,
+    "maximumDrawdownDeterioration": 0.02,
+    "objective": "Maior piorPnL entre base e custos2x no bloco de validação; empate favorece menor limiar. Limiar0 é o controle sem filtro. Nunca selecionar pelo mês seguinte. Candidato com validação negativa continua não aprovado, mesmo se reduzir a perda."
+  },
+  "rolling": {
+    "trainMonths": 9,
+    "validationMonths": 3,
+    "updateMonths": 1
+  },
+  "variants": [
+    "control",
+    "fixed",
+    "rolling"
+  ],
+  "uncertainty": {
+    "method": "Bootstrap pareado de diferenças mensais, blocos móveis de3 meses,5000 réplicas e seed20261018. Intervalo simultâneo Bonferroni para6 comparações (3 famílias ×2 modelos), não trata trades como independentes.",
+    "replicates": 5000,
+    "blockMonths": 3,
+    "seed": 20261018,
+    "comparisons": 6
+  },
+  "promotion": {
+    "minimumMonths": 6,
+    "minimumTrades": 200,
+    "requirePositiveStressPnL": true,
+    "requirePositiveSimultaneousLowerBound": true,
+    "maximumDrawdownDeterioration": 0.02,
+    "requirePositiveHoldoutStressPnL": true,
+    "scope": "Critérios de pesquisa; nunca ativar ordens, alterar risco ou promover automaticamente ao processo prospectivo."
+  },
+  "rules": [
+    "Risco1%, capitalR$300, câmbio5, alavancagem10x, stop1.5ATR, alvos e intervalo10min, limites diário3%/global10% originais; nenhum aumento de risco.",
+    "Sinais5min; execução/mark1min; funding histórico preservado. Contexto1h/4h somente de candles fechados; EMA20/50 com aquecimento150barras.",
+    "Um modelo por família. Aprendizado veta somente novas entradas, nunca remove sinais contrários usados nas saídas.",
+    "Limiares selecionados em validação temporal. Purga245min nas fronteiras. Nenhuma amostra futura ou notícia atual nos dados passados.",
+    "Cada mês reiniciaR$300 nas três carteiras. Somas dePnL emUSDT são orçamento mensal reiniciado, não retorno composto de uma conta contínua.",
+    "Datas e hiperparâmetros fixos antes dos resultados. Exibir perdas, custos, coberturas, treinamento, limiares, árvores e motivos de rejeição.",
+    "Não sobrescrever estudos congelados ou oSQLite privado; não usarAPI paga deIA. Treinamento numérico local comCART aproximada já validada no projeto.",
+    "Qualidade: divergências entre arquivos oficiais1min/1h serão registradas. Nesta janela,1min é a base canônica para execução e para agregar contexto1h/4h; histórico horário anterior serve somente ao aquecimento. Sem modificar dados antigos congelados ou interpolar lacunas."
+  ]
+}

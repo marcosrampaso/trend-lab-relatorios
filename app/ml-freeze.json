@@ -1,0 +1,27 @@
+{
+  "registeredAt": "2026-10-16T21:21:37.438117+00:00",
+  "protocolSHA256": "fc84c773dc6b38b8f6a4ca26df438103b6807d7fbe7b1b2689a8327945631859",
+  "preservedFiles": {
+    "web/engine.js": "c107aad069cc10e83a1646efb2a84a1967dc3b26b11457f8fac435d26a92504f",
+    "web/strategies.js": "0f8331cafe46fe464eac2d87756581451b90454c352ec86b66a67aa1293b23a2",
+    "web/decision-context.js": "b852dd13a15e18cf79d7c93aa09d71c77860859e9947a0551bf8294e23b0b7dc",
+    "web/donchian.js": "e57981083a85265a5973e8a679645b8daac1ac00d6550274e37e8d3d7db9b1de",
+    "donchian-protocol.json": "27b57b389be6b3b3dcd22f83d40090b65a3fa41ed919693abdf24f4cbe18f260",
+    "donchian-freeze.json": "08e529febe88ec09b3e6d05f790913fd6bdd691736851707b65329177a386a21",
+    "donchian-history-protocol.json": "0adc801f3468a0919bbad9a594a99dee79cbb11d6f15acc8d303fa4c9567f198",
+    "donchian-history-freeze.json": "bfc34026ef7e4acde9d779aead8feb7a264979df2fe94f51256c7860c4487ed4",
+    "scripts/analyze-donchian-history.mjs": "8f790d853fb3801e03b3e6bf2e5f75764c63826c6cfabe3d56708e08046130d3",
+    "web/data/donchian-history-results.json": "241a8a435814cd10e16d8ebd3c4b45e7ae3db278ce3c49f4f7ee1cd34c43a638",
+    "web/data/eth-donchian-history.json": "10a000c31e940a9c95ea99b7a945c0722ec648ce25f4183ea48c7658f5f19e91",
+    "worker/forward.js": "585606d2c8dc1d9f4b119bcc534626de81db15b7271b2fe07abebbc05a7c7c16",
+    "local/runtime.mjs": "0c50b1c9adb9d6a2aa09eef9f9bbe51784fbb20588ae77b95c2db198c0a6d415"
+  },
+  "implementationSHA256": "5e5d040178d51b41f8dbbe6bef53a4dc94dd9a975fbb732b83baa75caea2763b",
+  "labelsSHA256": "481e40d4994d454f345b10195a8f0802d6f3f7e53bca0ac1b388cdc87ab354cd",
+  "samplesSHA256": "2adddbf2094b77c7dbe8851cb6fba3e0ad255b53b928d0ffa58a73e035f1dec5",
+  "trainingSHA256": "1e800d82cba9a8f7a8adc4409e154e48bfe9c53f12fc2b33e28ffa348eb189e2",
+  "modelSHA256": "1a95358bd9c305b466a5cfec9f563c78b9b3d27f2a8e05cb74d20bd4aa53adf0",
+  "modelFrozenAt": "2026-10-16T21:23:59.894035+00:00",
+  "analysisSHA256": "7a44d3d103f9be7e4ef9b564dbd84530c10acbd9c5455f78518703a645f93322",
+  "resultSHA256": "daa47daba3950b82c18703dc8dc70e5642b16721f5f788890492e4ac3ea9c6b9"
+}

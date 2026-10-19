@@ -1,0 +1,11 @@
+import fs from 'node:fs';import path from 'node:path';import {spawn,spawnSync} from 'node:child_process';import {fileURLToPath} from 'node:url';
+const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));process.chdir(root);const file='work/local-ml/adaptive-service.json',command=process.argv[2]??'status',saved=fs.existsSync(file)?JSON.parse(fs.readFileSync(file)):null;
+function active(){if(!saved)return false;const p=spawnSync('ps',['-p',String(saved.pid),'-o','command='],{encoding:'utf8'});if(p.error||p.stderr.trim())throw Error('Sem acesso à lista de processos');return p.status===0&&p.stdout.includes(saved.script)&&p.stdout.includes(saved.runId);}
+if(command==='status'){console.log(JSON.stringify({...saved,active:active(),status:saved?JSON.parse(fs.readFileSync(saved.statusPath)):null},null,2));}
+else if(command==='start'){
+ if(active())throw Error('Campanha já ativa');const prepared=JSON.parse(fs.readFileSync('work/search-v4-prepared.json')),runId=prepared.runId,run=path.join(root,'work/local-ml/runs',runId),baseline=JSON.parse(fs.readFileSync(path.join(run,'baseline-frozen.json'))),registration=JSON.parse(fs.readFileSync(path.join(run,'registration.json')));
+ if(Math.abs(baseline.monthlyDifferenceBRL)>1e-9||baseline.winner.genome.id!=='c6cb2a8370cd058b0be0')throw Error('G0 não verificada');const seconds=Math.floor((Date.parse(registration.deadlineAt)-Date.now())/1000);if(seconds<120)throw Error('Prazo encerrado');
+ const script='scripts/adaptive-search-v4.py',logPath=path.join(root,'work/local-ml',runId+'.log'),fd=fs.openSync(logPath,'a'),child=spawn(path.join(root,'.venv-ml/bin/python'),[script,'--run-id',runId,'--resume'],{cwd:root,detached:true,stdio:['ignore',fd,fd]});child.unref();fs.closeSync(fd);
+ const awake=spawn('/usr/bin/caffeinate',['-is','-w',String(child.pid),'-t',String(seconds)],{detached:true,stdio:'ignore'});awake.unref();
+ const info={pid:child.pid,awakePID:awake.pid,runId,script,seededFrom:{runId:registration.parentRun,generation:151,genomeId:baseline.winner.genome.id},logPath,statusPath:path.join(run,'status.json')};fs.writeFileSync(file,JSON.stringify(info,null,2)+'\n');console.log(JSON.stringify(info));
+}else if(command==='stop'){if(active())process.kill(saved.pid,'SIGTERM');console.log('Parada solicitada; checkpoints preservados.');}else throw Error('Use start,status ou stop');

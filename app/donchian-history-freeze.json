@@ -1,0 +1,20 @@
+{
+  "registeredAt": "2026-10-16T21:12:06.397525+00:00",
+  "protocolSHA256": "0adc801f3468a0919bbad9a594a99dee79cbb11d6f15acc8d303fa4c9567f198",
+  "preservedFiles": {
+    "donchian-protocol.json": "27b57b389be6b3b3dcd22f83d40090b65a3fa41ed919693abdf24f4cbe18f260",
+    "donchian-freeze.json": "08e529febe88ec09b3e6d05f790913fd6bdd691736851707b65329177a386a21",
+    "web/donchian.js": "e57981083a85265a5973e8a679645b8daac1ac00d6550274e37e8d3d7db9b1de",
+    "scripts/analyze-donchian.mjs": "dd51e5a32a424dbca503ec4beb6f8c6726cdb70d515fd2ac2d7b739fb0733b8c",
+    "web/data/donchian-results.json": "2c89311add925670821e11b3258a2512b06d7768cb8e255b9a312de542711007",
+    "web/data/eth-intraday.json": "da046b948189ba2286e8f74f81e369fd1978ee6d3c8999eda64566fe940fc690",
+    "web/engine.js": "c107aad069cc10e83a1646efb2a84a1967dc3b26b11457f8fac435d26a92504f",
+    "web/strategies.js": "0f8331cafe46fe464eac2d87756581451b90454c352ec86b66a67aa1293b23a2",
+    "worker/forward.js": "585606d2c8dc1d9f4b119bcc534626de81db15b7271b2fe07abebbc05a7c7c16",
+    "local/runtime.mjs": "0c50b1c9adb9d6a2aa09eef9f9bbe51784fbb20588ae77b95c2db198c0a6d415"
+  },
+  "dataSHA256": "10a000c31e940a9c95ea99b7a945c0722ec648ce25f4183ea48c7658f5f19e91",
+  "analysisSHA256": "8f790d853fb3801e03b3e6bf2e5f75764c63826c6cfabe3d56708e08046130d3",
+  "fetchSHA256": "6ff9d462f42aae3121e3a29ba3f40fec72e3016339021d2b85624435845dbd3f",
+  "resultSHA256": "241a8a435814cd10e16d8ebd3c4b45e7ae3db278ce3c49f4f7ee1cd34c43a638"
+}

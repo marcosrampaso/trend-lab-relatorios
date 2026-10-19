@@ -1,0 +1,63 @@
+{
+  "version": "scalping-duration-context-v1",
+  "registeredAt": "2026-10-18T05:37:29Z",
+  "status": "exploratory",
+  "maxHoldMinutes": [
+    30,
+    60,
+    120,
+    240
+  ],
+  "contextModes": [
+    "observe",
+    "align"
+  ],
+  "trend": {
+    "hours": [
+      1,
+      4
+    ],
+    "fast": 20,
+    "slow": 50,
+    "minimumBars": 150
+  },
+  "rules": [
+    "Teste fatorial: alterar somente duração máxima e filtro de contexto. As demais regras e o motor original permanecem preservados.",
+    "Sinal em5min; contexto em1h e4h com EMA20/50. Apenas candles fechados no instante do sinal.4h alinhado a00/04/08/12/16/20UTC.",
+    "Observe mantém todos os sinais originais. Align permite sinal somente se as duas tendências maiores coincidirem com seu lado; divergência ou aquecimento veta a entrada.",
+    "O filtro veta somente novas entradas; qualquer sinal contrário original continua encerrando posição. Nunca filtrar o registro usado nas saídas.",
+    "O mesmo filtro é uma hipótese separada para cada família, incluindo reversão; não se presume benefício.",
+    "2 meses já examinados ×3 famílias ×4 durações ×2 filtros ×2 custos =96 cenários. Nenhum vencedor será promovido a partir deles.",
+    "Cada carteira reiniciaR$300 por mês. Risco1%, limites diário3% e global10%, alavancagem10x, stops, alvos e intervalo10min permanecem iguais.",
+    "Relatar lucro líquido, bruto após slippage, taxas, funding, expectativa, drawdown, motivos de saída e instante da parada. Carteira parada não equivale a mês inteiro negociado.",
+    "Reproduzir exatamente os12 controles originais30min/observe; conferir cash, duração, causalidade do contexto e hashes anteriores.",
+    "Análise exploratória, sem p-valor ou intervalo de confiança com só dois meses conhecidos. Resultado melhor pode continuar negativo. Não retreinar nem mudar o processo prospectivo nesta rodada."
+  ],
+  "learningPlan": {
+    "status": "registered_not_trained",
+    "data": "Ampliar dados1min e mark/funding para pelo menos24 meses de regimes variados; últimos3 meses reservados antes do ajuste. Histórico já inspecionado continua retrospectivo.",
+    "unit": "Todos os gatilhos, executados ou vetados, com entradas conhecidas na decisão e resultado isolado identificado separadamente do caixa da carteira. Incluir ganhos e perdas.",
+    "labelAvailableAfterMinutes": 245,
+    "features": [
+      "família",
+      "lado",
+      "RSI5min",
+      "ATR/preço5min",
+      "volume relativo5min",
+      "distância VWAP/ATR",
+      "EMA9/21/ATR5min",
+      "tendência1h",
+      "tendência4h",
+      "diferença EMA20/50/ATR1h",
+      "diferença EMA20/50/ATR4h",
+      "custo/stop"
+    ],
+    "candidate": "Árvore rasa de veto de entrada, profundidade3, mínimo100 exemplos por folha; não modifica stop, alvo ou risco. Comparar com a mesma estratégia sem filtro e com modelo fixo.",
+    "retraining": "Mensal, usando janela móvel dos12 meses anteriores:9 treino +3 validação, somente rótulos já disponíveis. Purga245min nas fronteiras; teste no mês seguinte sem ajuste intramês.",
+    "selection": "Duração e filtro escolhidos só no treino/validação temporal. Objetivo: expectativa líquida sob custos dobrados, com operação e drawdown mínimos definidos antes de executar. Ausência de vantagem mantém o controle em simulação ou não operar.",
+    "uncertainty": "Comparar diferenças por blocos de dias/semanas, preservando dependência temporal; bootstrap em blocos e correção para múltiplas variantes. Sem tratar trades próximos como independentes.",
+    "promotion": "Pelo menos6 blocos mensais posteriores,200 operações agregadas e ganho líquido positivo com custos dobrados; diferença versus controle com limite inferior95% acima de0, sem aumento material de drawdown. Critérios de pesquisa, não garantia. Depois avaliação prospectiva separada.",
+    "logging": "Registrar versão, corte dos dados, razões de veto, métricas e candidato aceito/rejeitado; nunca reescrever decisões passadas ou ajustar após cada perda."
+  },
+  "implementationCorrection": "Antes da publicação, revisão detectou que remover sinais vetados também suprimia saídas contrárias. Corrigido para veto somente de novas entradas; resultados dessa implementação descartados emwork para auditoria. Esta rodada permanece exploratória e não aprova candidatos."
+}

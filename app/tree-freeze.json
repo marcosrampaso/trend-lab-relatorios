@@ -1,0 +1,33 @@
+{
+  "registeredAt": "2026-10-16T21:28:04.910852+00:00",
+  "protocolSHA256": "3504b642c2ae31c84b19dda1a5ff760dd56d5f7e5e6ff99738038bd2c452cf6f",
+  "preservedFiles": {
+    "ml-protocol.json": "fc84c773dc6b38b8f6a4ca26df438103b6807d7fbe7b1b2689a8327945631859",
+    "ml-freeze.json": "25a598cb009e653fa3d486def84d6554022509cd5f5418ddf0df696565853b32",
+    "web/ml.js": "5e5d040178d51b41f8dbbe6bef53a4dc94dd9a975fbb732b83baa75caea2763b",
+    "scripts/ml-labels.mjs": "481e40d4994d454f345b10195a8f0802d6f3f7e53bca0ac1b388cdc87ab354cd",
+    "scripts/train-ml.mjs": "1e800d82cba9a8f7a8adc4409e154e48bfe9c53f12fc2b33e28ffa348eb189e2",
+    "scripts/analyze-ml.mjs": "7a44d3d103f9be7e4ef9b564dbd84530c10acbd9c5455f78518703a645f93322",
+    "web/data/ml-model.json": "1a95358bd9c305b466a5cfec9f563c78b9b3d27f2a8e05cb74d20bd4aa53adf0",
+    "web/data/ml-samples.json": "2adddbf2094b77c7dbe8851cb6fba3e0ad255b53b928d0ffa58a73e035f1dec5",
+    "web/data/ml-results.json": "daa47daba3950b82c18703dc8dc70e5642b16721f5f788890492e4ac3ea9c6b9",
+    "donchian-history-protocol.json": "0adc801f3468a0919bbad9a594a99dee79cbb11d6f15acc8d303fa4c9567f198",
+    "donchian-history-freeze.json": "bfc34026ef7e4acde9d779aead8feb7a264979df2fe94f51256c7860c4487ed4",
+    "web/data/donchian-history-results.json": "241a8a435814cd10e16d8ebd3c4b45e7ae3db278ce3c49f4f7ee1cd34c43a638",
+    "web/data/eth-donchian-history.json": "10a000c31e940a9c95ea99b7a945c0722ec648ce25f4183ea48c7658f5f19e91",
+    "web/donchian.js": "e57981083a85265a5973e8a679645b8daac1ac00d6550274e37e8d3d7db9b1de",
+    "web/engine.js": "c107aad069cc10e83a1646efb2a84a1967dc3b26b11457f8fac435d26a92504f",
+    "web/strategies.js": "0f8331cafe46fe464eac2d87756581451b90454c352ec86b66a67aa1293b23a2",
+    "web/decision-context.js": "b852dd13a15e18cf79d7c93aa09d71c77860859e9947a0551bf8294e23b0b7dc",
+    "worker/forward.js": "585606d2c8dc1d9f4b119bcc534626de81db15b7271b2fe07abebbc05a7c7c16",
+    "local/runtime.mjs": "0c50b1c9adb9d6a2aa09eef9f9bbe51784fbb20588ae77b95c2db198c0a6d415"
+  },
+  "implementationSHA256": "2b45004c0e588564a85b6389d7aabfcdd84b0ee38254230735a3f03fd71bdb82",
+  "labelsSHA256": "448c816b2015d45f00b2a419d94b4f1b82623c14c8d590f646a142c3bfed44ec",
+  "samplesSHA256": "3019f44cbf60b50afda5a8010ae0230ef56a3bd1abc3aec9bb92cbcba1454c79",
+  "trainingSHA256": "a0e943f271942bebb2b4c4a46c2f8a311aa1f6effc570987280be5ee1ab5d231",
+  "modelsSHA256": "1c9ea258ee5c83449c08f29071c8248f520cd47f68f82902eb8520e72199b96f",
+  "modelsFrozenAt": "2026-10-16T21:30:43.675972+00:00",
+  "analysisSHA256": "1844dd5f26d2d8674bc5ab2a59296d74a5a0cae4906244779b03a428d64cd722",
+  "resultSHA256": "5c374c2cbc949984bf331bd3bedcff6005446dbcf221bd6a90e405b25eed2ae8"
+}

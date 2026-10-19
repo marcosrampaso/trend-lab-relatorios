@@ -1,0 +1,15 @@
+import fs from'node:fs';import path from'node:path';import{spawn,spawnSync}from'node:child_process';import{fileURLToPath}from'node:url';
+const root=path.dirname(path.dirname(fileURLToPath(import.meta.url))),dir=path.join(root,'work/local-ml'),service=path.join(dir,'adaptive-service.json'),read=p=>JSON.parse(fs.readFileSync(p)),command=process.argv[2]??'status',state=fs.existsSync(service)?read(service):null;
+function active(s=state){if(!s)return false;const r=spawnSync('ps',['-p',String(s.pid),'-o','command='],{encoding:'utf8'});if(r.error||r.stderr?.trim())throw Error('Sem acesso à lista de processos');return r.status===0&&r.stdout.includes(s.script??'scripts/adaptive-genetic.py')&&r.stdout.includes(s.runId);}
+if(command==='status'){let running=null,error;try{running=active();}catch(e){error=e.message;}console.log(JSON.stringify(state?{...state,active:running,error,status:fs.existsSync(state.statusPath)?read(state.statusPath):null}:{active:false},null,2));}
+else if(command==='stop'){if(active()){process.kill(state.pid,'SIGTERM');console.log('Parada solicitada; checkpoints serão preservados.');}else console.log('Nenhuma campanha adaptativa ativa.');}
+else if(command==='start'||command==='resume'||command==='refine'){
+ if(active())throw Error('Já existe campanha adaptativa ativa.');
+ const resume=command==='resume',refine=command==='refine',script=resume?(state?.script??'scripts/adaptive-genetic.py'):refine?'scripts/adaptive-search-v3.py':'scripts/adaptive-genetic.py',runId=resume?state?.runId:(refine?'search-v3-':'adaptive-')+new Date().toISOString().replace(/[-:.]/g,'');if(!runId||refine&&!state?.runId)throw Error('Sem campanha de origem');
+ const p=read(path.join(root,'adaptive-genetic-protocol.json'));if(resume){const reg=read(path.join(dir,'runs',runId,'registration.json'));if(Date.parse(reg.deadlineAt)<=Date.now()+120000)throw Error('Prazo original encerrado; start cria nova campanha com novo prazo.');}
+ const parentRecord=refine?read(path.join(dir,'runs',state.runId,'registration.json')):null;if(parentRecord&&Date.parse(parentRecord.deadlineAt)<=Date.now()+120000)throw Error('Prazo original encerrado');
+ const logPath=path.join(dir,runId+'.log');fs.mkdirSync(dir,{recursive:true});const fd=fs.openSync(logPath,'a'),child=spawn(path.join(root,'.venv-ml/bin/python'),[script,'--run-id',runId,...(resume?['--resume']:refine?['--from-run',state.runId]:[])],{cwd:root,detached:true,stdio:['ignore',fd,fd]});child.unref();fs.closeSync(fd);
+ const seconds=resume||refine?Math.max(1,Math.ceil((Date.parse((parentRecord??read(path.join(dir,'runs',runId,'registration.json'))).deadlineAt)-Date.now())/1000)):p.maxHours*3600;
+ const awake=spawn('/usr/bin/caffeinate',['-is','-w',String(child.pid),'-t',String(seconds)],{detached:true,stdio:'ignore'});awake.unref();
+ const info={pid:child.pid,awakePID:awake.pid,runId,script,continuedFrom:refine?state.runId:state?.continuedFrom,logPath,statusPath:path.join(dir,'runs',runId,'status.json')};fs.writeFileSync(service,JSON.stringify(info,null,2));console.log(JSON.stringify(info,null,2));
+}else throw Error('Use start, status, stop, resume ou refine.');

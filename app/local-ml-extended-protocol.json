@@ -1,0 +1,208 @@
+{
+  "version": "local-cpu-extended-v2",
+  "market": "ETHUSDT futures, pesquisa retrospectiva; estudos em ações inspiram a comparação, não provam transferência para cripto.",
+  "seed": 2026101802,
+  "families": [
+    "cross",
+    "vwap",
+    "bands"
+  ],
+  "folds": [
+    "2025-01",
+    "2025-02",
+    "2025-03",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09"
+  ],
+  "validationMonths": 3,
+  "testMonths": 1,
+  "thresholds": [
+    0,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65
+  ],
+  "minimumValidationTradesBothCosts": 20,
+  "minimumValidationCoverage": 0.15,
+  "maxDrawdownDeterioration": 0.02,
+  "threadsPerWorker": 1,
+  "selection": "A cada mês e família, selecionar conjuntamente prazo, janela, configuração e limiar pela soma dos3 meses anteriores de validação com resets mensais. Maior piorPnL base/2x, empate favorece limiar menor, prazo menor, janela menor e configuração mais simples. Aprovação exige filtro, validação2x positiva e melhoria sobre o controle30min. Todos os meses já foram vistos; pesquisa exploratória.",
+  "configs": [
+    {
+      "id": "constant",
+      "algorithm": "constant",
+      "params": {}
+    },
+    {
+      "id": "logistic-c01",
+      "algorithm": "logistic",
+      "params": {
+        "C": 0.1
+      }
+    },
+    {
+      "id": "logistic-c1",
+      "algorithm": "logistic",
+      "params": {
+        "C": 1.0
+      }
+    },
+    {
+      "id": "tree-d3",
+      "algorithm": "tree",
+      "params": {
+        "max_depth": 3,
+        "min_samples_leaf": 100
+      }
+    },
+    {
+      "id": "tree-d6",
+      "algorithm": "tree",
+      "params": {
+        "max_depth": 6,
+        "min_samples_leaf": 100
+      }
+    },
+    {
+      "id": "rf-d5",
+      "algorithm": "random_forest",
+      "params": {
+        "n_estimators": 1200,
+        "max_depth": 5,
+        "min_samples_leaf": 50
+      }
+    },
+    {
+      "id": "rf-d10",
+      "algorithm": "random_forest",
+      "params": {
+        "n_estimators": 1200,
+        "max_depth": 10,
+        "min_samples_leaf": 100
+      }
+    },
+    {
+      "id": "extra-d6",
+      "algorithm": "extra_trees",
+      "params": {
+        "n_estimators": 1200,
+        "max_depth": 6,
+        "min_samples_leaf": 50
+      }
+    },
+    {
+      "id": "extra-leaf100",
+      "algorithm": "extra_trees",
+      "params": {
+        "n_estimators": 1200,
+        "max_depth": null,
+        "min_samples_leaf": 100
+      }
+    },
+    {
+      "id": "boost-7",
+      "algorithm": "hist_boosting",
+      "params": {
+        "max_iter": 300,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 50,
+        "l2_regularization": 1.0
+      }
+    },
+    {
+      "id": "boost-15",
+      "algorithm": "hist_boosting",
+      "params": {
+        "max_iter": 500,
+        "max_leaf_nodes": 15,
+        "min_samples_leaf": 100,
+        "l2_regularization": 10.0
+      }
+    },
+    {
+      "id": "mlp-small",
+      "algorithm": "mlp",
+      "params": {
+        "hidden_layer_sizes": [
+          32,
+          16
+        ],
+        "alpha": 0.01,
+        "max_iter": 2000
+      }
+    },
+    {
+      "id": "mlp-medium",
+      "algorithm": "mlp",
+      "params": {
+        "hidden_layer_sizes": [
+          64,
+          32
+        ],
+        "alpha": 0.1,
+        "max_iter": 3000
+      }
+    }
+  ],
+  "rules": [
+    "Rodada ampliada solicitada após conhecer os resultados daV1; não constitui holdout independente nem prova de rentabilidade.",
+    "Quatro prazos de30/60/120/240min com rótulos próprios; mesmas12 features, sinais5min e contexto fechado1h/4h. Purga245min nas fronteiras.",
+    "Janelas de6/9/12 meses antes dos3 de validação, atualizadas mensalmente; teste apenas no mês seguinte. Janelas12meses indisponíveis no início são omitidas, sem completar com dados futuros.",
+    "13 configurações,3 estratégias,4 prazos,60 cortes janela/mês =720 grupos;37 ajustes por grupo (5 sementes para florestas/MLP), total26640. Sementes agregadas antes da escolha; nunca escolher a mais lucrativa.",
+    "Florestas com1200 árvores para avaliar redução de variância; MLP com2000/3000 iterações porque aV1 registrou avisos de convergência. Não reajustar após os resultados desta rodada.",
+    "Normalização só no treino; early_stopping=False; n_jobs=1 por modelo; até10 processos e uma thread nativa por processo.",
+    "Validação e teste reiniciamR$300 por mês, com motor, risco1%, alavancagem10x, stops/alvos, funding e pausas preservados. Não há ordens reais.",
+    "Limite8h incluindo preparação e avaliação. Checkpoints por mês de rótulo, modelo e família/mês de avaliação. Interromper por disco livre abaixo de4GB, sem apagar artefatos.",
+    "Encerrar ao concluir; não repetir tarefas idênticas nem escolher novo ajuste só para gastarCPU. Nenhuma promoção automática ao replay ou processo prospectivo."
+  ],
+  "mode": "extended",
+  "registeredAt": "2026-10-18",
+  "holdingMinutes": [
+    30,
+    60,
+    120,
+    240
+  ],
+  "trainWindows": [
+    6,
+    9,
+    12
+  ],
+  "datasetStart": "2024-01-01T00:00:00Z",
+  "datasetEnd": "2026-10-01T00:00:00Z",
+  "labelAvailableAfterMinutes": 245,
+  "maxMinutes": 480,
+  "minimumFreeDiskGB": 4,
+  "seeds": [
+    2026101802,
+    2026101803,
+    2026101804,
+    2026101805,
+    2026101806
+  ],
+  "repeatAlgorithms": [
+    "random_forest",
+    "extra_trees",
+    "mlp"
+  ]
+}

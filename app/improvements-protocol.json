@@ -1,0 +1,25 @@
+{
+  "id":"breakout-cost-15m-v1",
+  "capitalBRL":300,"fx":5,"risk":0.01,"leverage":10,
+  "signal":"breakout","stopATR":1.5,"targetR":2,"maxHoldHours":24,"cooldownHours":4,
+  "minStopToRoundTripCost":4,
+  "costCases":[{"id":"base","fee":0.0005,"slippage":0.0002},{"id":"stress","fee":0.001,"slippage":0.0004}],
+  "variants":[
+    {"id":"original","name":"Original · execução 1h","intervalMinutes":60,"filter":false,"entryDelayHours":0},
+    {"id":"intrabar","name":"Execução 15min","intervalMinutes":15,"filter":false,"entryDelayHours":0},
+    {"id":"filtered","name":"15min + filtro de custo","intervalMinutes":15,"filter":true,"entryDelayHours":0},
+    {"id":"prospective","name":"Filtro + entrada na hora seguinte","intervalMinutes":15,"filter":true,"entryDelayHours":1}
+  ],
+  "newsPolicy":"Vetar somente risco high conhecido no momento do registro da decisão e ainda válido na entrada. Unknown, notícia ausente ou expirada não vetam; marcar como sem cobertura. Não inferir direção de preço.",
+  "forwardDays":30,
+  "rules":[
+    "Filtro: distância de stop de 1.5 ATR14 dividida pelo custo estimado de ida e volta (2 taxas + 2 slippages + reserva de funding) deve ser >=4; usa somente o último fechamento conhecido.",
+    "O filtro mede amplitude histórica versus custo, não lucro esperado nem probabilidade de acerto. Limiar escolhido antes da rodada, sem busca de melhor parâmetro.",
+    "Stop primeiro em conflito dentro de um candle de15min. Liquidação aproximada primeiro em conflito com mark price. Fill de alvo limitado ao preço do alvo, gap adverso de stop executado na abertura.",
+    "Comparações históricas já vistas são exploratórias, sem notícias atuais. Cada cenário reinicia R$300.",
+    "Prospectivo: registrar o sinal mais recente encerrado antes da próxima abertura de1h; entrada com atraso fixo de1h após o sinal. Sem preencher decisões de horas perdidas. Registro neutro também é salvo.",
+    "Dois portfólios simulados com mesmo capital, custos e sinais registrados: filtro de custo sozinho e filtro mais veto de notícias. Máximo30 dias e24h por operação; encerrar no fim da janela.",
+    "Critérios pré-definidos de revisão: pelo menos30 dias completos,50 operações encerradas em cada carteira e20 sinais direcionais com notícia válida, resultado líquido positivo nas duas hipóteses de custo e drawdown <10%. Se faltar amostra, inconclusivo; passar critérios não autoriza dinheiro real nem prova vantagem.",
+    "Dados de15min não revelam a ordem dos ticks dentro de cada candle; funding, liquidação e câmbio continuam modelados. Nenhuma ordem real."
+  ]
+}

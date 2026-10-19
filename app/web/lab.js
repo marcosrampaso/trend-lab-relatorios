@@ -1,0 +1,24 @@
+export function installLab({data,chartOptions,money,num,pct,dt,download,getView}){
+ const $=s=>document.querySelector(s);let period='newOctober',strategy='trend1h';const chart=window.LightweightCharts.createChart($('#day-chart'),chartOptions());
+ const colors={control24:'#8693a4',trend1h:'#5fd2b0',breakout:'#f4b36a',reversion:'#a395df'};
+ const lines=Object.fromEntries(data.protocol.strategies.map(s=>[s.id,chart.addSeries(window.LightweightCharts.LineSeries,{color:colors[s.id],lineWidth:2,priceLineVisible:false,lastValueVisible:true,title:s.id})]));
+ const find=(s=strategy,cost='base',p=period)=>data.scenarios.find(r=>r.strategy===s&&r.period===p&&r.costCase===cost);
+ const tone=(el,v)=>{el.classList.toggle('positive',v>0);el.classList.toggle('negative',v<0);};
+ function render(){const r=find(),stress=find(strategy,'stress');$('#day-net').textContent=money(r.pnlUSDT*5);tone($('#day-net'),r.pnlUSDT);$('#day-return').textContent=pct(r.returnPct)+' · saldo final '+money(r.finalUSDT*5);$('#day-count').textContent=r.count;$('#day-average').textContent=r.avgHoldHours===null?'Nenhuma operação':num(r.avgHoldHours,1)+'h em média';$('#day-max').textContent=num(r.maxHoldHours,0)+'h';$('#day-dd').textContent=num(r.maxDrawdown*100)+'%';$('#day-stress').textContent='Nova simulação, custos2x: '+pct(stress.returnPct);
+ $('#day-caveat').textContent=period==='newOctober'?'A janela adicional tem apenas 15 dias: um resultado positivo aqui não comprova consistência. Não houve notícias ou IA neste backtest.':'Estes dados já foram consultados. A nova estratégia foi proposta depois: comparação exploratória, sem alegar teste inédito. Nenhuma notícia atual entra no passado.';
+ for(const d of data.protocol.strategies){lines[d.id].setData(find(d.id).curve.map(p=>({time:p.time/1000,value:p.value*5})));lines[d.id].applyOptions({lineWidth:d.id===strategy?3:1});}chart.timeScale().fitContent();
+ $('#day-comparison').innerHTML=data.protocol.strategies.map(s=>`<tr><td>${s.name}</td>${data.protocol.periods.map(p=>{const v=find(s.id,'base',p.id);return `<td class="${v.returnPct>0?'positive':v.returnPct<0?'negative':''}">${pct(v.returnPct)}<small>${v.count} operações · ${money(v.pnlUSDT*5)}</small></td>`;}).join('')}</tr>`).join('');
+ $('#day-trade-note').textContent='Exibindo até as50 operações mais recentes de '+r.count+'. Todas estão no relatório exportável.';$('#day-trades').innerHTML=r.trades.length?r.trades.slice(-50).reverse().map(t=>`<tr><td>${dt(t.entryAt)}</td><td>${dt(t.exitAt)}</td><td>${t.side===1?'LONG':'SHORT'}</td><td>${num((t.exitAt-t.entryAt)/3600000,0)}h</td><td>${t.reason}</td><td class="${t.net>=0?'positive':'negative'}">${money(t.net*5)}</td></tr>`).join(''):'<tr class="empty"><td colspan="6">Nenhuma operação neste cenário.</td></tr>';
+ }
+ async function refreshNews(){
+  $('#news-status').textContent=' Consultando o registro privado…';
+  try{const response=await fetch('./api/news',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);const body=await response.json();$('#news-updates').replaceChildren();
+   for(const n of body.updates){const card=document.createElement('article');card.className='panel prose';const e=document.createElement('span');e.className='eyebrow';e.textContent='REGISTRADO '+dt(Date.parse(n.availableAt))+' · '+(Date.now()<=Date.parse(n.validUntil)?'DENTRO DA JANELA DE 5H':'ANÁLISE ANTIGA');const h=document.createElement('h2');h.textContent='Risco: '+({low:'baixo',medium:'moderado',high:'alto',unknown:'não determinado'}[n.risk]);const p=document.createElement('p');p.textContent=n.summary;const note=document.createElement('p');note.className='micro';note.textContent='Viés: '+n.bias+' · contexto informativo, sem ordem de negociação.';card.append(e,h,p,note);
+    for(const source of n.sources){const link=document.createElement('a');link.href=source.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=source.title+' ↗';const wrap=document.createElement('p');wrap.append(link);card.append(wrap);}$('#news-updates').append(card);
+   }
+   if(!body.updates.length){const p=document.createElement('p');p.className='small-copy';p.textContent='Ainda não há análise registrada. O histórico começa na primeira gravação verificada.';$('#news-updates').append(p);}$('#news-status').textContent=' '+body.updates.length+' análises disponíveis. Atualização do conteúdo sem novo deploy.';
+  }catch(e){$('#news-status').textContent=' Registro indisponível ('+e.message+'). Nenhuma análise inventada ou substituída por conteúdo histórico.';}
+ }
+ $('#day-period').onchange=e=>{period=e.target.value;render();};$('#day-strategy').onchange=e=>{strategy=e.target.value;render();};$('#day-export').onclick=()=>download('trend-lab-intraday.json',JSON.stringify(data,null,2),'application/json');$('#news-refresh').onclick=refreshNews;
+ setInterval(()=>{if(!document.hidden&&getView()==='news')refreshNews();},60000);render();return {render,refreshNews};
+}

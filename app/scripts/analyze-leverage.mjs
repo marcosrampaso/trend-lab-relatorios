@@ -1,0 +1,21 @@
+import fs from'node:fs';import path from'node:path';import{fileURLToPath}from'node:url';
+import{read,hash,verifyScalpInputs,scalpDataSource}from'./scalp-tree-data.mjs';import{atomic,summarize}from'./extended-ml-utils.mjs';import{averagePredictions}from'./local-ml-evaluation.mjs';import{simulateLeverageResearch}from'../web/leverage-research-engine.js';import{routedSignals}from'../web/adaptive-policy.js';
+const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));process.chdir(root);
+const p=read('leverage-study-protocol.json'),reference=read('web/data/compound-benchmark-results.json'),g=reference.genome,registration=read(path.join('work/local-ml/runs',reference.runId,'registration.json'));
+if(reference.capitalBRL!==p.capitalBRL||reference.risk!==p.risk||reference.consultedFinalTest||reference.usedForSelection)throw Error('Referência incompatível');
+for(const[file,sha]of Object.entries(reference.sources))if(hash(file)!==sha)throw Error('Fonte da referência alterada: '+file);
+const rawPredictions=Object.keys(reference.sources).filter(f=>f.includes('/predictions/')).map(file=>({...read(file),test:[]})),input=read('data/scalp-tree/features.json'),maps=Object.fromEntries(['cross','vwap','bands'].map(f=>[f,new Map(input.features[f].map(r=>[r.at,r]))])),source=scalpDataSource(read('web/data/eth-donchian-history.json'),verifyScalpInputs()),strategy=read('scalping-protocol.json'),rows=[];
+for(const block of reference.blocks){
+ const predictions=new Map();for(const arm of Object.values(g.routes)){
+  const key=arm.family+'/'+arm.hold;if(!arm.family||arm.threshold===0||predictions.has(key))continue;
+  const a=rawPredictions.filter(r=>r.fold===block.fold&&r.family===arm.family&&r.hold===arm.hold&&r.trainMonths===g.trainMonths&&r.config.algorithm===g.algorithm),expected=registration.protocol.repeatAlgorithms.includes(g.algorithm)?registration.protocol.seeds.length:1;
+  if(a.length!==expected||a.some(r=>r.skipped))throw Error('Réplicas incorretas');const [averaged]=averagePredictions(a);if(averaged.validationEnd!==block.end||averaged.trainEnd!==block.start)throw Error('Modelo futuro');predictions.set(key,new Map(averaged.validation));
+ }
+ const data=source.window(block.start,block.end),signals=routedSignals(input.signals,maps,g,predictions,{start:block.start,end:block.end});
+ for(const leverage of p.leverage)for(const cost of strategy.costCases){
+  const r=simulateLeverageResearch(data,{start:block.start,until:block.end,protocol:{...strategy,capitalBRL:p.capitalBRL,leverage},cost,signals,closeAtEnd:true}),summary=summarize(r,1440);
+  if(leverage===10&&(Math.abs(r.pnl*reference.fx-block[cost.id].profitBRL)>1e-7||r.trades.length!==block[cost.id].count))throw Error('Controle10x divergiu');
+  const margins=r.trades.map(t=>t.margin*reference.fx);rows.push({fold:block.fold,start:block.start,end:block.end,leverage,cost:cost.id,...summary,finalBRL:r.final*reference.fx,profitBRL:r.pnl*reference.fx,returnPct:r.returnPct,averageMarginBRL:margins.length?margins.reduce((a,b)=>a+b,0)/margins.length:0,maxMarginBRL:Math.max(0,...margins),maxPlannedRiskBRL:Math.max(0,...r.trades.map(t=>t.plannedRisk*reference.fx)),liquidations:r.trades.filter(t=>t.reason==='Liquidação estimada').length,rejectedForLiquidation:r.events.filter(e=>e.reason==='Stop além da liquidação estimada').length,excessCDIPoints:block.cdi.available?(r.returnPct-block.cdi.returnPct)*100:null});
+ }
+}
+const result={version:p.version,runId:reference.runId,genomeId:g.id,generation:reference.generation,generatedAt:new Date().toISOString(),capitalBRL:p.capitalBRL,risk:p.risk,rows,usedForSelection:false,consultedFinalTest:false,realOrders:false,protocol:p,sources:{'leverage-study-protocol.json':hash('leverage-study-protocol.json'),'scripts/analyze-leverage.mjs':hash('scripts/analyze-leverage.mjs'),'web/leverage-research-engine.js':hash('web/leverage-research-engine.js'),'web/data/compound-benchmark-results.json':hash('web/data/compound-benchmark-results.json')}};atomic('web/data/leverage-study-results.json',result);atomic(path.join('work/leverage-study',reference.runId+'-'+g.id+'.json'),result);console.log(JSON.stringify({genomeId:g.id,rows:rows.length,stress:rows.filter(r=>r.cost==='stress').map(r=>({fold:r.fold,leverage:r.leverage,profitBRL:r.profitBRL,marginBRL:r.averageMarginBRL,liquidations:r.liquidations}))}));

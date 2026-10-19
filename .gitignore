@@ -1,0 +1,11 @@
+app/.local/
+app/work/
+app/data/
+app/champions/
+app/.venv*/
+app/__pycache__/
+app/**/__pycache__/
+app/*.joblib
+app/.env*
+app/web/data/*
+!app/web/data/forward-protocol.json

@@ -1,0 +1,8 @@
+import fs from'node:fs';import path from'node:path';import{spawn,spawnSync}from'node:child_process';import{fileURLToPath}from'node:url';
+const root=path.dirname(path.dirname(fileURLToPath(import.meta.url))),service=path.join(root,'work/compound-benchmark/service.json'),command=process.argv[2]??'status',read=p=>JSON.parse(fs.readFileSync(p)),state=fs.existsSync(service)?read(service):null;
+function active(){if(!state)return false;const r=spawnSync('ps',['-p',String(state.pid),'-o','command='],{encoding:'utf8'});if(r.error||r.stderr?.trim())throw Error('Sem acesso à lista de processos');return r.status===0&&r.stdout.includes('scripts/compound-benchmark.mjs')&&r.stdout.includes('--watch');}
+if(command==='status')console.log(JSON.stringify({active:active(),...state,status:fs.existsSync(path.join(root,'web/data/compound-benchmark-status.json'))?read(path.join(root,'web/data/compound-benchmark-status.json')):null},null,2));
+else if(command==='stop'){if(active())process.kill(state.pid,'SIGTERM');console.log('Diagnóstico contínuo interrompido; treinamento independente preservado.');}
+else if(command==='start'){
+ if(active())throw Error('Diagnóstico já ativo');fs.mkdirSync(path.dirname(service),{recursive:true});const logPath=path.join(root,'work/compound-benchmark/service.log'),fd=fs.openSync(logPath,'a'),child=spawn(process.execPath,['scripts/compound-benchmark.mjs','--watch'],{cwd:root,detached:true,stdio:['ignore',fd,fd]});child.unref();fs.closeSync(fd);const info={pid:child.pid,startedAt:new Date().toISOString(),logPath};fs.writeFileSync(service,JSON.stringify(info,null,2));console.log(JSON.stringify(info));
+}else throw Error('Use start, status ou stop');

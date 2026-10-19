@@ -1,0 +1,149 @@
+{
+  "version": "adaptive-search-v4-champion-reset",
+  "baseRun": "extended-20261018-v2",
+  "previousRun": "genetic-20261018T064632829Z",
+  "seed": 2026101901,
+  "capitalBRL": 1000,
+  "fx": 5,
+  "risk": 0.01,
+  "leverage": 10,
+  "families": [
+    "cross",
+    "vwap",
+    "bands"
+  ],
+  "algorithms": [
+    "tree",
+    "logistic",
+    "random_forest",
+    "extra_trees",
+    "hist_boosting",
+    "mlp"
+  ],
+  "holdingMinutes": [
+    30,
+    60,
+    120,
+    240,
+    720,
+    1440
+  ],
+  "trainWindows": [
+    6,
+    9,
+    12
+  ],
+  "validationFolds": [
+    "2025-09",
+    "2026-03",
+    "2026-09"
+  ],
+  "finalTestFold": "2026-09",
+  "datasetStart": "2024-01-01T00:00:00Z",
+  "datasetEnd": "2026-10-01T00:00:00Z",
+  "labelAvailableAfterMinutes": 1445,
+  "populationSize": 64,
+  "eliteCount": 12,
+  "maxGenerations": 1000,
+  "maxHours": 24,
+  "workers": 10,
+  "threadsPerWorker": 1,
+  "seeds": [
+    2026101802,
+    2026101803,
+    2026101804,
+    2026101805,
+    2026101806
+  ],
+  "repeatAlgorithms": [
+    "random_forest",
+    "extra_trees",
+    "mlp"
+  ],
+  "minimumFreeDiskGB": 12,
+  "maxRunDiskGB": 12,
+  "minimumTotalTradesBothCosts": 30,
+  "minimumFoldTradesBothCosts": 3,
+  "maximumValidationDrawdown": 0.15,
+  "burstAfter": 8,
+  "restartAfter": 24,
+  "immigrantFraction": 0.25,
+  "burstImmigrantFraction": 0.65,
+  "improvementEpsilonUSDT": 0.01,
+  "fitness": "Maior pior média mensal entre os custos base e dobrados nos nove meses de validação, após recalcular a carteira única com R$1000. Empate favorece menor queda máxima e mais meses positivos. Comparar também com caixa (zero); não aprovar média negativa.",
+  "regimes": "Volátil quando ATR5m/preço supera o gene de volatilidade; senão tendência quando as direções fechadas1h/4h concordam e a média absoluta da separação das EMAs/ATR supera o gene de força; demais casos são lateralização. Cada regime escolhe uma família, prazo e limiar, ou caixa.",
+  "selection": "Mesma função de fitness e risco daV3; maior foco em ajustes próximos ao campeão, com pais por algoritmo e diversidade. G1 usa grade registrada de ablações; posteriores mantêm mutação, cruzamento e imigrantes.",
+  "rules": [
+    "Pesquisa retrospectiva em histórico já conhecido; a busca extensa aumenta o risco de sobreajuste. Não há holdout novo nem promessa de lucro.",
+    "Sinais5min e contexto fechado1h/4h. Cada braço tem rótulos próprios para30/60/120/240/720/1440min, custos2x e purga1445min nas fronteiras, sem usar notícias atuais no passado.",
+    "Rotas são escolhidas no sinal com dados já disponíveis. Família e duração ficam congeladas ao abrir a posição. Somente sinal contrário da mesma família fecha a posição; vetos nunca escondem esse sinal.",
+    "Uma carteira e uma posição por vez. Estratégias compartilham saldo, funding, margem e limites diário3%/global10%. Nunca somar retornos de carteiras independentes como se fossem portfólio.",
+    "CapitalR$1000,risco1%,alavancagem10x,stops/alvos/custos e mínimos da corretora preservados; risco e alavancagem não são genes. Cada mês reiniciaR$1000; média não é retorno composto.",
+    "Florestas e MLP agregam cinco sementes; sem escolher a mais lucrativa. Reusar predições de modelos idênticos quando apenas rotas ou limiares mudam.",
+    "As quatro pistas continuam ativas em estagnação; nunca trocar todo o refinamento por mutações amplas. A população reserva espaço entre algoritmos e a seleção de pais mantém ao menos um de cada algoritmo disponível. Mesma função de fitness daV2; não reclassificar perdas por trocar objetivo.",
+    "G0 é somente a Random Forest daG151; exigir reprodução do fitness18.402207221636612 com erro absoluto máximo1e-9. Nenhuma geração antiga é renumerada como nova descoberta.",
+    "G1 registra variações de uma coordenada do campeão: limiares por regime, cortes de tendência/volatilidade, profundidade, mínimo por folha, número de árvores, janela de treino e duração. Propostas ainda não são melhorias comprovadas.",
+    "Cache reciclável após cada geração: preservar modelos/predições do campeão atual, daG0 e dos12pais diversos. Eliminar primeiro os artefatos não protegidos mais antigos quando ultrapassar6GiB, buscando4GiB. Registrar hashes e tarefas de cada descarte; regenerar se necessário. Metadados, scores e resultados de todas as gerações são preservados.",
+    "Máximo24h ou1000gerações adicionais, mínimo12GiB livres e teto12GiB por rodada. Não contar bytes de campanhas antigas na nova cota. Sem ordens reais ou risco/alavancagem como genes.",
+    "Mesma validação conhecida de9meses e mesmos5seeds. Setembro2026 continua excluído da seleção; o histórico ampliado permanece diagnóstico separado e não é apresentado como já executado.",
+    "Saídas trailing/EMA e30indicadores não são promovidos: estudo anterior foi pior. Alterações de saída exigem estudo separado e rótulos correspondentes."
+  ],
+  "sources": [
+    {
+      "title": "pymoo · genetic algorithm and duplicate elimination",
+      "url": "https://www.pymoo.org/algorithms/soo/ga.html"
+    },
+    {
+      "title": "pymoo · elite, offspring and mutants",
+      "url": "https://www.pymoo.org/algorithms/soo/brkga.html"
+    },
+    {
+      "title": "Bailey et al. · The Probability of Backtest Overfitting",
+      "url": "https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf"
+    }
+  ],
+  "lanes": {
+    "local": 32,
+    "crossover": 12,
+    "immigrant": 12,
+    "niche_jump": 8
+  },
+  "burstLanes": {
+    "local": 24,
+    "crossover": 8,
+    "immigrant": 16,
+    "niche_jump": 16
+  },
+  "restartLanes": {
+    "local": 16,
+    "crossover": 8,
+    "immigrant": 24,
+    "niche_jump": 16
+  },
+  "continuationPolicy": "Nova campanha autorizada após limpeza: preservar campeão e evidências, geração reinicia em0, novo prazo limitado24h, mesmo fitness e fontes de mercado. Cache antigo não é herdado integralmente.",
+  "cacheTargetGB": 4,
+  "cacheSoftLimitGB": 6,
+  "sourceChampionId": "c6cb2a8370cd058b0be0",
+  "sourceChampionGeneration": 151,
+  "sourceMonthlyBRL": 18.402207221636612,
+  "hypotheses": [
+    {
+      "id": "V4-H1",
+      "question": "Ajustes finos de limiares e cortes de regime melhoram o campeão mantendo custos e número mínimo de operações?",
+      "evidence": "Melhoras anteriores coincidiram com limiares/cortes alterados; associação não é significância estatística.",
+      "status": "registered"
+    },
+    {
+      "id": "V4-H2",
+      "question": "Profundidade, mínimo por folha e número de árvores daRF podem reduzir erro e estabilizar a validação?",
+      "evidence": "RF com1200árvores,profundidade10,folha100 superou a árvore anterior no mesmo critério. Testar5sementes sem escolher a melhor.",
+      "status": "registered"
+    },
+    {
+      "id": "V4-H3",
+      "question": "Prazo720/1440min e janelas6/12meses superam os120/240min e9meses do campeão?",
+      "evidence": "Hipótese ainda sem melhora demonstrada; manter stops, custos, limites e purga1445min.",
+      "status": "registered"
+    }
+  ]
+}

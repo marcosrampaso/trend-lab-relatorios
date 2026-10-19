@@ -1,0 +1,135 @@
+{
+  "version": "trend-context-v1",
+  "registeredAt": "2026-10-16T19:32:56.677Z",
+  "exploratory": true,
+  "optimizationTrials": 0,
+  "capitalBRL": 300,
+  "fx": 5,
+  "risk": 0.01,
+  "leverage": 10,
+  "signal": "trend1h",
+  "maxHoldHours": 24,
+  "stopATR": 1.5,
+  "targetR": 2,
+  "cooldownHours": 4,
+  "execution": "1h; somente candles encerrados; stop primeiro em conflito intrabar; liquidação aproximada",
+  "rvolLookback": 20,
+  "rvolMin": 1.2,
+  "rsiPeriod": 14,
+  "longRSI": [
+    50,
+    70
+  ],
+  "shortRSI": [
+    30,
+    50
+  ],
+  "contextOnly": [
+    "ATR14 com semente Wilder; percentual do preço",
+    "ADX14 com Wilder, primeiro ADX após14 DX",
+    "VWAP aproximado HLC3×volume, reinício diário UTC"
+  ],
+  "variants": [
+    {
+      "id": "observe",
+      "name": "Controle · contexto sem veto"
+    },
+    {
+      "id": "volume",
+      "name": "Volume relativo ≥1,2×"
+    },
+    {
+      "id": "rsi",
+      "name": "RSI a favor · evitar extremos"
+    },
+    {
+      "id": "combined",
+      "name": "Volume + RSI"
+    }
+  ],
+  "periods": [
+    {
+      "id": "april",
+      "label": "Abril 2025",
+      "start": "2025-04-01T00:00:00Z",
+      "end": "2025-05-01T00:00:00Z",
+      "source": "web/data/eth-2025.json"
+    },
+    {
+      "id": "may",
+      "label": "Maio 2025",
+      "start": "2025-05-01T00:00:00Z",
+      "end": "2025-06-01T00:00:00Z",
+      "source": "web/data/eth-2025.json"
+    },
+    {
+      "id": "development",
+      "label": "Jan–jun 2025 · desenvolvimento",
+      "start": "2025-01-01T00:00:00Z",
+      "end": "2025-07-01T00:00:00Z",
+      "status": "already_seen",
+      "source": "web/data/eth-intraday.json"
+    },
+    {
+      "id": "validation",
+      "label": "Jul–dez 2025 · validação conhecida",
+      "start": "2025-07-01T00:00:00Z",
+      "end": "2026-01-01T00:00:00Z",
+      "status": "already_seen",
+      "source": "web/data/eth-intraday.json"
+    },
+    {
+      "id": "known2026",
+      "label": "Jan–set 2026 · comparação retrospectiva",
+      "start": "2026-01-01T00:00:00Z",
+      "end": "2026-10-01T00:00:00Z",
+      "status": "already_seen",
+      "source": "web/data/eth-intraday.json"
+    },
+    {
+      "id": "newOctober",
+      "label": "1–15 out 2026 · janela adicional",
+      "start": "2026-10-01T00:00:00Z",
+      "end": "2026-10-16T00:00:00Z",
+      "status": "already_seen",
+      "source": "web/data/eth-intraday.json"
+    }
+  ],
+  "costCases": [
+    {
+      "id": "base",
+      "fee": 0.0005,
+      "slippage": 0.0002
+    },
+    {
+      "id": "stress",
+      "fee": 0.001,
+      "slippage": 0.0004
+    }
+  ],
+  "notes": [
+    "Todos os períodos já foram vistos; não são validação inédita. Abril e maio estão contidos no primeiro semestre, não são amostras independentes.",
+    "Filtros apenas vetam novas entradas após cruzamento, não criam sinais nem adiam entradas rejeitadas. Fechamento por sinal contrário permanece no motor original.",
+    "Os limiares são hipóteses definidas antes de calcular esta rodada, sem busca de parâmetros.",
+    "Volume é quantidade negociada; não identifica intenção, compras institucionais ou direção por si só.",
+    "Não há probabilidade de acerto, votação de indicadores ou notícias retroativas. Contexto não muda o risco nem a rodada prospectiva local."
+  ],
+  "sources": [
+    {
+      "title": "RSI · fórmula e suavização Wilder",
+      "url": "https://www.tradingview.com/support/solutions/43000502338-relative-strength-index-rsi/"
+    },
+    {
+      "title": "Volume relativo · razão entre volume e média anterior",
+      "url": "https://www.tradingview.com/support/solutions/43000635874-how-do-we-calculate-relative-volume-and-relative-volume-at-time/"
+    },
+    {
+      "title": "ADX · suavização e direção",
+      "url": "https://www.tradingview.com/support/solutions/43000589099-average-directional-index-adx/"
+    },
+    {
+      "title": "VWAP · preço típico ponderado",
+      "url": "https://www.tradingview.com/support/solutions/43000502018-volume-weighted-average-price-vwap/"
+    }
+  ]
+}
