@@ -1,5 +1,5 @@
 {
-  "README.md": "0069c2ac30f2f1a4a57feaf9e097efd0cd263183282fcb70bba00953e33b202a",
+  "README.md": "5928755d673f2b45e2cf7674d8139b7797be1539073417334bdad9253fd3b49b",
   "acompanhamento/ganho-g151.html": "cc4e9d5b872923659d7e6264a47c12aa6d9c4bd47e841b1f435abcbedbc2dcc5",
   "acompanhamento/ganho-g151.json": "d9d3b5f051bdcdc6c7bd72c96d98703efff2db4a65acd7e023d27a39840555d3",
   "acompanhamento/ganho-g80.html": "42115ff90154af54fe3d099bceed72ef9e2182f36e3e663c447ef02d948aaeb6",
@@ -43,20 +43,23 @@
   "mudanca-de-abordagem.html": "0d4b437e8076b7770e8ee8e6d9de574840af35eacf3339d7dcba26e4f44ca904",
   "nova-campanha.html": "2e004a818b492f85c7032c880f2818afe82f24087fd692c375592d7549feb586",
   "nova-campanha.json": "3bb0d9f4afa5e83e219f0afa241ed5e43c28037d4faa943b00df7b9d5437fbea",
-  "nova-genetica.html": "dc11910ea2c4ea7251a71dd39cf46f10991ea9fdfbf069be2801092690bcffe5",
-  "nova-genetica.js": "94d0fce67cd1b55b8126ac932623055697dc9e919704200c526ed628b1f210d7",
+  "nova-genetica.html": "ae729c49d3ab24c8036e1e2fb1873b6c73aaa3a99404fa5204fa8df8485798a1",
+  "nova-genetica.js": "bcacb0e6b24498f0c16d4ab8f3583cb8f64def8329299413f32f3ec604416f3e",
   "operacoes.csv": "f9cf65a1538ee677101a6e047afa4f3c05a98571c2b718337a579f8d1007d97c",
   "report.js": "a26a37b2519d250e4bbf41b1200e07d5d3d057c14c71fe7140f482427a3e61f5",
   "resumo.html": "d96b59876fb730fe05910e8c345650c18fd3a6319852dd3663c8559588833be3",
   "saidas-dados.json": "abde28d27d9eb62039fd08a736fd606ad1f38a978a03a9c725a9effe0b18c55a",
   "saidas.html": "08c81b2f83b97c1c4371ce5de7491e65e6325c64ff6fd2f6741ab1a11a6d964f",
   "styles.css": "018c83548043b0eddeeeee37943e1e5a2deaf6d893b465c5a46860ace637ba5a",
+  "v6-charts.css": "9f0f33248b633e47bc89c7e1d99122c8b2462da3e995d5c2b5794095f1c5c55b",
+  "v6-charts.js": "36e0e11f8bdcb6ffe4dd2f4f77b73b18d8dd8a333ada34bb435403730bb3b6f3",
   "validacao-ampliada-operacoes.csv": "e76b94d09e0623b1c3d4d8b7810b2aa88cff71254aea7c4aae6230a0c257602a",
   "validacao-ampliada-protocolo.json": "8297ffaf912edecd7e3be134d2e893ff9ccba8820770d10479562a40195b4ee6",
   "validacao-ampliada.css": "d1ea6e6c005fb9eeb17ee55f1b0f5d83a711beca80546c2178fe6123d878f94b",
   "validacao-ampliada.html": "383c80caec9c63e25609bff51ea2c9517eac2833a4426a267e6a9aab9d79c611",
   "validacao-ampliada.js": "2679308a4d37ea07ae7c8530e9504b98754c67d72a7ff4fc39941292149bd8c2",
   "validacao-v6-auditoria.json": "d1435ede6d75947311abe2faf4d584014903f15dbd657be28c698b3645cfee2b",
+  "validacao-v6-estabilidade-protocolo.json": "b194574e1c7f1bc6b976962148add24fa99431faf24f8cba19d8814d91388621",
   "validacao-v6-protocolo.json": "0aa7eab4e0a79c9e3d91cd169a7ba17dcbb0db3d574bb2cb83e15e8ab631a09f",
-  "validacao-v6-snapshot.json": "0871e9f65c6d86da4bffc61440c7cf78b33ad44919f91c3a5f020361456c2e4a"
+  "validacao-v6-snapshot.json": "33f93eab3a9c2016298bbdba44a9d605a36a77a9d12a25a50692a7b550a8f010"
 }

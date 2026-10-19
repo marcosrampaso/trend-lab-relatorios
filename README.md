@@ -38,7 +38,6 @@ Nos 38 meses fora da seleção: -R$7,17/mês para o bot contra R$9,52 do CDI, co
 
 A página contém um retrato embutido para abrir por arquivo local, além de JSON, CSV, protocolo e auditorias. Os resultados anteriores permanecem como registros históricos da implementação antiga. Os gráficos são retrospectivos; CDI e bot antes de impostos, com câmbio fixo no bot.
 
-
 ## Redesenho da validação e genética V6 · 19/10/2026
 
 - [Por que mudamos a abordagem](mudanca-de-abordagem.html): avaliação temporal, correção de funding, critérios e limites da evidência.
@@ -48,5 +47,9 @@ A página contém um retrato embutido para abrir por arquivo local, além de JSO
 - [Histórico e gráficos](historico.html): requer o servidor local e seus dados; os candles não são publicados neste repositório.
 
 Catálogo ampliado: 82 meses, 3.575.708 candles de 1 minuto, 12 resoluções. Há 64 minutos de mark price ausentes em três meses, explicitamente sinalizados. A V6 mantém sinais de 5 minutos e contexto de 1h/4h; o catálogo não implica que todos os intervalos foram treinados. A avaliação aninhada tem 26 meses elegíveis em 9 janelas. Todos esses dados já foram vistos anteriormente; nenhum resultado é validação independente ou autorização de operação real.
+
+A V6 original concluiu 9 janelas e 1.296 avaliações. Os gráficos incluem evolução do líder por geração, média mensal base/dobrada, curvas de saldo, CDI, parâmetros e operações. A seção do campeão mostra o líder interno mesmo quando reprovado; ele não é automaticamente promovido.
+
+Uma auditoria separada de estabilidade foi registrada com três sementes fixas (2026101911, 2026101912, 2026101913), sem escolher a melhor réplica. Reutiliza os 256 modelos; não faz novos ajustes dos classificadores. Uma réplica por vez e prazo agregado até 19/10/2026 às 06:38 de São Paulo, podendo concluir antes. [Protocolo da auditoria](validacao-v6-estabilidade-protocolo.json). O andamento das réplicas requer o servidor local.
 
 A V6 para conforme o protocolo registrado, sem prolongar o orçamento para perseguir lucro. Caixa é rejeição dos candidatos, não aprovação de rendimento. A versão GitHub fica congelada na data do snapshot; a página local acompanha o processo.
