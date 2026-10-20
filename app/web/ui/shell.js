@@ -1,4 +1,5 @@
 import {GROUPS,LINKS,pageFor,matches,icon}from'./navigation.js';
+import {mountTrainingSpeed}from'./training-speed.js';
 const doc=document,storage={get(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}},set(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch{}}};
 const create=(tag,className,text)=>{const el=doc.createElement(tag);if(className)el.className=className;if(text!==undefined)el.textContent=text;return el;};
 if(!doc.getElementById('tl-sidebar'))install();
@@ -9,7 +10,7 @@ function install(){
  const content=create('div','tl-content');for(const node of[...doc.body.childNodes])content.append(node);const frame=create('div','tl-frame'),top=create('header','tl-topbar'),sidebar=create('aside','tl-sidebar');sidebar.id='tl-sidebar';sidebar.setAttribute('aria-label','Navegação do Trend Lab');
  const menu=create('button','tl-icon-button');menu.type='button';menu.innerHTML=icon('menu');menu.setAttribute('aria-label','Abrir ou recolher navegação');menu.setAttribute('aria-controls','tl-sidebar');
  const breadcrumb=create('div','tl-breadcrumb'),crumbGroup=create('span','tl-crumb-group'),crumbTitle=create('strong','tl-crumb-title');breadcrumb.append(crumbGroup,create('span','tl-crumb-divider','/'),crumbTitle);
- const mode=create('span','tl-mode','Simulação local');mode.title='Ambiente de pesquisa · sem ordens reais';const topSearch=create('button','tl-top-search');topSearch.type='button';topSearch.innerHTML=icon('search')+'<span>Encontrar uma página</span><kbd>/</kbd>';top.append(menu,breadcrumb,topSearch,mode);frame.append(top,content);
+ const mode=create('span','tl-mode','Simulação local');mode.title='Ambiente de pesquisa · sem ordens reais';const topSearch=create('button','tl-top-search');topSearch.type='button';topSearch.innerHTML=icon('search')+'<span>Encontrar uma página</span><kbd>/</kbd>';top.append(menu,breadcrumb,topSearch);mountTrainingSpeed(top);top.append(mode);frame.append(top,content);
  const brand=create('a','tl-brand');brand.href='/';brand.innerHTML='<span class="tl-brand-mark">'+icon('activity')+'</span><span>Trend<span class="tl-brand-light">Lab</span><small>Seu laboratório de pesquisa</small></span>';
  const close=create('button','tl-icon-button tl-close');close.type='button';close.innerHTML=icon('close');close.setAttribute('aria-label','Fechar navegação');const brandRow=create('div','tl-brand-row');brandRow.append(brand,close);
  const searchWrap=create('label','tl-search');searchWrap.innerHTML=icon('search');const search=create('input');search.type='search';search.placeholder='Buscar páginas e assuntos';search.setAttribute('aria-label','Buscar páginas e assuntos');searchWrap.append(search);

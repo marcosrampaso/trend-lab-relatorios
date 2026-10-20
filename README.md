@@ -1,5 +1,7 @@
 # Trend Lab · código e relatórios
 
+O cabeçalho do site local possui o controle **CPU · Turbo/Leve**: até três workers quando o notebook está livre ou um worker durante o uso, preservando a execução. [Funcionamento e limites](app/CONTROLE-CPU.md). Usa a API existente da V3; não muda o protocolo nem inicia treino parado.
+
 ## PEPE · risco nas entradas PPO · 20/10/2026
 
 [Relatório](experiments/pepe-entry-risk-v1/index.html) · [Método e considerações](app/PEPE-RISCO-ENTRADAS.md) · [Painel local](http://127.0.0.1:4173/pesquisa-genetica/risco-entradas.html).

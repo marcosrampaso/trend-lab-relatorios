@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-20T13:16:21.357417+00:00",
+  "exportedAt": "2026-10-20T13:26:26.035274+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -12,6 +12,10 @@
     "COMPARACAO-CDI.md": {
       "sha256": "9b78b978638e41f93d06ef59252c5462d8d9ae68f941e71ae9ebd1fdf781677f",
       "bytes": 5729
+    },
+    "CONTROLE-CPU.md": {
+      "sha256": "c0bc7f23541b9aa14018f151b181297c4b54944b2a814fb96f355d0cc12ed543",
+      "bytes": 2206
     },
     "DAYTRADE-INTEGRADO.md": {
       "sha256": "495d32ea46454811ff4f8d2dffcc8f93c8bda2f5f20787872e21568de0aff2a3",
@@ -1529,6 +1533,10 @@
       "sha256": "3443b010cb434d376087d1b83ddc9a961155a7f14fec451e11625c31d793e670",
       "bytes": 2658
     },
+    "tests/training-speed.test.mjs": {
+      "sha256": "d5fa9df7204ef1aeab32a321d8140536de939d977ad9aef8df06048c41f7a033",
+      "bytes": 4541
+    },
     "tests/ui-shell.test.mjs": {
       "sha256": "3615070654f49298b88f432f86e359b1e5b2a95f810b652778812150042a59db",
       "bytes": 3622
@@ -2094,12 +2102,16 @@
       "bytes": 5930
     },
     "web/ui/shell.css": {
-      "sha256": "f5e8de54ebf3dcc6ae2874644cac841ced22f2c63045ebeb4e8260b6320fcfec",
-      "bytes": 12682
+      "sha256": "4df64e5d0a02b0c9f0a4bcee93c8172e26bd06d45cc6fc740cb216fa1632b8a3",
+      "bytes": 14546
     },
     "web/ui/shell.js": {
-      "sha256": "b8c1a57b0df12c6efb5561aa0331a6026a95e9f093d16fbdba3c5072a7f22c25",
-      "bytes": 11637
+      "sha256": "e1b290dddbe670351e940e9652e34cfde2e2a209e2a5bc21d5bdcbe02be13508",
+      "bytes": 11727
+    },
+    "web/ui/training-speed.js": {
+      "sha256": "8358759c0b90f5cd18f5834723c22f45c608b9b7e679d60e249d0f7936bdd005",
+      "bytes": 5954
     },
     "web/vendor/lightweight-charts.js": {
       "sha256": "bcdca2a528db7c9b386918c99c544bde3eda3f0204ec2d23a64411d4cb4686c9",
