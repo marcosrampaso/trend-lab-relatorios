@@ -1,5 +1,11 @@
 # Trend Lab · código e relatórios
 
+## PEPE · risco nas entradas PPO · 20/10/2026
+
+[Relatório](experiments/pepe-entry-risk-v1/index.html) · [Método e considerações](app/PEPE-RISCO-ENTRADAS.md) · [Painel local](http://127.0.0.1:4173/pesquisa-genetica/risco-entradas.html).
+
+Oito políticas congeladas, 137 entradas únicas, rótulo de stop inicial antes do alvo nominal de 2R e comparação logística/boosting com seleção e sigmoid. Diagnóstico retrospectivo: 91 casos de treino, 11 de calibração e 34 resolvidos na avaliação. Amostra abaixo dos pisos; a referência de frequência superou os modelos. Nenhum filtro ou alteração na genética. Comparação financeira com custos, CDI e blocos sem operações fica após as 1.000 gerações, sob protocolo separado e nova janela.
+
 ## PEPE · seleção, classificação e calibração · 20/10/2026
 
 [Relatório do experimento](experiments/pepe-risk-selection-v1/index.html) · [Método e resultados](app/PEPE-SELECAO-CALIBRACAO.md) · [Painel interativo local](http://127.0.0.1:4173/pesquisa-genetica/selecao-calibracao.html).

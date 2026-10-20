@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {spawnSync}from'node:child_process';
+test('PPO entry risk: barrier ordering, chronology, frozen calibration and generation gate',()=>{const r=spawnSync('.venv-rl/bin/python',['tests/test_pepe_entry_risk.py'],{encoding:'utf8',env:{...process.env,OMP_NUM_THREADS:'1',OPENBLAS_NUM_THREADS:'1'},timeout:120000});assert.equal(r.status,0,r.stdout+r.stderr);});

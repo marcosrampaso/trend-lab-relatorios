@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-20T12:59:59.830914+00:00",
+  "exportedAt": "2026-10-20T13:16:21.357417+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -92,6 +92,10 @@
     "PEPE-POCS-OFFLINE.md": {
       "sha256": "e741f2e1d7b39b7d7446ea22a897ddc0066dabe61ae8294c395bbef1b01e0815",
       "bytes": 7057
+    },
+    "PEPE-RISCO-ENTRADAS.md": {
+      "sha256": "93cc5f2416263f127e8b4aacd0606ae93ecdb6d384adcb28c846be89f94df89b",
+      "bytes": 8694
     },
     "PEPE-SELECAO-CALIBRACAO.md": {
       "sha256": "3be97fe1858bda2096ac6939d9e3a6164f5e37813ee6f8ce50b3756ed53b09ee",
@@ -304,6 +308,10 @@
     "package.json": {
       "sha256": "f87570cdc1fda1bde2e4a64ad80192a1856389362c8782ae2c4c1643f22ff18a",
       "bytes": 2177
+    },
+    "pepe-entry-risk-protocol.json": {
+      "sha256": "9b1c40aa5b64f31f0d356bd3c8a59f881b349fd5f52a9998abd6747d3b730a97",
+      "bytes": 8743
     },
     "pepe-finrl-1000-protocol.json": {
       "sha256": "9ea27bc6cb7928052a66759af551f0f0ec08c364ba44f5409cd73a1f33ff23a4",
@@ -989,6 +997,10 @@
       "sha256": "484b89d5f282d136effb72343f233f6f05903a2ea90643b7a98de30582eb4603",
       "bytes": 4440
     },
+    "scripts/pepe_entry_risk.py": {
+      "sha256": "f4e9e9e3c8e82ef1a7327060929a503e2b0c642c67731dd37d98f98de24a6ed4",
+      "bytes": 6517
+    },
     "scripts/pepe_finrl_env.py": {
       "sha256": "ebf946a4ca6cd77220dc81dd69d39c4a5bda76858650ed92aa4ba61c31438560",
       "bytes": 4405
@@ -1112,6 +1124,10 @@
     "scripts/run-pepe-1000.mjs": {
       "sha256": "de1f7b6d768bc9d95ee118d4bef47f4c7ad66dcab411a1d669a38b2f05b3a00e",
       "bytes": 9503
+    },
+    "scripts/run-pepe-entry-risk.py": {
+      "sha256": "7958352005a144f9f6fde6e3b60ac4981cac8662e191e7b8d11e35498903f4a7",
+      "bytes": 14805
     },
     "scripts/run-pepe-finrl.mjs": {
       "sha256": "2b9aae871f0e1a0228b1d60207bada87ebf0c87263968ee9e5b41bd4a0d0bcfe",
@@ -1397,6 +1413,14 @@
       "sha256": "8b466877aa9b8c796dfd66045cc4f95fdd087494aa34db37e42b6e4196b8d02a",
       "bytes": 2861
     },
+    "tests/pepe-entry-risk-dashboard.test.mjs": {
+      "sha256": "de9d365ae05c7d417b2eefffb67113d801e03e4ce8ce65ef94263ef822369b25",
+      "bytes": 2433
+    },
+    "tests/pepe-entry-risk.test.mjs": {
+      "sha256": "b13181de00626cffeaf3d501da2b6f79b2cdf4bb565daed201129997b3c4e336",
+      "bytes": 431
+    },
     "tests/pepe-mask-dashboard.test.mjs": {
       "sha256": "afc294db01c390d16d5e326e0617d2ee24e49054db8c0c82775ad91c1ad2de9e",
       "bytes": 2527
@@ -1484,6 +1508,10 @@
     "tests/test_local_ml.py": {
       "sha256": "27e8f15e9f65d7501e2e935cb49ac9d9a7f162d730b0f9e12e322802b8640f6d",
       "bytes": 1262
+    },
+    "tests/test_pepe_entry_risk.py": {
+      "sha256": "74cd4dee25c9a75057ee918bf484b96d060beff96650d08fab447dc2f1842a4f",
+      "bytes": 4013
     },
     "tests/test_pepe_risk_selection.py": {
       "sha256": "73c553e8a14fda62c6003974ec697c8dbb40d87e954b284c0d81736760c7062b",
@@ -1877,6 +1905,18 @@
       "sha256": "d96b59876fb730fe05910e8c345650c18fd3a6319852dd3663c8559588833be3",
       "bytes": 23896
     },
+    "web/pesquisa-genetica/risco-entradas.css": {
+      "sha256": "85d67fa09f8d5160a8c46839a517f8c5e526505b02aca9dcbb4129e4e0e6d153",
+      "bytes": 1895
+    },
+    "web/pesquisa-genetica/risco-entradas.html": {
+      "sha256": "c2f5281de65aee7d127c9f920298e176d45ff93b3fee811de50582b5e001faab",
+      "bytes": 7661
+    },
+    "web/pesquisa-genetica/risco-entradas.js": {
+      "sha256": "ba3f12f88e7442e383eb84da4c085284de06af55706a0cd8150b1560b28d71df",
+      "bytes": 7161
+    },
     "web/pesquisa-genetica/saidas.html": {
       "sha256": "08c81b2f83b97c1c4371ce5de7491e65e6325c64ff6fd2f6741ab1a11a6d964f",
       "bytes": 30464
@@ -2046,12 +2086,12 @@
       "bytes": 4675
     },
     "web/ui/navigation.js": {
-      "sha256": "1235c0663f6ccddc7fd65c08825a0b6030b54584dc5fc856db75fb75962e63a6",
-      "bytes": 7056
+      "sha256": "a06f0f09c6203a89a70eafe0ea680655981b8edbad3489a7fc6a6e441935c447",
+      "bytes": 7201
     },
     "web/ui/pages.js": {
-      "sha256": "009bc4e9b2c1fa50693521b255fa992335b7f5226230273131a3b524a876ae38",
-      "bytes": 5826
+      "sha256": "8159d174dc6f1dc42e85af1a40af6be9c975037cc91a313e83d2ba767f61ca1b",
+      "bytes": 5930
     },
     "web/ui/shell.css": {
       "sha256": "f5e8de54ebf3dcc6ae2874644cac841ced22f2c63045ebeb4e8260b6320fcfec",

@@ -1,0 +1,222 @@
+{
+  "id": "pepe-entry-risk-v1",
+  "symbol": "1000PEPEUSDT",
+  "frozenPolicies": [
+    {
+      "id": "audit-record-g1-a1-dd4ea3e842c191dc",
+      "generation": 1,
+      "agent": 1,
+      "path": "work/pepe-finrl-mask-v3/archives/audit-record-g1-a1-dd4ea3e842c191dc/model.zip",
+      "sha256": "dd4ea3e842c191dcc2101c744ffd9d101caf92e2c5cbfdbc27f49d24f439e115",
+      "metadataPath": "work/pepe-finrl-mask-v3/archives/audit-record-g1-a1-dd4ea3e842c191dc/metadata.json",
+      "metadataSHA256": "fec4463c0063350be9c5350dac25b3533211e6d7b21e7cb72df81c005cc46925"
+    },
+    {
+      "id": "audit-record-g1-a131-680d733abdaa9a21",
+      "generation": 1,
+      "agent": 131,
+      "path": "work/pepe-finrl-mask-v3/archives/audit-record-g1-a131-680d733abdaa9a21/model.zip",
+      "sha256": "680d733abdaa9a21845f91f2bab9282b23ba1acf4fd104bcad098c4b28299d3b",
+      "metadataPath": "work/pepe-finrl-mask-v3/archives/audit-record-g1-a131-680d733abdaa9a21/metadata.json",
+      "metadataSHA256": "9c16f385c7f098b838f4242eb88f3011de994d2a654d21a21dde754ebad8d326"
+    },
+    {
+      "id": "audit-record-g1-a2-69c4f576b46d4318",
+      "generation": 1,
+      "agent": 2,
+      "path": "work/pepe-finrl-mask-v3/archives/audit-record-g1-a2-69c4f576b46d4318/model.zip",
+      "sha256": "69c4f576b46d43189b2a43af3ce57ca05eb32e02151bf625ab6e59c79efdfd95",
+      "metadataPath": "work/pepe-finrl-mask-v3/archives/audit-record-g1-a2-69c4f576b46d4318/metadata.json",
+      "metadataSHA256": "afa398c60fc5f3c1d608bdd0cbda069f4054589e7d00ca6b9f767c4edf2ca9f8"
+    },
+    {
+      "id": "audit-record-g1-a36-5142a3f74580b135",
+      "generation": 1,
+      "agent": 36,
+      "path": "work/pepe-finrl-mask-v3/archives/audit-record-g1-a36-5142a3f74580b135/model.zip",
+      "sha256": "5142a3f74580b1353adda3f989bb6e8bc5b69b1fb52d419606c419db9c389654",
+      "metadataPath": "work/pepe-finrl-mask-v3/archives/audit-record-g1-a36-5142a3f74580b135/metadata.json",
+      "metadataSHA256": "604d50c6dd7a65b0b37c451c31a34eafcd16422fdd4d94a8d7b5c7b61750a897"
+    },
+    {
+      "id": "audit-record-g14-a222-b452736847baded1",
+      "generation": 14,
+      "agent": 222,
+      "path": "work/pepe-finrl-mask-v3/archives/audit-record-g14-a222-b452736847baded1/model.zip",
+      "sha256": "b452736847baded1f55a6496f0c8463bfde8f9421562693fe536dc3b8e94a70a",
+      "metadataPath": "work/pepe-finrl-mask-v3/archives/audit-record-g14-a222-b452736847baded1/metadata.json",
+      "metadataSHA256": "d78b0650e85c64113a2c39f4b93f936256f95a3546ebb2c99ab46ca7cb7465f7"
+    },
+    {
+      "id": "audit-record-g41-a106-32056fdd96185e43",
+      "generation": 41,
+      "agent": 106,
+      "path": "work/pepe-finrl-mask-v3/archives/audit-record-g41-a106-32056fdd96185e43/model.zip",
+      "sha256": "32056fdd96185e430fa85f1dd27b4b384d6d6bcb580b9cd0a416c3163ff88f4c",
+      "metadataPath": "work/pepe-finrl-mask-v3/archives/audit-record-g41-a106-32056fdd96185e43/metadata.json",
+      "metadataSHA256": "3a9a24d1dd219b6fd487b8b7469893716ab83459243c20f50c2cd7088a1b788b"
+    },
+    {
+      "id": "audit-record-g9-a11-85247b2e8db2c695",
+      "generation": 9,
+      "agent": 11,
+      "path": "work/pepe-finrl-mask-v3/archives/audit-record-g9-a11-85247b2e8db2c695/model.zip",
+      "sha256": "85247b2e8db2c69534690ad07c3f2ce3b126b6b7bbde759af8749afc94afaf11",
+      "metadataPath": "work/pepe-finrl-mask-v3/archives/audit-record-g9-a11-85247b2e8db2c695/metadata.json",
+      "metadataSHA256": "81e2aff12a74e0bc02c4aac08a46dddcd553937d7f4d9dc27948fcf7477d11d8"
+    },
+    {
+      "id": "initial-parent-g0-av1-1000-partial-current-a80-19858116add8e09a",
+      "generation": 0,
+      "agent": "v1-1000-partial-current-a80",
+      "path": "work/pepe-finrl-mask-v3/archives/initial-parent-g0-av1-1000-partial-current-a80-19858116add8e09a/model.zip",
+      "sha256": "19858116add8e09a6937929a3b77e26a9c0c557d8b173f331680a4d6d9ebff92",
+      "metadataPath": "work/pepe-finrl-mask-v3/archives/initial-parent-g0-av1-1000-partial-current-a80-19858116add8e09a/metadata.json",
+      "metadataSHA256": "ffb530d3087f369e08e868497580f73658bfe75d4d4ec3daadaf4033cd7da697"
+    }
+  ],
+  "policySelection": "All initial-parent and continuous-audit-record archives present at registration; no probe peaks, no post-period policy selection. Each trained only on V3 training months and selected on Oct-Dec 2024. Latest archive cohort frozen before the new replay. No live population weights.",
+  "policyInformationCutoff": "2025-01",
+  "replay": {
+    "start": "2025-01",
+    "end": "2025-07",
+    "role": "validation",
+    "cost": "stress",
+    "continuousWalletPerPolicy": true,
+    "preserveRiskLimits": true
+  },
+  "stages": [
+    {
+      "id": "fit",
+      "start": "2025-01",
+      "end": "2025-04"
+    },
+    {
+      "id": "calibration",
+      "start": "2025-04",
+      "end": "2025-05"
+    },
+    {
+      "id": "evaluation",
+      "start": "2025-05",
+      "end": "2025-07"
+    }
+  ],
+  "inner": [
+    {
+      "start": "2025-01",
+      "boundary": "2025-02",
+      "end": "2025-03"
+    },
+    {
+      "start": "2025-01",
+      "boundary": "2025-03",
+      "end": "2025-04"
+    }
+  ],
+  "features": [
+    "RSI5m",
+    "ATR5m/price",
+    "logRVOL5m",
+    "VWAP distance/ATR",
+    "EMA9/21 distance/ATR",
+    "MACD histogram/ATR",
+    "taker delta",
+    "trend1h",
+    "trend4h",
+    "EMA20/50 distance/ATR1h",
+    "EMA20/50 distance/ATR4h",
+    "return5m",
+    "volumeAvailable5m",
+    "vwapAvailable5m",
+    "rvolAvailable5m",
+    "candidateSide"
+  ],
+  "protectedIndices": [
+    12,
+    13,
+    14,
+    15
+  ],
+  "featuresNote": "Exactly the first 15 predecision float32 PPO market observations plus the proposed side; no realized fill, future price, wallet outcome or policy ID. Same market entry geometry is deduplicated across archives and leverage choices.",
+  "entrySampling": "Only actually filled orders that were proposed by deterministic masked PPO. One continuous Jan-Jun 2025 wallet per policy; no within-policy resetting after losses. Rejected proposals counted separately. Deduplicate by decision time, side, executed entry, initial stop and reference target; keep first archive in deterministic path order.",
+  "label": {
+    "positive": "initial_stop_before_nominal_target",
+    "negative": "nominal_target_before_initial_stop",
+    "targetR": 2,
+    "stopATR": 1.5,
+    "nominalTargetActuallyActiveInPPO": false,
+    "initialStopFrozenForLabel": true,
+    "ignorePPOExitForReferencePath": true,
+    "expiryMinutes": null,
+    "censorAtStageBoundary": true,
+    "ambiguousSameMinute": "exclude",
+    "gapOrdering": "opening before high/low",
+    "zeroVolume": "skip non-executable minute",
+    "note": "Hypothetical frozen initial bracket at a real PPO fill. PPO may close or trail earlier; label is not actual trade outcome, net loss or financial utility. No changes to PPO exits."
+  },
+  "families": [
+    "logistic",
+    "boosting"
+  ],
+  "featureModes": [
+    "all",
+    "selected"
+  ],
+  "calibrations": [
+    "raw",
+    "sigmoid"
+  ],
+  "selectorCGrid": [
+    0.001,
+    0.01,
+    0.1
+  ],
+  "classifierGrid": {
+    "logistic": [
+      0.1,
+      1.0
+    ],
+    "boosting": [
+      3,
+      7
+    ]
+  },
+  "fallback": {
+    "selectorC": 0.01,
+    "logistic": 1.0,
+    "boosting": 3,
+    "when": "No usable chronological inner fold with at least two examples per class in fit and one in validation; report fixed fallback, never use outer evaluation."
+  },
+  "seed": 19,
+  "calibration": "CalibratedClassifierCV(FrozenEstimator(full_pipeline), method=sigmoid) on April 2025 only; no refit of scaler/selector/classifier.",
+  "primaryMetric": "binary log loss in May-Jun 2025; all variants and prior baseline disclosed. Observed ranking never promotes.",
+  "sampleRequirements": {
+    "fit": {
+      "rows": 100,
+      "perClass": 20
+    },
+    "calibration": {
+      "rows": 40,
+      "perClass": 10
+    },
+    "evaluation": {
+      "rows": 60,
+      "perClass": 15
+    }
+  },
+  "lowSampleBehavior": "Fit only descriptive models if fit and calibration each contain at least two cases per class; missing classes block fitting. The screening floor is not a power calculation. Never fabricate or resample chronological cases to pass.",
+  "step4": {
+    "requiredRun": "pepe-finrl-mask-v3",
+    "requiredGenerations": 1000,
+    "requiredStatus": "complete_training_final_locked",
+    "started": false,
+    "financialComparisonNow": false,
+    "futureProtocolRequired": true
+  },
+  "threads": 1,
+  "ppoConnected": false,
+  "realOrders": false,
+  "independentFinalTest": false,
+  "retrospectiveNote": "Jan-Jun 2025 has been inspected in prior studies, including previous risk classification. This is a new question on consumed development data, not a new untouched test. No July2025+ data is opened."
+}

@@ -173,6 +173,10 @@ export const PAGES=[
     "title": "O campeão, sem atalhos."
   },
   {
+    "href": "/pesquisa-genetica/risco-entradas.html",
+    "title": "Risco nas entradas do PPO"
+  },
+  {
     "href": "/pesquisa-genetica/saidas.html",
     "title": "Saídas adaptativas e novos indicadores"
   },

@@ -1,0 +1,11 @@
+{
+  "files": {
+    "snapshot.json": "85d2efc796eb6515d7f72ed4f2965e68928ec52433c543ab4ed5bd6f984ae641",
+    "registration.json": "c76d561a46500939dc685511f1f3ea1173730b687a0de79987c481c9aba34a17",
+    "artifact-manifest.json": "5a4bebe12416dc76513f70ced4212bae86c0112b3f7e30b5924d6fbf01a420fb",
+    "painel.jpg": "376177548d03cbcb61fe001231d1f86bfc293e1951be842b9dcc74b0074492b1"
+  },
+  "modelsIncluded": false,
+  "rawMarketDataIncluded": false,
+  "financialComparisonStarted": false
+}
