@@ -1,0 +1,263 @@
+{
+  "id": "pepe-quality-audit-v1",
+  "createdAt": "2026-10-20T17:09:59.044668+00:00",
+  "status": "diagnosis_and_plan_complete",
+  "audit": {
+    "stages": [
+      {
+        "stage": "fit",
+        "total": 91,
+        "resolved": 91,
+        "activeDays": 31,
+        "labels": {
+          "targetFirst": 29,
+          "stopFirst": 62
+        },
+        "directions": {
+          "short": 36,
+          "long": 55
+        },
+        "outcomeDiagnostic": {
+          "negativeNet": 86,
+          "referenceDisagreesWithNetSign": 24,
+          "labelMaturesAfterActualExit": 10,
+          "positiveNet": 5
+        },
+        "duplicatePoliciesWithDifferentNetSign": 0,
+        "months": {
+          "2025-01": 60,
+          "2025-03": 31
+        }
+      },
+      {
+        "stage": "calibration",
+        "total": 11,
+        "resolved": 11,
+        "activeDays": 7,
+        "labels": {
+          "targetFirst": 6,
+          "stopFirst": 5
+        },
+        "directions": {
+          "long": 11
+        },
+        "outcomeDiagnostic": {
+          "negativeNet": 9,
+          "referenceDisagreesWithNetSign": 4,
+          "labelMaturesAfterActualExit": 0,
+          "positiveNet": 2
+        },
+        "duplicatePoliciesWithDifferentNetSign": 0,
+        "months": {
+          "2025-04": 11
+        }
+      },
+      {
+        "stage": "evaluation",
+        "total": 35,
+        "resolved": 34,
+        "activeDays": 15,
+        "labels": {
+          "targetFirst": 10,
+          "stopFirst": 24
+        },
+        "directions": {
+          "long": 34
+        },
+        "outcomeDiagnostic": {
+          "positiveNet": 4,
+          "referenceDisagreesWithNetSign": 6,
+          "labelMaturesAfterActualExit": 3,
+          "negativeNet": 30
+        },
+        "duplicatePoliciesWithDifferentNetSign": 0,
+        "months": {
+          "2025-05": 32,
+          "2025-06": 3
+        }
+      }
+    ],
+    "features": [
+      {
+        "feature": "RSI5m",
+        "uniqueTrainingValues": 91,
+        "min": -0.8057100772857666,
+        "max": 0.5632666945457458,
+        "constantInTraining": false
+      },
+      {
+        "feature": "ATR5m/price",
+        "uniqueTrainingValues": 91,
+        "min": 0.02896718680858612,
+        "max": 0.12673842906951904,
+        "constantInTraining": false
+      },
+      {
+        "feature": "logRVOL5m",
+        "uniqueTrainingValues": 91,
+        "min": -0.18026871979236603,
+        "max": 0.4496304988861084,
+        "constantInTraining": false
+      },
+      {
+        "feature": "VWAP distance/ATR",
+        "uniqueTrainingValues": 91,
+        "min": -0.905483067035675,
+        "max": 0.8842211365699768,
+        "constantInTraining": false
+      },
+      {
+        "feature": "EMA9/21 distance/ATR",
+        "uniqueTrainingValues": 91,
+        "min": -0.20080962777137756,
+        "max": 0.14786429703235626,
+        "constantInTraining": false
+      },
+      {
+        "feature": "MACD histogram/ATR",
+        "uniqueTrainingValues": 91,
+        "min": -0.12050846219062805,
+        "max": 0.12375287711620331,
+        "constantInTraining": false
+      },
+      {
+        "feature": "taker delta",
+        "uniqueTrainingValues": 91,
+        "min": -0.5417502522468567,
+        "max": 0.5037738084793091,
+        "constantInTraining": false
+      },
+      {
+        "feature": "trend1h",
+        "uniqueTrainingValues": 2,
+        "min": -1.0,
+        "max": 1.0,
+        "constantInTraining": false
+      },
+      {
+        "feature": "trend4h",
+        "uniqueTrainingValues": 2,
+        "min": -1.0,
+        "max": 1.0,
+        "constantInTraining": false
+      },
+      {
+        "feature": "EMA20/50 distance/ATR1h",
+        "uniqueTrainingValues": 76,
+        "min": -0.2466355711221695,
+        "max": 0.18720562756061554,
+        "constantInTraining": false
+      },
+      {
+        "feature": "EMA20/50 distance/ATR4h",
+        "uniqueTrainingValues": 57,
+        "min": -0.17124253511428833,
+        "max": 0.13904720544815063,
+        "constantInTraining": false
+      },
+      {
+        "feature": "return5m",
+        "uniqueTrainingValues": 91,
+        "min": -0.12108603119850159,
+        "max": 0.1383049488067627,
+        "constantInTraining": false
+      },
+      {
+        "feature": "volumeAvailable5m",
+        "uniqueTrainingValues": 1,
+        "min": 1.0,
+        "max": 1.0,
+        "constantInTraining": true
+      },
+      {
+        "feature": "vwapAvailable5m",
+        "uniqueTrainingValues": 1,
+        "min": 1.0,
+        "max": 1.0,
+        "constantInTraining": true
+      },
+      {
+        "feature": "rvolAvailable5m",
+        "uniqueTrainingValues": 1,
+        "min": 1.0,
+        "max": 1.0,
+        "constantInTraining": true
+      },
+      {
+        "feature": "candidateSide",
+        "uniqueTrainingValues": 2,
+        "min": -1,
+        "max": 1,
+        "constantInTraining": false
+      }
+    ],
+    "resolved": 136,
+    "referenceDisagreesWithNetSign": 34,
+    "labelMaturesAfterActualExit": 13
+  },
+  "files": {
+    "work/pepe-entry-risk-v1/entry-cases.json": "64e2ccc4af1473c3dd4304df145999a8fb9e6d02400bf1a984749180da77eecf",
+    "work/pepe-entry-risk-v1/replay-audit-record-g1-a1-dd4ea3e842c191dc.json": "1e5a51166ba31fc690e16b2433f3246c0626ee11b895ca23be183031fa092dee",
+    "work/pepe-entry-risk-v1/replay-audit-record-g1-a131-680d733abdaa9a21.json": "5cf8b1b68681713a199541fa91eb233cf72dd3866dc02a5d637d3e5ad7592f5c",
+    "work/pepe-entry-risk-v1/replay-audit-record-g1-a2-69c4f576b46d4318.json": "daf42a393a9c312c40fd7341aa6151e50df9a14b7358939e00227a6bcea7fc47",
+    "work/pepe-entry-risk-v1/replay-audit-record-g1-a36-5142a3f74580b135.json": "672d68b27938affc69b368eb545d2f3e0380dd1f5fc029136034aa840deb56ba",
+    "work/pepe-entry-risk-v1/replay-audit-record-g14-a222-b452736847baded1.json": "604d795b5b4ceb049bc0986fbbe2d33d8af5ab15ce5bd9d079b739d5b112f989",
+    "work/pepe-entry-risk-v1/replay-audit-record-g41-a106-32056fdd96185e43.json": "81de50570db306c0e5c50449cf5380b044fe9338ee2e47dcbd0219883a103423",
+    "work/pepe-entry-risk-v1/replay-audit-record-g9-a11-85247b2e8db2c695.json": "8531dda6b0f893215bc54e8a42678fdac66877d31ade46e65b5300a9eeb56192",
+    "work/pepe-entry-risk-v1/replay-initial-parent-g0-av1-1000-partial-current-a80-19858116add8e09a.json": "7bd7fe64283daaec12df2a52f40fad280ea0046b715a182692c67f590e98cd4a",
+    "pepe-entry-risk-protocol.json": "9b1c40aa5b64f31f0d356bd3c8a59f881b349fd5f52a9998abd6747d3b730a97",
+    "scripts/audit-pepe-research-quality.py": "663d58b50811cabc3057e41395a54dfb49ac13a756cbeca977f324e7fdd9d1ab"
+  },
+  "trainingStarted": false,
+  "newDataOpened": false,
+  "oldEvaluationReusedForTuning": false,
+  "ppoChanged": false,
+  "financialComparisonStarted": false,
+  "nextExperiment": {
+    "status": "awaiting_dataset_and_preregistered_calendar",
+    "qualityTarget": {
+      "balancedAccuracy": 0.6,
+      "meaning": "Engineering research target, not a universal standard or profit guarantee.",
+      "additionalRequirements": [
+        "Confidence interval by calendar-day blocks above 0.50, with sufficient independent temporal coverage.",
+        "Both class recalls at least 0.50 at a threshold fixed before final evaluation.",
+        "Lower Brier and log loss than a training-frequency baseline on the same evaluation calendar.",
+        "At least three predeclared temporal blocks with class coverage; no dropping bad or inactive blocks."
+      ]
+    },
+    "proposedSampleFloors": {
+      "fit": {
+        "uniqueEntries": 1000,
+        "perClass": 200
+      },
+      "calibration": {
+        "uniqueEntries": 200,
+        "perClass": 50
+      },
+      "thresholdSelection": {
+        "uniqueEntries": 200,
+        "perClass": 50
+      },
+      "evaluation": {
+        "uniqueEntries": 300,
+        "perClass": 100,
+        "activeCalendarDays": 60
+      }
+    },
+    "sampleNote": "Prospective design screening floors, not a statistical power calculation. More correlated policies do not create more independent market days.",
+    "labelPolicy": "Keep stop-versus-2R as its own primary question. Net-loss classification is a separate hypothesis with policy version and actual exits frozen, never silently relabel the original experiment.",
+    "dataPlan": "Use already inspected periods only for development. Select a policy cohort before opening a new evaluation calendar, deduplicate shared entries, preserve each policy continuous wallet and loss limits. Buy/sell and regime coverage must be reported; do not force trades to fill a quota.",
+    "causalFeatureHypotheses": [
+      "BTC trend and volatility from closed bars, including relative PEPE/BTC movement.",
+      "PEPE volatility, volume and trend-strength regimes with cutoffs learned on fit only.",
+      "Spread/execution cost relative to initial stop distance using only estimates known before entry."
+    ],
+    "modelPlan": "Compare a regularized logistic baseline with shallow histogram boosting. One feature group at a time; limited candidate list registered before evaluation. Keep class weighting a separate ablation.",
+    "selectorPlan": "In the next version explicitly detect zero L1 importance, retain protected data-quality fields and report the empty market subset; do not call 16 retained zero-weight features successful selection.",
+    "thresholdPlan": "Fit -> later probability calibration -> separate later threshold selection -> locked evaluation. No random K-fold or threshold selection on the 34 observed cases.",
+    "calendar": null,
+    "calendarRequiredBeforeExecution": true,
+    "automaticRetriesUntil60": false,
+    "step4": "Financial with/without-filter comparison still deferred until V3 finishes 1000 generations, under a separate protocol. No classifier promotion on accuracy alone."
+  }
+}

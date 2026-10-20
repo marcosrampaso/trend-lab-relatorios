@@ -1,5 +1,11 @@
 # Trend Lab · código e relatórios
 
+## Plano para buscar 60% de qualidade de pesquisa
+
+[Diagnóstico e plano](app/PEPE-QUALIDADE-PESQUISA.md) · [Evidência numérica](experiments/pepe-quality-audit-v1/audit-and-plan.json) · [Painel local](http://127.0.0.1:4173/pesquisa-genetica/qualidade-pesquisa.html).
+
+Auditoria dos casos já produzidos: calibração com 11 entradas em sete dias, avaliação só com compras em 15 dias, rótulo de referência diferente do sinal líquido efetivo em 34/136 casos. Próxima rodada depende de base ampliada e calendário registrado antes de avaliar: hipóteses causais de contexto BTC/regime/custos, seleção explícita, modelos limitados, calibração e escolha de limiar separadas. Meta de 60% é um objetivo de pesquisa com critérios adicionais, não lucro nem resultado alcançado. Nenhum novo treino ou alteração na V3; comparação financeira adiada conforme combinado.
+
 O cabeçalho do site local possui o controle **CPU · Turbo/Leve**: até três workers quando o notebook está livre ou um worker durante o uso, preservando a execução. [Funcionamento e limites](app/CONTROLE-CPU.md). Usa a API existente da V3; não muda o protocolo nem inicia treino parado.
 
 ## PEPE · risco nas entradas PPO · 20/10/2026

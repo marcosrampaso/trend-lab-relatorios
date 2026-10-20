@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-20T13:26:26.035274+00:00",
+  "exportedAt": "2026-10-20T17:12:27.835612+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -96,6 +96,10 @@
     "PEPE-POCS-OFFLINE.md": {
       "sha256": "e741f2e1d7b39b7d7446ea22a897ddc0066dabe61ae8294c395bbef1b01e0815",
       "bytes": 7057
+    },
+    "PEPE-QUALIDADE-PESQUISA.md": {
+      "sha256": "6602015fd3abb6e3c7a1d46762a256398fd11f76e0aa02c9cf00bedd6b81e2e3",
+      "bytes": 6520
     },
     "PEPE-RISCO-ENTRADAS.md": {
       "sha256": "93cc5f2416263f127e8b4aacd0606ae93ecdb6d384adcb28c846be89f94df89b",
@@ -484,6 +488,10 @@
     "scripts/audit-pepe-g830.py": {
       "sha256": "29dad6f7562db3772ecc63202d9461fade8f5e0112123e3453c67a11f824d3f5",
       "bytes": 5323
+    },
+    "scripts/audit-pepe-research-quality.py": {
+      "sha256": "663d58b50811cabc3057e41395a54dfb49ac13a756cbeca977f324e7fdd9d1ab",
+      "bytes": 15440
     },
     "scripts/audit-routing-losses.mjs": {
       "sha256": "c66d59e4a62ffa4e11b673c0485f9146d25074ac7f5778b363e62d4648e79d30",
@@ -1477,6 +1485,10 @@
       "sha256": "b3786ce9be7972e88ce1ce0d3f57ad035fa22ec6268ad62a77486715b55d419e",
       "bytes": 3232
     },
+    "tests/research-quality-audit.test.mjs": {
+      "sha256": "a4af3f19414d625b0db3e25516d757065d763e2e419ad768cf387b340738e4d7",
+      "bytes": 1646
+    },
     "tests/scalp-tree.test.mjs": {
       "sha256": "94296c887e59a04e946a71478c6a31daa97ebba21a8cda2c46c92605388ceda0",
       "bytes": 7038
@@ -1905,6 +1917,10 @@
       "sha256": "6e7266f7d1624e5682531031521007ec15272abec8ff49837ae4355d89fb554f",
       "bytes": 10796
     },
+    "web/pesquisa-genetica/qualidade-pesquisa.html": {
+      "sha256": "07a29e6f6177d7741393b439bad7528ba065257b6182b4d9164bb2eedb8de7c7",
+      "bytes": 7130
+    },
     "web/pesquisa-genetica/report.js": {
       "sha256": "a26a37b2519d250e4bbf41b1200e07d5d3d057c14c71fe7140f482427a3e61f5",
       "bytes": 2295
@@ -1918,8 +1934,8 @@
       "bytes": 1895
     },
     "web/pesquisa-genetica/risco-entradas.html": {
-      "sha256": "c2f5281de65aee7d127c9f920298e176d45ff93b3fee811de50582b5e001faab",
-      "bytes": 7661
+      "sha256": "c51fc7d2dbb992ec02e6cacb24b3afbf1c85d78ee8f8c3ab301c52f62c571c65",
+      "bytes": 7862
     },
     "web/pesquisa-genetica/risco-entradas.js": {
       "sha256": "ba3f12f88e7442e383eb84da4c085284de06af55706a0cd8150b1560b28d71df",
@@ -2094,12 +2110,12 @@
       "bytes": 4675
     },
     "web/ui/navigation.js": {
-      "sha256": "a06f0f09c6203a89a70eafe0ea680655981b8edbad3489a7fc6a6e441935c447",
-      "bytes": 7201
+      "sha256": "2a2fcc07a7f2ed7a5f68b47851d36510d63187145d92d3073eafa5f1e03d97ba",
+      "bytes": 7351
     },
     "web/ui/pages.js": {
-      "sha256": "8159d174dc6f1dc42e85af1a40af6be9c975037cc91a313e83d2ba767f61ca1b",
-      "bytes": 5930
+      "sha256": "642bc0299d558f30c799f1da64689add239f41f830c69e615a0126cdda88bd88",
+      "bytes": 6043
     },
     "web/ui/shell.css": {
       "sha256": "4df64e5d0a02b0c9f0a4bcee93c8172e26bd06d45cc6fc740cb216fa1632b8a3",

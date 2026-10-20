@@ -169,6 +169,10 @@ export const PAGES=[
     "title": "PEPE V3 · auditoria contínua"
   },
   {
+    "href": "/pesquisa-genetica/qualidade-pesquisa.html",
+    "title": "Plano de qualidade de pesquisa"
+  },
+  {
     "href": "/pesquisa-genetica/resumo.html",
     "title": "O campeão, sem atalhos."
   },
