@@ -21,3 +21,7 @@ Ao iniciar o processo em Ultra, `caffeinate -is -w PID -t 43200` mantém o Mac a
 ## Validação
 
 Testes do escalonador usam tarefas fictícias: cinco faixas, execução única, pausa, redução/aumento em andamento, expiração, pressão de memória e erro sem travar. Testes da interface verificam confirmação explícita, renovação, origem local e ausência de retomada automática. Os hashes científicos originais são conferidos antes da execução. Validação financeira independente permanece pendente e separada deste ajuste de recursos.
+
+## Emenda V2: concluir as 1.000 gerações
+
+Por pedido explícito do usuário, o limite operacional de 48 horas foi retirado. `scripts/run-pepe-mask-unlimited.py` reutiliza o adaptador registrado e fornece uma franquia de tempo ilimitada somente ao coordenador. O protocolo original com 48 horas permanece imutável como histórico; a publicação científica mantém esse registro e informa separadamente `executionRuntime.wallTimeLimitHours: null` e a meta de 1.000 gerações. A emenda em `runtime-config-v2.json` registra os hashes de ambos os adaptadores e da inscrição original. Os pesos, resultados parciais e checkpoints não são reiniciados. O Ultra ainda expira após 12 horas; o modo leve continua até a meta, salvo pausa manual, falha ou proteção de recursos. Nenhum limite de risco foi retirado.

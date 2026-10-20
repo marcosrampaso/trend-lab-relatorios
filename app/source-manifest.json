@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-20T22:23:18.753539+00:00",
+  "exportedAt": "2026-10-20T22:26:59.353952+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -14,8 +14,8 @@
       "bytes": 5729
     },
     "CONTROLE-CPU.md": {
-      "sha256": "c2cdb8274e3c3569f80ac5598d01a1b3c25c41c3f08dc7f8bd4420c53287a299",
-      "bytes": 3036
+      "sha256": "87bce6f3a7e81808931bb124a025fd1f9a03573b0174b8ac5b618cfda224d8c4",
+      "bytes": 3852
     },
     "DAYTRADE-INTEGRADO.md": {
       "sha256": "495d32ea46454811ff4f8d2dffcc8f93c8bda2f5f20787872e21568de0aff2a3",
@@ -958,8 +958,8 @@
       "bytes": 18558
     },
     "scripts/pepe-mask-service.mjs": {
-      "sha256": "2d70f0e4f2fac7db11ec09ca1de228db6957460436f3a2a692859d28239098d6",
-      "bytes": 4264
+      "sha256": "ac776cd21e7fd0aa2db129c9a559489e485ccda3a890dbb6ec547bfe0eff6481",
+      "bytes": 4541
     },
     "scripts/pepe-mask-worker.py": {
       "sha256": "95163bdf3b643dda9bf7bd6465896fa824ae40a2fb7816d81171cd32e00e7fac",
@@ -1148,6 +1148,10 @@
     "scripts/run-pepe-mask-ultra.py": {
       "sha256": "e41233c2a3b8635ca41c5bc13b901d687fce125c4a466d2b3a8175aa390d8209",
       "bytes": 7319
+    },
+    "scripts/run-pepe-mask-unlimited.py": {
+      "sha256": "2e957156f608d8880f2e5305b55d82ea183a93e50b7329a96e6cd3e7ecff1206",
+      "bytes": 1317
     },
     "scripts/run-pepe-mask.py": {
       "sha256": "0d28eb98881ad74ff19c4c1b3715b3ef74a7416f195352b5e91e1ad6fe4d8655",
@@ -1508,6 +1512,10 @@
     "tests/test-pepe-mask-ultra.py": {
       "sha256": "fb530e31638fcbcfbdb48b76072be03c2287fe229ae329eb424b3290877d64a5",
       "bytes": 2818
+    },
+    "tests/test-pepe-mask-unlimited.py": {
+      "sha256": "76569e36be3f4a9e598da7d288678dbb2aab75d3572d0140aab974dc36e58447",
+      "bytes": 929
     },
     "tests/test_adaptive_genetic.py": {
       "sha256": "720a34411c69fe70206bb5af9c4c7372de2058cf669b6e07802deb6e0340ba65",
@@ -1918,12 +1926,12 @@
       "bytes": 1824
     },
     "web/pesquisa-genetica/pepe-v3.html": {
-      "sha256": "b1882def4da6f1bc59083fe84db64dbcef69e23a9b2145e5a6079b1bb83aa08a",
-      "bytes": 8629
+      "sha256": "07baa998807eef8c56a993302b8e4b39c64970d0c640b7a01bae1156442710f4",
+      "bytes": 8681
     },
     "web/pesquisa-genetica/pepe-v3.js": {
-      "sha256": "95f735009960510a0ac24cd147e3c3b7a9ccb9183700ef79276eec5c2b4b8e36",
-      "bytes": 11141
+      "sha256": "52c98aabb62e5858d5aba7dee87e8b8699a582c58ed00f8d7609182555363f09",
+      "bytes": 11408
     },
     "web/pesquisa-genetica/qualidade-pesquisa.html": {
       "sha256": "07a29e6f6177d7741393b439bad7528ba065257b6182b4d9164bb2eedb8de7c7",
