@@ -1,0 +1,40 @@
+<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Relatório G40 · Trend Lab</title><link rel="stylesheet" href="../styles.css"><header class="top"><a class="brand" href="../index.html"><span>↗</span> TREND LAB <small>ACOMPANHAMENTO LOCAL</small></a><a href="/">Painel local</a></header><nav class="report-nav"><a href="./index.html">Eventos e relatórios</a><a href="../saidas.html#comparacao">Saídas adaptativas</a><a href="../resumo.html">Pesquisa original</a><a href="../validacao-ampliada.html">Campeão em outros anos</a></nav><main><aside class="verdict"><span>AUDITORIA DO CAMPEÃO</span><p>A avaliação em outros anos encontrou uma omissão de funding na implementação antiga, ainda usada por esta busca. <a class="text-link" href="../validacao-ampliada.html">Abrir teste separado com funding corrigido e comparação com CDI →</a></p></aside><p class="eyebrow">CONCLUSÃO PARCIAL</p><h1>Gerações 1 a 40</h1><p class="lead">40 gerações concluídas e 0 novos recordes. Resultado de validação já conhecida; não é teste independente.</p><section class="sheet"><h2>Mudanças e hipóteses</h2><p><b>V4-H1 · registrada</b>: Ajustes finos de limiares e cortes de regime melhoram o campeão mantendo custos e número mínimo de operações?<br></p><p><b>V4-H2 · registrada</b>: Profundidade, mínimo por folha e número de árvores daRF podem reduzir erro e estabilizar a validação?<br></p><p><b>V4-H3 · registrada</b>: Prazo720/1440min e janelas6/12meses superam os120/240min e9meses do campeão?<br></p><p><b>V4-H4 · descartada</b>: O lucro do G151 se mantém fora dos nove meses usados pela busca?<br>Não promover o campeão. Registrar novo desenho de validação por períodos/regimes e contabilidade corrigida antes de outra busca; não escolher variantes usando esta avaliação como teste independente.</p><p>O algoritmo congelado realizou mutações, cruzamentos e reinícios previstos no protocolo. Ajustes adicionais só constam como aplicados quando houver registro de revisão e resultado.</p><pre>[
+  {
+    &quot;recordedAt&quot;: &quot;2026-10-19T02:50:27.133104+00:00&quot;,
+    &quot;runId&quot;: &quot;search-v4-20261019T005751Z&quot;,
+    &quot;eventIds&quot;: [
+      &quot;search-v4-20261019T005751Z:checkpoint:25&quot;
+    ],
+    &quot;manualReviewRequestedByUser&quot;: true,
+    &quot;summary&quot;: &quot;Avaliação do G151 concluída: 47 meses, 160 modelos; fora dos nove meses selecionados, média mensal de -R$7,17 ante CDI de R$9,52. Funding em milissegundos corrigido em estudo separado; a campanha ativa permanece na implementação antiga.&quot;,
+    &quot;facts&quot;: {
+      &quot;evaluatedMonths&quot;: 47,
+      &quot;outsideSelectionMonths&quot;: 38,
+      &quot;outsideSelectionMonthlyBRL&quot;: -7.165353236440683,
+      &quot;outsideSelectionCDIBRL&quot;: 9.517614379270693,
+      &quot;completedModels&quot;: 160,
+      &quot;fundingLabelClassChanges&quot;: 5,
+      &quot;finalTestEvaluated&quot;: false
+    },
+    &quot;hypotheses&quot;: [
+      {
+        &quot;id&quot;: &quot;V4-H4&quot;,
+        &quot;status&quot;: &quot;rejected&quot;,
+        &quot;question&quot;: &quot;O lucro do G151 se mantém fora dos nove meses usados pela busca?&quot;,
+        &quot;evidence&quot;: &quot;38 meses fora da seleção: 144 operações, 58 ganhos, 86 perdas; -R$7,17/mês após custos dobrados; cenário base também negativo.&quot;,
+        &quot;nextAction&quot;: &quot;Não promover o campeão. Registrar novo desenho de validação por períodos/regimes e contabilidade corrigida antes de outra busca; não escolher variantes usando esta avaliação como teste independente.&quot;
+      }
+    ],
+    &quot;changes&quot;: [
+      &quot;Estudo temporal separado com campeão fixo, cinco sementes e custos preservados.&quot;,
+      &quot;Contabilidade de funding corrigida em cópias isoladas dos motores e em todos os rótulos; nenhuma fonte congelada alterada.&quot;,
+      &quot;Relatório HTML, CSV e auditorias publicados no site local.&quot;
+    ],
+    &quot;evidence&quot;: [
+      &quot;work/expanded-validation/g151-fixed-funding-v2/report.json&quot;,
+      &quot;work/expanded-validation/g151-fixed-funding-v2/data-audit.json&quot;,
+      &quot;work/expanded-validation/g151-fixed-funding-v2/funding-ablation.json&quot;,
+      &quot;web/pesquisa-genetica/validacao-ampliada.html&quot;
+    ]
+  }
+]</pre></section><section class="sheet"><h2>Evolução por geração</h2><div class="table-scroll"><table><thead><tr><th>Geração</th><th>Melhor R$/mês</th><th>Comportamentos</th><th>Reinício</th></tr></thead><tbody><tr><td>1</td><td>R$ 18,40</td><td>43</td><td>Não</td></tr><tr><td>2</td><td>R$ 18,40</td><td>46</td><td>Não</td></tr><tr><td>3</td><td>R$ 18,40</td><td>45</td><td>Não</td></tr><tr><td>4</td><td>R$ 18,40</td><td>49</td><td>Não</td></tr><tr><td>5</td><td>R$ 18,40</td><td>52</td><td>Não</td></tr><tr><td>6</td><td>R$ 18,40</td><td>42</td><td>Não</td></tr><tr><td>7</td><td>R$ 18,40</td><td>50</td><td>Não</td></tr><tr><td>8</td><td>R$ 18,40</td><td>52</td><td>Não</td></tr><tr><td>9</td><td>R$ 18,40</td><td>49</td><td>Não</td></tr><tr><td>10</td><td>R$ 18,40</td><td>53</td><td>Não</td></tr><tr><td>11</td><td>R$ 18,40</td><td>50</td><td>Não</td></tr><tr><td>12</td><td>R$ 18,40</td><td>52</td><td>Não</td></tr><tr><td>13</td><td>R$ 18,40</td><td>44</td><td>Não</td></tr><tr><td>14</td><td>R$ 18,40</td><td>50</td><td>Não</td></tr><tr><td>15</td><td>R$ 18,40</td><td>44</td><td>Não</td></tr><tr><td>16</td><td>R$ 18,40</td><td>47</td><td>Não</td></tr><tr><td>17</td><td>R$ 18,40</td><td>48</td><td>Não</td></tr><tr><td>18</td><td>R$ 18,40</td><td>47</td><td>Não</td></tr><tr><td>19</td><td>R$ 18,40</td><td>46</td><td>Não</td></tr><tr><td>20</td><td>R$ 18,40</td><td>49</td><td>Não</td></tr><tr><td>21</td><td>R$ 18,40</td><td>49</td><td>Não</td></tr><tr><td>22</td><td>R$ 18,40</td><td>43</td><td>Não</td></tr><tr><td>23</td><td>R$ 18,40</td><td>45</td><td>Não</td></tr><tr><td>24</td><td>R$ 18,40</td><td>50</td><td>Não</td></tr><tr><td>25</td><td>R$ 18,40</td><td>47</td><td>Sim</td></tr><tr><td>26</td><td>R$ 18,40</td><td>49</td><td>Não</td></tr><tr><td>27</td><td>R$ 18,40</td><td>49</td><td>Não</td></tr><tr><td>28</td><td>R$ 18,40</td><td>51</td><td>Não</td></tr><tr><td>29</td><td>R$ 18,40</td><td>51</td><td>Não</td></tr><tr><td>30</td><td>R$ 18,40</td><td>51</td><td>Não</td></tr><tr><td>31</td><td>R$ 18,40</td><td>49</td><td>Não</td></tr><tr><td>32</td><td>R$ 18,40</td><td>47</td><td>Não</td></tr><tr><td>33</td><td>R$ 18,40</td><td>52</td><td>Não</td></tr><tr><td>34</td><td>R$ 18,40</td><td>50</td><td>Não</td></tr><tr><td>35</td><td>R$ 18,40</td><td>56</td><td>Não</td></tr><tr><td>36</td><td>R$ 18,40</td><td>44</td><td>Não</td></tr><tr><td>37</td><td>R$ 18,40</td><td>39</td><td>Não</td></tr><tr><td>38</td><td>R$ 18,40</td><td>48</td><td>Não</td></tr><tr><td>39</td><td>R$ 18,40</td><td>51</td><td>Não</td></tr><tr><td>40</td><td>R$ 18,40</td><td>51</td><td>Não</td></tr></tbody></table></div><a class="button" href="relatorio-g40.json">Evidências</a></section></main><footer>Simulação · sem ordens reais<span>Atualizado pelo algoritmo local</span></footer></html>

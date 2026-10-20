@@ -1,5 +1,6 @@
 import http from 'node:http';import fs from 'node:fs';import path from 'node:path';import {DatabaseSync} from 'node:sqlite';import {fileURLToPath} from 'node:url';import {createHandler} from '../worker/handler.js';import {adapt} from './sqlite.mjs';import {createRuntime} from './runtime.mjs';
 import {createHistoryReader} from './research-history.mjs';
+import {injectLabShell,localPagePath} from './ui-shell.mjs';
 import {createGeneticReader} from './research-genetics.mjs';
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 export function createLocalServer({port=4173,stateDirectory=path.join(root,'.local'),fetcher=fetch,log=console.log,clock=()=>Date.now(),autoStart=true}={}){
@@ -23,8 +24,9 @@ export function createLocalServer({port=4173,stateDirectory=path.join(root,'.loc
    }
    if(!['GET','HEAD'].includes(req.method))return send(res,{error:'Método não permitido'},405);
    const localFile=url.pathname==='/local/runtime-ui.js'?path.join(root,'local/runtime-ui.js'):null;
-   const base=path.join(root,'web'),file=localFile??path.resolve(base,'.'+decodeURIComponent(url.pathname==='/'?'/index.html':url.pathname));if(!localFile&&!file.startsWith(base+path.sep))return send(res,{error:'Caminho inválido'},403);
+   const base=path.join(root,'web'),file=localFile??path.resolve(base,'.'+decodeURIComponent(localPagePath(url)));if(!localFile&&!file.startsWith(base+path.sep))return send(res,{error:'Caminho inválido'},403);
    let bytes=fs.readFileSync(file);const mime={'.js':'text/javascript','.css':'text/css','.html':'text/html','.json':'application/json','.txt':'text/plain'};
+   if(path.extname(file)==='.html')bytes=Buffer.from(injectLabShell(bytes.toString()).replace(/<head(?:\s[^>]*)?>/i,match=>match+'<script>window.__TREND_LAB_LOCAL__=true;</script>'));
    if(file===path.join(base,'index.html'))bytes=Buffer.from(bytes.toString().replace('</head>','<script>window.__TREND_LAB_LOCAL__=true;</script><script type="module" src="/local/runtime-ui.js"></script></head>'));
    res.writeHead(200,{'content-type':mime[path.extname(file)]??'application/octet-stream','cache-control':'no-store','x-content-type-options':'nosniff','referrer-policy':'same-origin'});res.end(req.method==='HEAD'?null:bytes);
   }catch(e){if(!res.headersSent)send(res,{error:e.code==='ENOENT'?'Arquivo não encontrado':e.message},e.code==='ENOENT'?404:503);else res.end();}

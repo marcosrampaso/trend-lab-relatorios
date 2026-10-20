@@ -162,3 +162,10 @@ ControleV4 congelado: ganho inicial em2020–2021, perdas posteriores e custos m
 [Painel local](http://127.0.0.1:4173/pesquisa-genetica/pepe-v3.html) · [retrato datado](experiments/pepe-finrl-mask-v3/index.html) · [método](app/PEPE-V3-AUDITORIA.md) · [ranking inicial completo](experiments/pepe-finrl-mask-v3/parent-ranking.json).
 
 1.093 arquivos distintos de pesos recuperáveis convertidos para MaskablePPO e auditados no mesmo trimestre contínuo out–dez/2024. Pai: agente80 da população parcial1.000, +R$74,25 líquidos (quatro posições, queda máxima9,91%), CDI +R$26,76. Todos os250 agentes passam pelo mesmo trimestre antes de reprodução; recordes guardam pesos exatos, carteira, custos e hash antes de novos treinos. Sondagens de dois dias não viram renda composta nem selecionam pais. Teste final bloqueado: o período antigo já foi visto; novo calendário prospectivo necessário. 335 testes e checagem real de treino/transferência/retomada passaram. Sem lucro futuro demonstrado, promoção ou ordens reais.
+
+
+## Navegação unificada do Trend Lab
+
+[Nova visão geral local](http://127.0.0.1:4173/) · [organização e implementação](app/FRONTEND-NAVEGACAO.md) · [capturas da interface](experiments/frontend-refactor/README.md).
+
+52 páginas com menu lateral por assunto, busca, grupos recolhíveis, índice contextual e versão móvel. Relatórios históricos recebem a navegação ao serem servidos, sem alterar os arquivos de evidência. A visão geral lê o estado da V3 e da coleta. Corrigido conflito do guia FinRL que expandia todos os SVGs para850px, incluindo os ícones; cartões e tabelas preservam a largura móvel. 339 testes passaram, com conferência no navegador a390px e1440px. O treinador continuou no mesmo processo durante a atualização; nenhuma regra financeira foi alterada.

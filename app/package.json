@@ -35,6 +35,7 @@
     "history:extend": "python3 scripts/extend-minute-history.py",
     "ml:search-v4": "node scripts/local-search-v4.mjs start",
     "ml:search-v4:status": "node scripts/local-search-v4.mjs status",
-    "ml:search-v4:stop": "node scripts/local-search-v4.mjs stop"
+    "ml:search-v4:stop": "node scripts/local-search-v4.mjs stop",
+    "ui:catalog": "node scripts/build-ui-pages.mjs"
   }
 }
