@@ -1,0 +1,211 @@
+{
+  "id": "pepe-risk-selection-v1",
+  "symbol": "1000PEPEUSDT",
+  "purpose": "Offline retrospective diagnostic of feature selection, risk classification, sigmoid calibration and subsequent evaluation. No PPO integration or orders.",
+  "features": [
+    "RSI5m",
+    "ATR5m/price",
+    "logRVOL5m",
+    "VWAP distance/ATR",
+    "EMA9/21 distance/ATR",
+    "MACD histogram/ATR",
+    "taker delta",
+    "trend1h",
+    "trend4h",
+    "EMA20/50 distance/ATR1h",
+    "EMA20/50 distance/ATR4h",
+    "return5m",
+    "volumeAvailable5m",
+    "vwapAvailable5m",
+    "rvolAvailable5m",
+    "candidateSide"
+  ],
+  "protectedIndices": [
+    12,
+    13,
+    14,
+    15
+  ],
+  "classes": [
+    "baixo",
+    "moderado",
+    "alto"
+  ],
+  "samplingMinutes": 30,
+  "horizonMinutes": 30,
+  "stopATR": 1.5,
+  "entrySlippage": 0.001,
+  "excludedMonths": [
+    "2024-08"
+  ],
+  "folds": [
+    {
+      "id": "f1",
+      "fit": [
+        "2023-06",
+        "2024-03"
+      ],
+      "calibration": [
+        "2024-03",
+        "2024-05"
+      ],
+      "evaluation": [
+        "2024-05",
+        "2024-08"
+      ],
+      "inner": [
+        [
+          "2023-09",
+          "2023-11"
+        ],
+        [
+          "2023-11",
+          "2024-01"
+        ],
+        [
+          "2024-01",
+          "2024-03"
+        ]
+      ]
+    },
+    {
+      "id": "f2",
+      "fit": [
+        "2023-06",
+        "2024-09"
+      ],
+      "calibration": [
+        "2024-09",
+        "2024-10"
+      ],
+      "evaluation": [
+        "2024-10",
+        "2025-01"
+      ],
+      "inner": [
+        [
+          "2024-03",
+          "2024-05"
+        ],
+        [
+          "2024-05",
+          "2024-07"
+        ],
+        [
+          "2024-07",
+          "2024-09"
+        ]
+      ]
+    },
+    {
+      "id": "f3",
+      "fit": [
+        "2023-06",
+        "2025-01"
+      ],
+      "calibration": [
+        "2025-01",
+        "2025-04"
+      ],
+      "evaluation": [
+        "2025-04",
+        "2025-07"
+      ],
+      "inner": [
+        [
+          "2024-07",
+          "2024-09"
+        ],
+        [
+          "2024-09",
+          "2024-11"
+        ],
+        [
+          "2024-11",
+          "2025-01"
+        ]
+      ]
+    }
+  ],
+  "seeds": [
+    19,
+    73,
+    151
+  ],
+  "families": [
+    "nb",
+    "logistic"
+  ],
+  "selectionModes": [
+    "all",
+    "selected"
+  ],
+  "calibrationModes": [
+    "raw",
+    "sigmoid"
+  ],
+  "selection": {
+    "method": "StandardScaler + SelectFromModel(LogisticRegression L1, solver saga), threshold mean; union with protectedIndices",
+    "CGrid": [
+      0.001,
+      0.01,
+      0.1
+    ],
+    "criterion": "Minimum mean inner chronological log loss of the complete pipeline and its classifier; ties choose first C. Neither outer calibration nor evaluation tunes C.",
+    "maxIter": 1500,
+    "tol": 0.001
+  },
+  "classifiers": {
+    "nb": {
+      "varSmoothing": 1e-06
+    },
+    "logistic": {
+      "C": 1.0,
+      "maxIter": 1000
+    }
+  },
+  "calibration": "Freeze the fitted training pipeline with FrozenEstimator, then fit CalibratedClassifierCV(method=sigmoid) on the separate, later calibration block. No base refit on calibration.",
+  "innerGapMinutes": 30,
+  "metrics": [
+    "multiclass Brier (unscaled sum across three classes)",
+    "log loss",
+    "high-risk Brier",
+    "balanced accuracy",
+    "class recall",
+    "confusion matrix",
+    "high-risk reliability bins with counts",
+    "monthly probability scores"
+  ],
+  "baselines": [
+    "training class frequencies with Laplace smoothing",
+    "training ATR/price tercile class frequencies with Laplace smoothing"
+  ],
+  "bootstrap": {
+    "repetitions": 500,
+    "seed": 20261020,
+    "unit": "UTC calendar day",
+    "confidence": 0.95,
+    "note": "Paired differences in Brier, averaged over seeds for each case before daily block resampling. Keeps both candidate directions in the same block. Conditional descriptive uncertainty; no training or asset-selection uncertainty captured."
+  },
+  "label": "Maximum adverse price excursion in the next30m from the next1m opening reference with adverse entry slippage. Low <0.5 initial stop distance; moderate 0.5..<1; high >=1. This is a future-path label, not an input, probability of profit, or a net trading return; fees/funding are not part of this label.",
+  "dataRules": [
+    "Features must be known at decision time.",
+    "Every future label fully matures within its split and month; candidate directions at the same timestamp never cross a split.",
+    "Inner fitting labels mature at least30min before inner validation starts.",
+    "Both directions are scored only when the first execution minute has volume; skipped windows are counted.",
+    "August2024 is excluded consistently because the installed financial research omitted its incomplete mark-price data."
+  ],
+  "interpretation": [
+    "All periods have already been available to prior research. Temporal separation within this experiment does not make them an untouched independent final test.",
+    "No 2025-07+ packets opened. The V3 prospective final test remains locked.",
+    "Three seeds check selector optimization stability, not three independent market histories.",
+    "A lower Brier or log loss does not by itself demonstrate better calibration at every probability level or profitable trading.",
+    "Protected availability flags and candidate direction remain even if rare/constant. No portfolio features are removed from the separate PPO.",
+    "No winner is promoted automatically. Financial utility requires a separately registered continuous-wallet comparison with costs and CDI."
+  ],
+  "threads": 1,
+  "realOrders": false,
+  "ppoConnected": false,
+  "automaticPromotion": false,
+  "primaryEvaluationMetric": "Log loss, weighted equally per evaluated candidate across the three nonoverlapping windows; Brier and reliability reported separately."
+}

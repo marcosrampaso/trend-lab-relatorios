@@ -1,0 +1,12 @@
+{
+  "files": {
+    "registration.json": "b6985fd5a86e6db9967e99d174fb5d922bd56321d877e0715c767ccc2e9a4d59",
+    "result.json": "7580bbe258a471c2a6824d49d9b28f54b29fc311a4c3d0a461ac0337efbe1f15",
+    "artifact-manifest.json": "396604f47a3500f248b4acda8c89493d87a563ec7ebf5d5734f36b356faf4ace",
+    "snapshot.json": "7580bbe258a471c2a6824d49d9b28f54b29fc311a4c3d0a461ac0337efbe1f15",
+    "experimento.jpg": "976e5cdba8d95dba60e2f4a214e457057edbcff47dfbf11d3791c81b1949f6a3"
+  },
+  "modelsIncluded": false,
+  "rawMarketDataIncluded": false,
+  "independentFinalTest": false
+}

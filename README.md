@@ -1,5 +1,11 @@
 # Trend Lab · código e relatórios
 
+## PEPE · seleção, classificação e calibração · 20/10/2026
+
+[Relatório do experimento](experiments/pepe-risk-selection-v1/index.html) · [Método e resultados](app/PEPE-SELECAO-CALIBRACAO.md) · [Painel interativo local](http://127.0.0.1:4173/pesquisa-genetica/selecao-calibracao.html).
+
+36 pipelines e 90 avaliações, três janelas e três sementes, com 26.392 candidatas únicas avaliadas. Seleção L1 dentro do treino; Naive Bayes e logística; sigmoid em bloco posterior com pipeline congelado; controles sem seleção/calibração e referências simples. A calibração ajudou o NB, mas a combinação completa não demonstrou melhora consistente. O menor log loss observado foi da logística com todas as variáveis, sem calibração. Diagnóstico retrospectivo de risco, sem carteira, rendimento ou promoção ao PPO. O treino V3 continuou separado. Código e evidências numéricas arquivados; pesos e dados brutos ficam locais.
+
 O laboratório agora tem código e relatórios neste mesmo repositório privado.
 
 - **[Código do aplicativo](app/)** e [instruções de reprodução](app/REPRODUCAO-GITHUB.md).

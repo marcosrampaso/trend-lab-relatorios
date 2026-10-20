@@ -177,6 +177,10 @@ export const PAGES=[
     "title": "Saídas adaptativas e novos indicadores"
   },
   {
+    "href": "/pesquisa-genetica/selecao-calibracao.html",
+    "title": "Seleção, classificação e calibração"
+  },
+  {
     "href": "/pesquisa-genetica/validacao-ampliada.html",
     "title": "Campeão em outros anos"
   },
