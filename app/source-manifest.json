@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-20T09:14:38.767161+00:00",
+  "exportedAt": "2026-10-20T09:23:33.285178+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -444,6 +444,10 @@
     "scripts/audit-g151-exits.mjs": {
       "sha256": "b79e9aa0b2635b9fb6710609620f1f2697e6be5d04347c82fa58080de40b5ded",
       "bytes": 2753
+    },
+    "scripts/audit-pepe-g830.py": {
+      "sha256": "29dad6f7562db3772ecc63202d9461fade8f5e0112123e3453c67a11f824d3f5",
+      "bytes": 5323
     },
     "scripts/audit-routing-losses.mjs": {
       "sha256": "c66d59e4a62ffa4e11b673c0485f9146d25074ac7f5778b363e62d4648e79d30",
@@ -986,8 +990,12 @@
       "bytes": 3096
     },
     "scripts/report-pepe-conclusion.mjs": {
-      "sha256": "fc82b7613eaea2bb9a54336edcd2012092ddebeb1ee521e07f4709c58129b587",
-      "bytes": 7642
+      "sha256": "5307e75bc9cbd5f05b53cea3da24d739c2f0d7efee41bd41a0e5ab92e51eaa0b",
+      "bytes": 8145
+    },
+    "scripts/report-pepe-g830-audit.mjs": {
+      "sha256": "815bf0d89df1ddb665880fd8ce9b759e4a899d87452fc4476a4ab033ece9d651",
+      "bytes": 6763
     },
     "scripts/research-codex-bridge.mjs": {
       "sha256": "da766d0047daa6722ffcff55b46e50fa56da1deb76a093e18f87b65a1a31ac48",
@@ -1582,20 +1590,24 @@
       "bytes": 14383
     },
     "web/pesquisa-genetica/pepe-conclusao.html": {
-      "sha256": "25f770858f3894193d0a3e12614d5dceaef5d68cea4cec48f8b582c17d888cfc",
-      "bytes": 5525
+      "sha256": "548348efbed45ab40fed04da38ca02478a22b1b6324bdd900dd796738371c32b",
+      "bytes": 6028
     },
     "web/pesquisa-genetica/pepe-finrl.css": {
       "sha256": "9199fd5e7910a88170fa470f1e231834937ce90862fdab029fbe6eb8e97ca055",
       "bytes": 1244
     },
     "web/pesquisa-genetica/pepe-finrl.html": {
-      "sha256": "c0b02877d175cee86ccae1585d68a07d5c8b1ecbf2aea6cda5d3fd26f7ec1508",
-      "bytes": 9714
+      "sha256": "515d6cbce7583d080fa9ef791c51ffe70ff5045ec555ec3eb74ca62a67078d9d",
+      "bytes": 9756
     },
     "web/pesquisa-genetica/pepe-finrl.js": {
       "sha256": "c1ba5c3a7191107a7b3ded64d591f017691adcadcabf1a21bfe366bc8fa6e5aa",
       "bytes": 13460
+    },
+    "web/pesquisa-genetica/pepe-g830.html": {
+      "sha256": "91cc25931374f1b54d10ecb9001e39bf2b00102e05366611daa31f26fdd72cf5",
+      "bytes": 5010
     },
     "web/profitability.js": {
       "sha256": "c5654f4881aa27433e57a0056b72baec8a60c17797a07a964bf74501c7dac928",
