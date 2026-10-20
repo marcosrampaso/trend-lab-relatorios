@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-20T09:23:33.285178+00:00",
+  "exportedAt": "2026-10-20T09:50:00.706681+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -88,6 +88,10 @@
     "PEPE-POCS-OFFLINE.md": {
       "sha256": "e741f2e1d7b39b7d7446ea22a897ddc0066dabe61ae8294c395bbef1b01e0815",
       "bytes": 7057
+    },
+    "PEPE-V3-AUDITORIA.md": {
+      "sha256": "9ebbe195d60c0bf4b9d0c66a335310efa51b8d76cdb5600012f22e811ed4a43c",
+      "bytes": 6945
     },
     "PESQUISA-ML-MERCADOS.md": {
       "sha256": "0de1890c2bf19a7cbc54807340189a005d4bf31c94c85a32a2ff532c6a8c82c7",
@@ -292,6 +296,10 @@
     "pepe-finrl-1000-protocol.json": {
       "sha256": "9ea27bc6cb7928052a66759af551f0f0ec08c364ba44f5409cd73a1f33ff23a4",
       "bytes": 6238
+    },
+    "pepe-finrl-mask-protocol.json": {
+      "sha256": "514458eed5fe472ad37e80ac7cac45ebcac34cd97fddd5235cb2b8c6c9f1f271",
+      "bytes": 6036
     },
     "pepe-finrl-protocol.json": {
       "sha256": "7549f3f9b7a0ab3ec99c9c147de92ee3830963dd8fb1f2554b403524a58c3894",
@@ -817,6 +825,10 @@
       "sha256": "e5242f400c3db32c3b4835d06d429796c605a9bdc39f93b97a15bf84f5a63271",
       "bytes": 117
     },
+    "scripts/local-pepe-mask.mjs": {
+      "sha256": "edf5e19cc767902588eba8b8be32b19aa3da7216bef0d20d589b7ac869b0646b",
+      "bytes": 408
+    },
     "scripts/local-pepe-pbt.mjs": {
       "sha256": "8b3438ea9d4e366f67fa37a5793445474d1046a5f709c09ef94395464947415d",
       "bytes": 215
@@ -885,6 +897,34 @@
       "sha256": "2b25d6820d95e9849105d56640915b40787781216a4641cb817165c2d800cabf",
       "bytes": 5209
     },
+    "scripts/pepe-mask-actions.mjs": {
+      "sha256": "1736b7fc0882215c5945280950d5fed62a7cd0bd813048236d217633620acd60",
+      "bytes": 1937
+    },
+    "scripts/pepe-mask-bridge.mjs": {
+      "sha256": "2b24b3e57194ad6c641510c8fefa4441ba1d336df22095a5f69fd4a894404259",
+      "bytes": 5725
+    },
+    "scripts/pepe-mask-control.mjs": {
+      "sha256": "13634b28fbdfe867f6bf6c679473a2d880c8583ba00734d7381e2036e69c1e5d",
+      "bytes": 1630
+    },
+    "scripts/pepe-mask-core.py": {
+      "sha256": "11d0317447da2d4b4f6039fd0ee77568bd006d9863e6753f0649eb23ece3f3b9",
+      "bytes": 6567
+    },
+    "scripts/pepe-mask-engine.mjs": {
+      "sha256": "3858cf59911e4108e9a82510d1c17e271eed84c9a86f43c2ed7bfa56b0976468",
+      "bytes": 18558
+    },
+    "scripts/pepe-mask-service.mjs": {
+      "sha256": "ce906a949467153389345914ed9e837e263adea0469d149bb2babc45ca53ebfc",
+      "bytes": 2464
+    },
+    "scripts/pepe-mask-worker.py": {
+      "sha256": "95163bdf3b643dda9bf7bd6465896fa824ae40a2fb7816d81171cd32e00e7fac",
+      "bytes": 5432
+    },
     "scripts/pepe-nb-risk-core.py": {
       "sha256": "89960c2212936ca943ca0636ea9418cbc37a65a6935bc0a159d74d93e20259d0",
       "bytes": 873
@@ -918,8 +958,8 @@
       "bytes": 1496
     },
     "scripts/pepe-population-service.mjs": {
-      "sha256": "08c2da92231715ab40f49306d844fe1d85c9562270aed3537d834c473953418e",
-      "bytes": 5075
+      "sha256": "e6361f7fd88ce1fabcc6c91a7a3a31b412d736e2a16f66af18afe7214c3a8e2e",
+      "bytes": 5465
     },
     "scripts/pepe-reference-engine.mjs": {
       "sha256": "b2b0144ad6a35dfbcadbb72111e5533ff8a48c4018bd1ceb8b0002ad083c6531",
@@ -932,6 +972,10 @@
     "scripts/pepe_finrl_env.py": {
       "sha256": "ebf946a4ca6cd77220dc81dd69d39c4a5bda76858650ed92aa4ba61c31438560",
       "bytes": 4405
+    },
+    "scripts/pepe_mask_env.py": {
+      "sha256": "d785f781197346c491bd9c53a6a9c09bc622c7e3d81fe22e16631402d120c8a3",
+      "bytes": 1189
     },
     "scripts/prepare-exit-study.mjs": {
       "sha256": "9bf9e632476570b53ce7aec423b24e563b1075ae772842e2484818f1fe7916ff",
@@ -960,6 +1004,10 @@
     "scripts/prepare-pepe-finrl.mjs": {
       "sha256": "7003420406dc9d33d59099903c8deda99551419eae444849874ad7d86a9829ec",
       "bytes": 3506
+    },
+    "scripts/prepare-pepe-mask.py": {
+      "sha256": "a233eaa7e38bc84ac311e359b5ff4b1cfcbf1c2ae078d8dab87d9e3dc0db69e4",
+      "bytes": 2935
     },
     "scripts/prepare-pepe-pbt.mjs": {
       "sha256": "774226fb1d0531addc9d5950b89903ea409a65bd72760ef05fb4ff34c1c160e5",
@@ -996,6 +1044,10 @@
     "scripts/report-pepe-g830-audit.mjs": {
       "sha256": "815bf0d89df1ddb665880fd8ce9b759e4a899d87452fc4476a4ab033ece9d651",
       "bytes": 6763
+    },
+    "scripts/report-pepe-mask.mjs": {
+      "sha256": "6cd0856b7ee3d1f679c05c6ea5521c8317894b9ffb3be48d244f7a06afb54640",
+      "bytes": 1199
     },
     "scripts/research-codex-bridge.mjs": {
       "sha256": "da766d0047daa6722ffcff55b46e50fa56da1deb76a093e18f87b65a1a31ac48",
@@ -1040,6 +1092,10 @@
     "scripts/run-pepe-finrl.mjs": {
       "sha256": "2b9aae871f0e1a0228b1d60207bada87ebf0c87263968ee9e5b41bd4a0d0bcfe",
       "bytes": 123
+    },
+    "scripts/run-pepe-mask.py": {
+      "sha256": "0d28eb98881ad74ff19c4c1b3715b3ef74a7416f195352b5e91e1ad6fe4d8655",
+      "bytes": 11103
     },
     "scripts/run-pepe-nb-poc.py": {
       "sha256": "cdc9da396d2bbde9aa6746227cb69f2b5f5d07f43bf25b270f29c824ec8a5e3d",
@@ -1096,6 +1152,10 @@
     "scripts/start-pepe-population-poc.mjs": {
       "sha256": "ca97759bf325669e353239fd8a1c19aac868bb4e3e670aedadd2f6cf474d66e5",
       "bytes": 1218
+    },
+    "scripts/test-pepe-mask.py": {
+      "sha256": "d471839b80ad24240e267ec21a847e0982f4cc8f071afb3863426f108fcf6dd1",
+      "bytes": 2171
     },
     "scripts/train-btc-comparison.py": {
       "sha256": "200f0496b411b970812ff4fa32375afb04b59294c22080e58a4ce4c88592d812",
@@ -1308,6 +1368,14 @@
     "tests/pepe-dashboard.test.mjs": {
       "sha256": "8b466877aa9b8c796dfd66045cc4f95fdd087494aa34db37e42b6e4196b8d02a",
       "bytes": 2861
+    },
+    "tests/pepe-mask-dashboard.test.mjs": {
+      "sha256": "afc294db01c390d16d5e326e0617d2ee24e49054db8c0c82775ad91c1ad2de9e",
+      "bytes": 2527
+    },
+    "tests/pepe-mask.test.mjs": {
+      "sha256": "f49c30c4428bbdb5e7d7c2580489890f5f97c44211a26eef0dce4316287e1631",
+      "bytes": 2993
     },
     "tests/pepe-pbt.test.mjs": {
       "sha256": "49983b63e935a8d7bc53f7c6092bb5c62fc36d5481bdd1138e0a6fbbc2d17c34",
@@ -1590,24 +1658,36 @@
       "bytes": 14383
     },
     "web/pesquisa-genetica/pepe-conclusao.html": {
-      "sha256": "548348efbed45ab40fed04da38ca02478a22b1b6324bdd900dd796738371c32b",
-      "bytes": 6028
+      "sha256": "e710a49ca086a54703b4c2f7258517602604af5597da22dda0e3e5946942fb97",
+      "bytes": 6093
     },
     "web/pesquisa-genetica/pepe-finrl.css": {
       "sha256": "9199fd5e7910a88170fa470f1e231834937ce90862fdab029fbe6eb8e97ca055",
       "bytes": 1244
     },
     "web/pesquisa-genetica/pepe-finrl.html": {
-      "sha256": "515d6cbce7583d080fa9ef791c51ffe70ff5045ec555ec3eb74ca62a67078d9d",
-      "bytes": 9756
+      "sha256": "6db0e6c328dd5d2e2ee6668929fe986268ca67e923b9f2c821370ea7c1372f87",
+      "bytes": 9821
     },
     "web/pesquisa-genetica/pepe-finrl.js": {
       "sha256": "c1ba5c3a7191107a7b3ded64d591f017691adcadcabf1a21bfe366bc8fa6e5aa",
       "bytes": 13460
     },
     "web/pesquisa-genetica/pepe-g830.html": {
-      "sha256": "91cc25931374f1b54d10ecb9001e39bf2b00102e05366611daa31f26fdd72cf5",
-      "bytes": 5010
+      "sha256": "d08405e47ab7245e442eb166ff8d5d65f864f0a911daff1bd92e161587b99a36",
+      "bytes": 5075
+    },
+    "web/pesquisa-genetica/pepe-v3.css": {
+      "sha256": "a0ac12afa79ef5330a0b95749f90be23277d03d32fc0dbaa1030455fe46da891",
+      "bytes": 1824
+    },
+    "web/pesquisa-genetica/pepe-v3.html": {
+      "sha256": "59d712abb7b07aceefb46d660ccb638f7aa4db217043954ba5fc2993c0677786",
+      "bytes": 8465
+    },
+    "web/pesquisa-genetica/pepe-v3.js": {
+      "sha256": "6e7266f7d1624e5682531031521007ec15272abec8ff49837ae4355d89fb554f",
+      "bytes": 10796
     },
     "web/profitability.js": {
       "sha256": "c5654f4881aa27433e57a0056b72baec8a60c17797a07a964bf74501c7dac928",

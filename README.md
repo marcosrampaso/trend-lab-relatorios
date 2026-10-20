@@ -155,3 +155,10 @@ ControleV4 congelado: ganho inicial em2020–2021, perdas posteriores e custos m
 [Dashboard e retrato dos resultados](experimentos/g151-saidas/index.html) · [Método e interpretação](app/G151-SAIDAS-TRAILING.md) · [Código da simulação](app/scripts/g151-exit-engine.mjs).
 
 928 avaliações concluídas, com controles reproduzidos e 301 testes passando. O trailing 2 ATR reduziu a perda média de −R$7,17 para −R$6,75/mês nos 38 meses fora da seleção, mas piorou os nove meses originais. Todas as carteiras contínuas atingiram o limite de perda de 10%; nenhuma variante foi promovida. Sem novo treino nem ordens reais.
+
+
+## PEPE V3 · ações válidas e auditoria antes da seleção
+
+[Painel local](http://127.0.0.1:4173/pesquisa-genetica/pepe-v3.html) · [retrato datado](experiments/pepe-finrl-mask-v3/index.html) · [método](app/PEPE-V3-AUDITORIA.md) · [ranking inicial completo](experiments/pepe-finrl-mask-v3/parent-ranking.json).
+
+1.093 arquivos distintos de pesos recuperáveis convertidos para MaskablePPO e auditados no mesmo trimestre contínuo out–dez/2024. Pai: agente80 da população parcial1.000, +R$74,25 líquidos (quatro posições, queda máxima9,91%), CDI +R$26,76. Todos os250 agentes passam pelo mesmo trimestre antes de reprodução; recordes guardam pesos exatos, carteira, custos e hash antes de novos treinos. Sondagens de dois dias não viram renda composta nem selecionam pais. Teste final bloqueado: o período antigo já foi visto; novo calendário prospectivo necessário. 335 testes e checagem real de treino/transferência/retomada passaram. Sem lucro futuro demonstrado, promoção ou ordens reais.

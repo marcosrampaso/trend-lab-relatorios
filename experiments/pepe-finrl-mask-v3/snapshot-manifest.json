@@ -1,0 +1,14 @@
+{
+  "createdAt": "2026-10-20T09:50:58.185222+00:00",
+  "files": {
+    "registration.json": "3207a63700d409ee8528359508d9cdd7fb628aa301878db17af7a5200a0ab27a",
+    "parent-inventory.json": "b4944db849e89327255fb2898edbb399b6a8f79e72790ca58c253d08e8ebf1c0",
+    "parent-selection.json": "f562c92966c4584218066b2ce57b9536243ffaa35bb53289c98ebdaeb8bc0e0b",
+    "parent-ranking.json": "ed08f39416e74c1e2b03e6ae834090cceffac77a2dca6df802c26a0e7e4d7ef0",
+    "snapshot.json": "01ad4a6db445425e0367cfc4a4eb36834ce1e01336481c1391c1c404f15e23d8",
+    "cdi.json": "d46546157d0154ddf5dccdcceeaf56eebafcff76d760eff7c307e97a9f5f7c4f"
+  },
+  "modelsIncluded": false,
+  "rawMarketDataIncluded": false,
+  "note": "Read-only source snapshot; not a final-test evaluation."
+}
