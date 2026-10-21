@@ -1,0 +1,43 @@
+✔ all frozen input and scientific-source hashes remain unchanged (1298.948333ms)
+✔ every grid timestamp has both sides and cost attribution never double-counts slippage (130.821375ms)
+✔ regime partitions and month summaries include every opportunity once per side (0.486416ms)
+✔ controls use continuous monthly wallets, reconcile BRL and retain no-trade cash (1.264875ms)
+✔ calibration remains read-only with exact acceptance coverage and complete fixed bins (20.14725ms)
+✔ frozen ancestors, entry signals and new scientific sources are unchanged (584.29725ms)
+✔ all paired fills are identical and treatment never protects before actual partial (57.961458ms)
+✔ monthly treatment stop histories respect successful partial events and accounts reconcile (2.062ms)
+✔ calendar summaries and profit-to-loss conversions match paired evidence (29.943583ms)
+✔ treatment refuses profit protection before a filled partial, preserving the initial stop (25.837833ms)
+✔ a successful partial activates original protection, and later lock remains available (1.172709ms)
+✔ initial stop still closes a position before the first partial (1.030375ms)
+✔ current arm matches the complete previous paired outcome and initial fill is unchanged (442.106042ms)
+✔ current monthly wallet matches frozen previous driver for every ledger field (319.463625ms)
+✔ all source models, old engines and scientific inputs remain frozen (553.498167ms)
+✔ every paired actual fill is identical and no out-of-calendar outcome enters a stage (58.380667ms)
+✔ monthly wallets keep frozen signals, own balances, risk blocks and correct CDI (1.101667ms)
+✔ fixed chronological stages and reported no-trade means reconcile with pair outcomes (27.598542ms)
+✔ net ladder denominator changes only between original margin and original price-risk (5.582208ms)
+✔ paired diagnostic has identical actual entry and original arm reproduces frozen engine (391.803125ms)
+✔ wallet driver and margin fork reproduce all frozen summary values and ledgers (299.344ms)
+✔ stage signals cannot force a partial fill after a gap below the observed target (0.938083ms)
+✔ known feasibility respects cost/tick stop and liquidation and cannot use next candle (14.984833ms)
+✔ regime groups depend on known trends and cost buckets, not outcomes (2.96125ms)
+✔ enriched diagnosis reproduces frozen candidate outcome and cost identity (461.571709ms)
+✔ opportunity means include unfilled zero and retain boundaries separately (1.115417ms)
+✔ one-minute candles and aggregated OHLC cannot reveal unclosed candles (4.098041ms)
+✔ all 45 archived wallets have exact exported ledger and rejection parity (14.172333ms)
+✔ real entry, parities, moving stop and final exit are revealed in archived order (0.858084ms)
+✔ no-trade months retain candles and explain policy versus calibration veto (145.977708ms)
+✔ April PPO entry rejection is executable-risk incompatibility, not a missing order (0.429209ms)
+✔ specialists may choose either direction or cash; ties do not force exposure (1.824375ms)
+✔ fixed exit wrapper reproduces an already-frozen source position from equal initial state (346.991041ms)
+✔ only closed finite input features enter an expert (1.238333ms)
+✔ candle shape uses exactly five already-closed minutes (0.287625ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2440.520375

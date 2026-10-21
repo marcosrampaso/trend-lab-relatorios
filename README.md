@@ -1,5 +1,11 @@
 # Trend Lab · código e relatórios
 
+## Gatilho da proteção · 21/10/2026
+
+[Relatório e interpretação](app/PEPE-GATILHO-PROTECAO.md) · [Protocolo e resultados](reports/protection-gate-v1/) · [Painel local com linha do tempo](http://127.0.0.1:4173/pesquisa-genetica/gatilho-protecao.html).
+
+23.408 pares e64 carteiras: proteção original versus proteção apenas após primeira parcial preenchida, com stop inicial e escada de margem preservados. O ganho médio entre vencedores aumentou e a frequência de positivos caiu; expectativa permaneceu negativa. Genética: −R$2,54 → −R$4,69/mês nos cinco meses originais. Nenhum braço superou CDI.35 testes passaram;23.408 resultados e32 ledgers antigos reproduzidos exatamente. Sem treino ou promoção, todos os calendários já consumidos.
+
 ## Entradas congeladas · saídas em R · 21/10/2026
 
 [Protocolo e interpretação](app/PEPE-SAIDAS-EM-R.md) · [Resultados congelados](reports/r-ladder-v1/) · [Painel local](http://127.0.0.1:4173/pesquisa-genetica/saidas-em-r.html).

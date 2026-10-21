@@ -157,6 +157,10 @@ export const PAGES=[
     "title": "G151 · Evolução e saídas"
   },
   {
+    "href": "/pesquisa-genetica/gatilho-protecao.html",
+    "title": "Gatilho da proteção de lucro"
+  },
+  {
     "href": "/pesquisa-genetica/gestao-saidas.html",
     "title": "Gestão de saídas · escada e stop em lucro"
   },

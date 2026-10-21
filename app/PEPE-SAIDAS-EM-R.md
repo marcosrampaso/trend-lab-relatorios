@@ -92,3 +92,7 @@ Execução concluída. Evidência congelada em `work/pepe-r-ladder-v1/result.jso
 Investigar isoladamente o instante de ativação da proteção, preservando entradas e risco. O teste atual não demonstra que entradas funcionam nem que toda saída falha; avalia apenas a escada mantendo a proteção original. Remover stops ou ampliar risco para buscar lucro não foi testado nem aplicado.
 
 Qualquer seleção apoiada nesses históricos exige uma nova avaliação cronológica previamente reservada ou acompanhamento prospectivo com candidato congelado. Não aumentar gerações na mesma recompensa como substituto de evidência de vantagem líquida.
+
+## Continuidade: gatilho da proteção testado
+
+A comparação isolada entre proteção atual e proteção após a primeira parcial foi concluída em um estudo separado. [Painel local](http://127.0.0.1:4173/pesquisa-genetica/gatilho-protecao.html) · Documento `PEPE-GATILHO-PROTECAO.md`. O teste de escada aqui documentado permanece preservado.
