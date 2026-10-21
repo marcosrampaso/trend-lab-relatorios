@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-21T14:23:17.854776+00:00",
+  "exportedAt": "2026-10-21T15:08:25.524772+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -96,6 +96,10 @@
     "PEPE-FINRL-PBT.md": {
       "sha256": "46c17f3e268a54ab9238785e4fae07a7d7e1061de0f6ba37fc200a73e013fd72",
       "bytes": 8521
+    },
+    "PEPE-GESTAO-SAIDAS.md": {
+      "sha256": "224b96efa1f6bdf2edaf49f8a807f5cefafcc3c67ed0f6f1fb1f4402aa81337c",
+      "bytes": 7401
     },
     "PEPE-POCS-OFFLINE.md": {
       "sha256": "e741f2e1d7b39b7d7446ea22a897ddc0066dabe61ae8294c395bbef1b01e0815",
@@ -701,6 +705,38 @@
       "sha256": "206ab9cd527ae9bb1cf41bddf387162e04853c792131e8d53009f9fa49ff1831",
       "bytes": 5166
     },
+    "scripts/exit-lab-bridge.mjs": {
+      "sha256": "e729ca899bbdc7775ea8836ea351e6353e0540ff1924c2d4824c0e7d24d718ca",
+      "bytes": 1812
+    },
+    "scripts/exit-lab-core.mjs": {
+      "sha256": "07f02fca2352ff356ab4a8a583bb897c4dc85555393e5c289141eedcdb9125f9",
+      "bytes": 8491
+    },
+    "scripts/exit-lab-engine.mjs": {
+      "sha256": "e208a46913d3756e07d53af9da81157f8a05fa2ef394c42ed71fb0099d7b928b",
+      "bytes": 21057
+    },
+    "scripts/exit-lab-service.mjs": {
+      "sha256": "23cc81a1b383de99f222745d49cc385178fb1a1088fbe76d2ce4207304f7dfeb",
+      "bytes": 2078
+    },
+    "scripts/exit-lab-source-bridge.mjs": {
+      "sha256": "a7dc60726fe75af412e8609b2946a03341e44da00647ee688c81491db5addc39",
+      "bytes": 5720
+    },
+    "scripts/exit-lab-wallet.mjs": {
+      "sha256": "e69fa37f02b479fe666f2992bc14cff006ad324208905a872b4bd972d2f6faa9",
+      "bytes": 3253
+    },
+    "scripts/exit-lab-worker.py": {
+      "sha256": "4210b9a0274231cf9276ef4d0e0718faca0829b54eeffaf1e95d5b72aaf296c1",
+      "bytes": 5035
+    },
+    "scripts/exit_lab_env.py": {
+      "sha256": "35cb45abc58f741fc1f9407e296f38372e19e7ddc0cb5c1cfd5cf4a2a1a1357f",
+      "bytes": 3025
+    },
     "scripts/expanded-validation-common.mjs": {
       "sha256": "287f98a9e539ab025fa4ca034f528d7a932bd1515983b0a5e707b4687aba4499",
       "bytes": 2456
@@ -789,6 +825,10 @@
       "sha256": "b3738340159f31b7d1075b08b53dab761ef4d6e6cacb62ec9dabd17315b6cc3a",
       "bytes": 33018
     },
+    "scripts/generate-exit-sources.py": {
+      "sha256": "b1341b217ab8a13cefcecce22063fc5855cfcfed1710f4f91b01261dc3cf6cb8",
+      "bytes": 3337
+    },
     "scripts/generate-search-v4-report.py": {
       "sha256": "220a048c24ed2971df607fdcf436164f1318a55c78d16f19ce7cce0df912b857",
       "bytes": 9375
@@ -848,6 +888,10 @@
     "scripts/local-evolution.mjs": {
       "sha256": "963d8dee68f5646dd17c9bd4353ddc7fc7ad23d60c9c4950dd7154fc99e6448e",
       "bytes": 2342
+    },
+    "scripts/local-exit-lab.mjs": {
+      "sha256": "6b290a4c644d557649adb0262ca018374e4828d521ba9ad7a840e49598e39b5f",
+      "bytes": 166
     },
     "scripts/local-g151-news.mjs": {
       "sha256": "d651c64d61326fbb368bc8a515dae35128904e0559575b89d34a26aac65824a0",
@@ -982,8 +1026,8 @@
       "bytes": 5725
     },
     "scripts/pepe-mask-control.mjs": {
-      "sha256": "2f4165ac04005bc73f55fa70a97e3ca1dd207d1f00f458c816e92d74d2819932",
-      "bytes": 1806
+      "sha256": "6dfe50af4b63af38224cdc10102573b3a942f51cf5c302f38d426ba97bddf4b6",
+      "bytes": 2004
     },
     "scripts/pepe-mask-core.py": {
       "sha256": "11d0317447da2d4b4f6039fd0ee77568bd006d9863e6753f0649eb23ece3f3b9",
@@ -1050,8 +1094,8 @@
       "bytes": 2249
     },
     "scripts/pepe-v4-service.mjs": {
-      "sha256": "2d8ea18490b349a360400e689022a50fcde17abd004fb4f2a56cb3408e0d89f8",
-      "bytes": 3075
+      "sha256": "8c169e26da7bae89cf35d39b4d4a91d671eaa29fe099ee1a0d4d6bc3aa191d34",
+      "bytes": 3219
     },
     "scripts/pepe-v4-v2-bridge.mjs": {
       "sha256": "bb24f46a55dfe9f157b91e8e70fe92e2e722eb337c0bda08ec84b16ca0a2dcbf",
@@ -1109,9 +1153,17 @@
       "sha256": "ebe0781777911a8de6db1675ef9e440470f272c319bd57fdb41c1f01ad942f59",
       "bytes": 1312
     },
+    "scripts/prepare-exit-sources.py": {
+      "sha256": "7775a48ad68ffdd401fa9b1a44fdfc290257bc696478bec4cfd30c4f34858b76",
+      "bytes": 2894
+    },
     "scripts/prepare-exit-study.mjs": {
       "sha256": "9bf9e632476570b53ce7aec423b24e563b1075ae772842e2484818f1fe7916ff",
       "bytes": 4703
+    },
+    "scripts/prepare-exit-study.py": {
+      "sha256": "28f368a959a5349148f60681955604c940fcfa6c9859a3b877cc40b5fb3559cd",
+      "bytes": 5832
     },
     "scripts/prepare-expanded-validation-funding.mjs": {
       "sha256": "a821e4843734bc2da1f90f2d18920ae8da32b865c8387430fd19d0fcb29f6b06",
@@ -1189,6 +1241,10 @@
       "sha256": "673473a11712aa9a86c775ef61b860f66f236535103136b50f8477882c37047f",
       "bytes": 3096
     },
+    "scripts/report-exit-evaluations.mjs": {
+      "sha256": "2a6e06fa13c25873a06c52a98af01f8ec4776c7fc47b622daac908812abeb0c0",
+      "bytes": 911
+    },
     "scripts/report-pepe-conclusion.mjs": {
       "sha256": "5307e75bc9cbd5f05b53cea3da24d739c2f0d7efee41bd41a0e5ab92e51eaa0b",
       "bytes": 8145
@@ -1225,9 +1281,17 @@
       "sha256": "f67acccf568feebcd3b8dd829abae71d74564d9a8bf6b05f61440bfc181dee94",
       "bytes": 6763
     },
+    "scripts/run-exit-controls.mjs": {
+      "sha256": "e953d07b47bf56cf5353b4d614fbce8b7c9745b489603a4a13b05271d61b3c1c",
+      "bytes": 2295
+    },
     "scripts/run-exit-study.mjs": {
       "sha256": "9cdff7d775bb987017f5e1e9f2fe3fcd49cdb861ccd9080ba463599e0f29f8a2",
       "bytes": 671
+    },
+    "scripts/run-exit-study.py": {
+      "sha256": "a133e2a9fc7ad70e165a14419cad89e19379fbed666f09789be879e93e7b58fa",
+      "bytes": 4320
     },
     "scripts/run-g151-exit-study.mjs": {
       "sha256": "9f188104ef7f3b3962c830a0bddc9d946da58095124ca27b7bb9352d27351fa1",
@@ -1473,6 +1537,10 @@
       "sha256": "2afde97c35d157413a6ab8d0d9e28add6c517a3afddfdaa753cbb8bc406d6c90",
       "bytes": 4556
     },
+    "tests/exit-lab.test.mjs": {
+      "sha256": "249ebbfa9d08f4a3c29d936311a08309a74766a7329add9b3a8d7106c7b2b17a",
+      "bytes": 6012
+    },
     "tests/exit-research.test.mjs": {
       "sha256": "3d547a0657c947f87a3809bae775da0ff6f93e3f1e3e93c09d831008324357cf",
       "bytes": 5306
@@ -1594,8 +1662,8 @@
       "bytes": 351
     },
     "tests/pepe-v4.test.mjs": {
-      "sha256": "20c7a6343056fc451c0436f47c8da0f48520ab341b71f111b0987bada6997314",
-      "bytes": 3880
+      "sha256": "52d9d1dc1e188e9d9ca9c9b948c6735756a38e50d91e1bde74252bbc55835712",
+      "bytes": 4842
     },
     "tests/profitability.test.mjs": {
       "sha256": "397010de6ba8f969cf623c7de06779b2966bb066410f4a6d816716c1d8e1b501",
@@ -1993,6 +2061,10 @@
       "sha256": "7e079f2e47734326082112b54fc0d7289692c6f1d577c5b44bc5f24201561ba4",
       "bytes": 20398
     },
+    "web/pesquisa-genetica/exit-study-chart.js": {
+      "sha256": "cb3f8aa54430ff1232d3f85a4bfc1c3cd6273c67bcc44a84badbf9d9e1ae154b",
+      "bytes": 1995
+    },
     "web/pesquisa-genetica/experimento-noticias.css": {
       "sha256": "edabe57a0ee72d35f818e70c059ad2e8ffdc6d0bb2b77f0e5333ff4fcb6eff33",
       "bytes": 2513
@@ -2028,6 +2100,14 @@
     "web/pesquisa-genetica/g151-evolucao.js": {
       "sha256": "56315731af7f2dd2d272353e1d5a2760c64b19f90a89b30ab827bbad75a791d9",
       "bytes": 14383
+    },
+    "web/pesquisa-genetica/gestao-saidas.html": {
+      "sha256": "3bc138189cdf8923e57359c8a8b22fa15778e65629fd64b58ddf569df166d980",
+      "bytes": 9843
+    },
+    "web/pesquisa-genetica/gestao-saidas.js": {
+      "sha256": "e4f0f469e3bf89569fad0156549f44e511b3b22d0cd1ed0aaa3bceae12fbb682",
+      "bytes": 7045
     },
     "web/pesquisa-genetica/historico.html": {
       "sha256": "270e1c31c75928cfd2f76652e666dfc116aaf231d6d72ea2f522d2157c7a10cc",
@@ -2306,12 +2386,12 @@
       "bytes": 4675
     },
     "web/ui/navigation.js": {
-      "sha256": "922a41bb7703a30a9c91458534a71b19d49389bbf3813e4a7fb5b6227870f1f3",
-      "bytes": 7810
+      "sha256": "d577e6e31cd61a0d64f90bfd70242bbece47910e776171bdc07f35c97ed018e9",
+      "bytes": 7973
     },
     "web/ui/pages.js": {
-      "sha256": "4e349c5a67dfdd59da7aa7d433197508a9228cd8aa13b8aa865442db22abffe0",
-      "bytes": 6391
+      "sha256": "db13cea2d6d4c49a96ccee9964f4e7bb77039f4e61a3501b8ca863ddd354f28c",
+      "bytes": 6513
     },
     "web/ui/shell.css": {
       "sha256": "987f556170ea418918e1978eff550732547b244f73d2fddf549425be6091d96c",
@@ -2322,8 +2402,8 @@
       "bytes": 11727
     },
     "web/ui/training-speed.js": {
-      "sha256": "c640cf7597f32b234b45b93522fc0decfb2fdfe2036befdf4c3172c0ea9ab28e",
-      "bytes": 7721
+      "sha256": "4b893b1ed2ac11e753f5c5cb741b28c3da71d5e75118d5e0aaa8690d0b2e298a",
+      "bytes": 8621
     },
     "web/vendor/lightweight-charts.js": {
       "sha256": "bcdca2a528db7c9b386918c99c544bde3eda3f0204ec2d23a64411d4cb4686c9",

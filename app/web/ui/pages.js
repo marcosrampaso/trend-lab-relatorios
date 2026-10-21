@@ -137,6 +137,10 @@ export const PAGES=[
     "title": "G151 · Evolução e saídas"
   },
   {
+    "href": "/pesquisa-genetica/gestao-saidas.html",
+    "title": "Gestão de saídas · escada e stop em lucro"
+  },
+  {
     "href": "/pesquisa-genetica/historico.html",
     "title": "Histórico e gráficos"
   },

@@ -5,7 +5,7 @@ export function v4Status(){
  const s=fs.existsSync(base+'/service.json')?read(base+'/service.json'):null,c=s?spawnSync('ps',['-p',String(s.pid),'-o','command='],{encoding:'utf8'}):null;if(c?.error)throw c.error;
  const active=Boolean(c?.status===0&&c.stdout.includes(script)),control=read(base+'/control.json'),report=read(base+'/status.json'),effectiveMode=control.mode==='ultra'&&!(control.ultraExpiresAt>Date.now())?'eco':control.mode;
  if(report.best&&report.best.modelSHA256!==exportedSHA){const result=read(base+'/results/'+report.best.key+'.json');if(result.modelSHA256!==report.best.modelSHA256)throw Error('Champion evidence mismatch');atomic(path.join(ROOT,'web/data/pepe-v4-wallet.json'),{app:'trend-lab-pepe-v4-wallet',modelSHA256:result.modelSHA256,blocks:result.blocks});exportedSHA=result.modelSHA256;}
- return{app:'trend-lab-pepe-mask-control',run:'v4',active,pid:active?s.pid:null,control,report,runtime:{...report.executionRuntime,adapterActive:active,profiles:{eco:{workers:1},boost:{workers:3},ultra:{workers:5}},requestedMode:control.mode,effectiveMode,threadsPerWorker:2}};
+ return{...(fs.existsSync(ROOT+'/work/pepe-exits-v1/registration.json')?{closed:true,successorControlEndpoint:'http://127.0.0.1:4175/api/exit-lab'}:{}),app:'trend-lab-pepe-mask-control',run:'v4',active,pid:active?s.pid:null,control,report,runtime:{...report.executionRuntime,adapterActive:active,profiles:{eco:{workers:1},boost:{workers:3},ultra:{workers:5}},requestedMode:control.mode,effectiveMode,threadsPerWorker:2}};
 }
 export function v4Action(action,mode){
  if(!['start','resume','pause','eco','boost','ultra'].includes(action)||mode!==undefined&&!['eco','boost','ultra'].includes(mode))throw Error('Unknown action/mode');
