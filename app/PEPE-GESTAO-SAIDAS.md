@@ -64,3 +64,13 @@ Comandos: `node scripts/local-exit-lab.mjs status`, `pause`, `resume`, `eco`, `b
 
 - SB3: https://stable-baselines3.readthedocs.io/en/master/guide/rl_tips.html — problema simplificado, desenho de recompensa, múltiplas sementes e avaliação separada.
 - Binance: https://www.binance.com/en/support/faq/detail/98488a516eb84e3eb34605683dffd554 — taxas de negociação e funding; as tarifas modeladas não substituem a consulta à conta.
+
+## Ultra manual · ajuste operacional de 21/10/2026
+
+Botão Ultra disponível no painel e no menu global de CPU: até5workers ×2threads de cálculo (10threads), com lease de12h concedido exclusivamente por clique. Abrir a página, ler estado e preparar esse botão não ativam Ultra. O modo boost anterior permanece selecionado até o clique. Guardas de memória e disco continuam aplicadas; não há garantia de ganho proporcional de velocidade.
+
+No primeiro clique, um supervisor pede pausa ao coordenador original, espera o término limpo dos checkpoints e inicia o adaptador operacional `run-exit-study-ultra.py`, retomando os mesmos pesos e contadores. Não dispara workers concorrentes sobre a mesma semente. Pausar durante a transição cancela a retomada automática. O arquivo original de pesquisa e os1201inputs registrados permanecem intactos.
+
+A comparação por AST verifica que o adaptador só muda capacidade, telemetria e caminho do worker operacional. O ciclo de aprendizado/avaliação permanece idêntico; o worker operacional também aceita retomar o checkpoint imutável de0passos sem sobrescrevê-lo. Nenhum alvo, risco, recompensa, seed, calendário, número de políticas ou orçamento de passos muda. Registro separado: `runtime-registration-ultra-v1.json`.
+
+Após12h, novos trabalhos usam modo leve; trabalhos já iniciados terminam antes de reduzir a ocupação. Mesmo comportamento na redução manual de capacidade. Testes:24Node e4Python aprovados, usando serviços simulados para não ativar o Ultra real.

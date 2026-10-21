@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-21T15:08:25.524772+00:00",
+  "exportedAt": "2026-10-21T15:36:54.446485+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -98,8 +98,8 @@
       "bytes": 8521
     },
     "PEPE-GESTAO-SAIDAS.md": {
-      "sha256": "224b96efa1f6bdf2edaf49f8a807f5cefafcc3c67ed0f6f1fb1f4402aa81337c",
-      "bytes": 7401
+      "sha256": "d5432dad526edb89dfc4923f3c717344329ed5e9cc75c525af1e7db4d8cd4166",
+      "bytes": 8940
     },
     "PEPE-POCS-OFFLINE.md": {
       "sha256": "e741f2e1d7b39b7d7446ea22a897ddc0066dabe61ae8294c395bbef1b01e0815",
@@ -717,13 +717,21 @@
       "sha256": "e208a46913d3756e07d53af9da81157f8a05fa2ef394c42ed71fb0099d7b928b",
       "bytes": 21057
     },
+    "scripts/exit-lab-runtime-worker.py": {
+      "sha256": "ce5bc7000d438f1a2c1a4eb93db66b8db05e92f487c2141c3d9da0df016d0a68",
+      "bytes": 5161
+    },
     "scripts/exit-lab-service.mjs": {
-      "sha256": "23cc81a1b383de99f222745d49cc385178fb1a1088fbe76d2ce4207304f7dfeb",
-      "bytes": 2078
+      "sha256": "3f85db288dfdceaa8639d16da3358418a2bb864022c7fa9378e410fa3df1577a",
+      "bytes": 4858
     },
     "scripts/exit-lab-source-bridge.mjs": {
       "sha256": "a7dc60726fe75af412e8609b2946a03341e44da00647ee688c81491db5addc39",
       "bytes": 5720
+    },
+    "scripts/exit-lab-upgrade.mjs": {
+      "sha256": "b283709cfee6c3980e9a306f3c689ff3a0ea04e25ef0b4861601445593d17d75",
+      "bytes": 1244
     },
     "scripts/exit-lab-wallet.mjs": {
       "sha256": "e69fa37f02b479fe666f2992bc14cff006ad324208905a872b4bd972d2f6faa9",
@@ -732,6 +740,10 @@
     "scripts/exit-lab-worker.py": {
       "sha256": "4210b9a0274231cf9276ef4d0e0718faca0829b54eeffaf1e95d5b72aaf296c1",
       "bytes": 5035
+    },
+    "scripts/exit-runtime.py": {
+      "sha256": "73a9e71226f507074a69008ea0be1f85adb23bebe91f169f0e6ec2bbdb0f3487",
+      "bytes": 1308
     },
     "scripts/exit_lab_env.py": {
       "sha256": "35cb45abc58f741fc1f9407e296f38372e19e7ddc0cb5c1cfd5cf4a2a1a1357f",
@@ -1285,6 +1297,10 @@
       "sha256": "e953d07b47bf56cf5353b4d614fbce8b7c9745b489603a4a13b05271d61b3c1c",
       "bytes": 2295
     },
+    "scripts/run-exit-study-ultra.py": {
+      "sha256": "4cffa2bbd6d9ba6782c6f271855ef92d26d1babb4d74163cd391a327107dfaf5",
+      "bytes": 4372
+    },
     "scripts/run-exit-study.mjs": {
       "sha256": "9cdff7d775bb987017f5e1e9f2fe3fcd49cdb861ccd9080ba463599e0f29f8a2",
       "bytes": 671
@@ -1725,6 +1741,10 @@
       "sha256": "720a34411c69fe70206bb5af9c4c7372de2058cf669b6e07802deb6e0340ba65",
       "bytes": 3052
     },
+    "tests/test_exit_runtime.py": {
+      "sha256": "7977d08a8f5a00215fadd93bc9ba2aa46a238e741a59e14c433ac9477177edac",
+      "bytes": 2428
+    },
     "tests/test_expanded_validation.py": {
       "sha256": "1f3a956b622f3dcd8465adca528d5b8e6b4c01403d6bd6d26451b0f9aaf48b53",
       "bytes": 764
@@ -1774,8 +1794,8 @@
       "bytes": 2658
     },
     "tests/training-speed.test.mjs": {
-      "sha256": "6026dd50c85fe5c8affb94763a347e685ad11572c3d0efa51e85ac3051a523ff",
-      "bytes": 5785
+      "sha256": "35a267bfe4c5ee4d7788c392fd90532acb2955544af7be1cf624803404a724be",
+      "bytes": 7388
     },
     "tests/ui-shell.test.mjs": {
       "sha256": "3615070654f49298b88f432f86e359b1e5b2a95f810b652778812150042a59db",
@@ -2102,12 +2122,12 @@
       "bytes": 14383
     },
     "web/pesquisa-genetica/gestao-saidas.html": {
-      "sha256": "3bc138189cdf8923e57359c8a8b22fa15778e65629fd64b58ddf569df166d980",
-      "bytes": 9843
+      "sha256": "2a775fecf6f01bbf48c837b05cfed788b3aa9552a2a0cb6e7522f6c2c90adad4",
+      "bytes": 10208
     },
     "web/pesquisa-genetica/gestao-saidas.js": {
-      "sha256": "e4f0f469e3bf89569fad0156549f44e511b3b22d0cd1ed0aaa3bceae12fbb682",
-      "bytes": 7045
+      "sha256": "499b502320d75c430d489b07ba781e7597cd4b17cd378994993806bfa3534b1a",
+      "bytes": 7898
     },
     "web/pesquisa-genetica/historico.html": {
       "sha256": "270e1c31c75928cfd2f76652e666dfc116aaf231d6d72ea2f522d2157c7a10cc",
@@ -2402,8 +2422,8 @@
       "bytes": 11727
     },
     "web/ui/training-speed.js": {
-      "sha256": "4b893b1ed2ac11e753f5c5cb741b28c3da71d5e75118d5e0aaa8690d0b2e298a",
-      "bytes": 8621
+      "sha256": "e3fb6272dc6fed03d17b1b528e52c33a6bae3cb0c302cb5091bc3344560d58b8",
+      "bytes": 8997
     },
     "web/vendor/lightweight-charts.js": {
       "sha256": "bcdca2a528db7c9b386918c99c544bde3eda3f0204ec2d23a64411d4cb4686c9",
