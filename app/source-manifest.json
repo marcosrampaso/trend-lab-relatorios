@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-21T19:31:39.315380+00:00",
+  "exportedAt": "2026-10-21T20:09:19.122279+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -97,9 +97,13 @@
       "sha256": "c4adc50ec12d66f98b1f6fe5dca14aae18d4cf6efff847a5029b299e25b9c678",
       "bytes": 4849
     },
+    "PEPE-ESPECIALISTAS-REPLAY.md": {
+      "sha256": "ac64df984f8c299e124fe66802c53963252ad2408e99279c9f00e214d900bc34",
+      "bytes": 4612
+    },
     "PEPE-ESPECIALISTAS.md": {
-      "sha256": "cfc18ef4ebbfae080b8fa3df3eb7565c28ce72ed7c187601be02b99fa2fe95f3",
-      "bytes": 8824
+      "sha256": "31030b63fd6c7114e14994c6131fb68f16636fcbe6510c8bcd704abbfe39ebf2",
+      "bytes": 9120
     },
     "PEPE-FILTRO-CUSTOS.md": {
       "sha256": "d7dcd74beef14b5585b89804ce522b95160b207f60c5d4eadb3eaff96c10980c",
@@ -792,6 +796,10 @@
     "scripts/expanded-validation-funding-common.mjs": {
       "sha256": "88c1a5b1db154a3a8e76c7efd12f677e30f249427434ff572146f122015f6c68",
       "bytes": 2464
+    },
+    "scripts/export-specialist-replay.mjs": {
+      "sha256": "4d9076d3a9aaebc2d8a47c786b8e9c29c92d7c089853bc54e415834f8fdc119f",
+      "bytes": 5710
     },
     "scripts/extend-minute-history.py": {
       "sha256": "ffe759724a87a2c511af64eff8c200f854d399dc85169255955fe86f513cc020",
@@ -1825,6 +1833,10 @@
       "sha256": "ac0277a9db7df0f4ecf7f40a9c6a7a33884a56f89db2f4aac625bd24b6a87785",
       "bytes": 8448
     },
+    "tests/specialist-replay.test.mjs": {
+      "sha256": "4b1c2680eeefad00109c7a3721bf5bad79ac9c0b6871a1fb90ca7f6296f2bcdc",
+      "bytes": 3603
+    },
     "tests/specialist.test.mjs": {
       "sha256": "c52592f370d4d090535e5b01da22835a20d82abe2c05b4e4f33227b35716025b",
       "bytes": 2366
@@ -2189,9 +2201,25 @@
       "sha256": "89b660807107da72bb452807b8d7f6208c2fccd474d1e9679e4621d7cecfd086",
       "bytes": 6675
     },
+    "web/pesquisa-genetica/especialistas-replay-core.js": {
+      "sha256": "70296c50b82038e36fbceada3e65263f3b35f825815d330a102e214d83e3171a",
+      "bytes": 1987
+    },
+    "web/pesquisa-genetica/especialistas-replay.css": {
+      "sha256": "e357d327ac2449dbe3ecec7b35e9ac81959855db3115b7f463c28968039ccd36",
+      "bytes": 1086
+    },
+    "web/pesquisa-genetica/especialistas-replay.html": {
+      "sha256": "2ff77f7667e1f83605fc8949ccfc53f5dee26962fe6a9abfc7c15cae1e3d4b19",
+      "bytes": 6120
+    },
+    "web/pesquisa-genetica/especialistas-replay.js": {
+      "sha256": "2ab8efebf6f486b3c83ce5288a37445f3721177bb5ff648aad17fb390678f615",
+      "bytes": 13455
+    },
     "web/pesquisa-genetica/especialistas.html": {
-      "sha256": "9d2aebb47cc60410916a4b800460fc059096de197ac1ae25cad2e39cdf3c3f04",
-      "bytes": 7690
+      "sha256": "2c15b2b6bf7b1a08d401f0e66cf00c9030e262c81e5031f1db91337dca1b0589",
+      "bytes": 8177
     },
     "web/pesquisa-genetica/especialistas.js": {
       "sha256": "74cafbde974051df3f09990bace42dae95d33456e2f3fc29efe421586473fa93",
@@ -2542,12 +2570,12 @@
       "bytes": 4675
     },
     "web/ui/navigation.js": {
-      "sha256": "c1ace37a39f54c26fe4ab7537ff5db60f8c6a4ebb8ee7a2b473b7b15f6c02ad7",
-      "bytes": 8612
+      "sha256": "2239243d76b01d8c8a86f2238de89597d248da2a8de22f01d8b8f09117aff1c5",
+      "bytes": 8774
     },
     "web/ui/pages.js": {
-      "sha256": "5b8a655d23a26337fc2e22ff524f4de8046821da71a13fc2bb181529b04c1bb7",
-      "bytes": 6977
+      "sha256": "cd6732f6de371d07c0063825c436c6bc7cf58b65447ffbb9a94b06487bbb0d21",
+      "bytes": 7111
     },
     "web/ui/shell.css": {
       "sha256": "987f556170ea418918e1978eff550732547b244f73d2fddf549425be6091d96c",

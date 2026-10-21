@@ -71,3 +71,8 @@ Protocolo e fontes registrados antes dos dados/treino: `work/pepe-specialists-v1
 Resultado: `work/pepe-specialists-v1/result.json`, espelho `web/data/specialists.json`. Progresso/diagrama no painel local. Os quatro testes Node passaram, incluindo reprodução de uma posição congelada do estudo anterior. Foram conferidos hashes das entradas/fontes e de todos os modelos finais, formas das observações/ações, quatro contadores PPO32.768,20 gerações arquivadas por lado e contabilidade das45 carteiras. Os scripts e resultados antigos não foram alterados.
 
 Fontes: [FinRL](https://github.com/AI4Finance-Foundation/FinRL), [dados de mercado Binance](https://developers.binance.com/en/docs/catalog/core-trading-derivatives-trading-usd-s-m-futures/api/rest-api/market-data). Não houve API paga, credenciais de negociação ou ordens reais.
+
+## Replay e diagnóstico das recusas
+
+[Replay local de candles, ordens, stops e decisões](http://127.0.0.1:4173/pesquisa-genetica/especialistas-replay.html).
+Diagnóstico e reprodução exata das 45 carteiras documentados em `PEPE-ESPECIALISTAS-REPLAY.md`. Nenhum modelo ou regra foi alterado.

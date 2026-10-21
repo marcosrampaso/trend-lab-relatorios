@@ -1,0 +1,17 @@
+✔ one-minute candles and aggregated OHLC cannot reveal unclosed candles (4.580708ms)
+✔ all 45 archived wallets have exact exported ledger and rejection parity (11.149208ms)
+✔ real entry, parities, moving stop and final exit are revealed in archived order (3.398208ms)
+✔ no-trade months retain candles and explain policy versus calibration veto (55.04325ms)
+✔ April PPO entry rejection is executable-risk incompatibility, not a missing order (0.400292ms)
+✔ specialists may choose either direction or cash; ties do not force exposure (1.8475ms)
+✔ fixed exit wrapper reproduces an already-frozen source position from equal initial state (275.939541ms)
+✔ only closed finite input features enter an expert (1.683459ms)
+✔ candle shape uses exactly five already-closed minutes (0.456916ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 504.701334
