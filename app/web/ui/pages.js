@@ -117,6 +117,10 @@ export const PAGES=[
     "title": "Donchian · retorno desde o início"
   },
   {
+    "href": "/pesquisa-genetica/elite-congelada.html",
+    "title": "Elite congelada · preservação dos campeões"
+  },
+  {
     "href": "/pesquisa-genetica/estudos-noticias/index.html",
     "title": "Estudo de notícias e IA"
   },
