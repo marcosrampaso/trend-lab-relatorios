@@ -1,0 +1,42 @@
+✔ registered science and frozen ancestors are unchanged; all controls reproduced (1595.065917ms)
+✔ all pairs retain identical entry fills, reconcile net costs and report every conversion (109.140625ms)
+✔ monthly wallet accounts, frozen entry calendars, target schedule and CDI reconcile (2.775792ms)
+✔ extra minute decision requests lock only after a known profitable close, never a partial (17.378458ms)
+✔ an opening gap through the original stop still loses despite an earlier positive close (0.850209ms)
+✔ a profitable high with an unprofitable close does not activate protection (0.290584ms)
+✔ flat state, partial stage, stale data and off-grid time cannot introduce another action (0.594167ms)
+✔ one-minute streaming control reproduces the old full opportunity without any extra request (502.0025ms)
+✔ frozen ancestors, entry signals and new scientific sources are unchanged (1636.292375ms)
+✔ all paired fills are identical and treatment never protects before actual partial (143.4ms)
+✔ monthly treatment stop histories respect successful partial events and accounts reconcile (2.639375ms)
+✔ calendar summaries and profit-to-loss conversions match paired evidence (36.403ms)
+✔ treatment refuses profit protection before a filled partial, preserving the initial stop (14.798167ms)
+✔ a successful partial activates original protection, and later lock remains available (1.512ms)
+✔ initial stop still closes a position before the first partial (0.722167ms)
+✔ current arm matches the complete previous paired outcome and initial fill is unchanged (412.69875ms)
+✔ current monthly wallet matches frozen previous driver for every ledger field (815.599208ms)
+✔ all source models, old engines and scientific inputs remain frozen (1593.818833ms)
+✔ every paired actual fill is identical and no out-of-calendar outcome enters a stage (146.547709ms)
+✔ monthly wallets keep frozen signals, own balances, risk blocks and correct CDI (1.231083ms)
+✔ fixed chronological stages and reported no-trade means reconcile with pair outcomes (41.770125ms)
+✔ net ladder denominator changes only between original margin and original price-risk (1.262417ms)
+✔ paired diagnostic has identical actual entry and original arm reproduces frozen engine (443.199125ms)
+✔ wallet driver and margin fork reproduce all frozen summary values and ledgers (761.249583ms)
+✔ stage signals cannot force a partial fill after a gap below the observed target (0.775916ms)
+✔ one-minute candles and aggregated OHLC cannot reveal unclosed candles (10.929708ms)
+✔ all 45 archived wallets have exact exported ledger and rejection parity (21.853958ms)
+✔ real entry, parities, moving stop and final exit are revealed in archived order (0.751583ms)
+✔ no-trade months retain candles and explain policy versus calibration veto (141.535958ms)
+✔ April PPO entry rejection is executable-risk incompatibility, not a missing order (0.370959ms)
+✔ shell decorates complete and legacy generated HTML once, retaining evidence/scripts (2.136125ms)
+✔ all local pages are catalogued and every menu destination exists with an unambiguous active group (21.51925ms)
+✔ search handles accents and multiple subject words; query views retain legacy routes (0.809417ms)
+✔ local server serves the home, views, all historical pages and shared assets without rewriting source files (1118.459ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3247.710667

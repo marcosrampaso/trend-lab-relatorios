@@ -213,6 +213,10 @@ export const PAGES=[
     "title": "PEPE V4 · consistência entre trimestres"
   },
   {
+    "href": "/pesquisa-genetica/protecao-minuto.html",
+    "title": "Proteção em 1 minuto versus 5 minutos"
+  },
+  {
     "href": "/pesquisa-genetica/qualidade-pesquisa.html",
     "title": "Plano de qualidade de pesquisa"
   },
