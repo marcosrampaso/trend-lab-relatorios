@@ -133,6 +133,10 @@ export const PAGES=[
     "title": "Experimento com notícias"
   },
   {
+    "href": "/pesquisa-genetica/filtro-custos.html",
+    "title": "Entrada com espaço para custos · PEPE"
+  },
+  {
     "href": "/pesquisa-genetica/finrl-explicado.html",
     "title": "Como funciona o FinRL no Trend Lab"
   },

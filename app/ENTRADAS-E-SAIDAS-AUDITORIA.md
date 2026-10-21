@@ -77,3 +77,7 @@ Os diagnósticos não isolam uma causa única. Custos são grandes em relação 
 Registrar uma hipótese de entrada com custo compatível com o movimento esperado, mantendo uma regra simples de proteção como controle. Uma alteração por vez, dados/risco/custos fixados antes da execução e avaliação futura reservada após congelar escolhas. Não transformar os melhores grupos retrospectivos desta auditoria em um filtro treinado no mesmo calendário.
 
 Artefatos: `work/pepe-entry-audit-v1/{protocol,registration,result}.json`; publicação local `web/data/entry-audit.json`; código `scripts/{entry-audit-core,prepare-entry-audit,run-entry-audit}.mjs`. Pesos/dados brutos ficam locais.
+
+## Continuação registrada e concluída
+
+O estudo separado `pepe-entry-cost-v1` testou um único filtro ATR/custo, mantendo escada+lock, risco e custos. O filtro não passou os critérios; nenhuma regra promovida. Relatório: `PEPE-FILTRO-CUSTOS.md`; painel http://127.0.0.1:4173/pesquisa-genetica/filtro-custos.html. Esta continuação não altera o protocolo ou os resultados congelados desta auditoria.

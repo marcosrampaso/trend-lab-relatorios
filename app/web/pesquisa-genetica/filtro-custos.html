@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Entrada com espaço para custos · PEPE | Trend Lab</title>
+  <link rel="stylesheet" href="experimento-noticias.css"><link rel="stylesheet" href="pepe-v4.css">
+  <script type="module" src="filtro-custos.js"></script>
+</head>
+<body><main>
+  <header>
+    <div class="eyebrow">UMA MUDANÇA DE ENTRADA · CUSTOS E SAÍDA FIXOS</div>
+    <h1>Há espaço<br><span>para pagar os custos?</span></h1>
+    <p class="lead">Comparamos os mesmos sinais do G91, com e sem um filtro de amplitude recente. Nos dois grupos, a saída usa escada e proteção de 0,25R. Este teste é exploratório: não é uma nova validação independente.</p>
+    <p><a href="auditoria-entradas.html">← Auditoria que motivou a hipótese</a></p>
+  </header>
+  <section class="v4-panel" id="resumo">
+    <h2 id="status">Lendo resultado congelado…</h2><p id="summary"></p>
+    <p>Indicadores abaixo: cinco meses de desenvolvimento, com uma carteira independente de R$ 1.000 em cada mês.</p>
+    <div class="v4-metrics" id="metrics"></div><p id="error" role="alert"></p>
+  </section>
+  <section id="hipotese">
+    <div class="eyebrow">DEFINIDA ANTES DOS RESULTADOS</div>
+    <h2>ATR de 5 minutos ≥ 2 × custo estimado.</h2>
+    <p>Antes de aceitar o sinal, estimamos uma entrada e uma saída a preço parado a partir do último fechamento conhecido, com taxas nas duas pontas, slippage adverso e arredondamento de ticks. A entrada passa se o ATR conhecido cobrir pelo menos duas vezes esse custo por unidade.</p>
+    <p><b>ATR mede amplitude recente; não prevê lucro nem direção.</b> O múltiplo 2 foi fixado como hipótese de pesquisa, sem procurar o melhor corte nos resultados. Funding futuro não entra nessa estimativa, pois ainda é desconhecido; o funding ocorrido continua sendo cobrado na simulação.</p>
+    <p>Não mudamos risco de 1%, alavancagem do sinal original, custos de estresse, stops, limites ou a primeira decisão de saída após cinco minutos. A escada continua em 25%/50%/25% nos alvos líquidos equivalentes de 10%/20%/40% sobre a margem original. Não há novo prazo máximo de operação.</p>
+  </section>
+  <section id="comparacao">
+    <h2>O filtro melhorou a carteira?</h2>
+    <label for="split">Calendário</label>
+    <select id="split"><option value="development">Desenvolvimento · 5 meses</option><option value="train">Treino original · 10 meses</option></select>
+    <div class="v4-table"><table><thead><tr><th>Grupo</th><th>Líquido mensal médio</th><th>Queda máxima média</th><th>Acima do CDI</th><th>Meses negativos</th><th>Meses sem operações</th><th>Operações executadas</th></tr></thead><tbody id="arms"></tbody></table></div>
+    <p id="contrast"></p>
+    <div class="v4-legend"><span style="color:#8cbaff">● Sem filtro</span> <span style="color:#7bdcba">● Com filtro</span> <span style="color:#f4c467">● CDI bruto</span></div>
+    <div class="v4-chart" id="monthly"></div>
+    <p>Resultados de carteiras mensais independentes de R$ 1.000, contínuas dentro de cada mês. Não é rentabilidade composta nem uma soma de patrimônio. Meses sem operações permanecem na média. Ambos os grupos recebem a mesma agenda congelada de sinais; não geramos novas oportunidades depois de um veto.</p>
+    <div class="v4-table"><table><thead><tr><th>Mês</th><th>Sem filtro</th><th>Com filtro</th><th>Diferença</th><th>CDI bruto</th><th>Sinais aceitos / disponíveis</th><th>Operações sem / com filtro</th></tr></thead><tbody id="months"></tbody></table></div>
+  </section>
+  <section class="v4-panel" id="carteira">
+    <h2>Trajetória mensal e CDI.</h2><label for="month">Mês</label> <select id="month"></select>
+    <div class="v4-chart" id="wallet"></div><p id="wallet-note"></p>
+    <p>O veto deixa dinheiro em caixa. O tamanho de cada operação depende do saldo próprio; sobreposição e limites podem impedir outros sinais. Por isso a diferença não é só a soma das operações rejeitadas. Conversão fixa de pesquisa em R$ 5/USDT, sem variação cambial BRL/USDT; CDI bruto, antes de impostos.</p>
+  </section>
+  <section id="custos">
+    <h2>De onde veio a diferença?</h2>
+    <div class="v4-table"><table><thead><tr><th>Grupo</th><th>Bruto após slippage*</th><th>Taxas</th><th>Funding</th><th>Vetos do filtro</th><th>Sinais ignorados por limites</th><th>Ignorados por sobreposição</th></tr></thead><tbody id="costs"></tbody></table></div>
+    <p>* Totais contábeis das carteiras independentes deste recorte, não patrimônio acumulado. Slippage já está nos preços preenchidos e não é descontado novamente. Em cada carteira: bruto − taxas + funding = líquido.</p>
+    <p>O filtro reduziu muito a atividade. Sem comparar com vetos aleatórios equivalentes, não isolamos vantagem preditiva além de operar menos. Permanecer integralmente em caixa teria resultado R$ 0 antes de rendimentos e custos; a média filtrada ainda ficou abaixo dessa referência.</p>
+  </section>
+  <section id="conclusao">
+    <h2 id="conclusion-title">Critérios registrados antes de executar.</h2><p id="conclusion"></p>
+    <div class="v4-table"><table><thead><tr><th>Critério no desenvolvimento</th><th>Resultado</th></tr></thead><tbody id="criteria"></tbody></table></div>
+    <p>Mesmo se todos os critérios passarem, o resultado apenas justificaria registrar um novo teste prospectivo. Os dados e o G91 já foram usados na pesquisa anterior. Não consumimos 2025 ou setembro de 2026 neste estudo, mas tampouco chamamos esses períodos antigos de intocados. Nenhuma regra será promovida automaticamente e não ajustaremos o múltiplo depois de ver este resultado.</p>
+    <p><a href="../data/entry-cost-gate.json">Resultado completo, decisões e protocolo · JSON</a> · <a href="auditoria-entradas.html">Auditoria anterior</a></p>
+    <details><summary>Protocolo congelado antes da execução</summary><pre id="protocol"></pre></details>
+  </section>
+  <footer>Trend Lab local · teste retrospectivo de uma hipótese · sem novo treino e sem ordens reais</footer>
+</main></body></html>
