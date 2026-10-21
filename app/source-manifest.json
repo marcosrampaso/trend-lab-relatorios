@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-21T15:36:54.446485+00:00",
+  "exportedAt": "2026-10-21T16:36:33.307844+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -98,8 +98,8 @@
       "bytes": 8521
     },
     "PEPE-GESTAO-SAIDAS.md": {
-      "sha256": "d5432dad526edb89dfc4923f3c717344329ed5e9cc75c525af1e7db4d8cd4166",
-      "bytes": 8940
+      "sha256": "f622d8ccdb105a2423c36733c9a5f7c149053ba45e5df276f79272751ef217cd",
+      "bytes": 12930
     },
     "PEPE-POCS-OFFLINE.md": {
       "sha256": "e741f2e1d7b39b7d7446ea22a897ddc0066dabe61ae8294c395bbef1b01e0815",
@@ -1253,6 +1253,10 @@
       "sha256": "673473a11712aa9a86c775ef61b860f66f236535103136b50f8477882c37047f",
       "bytes": 3096
     },
+    "scripts/report-exit-conclusion.mjs": {
+      "sha256": "9d8cdb17b9c93698ff991c43cbdaecf9f9169f34aea713f285bd710119639aa2",
+      "bytes": 6114
+    },
     "scripts/report-exit-evaluations.mjs": {
       "sha256": "2a6e06fa13c25873a06c52a98af01f8ec4776c7fc47b622daac908812abeb0c0",
       "bytes": 911
@@ -2122,12 +2126,12 @@
       "bytes": 14383
     },
     "web/pesquisa-genetica/gestao-saidas.html": {
-      "sha256": "2a775fecf6f01bbf48c837b05cfed788b3aa9552a2a0cb6e7522f6c2c90adad4",
-      "bytes": 10208
+      "sha256": "f70da137f141432edeaa5923488781fa038b48e1821d837edaadc6d6e74af534",
+      "bytes": 12460
     },
     "web/pesquisa-genetica/gestao-saidas.js": {
-      "sha256": "499b502320d75c430d489b07ba781e7597cd4b17cd378994993806bfa3534b1a",
-      "bytes": 7898
+      "sha256": "cb865e97a5253b014f2607e06fd1c61865b096942c68f7b86f6e687478f31987",
+      "bytes": 10888
     },
     "web/pesquisa-genetica/historico.html": {
       "sha256": "270e1c31c75928cfd2f76652e666dfc116aaf231d6d72ea2f522d2157c7a10cc",

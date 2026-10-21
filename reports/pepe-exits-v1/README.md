@@ -74,3 +74,52 @@ No primeiro clique, um supervisor pede pausa ao coordenador original, espera o t
 A comparação por AST verifica que o adaptador só muda capacidade, telemetria e caminho do worker operacional. O ciclo de aprendizado/avaliação permanece idêntico; o worker operacional também aceita retomar o checkpoint imutável de0passos sem sobrescrevê-lo. Nenhum alvo, risco, recompensa, seed, calendário, número de políticas ou orçamento de passos muda. Registro separado: `runtime-registration-ultra-v1.json`.
 
 Após12h, novos trabalhos usam modo leve; trabalhos já iniciados terminam antes de reduzir a ocupação. Mesmo comportamento na redução manual de capacidade. Testes:24Node e4Python aprovados, usando serviços simulados para não ativar o Ultra real.
+
+
+## Conclusão final · 21/10/2026
+
+Seis políticas concluídas com65.536passos cada (393.216no total). Coordenador e workers encerrados; nenhuma nova rodada foi iniciada. Os1205inputs de ciência/runtime permaneceram íntegros;54arquivos de pesos e18avaliações tiveram hashes conferidos.
+
+| Referência | Líquido mensal médio | Queda máxima média | Carteiras acima do CDI |
+|---|---:|---:|---:|
+| CDI bruto | R$8.50 | — | — |
+| wait | R$14.89 | 18.23% | 1/5 |
+| ladder | R$-63.12 | 8.85% | 0/5 |
+| PPO mark | R$-69.63 | 7.20% | 0/15 |
+| PPO liquidation | R$-69.27 | 7.22% | 0/15 |
+
+Cada carteira inicia comR$1000 e percorre um único mês. Os30resultados PPO compartilham cinco calendários; não são30períodos independentes. Nenhuma carteira PPO final foi positiva. Não somar/compôr os meses ou as sementes. O controle esperar teve média positiva por causa de maio/2024 e perdeu nos outros quatro meses: também não é evidência de estratégia robusta.
+
+| Política final | Líquido mensal médio | Proteções escolhidas e aplicadas |
+|---|---:|---:|
+| mark-101 | R$-69.96 | 1 |
+| mark-202 | R$-69.46 | 0 |
+| mark-303 | R$-69.46 | 0 |
+| liquidation-101 | R$-67.23 | 0 |
+| liquidation-202 | R$-70.34 | 0 |
+| liquidation-303 | R$-70.25 | 1 |
+
+Os dois grupos terminaram com mediana de5min por posição. Das736posições finais,515terminaram por comando do agente (528escolhas de encerrar; nem todas viraram execução, por prioridade de outras saídas); só2comandos de proteção foram aplicados e nenhum trailing foi escolhido. Houve13etapas automáticas de escada executadas, contadas separadamente. A proteção estava disponível em algumas decisões (tabela pública por tipo), mas quase nunca foi escolhida. Portanto, este treino não demonstrou que o PPO aprendeu stop em lucro.
+
+| Ação | Escolhas finais | Disponibilidades por decisão |
+|---|---:|---:|
+| Esperar | 799 | 1329 |
+| Encerrar | 528 | 1329 |
+| Proteger custos | 0 | 158 |
+| Travar 0,25R | 2 | 70 |
+| Trailing1ATR | 0 | 171 |
+| Trailing2ATR | 0 | 171 |
+
+Escolha não equivale a preenchimento: prioridade de stops, gaps e escada pode alterar o comando efetivo. A coluna de disponibilidades pode se sobrepor entre ações e não constitui contagem de amostras independentes.
+
+PPO mark: bruto médio após slippageR$-31.35, taxasR$38.28, fundingR$0.00, líquidoR$-69.63.
+
+PPO liquidation: bruto médio após slippageR$-30.60, taxasR$38.67, fundingR$0.00, líquidoR$-69.27.
+
+O bruto já é negativo e inclui a execução adversa. As taxas agravam o resultado, mas não são o único problema. Slippage não é subtraído uma segunda vez. A diferença deR$0,36entre braços é pequena e não demonstra superioridade estatística; não calculamos teste formal de significância. O contraste também altera mark versus preço negociado, além de antecipar o custo da saída.
+
+**Decisão: nenhum gestor aprovado; nenhuma promoção ou novo treino automático.** A redução da queda máxima acompanha a redução da exposição e não comprova stop inteligente. O conjunto de treino não teve avaliação financeira final registrada para este contraste: não é possível atribuir formalmente overfitting ou underfitting a partir desses resultados. Os calendários são retrospectivos e já vistos pelo laboratório; nenhum teste independente novo foi consumido aqui.
+
+Próxima hipótese proposta, ainda não executada: auditar se as entradas oferecem movimento líquido suficiente antes do stop e comparar uma saída simples na mesma oportunidade de decisão do PPO. Só então considerar revisão da entrada ou recompensa, uma alteração por vez, em novo protocolo e com período futuro separado. Continuar escolhendo melhores checkpoints nestes mesmos cinco meses agravaria a seleção sobreajustada.
+
+Dados completos: `work/pepe-exits-v1/conclusion.json` e `web/data/exit-conclusion.json`. O script `scripts/report-exit-conclusion.mjs` verifica resultados existentes; não treina nem refaz backtests.
