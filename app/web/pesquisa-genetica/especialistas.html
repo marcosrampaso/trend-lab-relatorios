@@ -1,0 +1,38 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Especialistas de compra e venda · PEPE | Trend Lab</title>
+<link rel="stylesheet" href="experimento-noticias.css"><link rel="stylesheet" href="pepe-v4.css">
+<style>.tl-speed{display:none}.specialist-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.specialist-flow article{border:1px solid #31566c;border-radius:12px;padding:18px}.specialist-flow strong{display:block;color:#7bdcba;margin-bottom:10px}@media(max-width:900px){.specialist-flow{grid-template-columns:1fr 1fr}}@media(max-width:480px){.specialist-flow{grid-template-columns:1fr}}</style>
+<script type="module" src="especialistas.js"></script></head><body><main>
+<header><div class="eyebrow">GENÉTICA E PPO · APRENDER ENTRADAS COM SAÍDA FIXA</div>
+<h1>Dois especialistas.<br><span>Uma decisão: comprar, vender ou esperar.</span></h1>
+<p class="lead">Um modelo estuda compras e outro, vendas. O controlador compara suas estimativas de resultado líquido. Cada família é avaliada sozinha nos dois lados e na combinação, sem escolher uma semente vencedora.</p>
+<p><a href="filtro-aleatorio.html">← Por que mudamos o alvo do aprendizado</a></p></header>
+<section class="v4-panel" id="resumo"><h2 id="status" aria-live="polite">Lendo piloto…</h2><p id="status-note"></p>
+<div class="v4-metrics" id="metrics"></div><p id="error" role="alert"></p></section>
+<section id="arquitetura"><h2>Como os especialistas trabalham juntos.</h2>
+<div class="specialist-flow"><article><strong>1 · Mercado conhecido</strong>19 informações: tendência de 1h e 4h, volume, RSI, ATR e corpo/pavios do último candle fechado.</article><article><strong>2 · Especialistas</strong>Compra e venda aprendem separadamente. Genética e PPO são famílias concorrentes, sem misturar pesos incompatíveis.</article><article><strong>3 · Controlador</strong>O lado precisa ser aceito pelo especialista e estimar mais de 0,1R líquido. Escolhe o maior; empate ou nenhum lado elegível deixa caixa.</article><article><strong>4 · Execução fixa</strong>15×, risco 1%, escada 25/50/25 e proteção 0,25R. Taxas, slippage e funding continuam cobrados.</article></div>
+<p><b>FinRL é o framework de pesquisa; PPO é o algoritmo de reforço.</b> Neste piloto, usamos PPO do Stable-Baselines3 em um ambiente novo de decisão de entrada: aceitar uma oportunidade ou esperar. Cada episódio é uma única decisão com recompensa vinda de uma saída fixa simulada. Isso é um <i>bandit contextual</i>, não o antigo ambiente FinRL que aprendia a gerir toda a posição. RSI é um indicador, não o treinador.</p>
+<p>A genética evolui regras lineares com cruzamentos, mutações e oito imigrantes por geração. São 48 indivíduos × 20 gerações por lado. O PPO tem duas sementes fixas por lado, com 32.768 passos cada. São seis especialistas, não seis provas independentes de mercado.</p></section>
+<section id="calendario"><h2>Aprender primeiro, avaliar depois.</h2><div class="v4-table"><table><thead><tr><th>Etapa</th><th>Calendário</th><th>Uso permitido</th></tr></thead><tbody>
+<tr><td>Treino</td><td>Jun–dez/2023</td><td>Evoluir genética e aprender PPO</td></tr>
+<tr><td>Seleção</td><td>Jan–fev/2024</td><td>Escolher entre os campeões genéticos de treino e caixa</td></tr>
+<tr><td>Calibração</td><td>Mar/2024</td><td>Mapear score para estimativa de resultado líquido</td></tr>
+<tr><td>Avaliação retrospectiva</td><td>Abr, mai, jun, jul e set/2024</td><td>Simular todas as nove variantes sem ajustar os modelos</td></tr>
+</tbody></table></div><p>Todos esses históricos já passaram pelo laboratório, inclusive pelo G91. A ordem é cronológica, mas <b>não é um teste final independente novo</b>. Só entram no aprendizado rótulos encerrados até 30 minutos antes do fim de sua etapa. O scaler é ajustado apenas no treino.</p>
+<p>Propomos compra e venda a cada 30 minutos, incluindo momentos ignorados pelo G91. Cada rótulo mede o resultado líquido de uma posição com a mesma escada, stop e custos; inclui encerramento explícito na fronteira mensal quando necessário. Não há novo limite de tempo por operação. Posições de rótulo podem se sobrepor: seus resultados não são uma carteira. A avaliação financeira usa carteiras reais de simulação, sem sobreposição.</p></section>
+<section id="trabalhos"><h2>Progresso de cada especialista.</h2><div class="v4-table"><table><thead><tr><th>Especialista</th><th>Estado</th><th>Progresso</th><th>Exemplos de treino / calibração</th></tr></thead><tbody id="jobs"></tbody></table></div>
+<h3>Genética: fitness de treino por geração.</h3><div class="v4-legend"><span style="color:#7bdcba">● Compras</span><span style="color:#8cbaff">● Vendas</span></div><div class="v4-chart" id="generations"></div>
+<p>Fitness é uma média de resultados normalizados das oportunidades, com penalidade pela variação entre meses. Não é lucro de carteira nem drawdown. As escalas e os custos permanecem fixos. O controle de caixa participa da seleção genética.</p></section>
+<section id="financeiro"><h2>Compras, vendas e combinação versus CDI.</h2><p id="result-note">As carteiras serão publicadas depois que os seis pesos finais estiverem congelados.</p>
+<div class="v4-table"><table><thead><tr><th>Família / semente</th><th>Uso dos especialistas</th><th>Líquido mensal médio</th><th>Acima do CDI</th><th>Meses negativos</th><th>Meses sem ordens</th><th>Operações</th><th>Queda máxima média</th></tr></thead><tbody id="results"></tbody></table></div>
+<p id="ppo-note"></p><p>Uma carteira independente de R$ 1.000 por mês, contínua dentro dele; sem compor os reinícios. Risco 1%, limites diário/global 3%/10%, 15× e custos de estresse em todas as variantes. Todos os meses sem operações entram nas médias. Conversão fixa de pesquisa R$ 5/USDT; CDI bruto antes de impostos.</p>
+<label for="arm">Variante</label> <select id="arm"></select> <label for="month">Mês</label> <select id="month"></select>
+<div class="v4-legend"><span style="color:#7bdcba">● Especialistas</span><span style="color:#f4c467">● CDI bruto</span></div>
+<div class="v4-chart" id="wallet"></div><p id="wallet-note"></p></section>
+<section id="limites"><h2>O que este piloto consegue responder.</h2><p>Ele compara aprender compras, aprender vendas e combinar os dois sob a mesma execução. Um especialista pode rejeitar todas as entradas; uma estimativa positiva pode errar. A calibração não transforma automaticamente uma regra de caixa em uma estratégia ativa.</p>
+<p><b>Slippage real exige dados de execução.</b> Candles ajudam a estudar movimentos de preço, mas não mostram toda a profundidade do livro, tamanho de ordem, fila ou latência. Mantemos o modelo de slippage conservador; não treinamos nem alegamos prever o slippage real com estes candles.</p>
+<p>Não reutilizamos o filtro ATR/custo reprovado. Nenhuma semente será promovida automaticamente, nenhum resultado histórico é garantia futura e nenhum teste prospectivo foi iniciado. Uma avaliação independente futura exige candidato e protocolo congelados antes dos novos dados.</p>
+<p><a href="../data/specialists.json">Resultados finais · JSON</a> · <a href="../data/specialists-progress.json">Protocolo e progresso · JSON</a> · <a href="https://github.com/AI4Finance-Foundation/FinRL">FinRL · fonte oficial</a></p>
+<details><summary>Protocolo registrado antes de executar</summary><pre id="protocol"></pre></details></section>
+<footer>Trend Lab local · piloto finito de especialistas · somente simulação</footer>
+</main></body></html>

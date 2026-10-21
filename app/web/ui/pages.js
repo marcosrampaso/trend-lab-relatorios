@@ -125,6 +125,10 @@ export const PAGES=[
     "title": "Elite congelada · preservação dos campeões"
   },
   {
+    "href": "/pesquisa-genetica/especialistas.html",
+    "title": "Especialistas de compra e venda · PEPE"
+  },
+  {
     "href": "/pesquisa-genetica/estudos-noticias/index.html",
     "title": "Estudo de notícias e IA"
   },
