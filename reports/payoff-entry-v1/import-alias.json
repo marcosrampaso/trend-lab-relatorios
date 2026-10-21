@@ -1,0 +1,6 @@
+{
+  "alias": "scripts/payoff_entry_core.py",
+  "target": "scripts/payoff-entry-core.py",
+  "sha256": "91ed4b035b9e0a692ca0f019e5ecab8f1907d58c709d6222423a3bf70ba76387",
+  "reason": "Python module-name compatibility alias; resolves to the exact registered core source, no scientific source or protocol changed."
+}

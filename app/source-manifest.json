@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-21T21:26:47.457682+00:00",
+  "exportedAt": "2026-10-21T21:38:59.811673+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -104,6 +104,10 @@
     "PEPE-ESPECIALISTAS.md": {
       "sha256": "31030b63fd6c7114e14994c6131fb68f16636fcbe6510c8bcd704abbfe39ebf2",
       "bytes": 9120
+    },
+    "PEPE-EXPECTATIVA-ENTRADAS.md": {
+      "sha256": "72a5338e58b665f4c9366d225c7dfebd823e333966c0fb483170c62f7a53d20a",
+      "bytes": 6389
     },
     "PEPE-FILTRO-CUSTOS.md": {
       "sha256": "d7dcd74beef14b5585b89804ce522b95160b207f60c5d4eadb3eaff96c10980c",
@@ -745,6 +749,10 @@
       "sha256": "7618c601a1f3ce5b0374c73f0dda3db3f85639a6400c6d3cf85b72cc25c7a1c9",
       "bytes": 8954
     },
+    "scripts/evaluate-payoff-entry.mjs": {
+      "sha256": "82344d32e689194140b93203844bcffb1641302519c86be843dc995aaf73039b",
+      "bytes": 3559
+    },
     "scripts/evaluate-pepe-1000.py": {
       "sha256": "e8f0aad278bb142ec822fc813ef191566ef2279ca4bd8c4902ca5cb9e3c602f8",
       "bytes": 1447
@@ -1065,6 +1073,14 @@
       "sha256": "cdf10fc4823440a3a2e9e35a66bac2846315433fc834e580fdd4e7b66b26c8e4",
       "bytes": 7073
     },
+    "scripts/payoff-entry-core.py": {
+      "sha256": "91ed4b035b9e0a692ca0f019e5ecab8f1907d58c709d6222423a3bf70ba76387",
+      "bytes": 1218
+    },
+    "scripts/payoff_entry_core.py": {
+      "sha256": "91ed4b035b9e0a692ca0f019e5ecab8f1907d58c709d6222423a3bf70ba76387",
+      "bytes": 1218
+    },
     "scripts/pepe-1000-bridge.mjs": {
       "sha256": "518059b0bfac287af475c9555fa6c0a7dd0d9fd994bf3218acfdeacda24d3e75",
       "bytes": 5552
@@ -1280,6 +1296,10 @@
     "scripts/prepare-opportunity-audit.mjs": {
       "sha256": "95f0c3bd21c3cbcdee5dcb66c207aff4e46b57c528b9e35da3f82f5fa4bd9d35",
       "bytes": 5076
+    },
+    "scripts/prepare-payoff-entry.mjs": {
+      "sha256": "dd7225586e1571081a3916d1c772d24059d2426988655038194c0db8f22f7dd8",
+      "bytes": 6512
     },
     "scripts/prepare-pepe-1000.mjs": {
       "sha256": "54fa090ef7bdf882a5f65eb82846c0b6d80453087c576f220bf2e9cb7b32324a",
@@ -1625,6 +1645,10 @@
       "sha256": "1e800d82cba9a8f7a8adc4409e154e48bfe9c53f12fc2b33e28ffa348eb189e2",
       "bytes": 3972
     },
+    "scripts/train-payoff-entry.py": {
+      "sha256": "cfb9340f9a61c74321460545dd634151535ec35fa02558d87fd8ce0155153d81",
+      "bytes": 8622
+    },
     "scripts/train-pepe-finrl.py": {
       "sha256": "4a15fead77b14f112c2580aa0c572d3d6eda48dc10300fc5d33b402862c2add4",
       "bytes": 5239
@@ -1841,6 +1865,10 @@
       "sha256": "4fa4a93290892fe4903cb9c3aca94ee3ab1da5dc1a85e40d3737208e36331df4",
       "bytes": 3271
     },
+    "tests/payoff-entry-results.test.mjs": {
+      "sha256": "cf45de45dccee88ae4e786fbd2bea2bae4ac482a8943f6922415a8947c04e8d7",
+      "bytes": 2391
+    },
     "tests/pepe-dashboard.test.mjs": {
       "sha256": "8b466877aa9b8c796dfd66045cc4f95fdd087494aa34db37e42b6e4196b8d02a",
       "bytes": 2861
@@ -1996,6 +2024,14 @@
     "tests/test_local_ml.py": {
       "sha256": "27e8f15e9f65d7501e2e935cb49ac9d9a7f162d730b0f9e12e322802b8640f6d",
       "bytes": 1262
+    },
+    "tests/test_payoff_entry.py": {
+      "sha256": "a787da6292ae3a9b7e27e69d1ebbda910a2cb50e86470d71f1b059794d2268e1",
+      "bytes": 1833
+    },
+    "tests/test_payoff_entry_results.py": {
+      "sha256": "99a635528e4c542bf78908e5cd3b843e0821b19c03ea50ccf521665ad3b04a52",
+      "bytes": 3833
     },
     "tests/test_pepe_entry_risk.py": {
       "sha256": "74cd4dee25c9a75057ee918bf484b96d060beff96650d08fab447dc2f1842a4f",
@@ -2401,6 +2437,14 @@
       "sha256": "56315731af7f2dd2d272353e1d5a2760c64b19f90a89b30ab827bbad75a791d9",
       "bytes": 14383
     },
+    "web/pesquisa-genetica/ganho-perda-entradas.html": {
+      "sha256": "8aa6cd12eb292c815a1f1076fb2543f912c17517fcf8d751dc10f6dd864ebd61",
+      "bytes": 9994
+    },
+    "web/pesquisa-genetica/ganho-perda-entradas.js": {
+      "sha256": "e93a62ff03e728d7d7798bf20c6b18ea2393ddd06aebd9ba6d806f676937c718",
+      "bytes": 7343
+    },
     "web/pesquisa-genetica/gatilho-protecao.html": {
       "sha256": "99622cf3d3e076f51d511f4293327ae3096e6f901030d898aa30adbda26c1c49",
       "bytes": 8271
@@ -2718,12 +2762,12 @@
       "bytes": 4675
     },
     "web/ui/navigation.js": {
-      "sha256": "3d1f33306b6563efc6eb5499da1af520b664ff4088eda1affbef0ff1352d4407",
-      "bytes": 9390
+      "sha256": "a61c79331ed92ab5db8c81a4258df44bb375cd5c8ee03528f50d8db7a08e8328",
+      "bytes": 9543
     },
     "web/ui/pages.js": {
-      "sha256": "74812afc1ccc8d66b2953838f227d9bb751daae6bc3cef3978fd261130b10e43",
-      "bytes": 7569
+      "sha256": "34bb01b8af337e7ededdf58563b319b5c23d8c46c95b8432dc551ea6da3c6abd",
+      "bytes": 7685
     },
     "web/ui/shell.css": {
       "sha256": "987f556170ea418918e1978eff550732547b244f73d2fddf549425be6091d96c",

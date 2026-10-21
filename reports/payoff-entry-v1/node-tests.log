@@ -1,0 +1,27 @@
+✔ registered science and frozen ancestors are unchanged; all controls reproduced (1061.683583ms)
+✔ all pairs retain identical entry fills, reconcile net costs and report every conversion (177.211084ms)
+✔ monthly wallet accounts, frozen entry calendars, target schedule and CDI reconcile (3.780167ms)
+✔ extra minute decision requests lock only after a known profitable close, never a partial (20.578167ms)
+✔ an opening gap through the original stop still loses despite an earlier positive close (0.842833ms)
+✔ a profitable high with an unprofitable close does not activate protection (1.540833ms)
+✔ flat state, partial stage, stale data and off-grid time cannot introduce another action (0.86275ms)
+✔ one-minute streaming control reproduces the old full opportunity without any extra request (507.749917ms)
+✔ no frozen scientific input changed and models remain research only (2144.964542ms)
+✔ all six policies use only the registered forecasts and fixed threshold (428.630625ms)
+✔ all monthly accounts and CDI include zero trades and reconcile without compounding resets (1.063875ms)
+✔ specialists may choose either direction or cash; ties do not force exposure (1.423666ms)
+✔ fixed exit wrapper reproduces an already-frozen source position from equal initial state (672.668709ms)
+✔ only closed finite input features enter an expert (1.4015ms)
+✔ candle shape uses exactly five already-closed minutes (0.792833ms)
+✔ shell decorates complete and legacy generated HTML once, retaining evidence/scripts (4.887625ms)
+✔ all local pages are catalogued and every menu destination exists with an unambiguous active group (21.82825ms)
+✔ search handles accents and multiple subject words; query views retain legacy routes (3.540583ms)
+✔ local server serves the home, views, all historical pages and shared assets without rewriting source files (903.456042ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3076.83775

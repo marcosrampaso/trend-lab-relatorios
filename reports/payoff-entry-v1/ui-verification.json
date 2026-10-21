@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "combinations": 48,
+  "diagnostics": 36,
+  "chartNote": "Boosting de ganho/perda · Combinado · 2024-04. Líquido: R$ 11,93; genética anterior: -R$ 5,01; CDI: R$ 8,87. 1 propostas, 1 posições, 0 propostas com posição ocupada e 0 bloqueadas por risco. Queda máxima: 0.86%.",
+  "uncaughtErrors": 0,
+  "mobileOverflow": false,
+  "desktop": [
+    1440,
+    1080
+  ],
+  "mobile": [
+    390,
+    844
+  ]
+}

@@ -1,0 +1,17 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';import {ROOT,read,hash,atomic} from './multiasset-io.mjs';
+import {Market} from './exit-lab-core.mjs';import {monthlyWallet} from './protection-gate-core.mjs';import {entryChoice} from './specialist-core.mjs';import {cdiReference} from './cdi-reference-core.mjs';
+const study='work/pepe-payoff-entry-v1',base=ROOT+'/'+study,p=read(base+'/protocol.json'),reg=read(base+'/registration.json');
+const verify=()=>{assert.equal(hash(base+'/protocol.json'),reg.protocolSHA256);for(const[f,h]of Object.entries({...reg.inputs,...reg.sourceHashes}))assert.equal(hash(f),h,f);};
+verify();if(fs.existsSync(base+'/result.json'))throw Error('Result already frozen');const training=read(base+'/training-complete.json');
+for(const files of Object.values(training.models))for(const[f,h]of Object.entries(files))assert.equal(hash(f),h,f);
+const parent=read(p.parent+'/result.json'),signals=read(p.gridsParent+'/signals.json'),rates=read('work/pepe-exits-v1/rates.json'),market=new Market(),mean=a=>a.length?a.reduce((n,v)=>n+v,0)/a.length:null;let parity=0;
+for(const[key,months]of Object.entries(signals))for(const m of p.months){const w=monthlyWallet(m,months[m.month],p.engine,market),expected=parent.wallets[key].current.wallets.find(v=>v.month===m.month);for(const[k,v]of Object.entries(w))assert.deepEqual(v,expected[k],'Frozen wallet parity '+key+' '+m.month+' '+k);parity++;}
+const models={},results={};
+for(const family of p.families){const forecasts={};for(const side of p.sides){const key=family+'-'+side;models[key]=read(base+'/models/'+key+'/metrics.json');forecasts[side]=new Map(read(base+'/models/'+key+'/predictions.json').predictions.map(r=>[r.at,r]));}
+ for(const mode of p.modes){const wallets=[];for(const m of p.months){const grid=read(p.gridsParent+'/grids/'+m.month+'.json').rows,entries=[];for(const f of grid){const long=forecasts[1].get(f.at),short=forecasts[-1].get(f.at);assert.ok(long&&short);const side=entryChoice(long.netR,short.netR,mode,p.threshold);if(side)entries.push({atr:f.atr,trade:{entryAt:f.at,side,leverage:p.engine.leverage}});}
+ const w=monthlyWallet(m,entries,p.engine,market),cdi=cdiReference(rates,m.start,m.end,p.engine.capitalBRL);assert.ok(cdi.comparable);wallets.push({...w,cdi});atomic(base+'/status.json',{phase:'wallets',family,mode,month:m.month,realOrders:false});}
+ const stages=Object.fromEntries(['pairedDiagnostic','temporalReplay'].map(stage=>{const a=wallets.filter(w=>w.stage===stage);return[stage,{months:a.length,count:a.reduce((n,w)=>n+w.count,0),proposals:a.reduce((n,w)=>n+w.sourceEntryCount,0),meanMonthlyBRL:mean(a.map(w=>w.pnlBRL)),aboveCDI:a.filter(w=>w.pnlBRL>w.cdi.pnlBRL).length,zeroTradeMonths:a.filter(w=>w.count===0).length}];}));results[family+'-'+mode]={family,mode,wallets,stages};
+ }}
+verify();for(const files of Object.values(training.models))for(const[f,h]of Object.entries(files))assert.equal(hash(f),h,f);
+const r={version:p.version,completedAt:Date.now(),protocol:p,models,results,integrity:{passed:true,walletParity:parity,unchangedInputs:Object.keys({...reg.inputs,...reg.sourceHashes}).length,models:training.models},train:true,realOrders:false,independentValidation:false,automaticPromotion:false};
+fs.writeFileSync(base+'/result.json',JSON.stringify(r),{flag:'wx',mode:0o444});atomic(ROOT+'/web/data/payoff-entry.json',r);atomic(base+'/status.json',{phase:'complete',realOrders:false});console.log(JSON.stringify({complete:true,parity,results:Object.fromEntries(Object.entries(results).map(([k,v])=>[k,v.stages]))}));

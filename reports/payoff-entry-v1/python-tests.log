@@ -1,0 +1,13 @@
+...../Users/marcosbezner/Documents/Codex/2026-10-16/fi/outputs/trend-lab/.venv-rl/lib/python3.14/site-packages/joblib/externals/loky/backend/context.py:134: UserWarning: Could not find the number of physical cores for the following reason:
+invalid literal for int() with base 10: ''
+Returning the number of logical cores instead. You can silence this warning by setting LOKY_MAX_CPU_COUNT to the number of cores you want to use.
+  warnings.warn(
+  File "/Users/marcosbezner/Documents/Codex/2026-10-16/fi/outputs/trend-lab/.venv-rl/lib/python3.14/site-packages/joblib/externals/loky/backend/context.py", line 264, in _count_physical_cores
+    cpu_count_physical = _count_physical_cores_darwin()
+  File "/Users/marcosbezner/Documents/Codex/2026-10-16/fi/outputs/trend-lab/.venv-rl/lib/python3.14/site-packages/joblib/externals/loky/backend/context.py", line 420, in _count_physical_cores_darwin
+    return int(cpu_info)
+....
+----------------------------------------------------------------------
+Ran 9 tests in 7.008s
+
+OK

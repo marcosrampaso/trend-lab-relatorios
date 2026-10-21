@@ -157,6 +157,10 @@ export const PAGES=[
     "title": "G151 · Evolução e saídas"
   },
   {
+    "href": "/pesquisa-genetica/ganho-perda-entradas.html",
+    "title": "Entradas: chance, ganho e perda"
+  },
+  {
     "href": "/pesquisa-genetica/gatilho-protecao.html",
     "title": "Gatilho da proteção de lucro"
   },
