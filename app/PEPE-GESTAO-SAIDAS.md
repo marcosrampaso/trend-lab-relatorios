@@ -123,3 +123,8 @@ O bruto já é negativo e inclui a execução adversa. As taxas agravam o result
 Próxima hipótese proposta, ainda não executada: auditar se as entradas oferecem movimento líquido suficiente antes do stop e comparar uma saída simples na mesma oportunidade de decisão do PPO. Só então considerar revisão da entrada ou recompensa, uma alteração por vez, em novo protocolo e com período futuro separado. Continuar escolhendo melhores checkpoints nestes mesmos cinco meses agravaria a seleção sobreajustada.
 
 Dados completos: `work/pepe-exits-v1/conclusion.json` e `web/data/exit-conclusion.json`. O script `scripts/report-exit-conclusion.mjs` verifica resultados existentes; não treina nem refaz backtests.
+
+
+## Continuação executada · auditoria de entradas
+
+A recomendação foi executada em estudo separado, sem alterar este piloto. Consulte `ENTRADAS-E-SAIDAS-AUDITORIA.md` e http://127.0.0.1:4173/pesquisa-genetica/auditoria-entradas.html . O diagnóstico manteve todas as entradas e comparou quatro saídas simples na mesma oportunidade de decisão; nenhuma foi aprovada financeiramente. Não houve novo treino.

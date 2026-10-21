@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-21T16:36:33.307844+00:00",
+  "exportedAt": "2026-10-21T16:54:27.285441+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -53,6 +53,10 @@
       "sha256": "4f70dcfe0605d4b0fd7e77c6e7625571cd46eee87e665bdf9607b84b0bda9332",
       "bytes": 4491
     },
+    "ENTRADAS-E-SAIDAS-AUDITORIA.md": {
+      "sha256": "2811e731aedf6bd4cfcb0a11b50ae1d9fd016c2440045d3e90842a455e768ab3",
+      "bytes": 7180
+    },
     "EVOLUCAO-GENETICA.md": {
       "sha256": "7caaa88230b4bc0959af5ca703c583bcc2f956699b38a3fab6d830266b2fb745",
       "bytes": 3916
@@ -98,8 +102,8 @@
       "bytes": 8521
     },
     "PEPE-GESTAO-SAIDAS.md": {
-      "sha256": "f622d8ccdb105a2423c36733c9a5f7c149053ba45e5df276f79272751ef217cd",
-      "bytes": 12930
+      "sha256": "a412882d614b528d871c30a0b3a8c5698e60f0d16aaeca10fe6fa7f73d0fac02",
+      "bytes": 13343
     },
     "PEPE-POCS-OFFLINE.md": {
       "sha256": "e741f2e1d7b39b7d7446ea22a897ddc0066dabe61ae8294c395bbef1b01e0815",
@@ -653,6 +657,10 @@
       "sha256": "e9ac86031e9d31cdf51b7b1fecf49dfa240868a5bf7087c6bd5f368245a2710e",
       "bytes": 7264
     },
+    "scripts/entry-audit-core.mjs": {
+      "sha256": "fbb0f06ca080b19ee16d6b910a435ea6f29db7083ef073f5464594e27cd7cd72",
+      "bytes": 6272
+    },
     "scripts/evaluate-btc-comparison.mjs": {
       "sha256": "73d8f448d99257bc66a0ee2849f51257e7325b8d5553b16329dba1eebe60bf08",
       "bytes": 3181
@@ -1165,6 +1173,10 @@
       "sha256": "ebe0781777911a8de6db1675ef9e440470f272c319bd57fdb41c1f01ad942f59",
       "bytes": 1312
     },
+    "scripts/prepare-entry-audit.mjs": {
+      "sha256": "920e68793ca8fbf52956e9359e4271e60c752cea2373d4fa00c5f365cbd4de36",
+      "bytes": 4716
+    },
     "scripts/prepare-exit-sources.py": {
       "sha256": "7775a48ad68ffdd401fa9b1a44fdfc290257bc696478bec4cfd30c4f34858b76",
       "bytes": 2894
@@ -1296,6 +1308,10 @@
     "scripts/run-donchian-defense-study.mjs": {
       "sha256": "f67acccf568feebcd3b8dd829abae71d74564d9a8bf6b05f61440bfc181dee94",
       "bytes": 6763
+    },
+    "scripts/run-entry-audit.mjs": {
+      "sha256": "cab87d4eaf60b43cdc7d7dab018ce946318ca42d4cbc3dc9958c1266f3a956ea",
+      "bytes": 6526
     },
     "scripts/run-exit-controls.mjs": {
       "sha256": "e953d07b47bf56cf5353b4d614fbce8b7c9745b489603a4a13b05271d61b3c1c",
@@ -1556,6 +1572,10 @@
     "tests/engine.test.mjs": {
       "sha256": "2afde97c35d157413a6ab8d0d9e28add6c517a3afddfdaa753cbb8bc406d6c90",
       "bytes": 4556
+    },
+    "tests/entry-audit.test.mjs": {
+      "sha256": "4b9548531d3381229c9f2d428b6d61672cf1067ba5f8a139e771ece5f6261775",
+      "bytes": 3788
     },
     "tests/exit-lab.test.mjs": {
       "sha256": "249ebbfa9d08f4a3c29d936311a08309a74766a7329add9b3a8d7106c7b2b17a",
@@ -1969,6 +1989,14 @@
       "sha256": "5672ca0be9f7dca17d07a81be3e3c749f0065031c12745e6a62ae1a70ecb524c",
       "bytes": 7336
     },
+    "web/pesquisa-genetica/auditoria-entradas.html": {
+      "sha256": "736e75270b889a7409343291316f1177dd62faab3fa0ce397ccf1a6af4b1a4a4",
+      "bytes": 8894
+    },
+    "web/pesquisa-genetica/auditoria-entradas.js": {
+      "sha256": "3501b038e7ffd1e08f568aee69c4dfb58f711f86d74da69c72e942cb86252327",
+      "bytes": 7728
+    },
     "web/pesquisa-genetica/campanhas/search-v3-20261018T183222773Z/ganho-g151.html": {
       "sha256": "23eb1a07f434b9fd31f3125bee85359cd52af7e1f89a28fdafbabc610f83f7ce",
       "bytes": 3797
@@ -2126,8 +2154,8 @@
       "bytes": 14383
     },
     "web/pesquisa-genetica/gestao-saidas.html": {
-      "sha256": "f70da137f141432edeaa5923488781fa038b48e1821d837edaadc6d6e74af534",
-      "bytes": 12460
+      "sha256": "e3c36517c3d915fa654641e6e8ec085428cbf75e81d2863dbe37cd134dffd020",
+      "bytes": 12586
     },
     "web/pesquisa-genetica/gestao-saidas.js": {
       "sha256": "cb865e97a5253b014f2607e06fd1c61865b096942c68f7b86f6e687478f31987",
@@ -2410,12 +2438,12 @@
       "bytes": 4675
     },
     "web/ui/navigation.js": {
-      "sha256": "d577e6e31cd61a0d64f90bfd70242bbece47910e776171bdc07f35c97ed018e9",
-      "bytes": 7973
+      "sha256": "e27a417874f118baa69d807a92c610322aa2f4d9410b0fd01d80281860166e40",
+      "bytes": 8138
     },
     "web/ui/pages.js": {
-      "sha256": "db13cea2d6d4c49a96ccee9964f4e7bb77039f4e61a3501b8ca863ddd354f28c",
-      "bytes": 6513
+      "sha256": "d02c0453d4186a162eee2a464b01ef1556d17b140d3501a5ed08d90864eeb4ba",
+      "bytes": 6635
     },
     "web/ui/shell.css": {
       "sha256": "987f556170ea418918e1978eff550732547b244f73d2fddf549425be6091d96c",

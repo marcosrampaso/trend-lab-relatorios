@@ -53,6 +53,10 @@ export const PAGES=[
     "title": "Relatório G40"
   },
   {
+    "href": "/pesquisa-genetica/auditoria-entradas.html",
+    "title": "Entradas e saídas · auditoria do PEPE"
+  },
+  {
     "href": "/pesquisa-genetica/campanhas/search-v3-20261018T183222773Z/ganho-g151.html",
     "title": "Recorde G151"
   },
