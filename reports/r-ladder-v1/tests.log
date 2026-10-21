@@ -1,0 +1,34 @@
+✔ all frozen input and scientific-source hashes remain unchanged (1176.133791ms)
+✔ every grid timestamp has both sides and cost attribution never double-counts slippage (117.970209ms)
+✔ regime partitions and month summaries include every opportunity once per side (0.347584ms)
+✔ controls use continuous monthly wallets, reconcile BRL and retain no-trade cash (0.903917ms)
+✔ calibration remains read-only with exact acceptance coverage and complete fixed bins (14.936458ms)
+✔ all source models, old engines and scientific inputs remain frozen (622.536959ms)
+✔ every paired actual fill is identical and no out-of-calendar outcome enters a stage (57.131125ms)
+✔ monthly wallets keep frozen signals, own balances, risk blocks and correct CDI (1.035916ms)
+✔ fixed chronological stages and reported no-trade means reconcile with pair outcomes (13.21025ms)
+✔ net ladder denominator changes only between original margin and original price-risk (1.835375ms)
+✔ paired diagnostic has identical actual entry and original arm reproduces frozen engine (380.684583ms)
+✔ wallet driver and margin fork reproduce all frozen summary values and ledgers (263.131708ms)
+✔ stage signals cannot force a partial fill after a gap below the observed target (1.315625ms)
+✔ known feasibility respects cost/tick stop and liquidation and cannot use next candle (2.645666ms)
+✔ regime groups depend on known trends and cost buckets, not outcomes (1.808292ms)
+✔ enriched diagnosis reproduces frozen candidate outcome and cost identity (384.922958ms)
+✔ opportunity means include unfilled zero and retain boundaries separately (1.401959ms)
+✔ one-minute candles and aggregated OHLC cannot reveal unclosed candles (9.364708ms)
+✔ all 45 archived wallets have exact exported ledger and rejection parity (14.684334ms)
+✔ real entry, parities, moving stop and final exit are revealed in archived order (0.479333ms)
+✔ no-trade months retain candles and explain policy versus calibration veto (107.043167ms)
+✔ April PPO entry rejection is executable-risk incompatibility, not a missing order (0.17175ms)
+✔ specialists may choose either direction or cash; ties do not force exposure (3.325167ms)
+✔ fixed exit wrapper reproduces an already-frozen source position from equal initial state (481.586292ms)
+✔ only closed finite input features enter an expert (2.24875ms)
+✔ candle shape uses exactly five already-closed minutes (0.403792ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1449.447917

@@ -119,3 +119,7 @@ Resultados congelados: `work/pepe-opportunity-v1/result.json`; oportunidades ind
 Auditar a relação entre alvos, stop e custos com entradas congeladas. Comparar uma alteração de saída por vez, por exemplo alvos relacionados ao risco do stop, sem simultaneamente mexer no modelo e nas entradas. Só prosseguir a retreino se houver evidência de expectativa favorável e condições de seleção observáveis antes da ordem.
 
 Como os cinco meses já foram examinados, qualquer escolha baseada neles precisa de uma nova avaliação cronológica previamente reservada ou prospectiva. Aumentar gerações ou reduzir limiares para forçar operações não resolve os payoffs negativos. Este diagnóstico não prova impossibilidade de outras estratégias e não autoriza promoção automática.
+
+## Continuidade da pesquisa
+
+A hipótese de escada relacionada ao risco foi executada posteriormente, em estudo separado: [comparação local de saídas em R](http://127.0.0.1:4173/pesquisa-genetica/saidas-em-r.html). Consulte `PEPE-SAIDAS-EM-R.md` para protocolo, resultados pareados e limites da evidência. Este diagnóstico original permanece preservado.

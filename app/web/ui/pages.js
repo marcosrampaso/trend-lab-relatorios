@@ -221,6 +221,10 @@ export const PAGES=[
     "title": "Risco nas entradas do PPO"
   },
   {
+    "href": "/pesquisa-genetica/saidas-em-r.html",
+    "title": "Entradas congeladas · saídas em R"
+  },
+  {
     "href": "/pesquisa-genetica/saidas.html",
     "title": "Saídas adaptativas e novos indicadores"
   },

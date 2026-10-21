@@ -1,5 +1,11 @@
 # Trend Lab · código e relatórios
 
+## Entradas congeladas · saídas em R · 21/10/2026
+
+[Protocolo e interpretação](app/PEPE-SAIDAS-EM-R.md) · [Resultados congelados](reports/r-ladder-v1/) · [Painel local](http://127.0.0.1:4173/pesquisa-genetica/saidas-em-r.html).
+
+23.408 pares com entradas idênticas e64 carteiras mensais. Troca isolada da escada10/20/40% de margem por1/2/3R de preço, frações25/50/25 e proteções preservadas. Não resolveu a expectativa negativa: genética −R$2,54 → −R$3,03/mês nos cinco meses originais; PPO101 +R$0,64 → −R$2,68/mês na checagem posterior deout–dez/2024. Nenhum braço superou CDI. Os históricos já haviam sido usados; sem independência nova.26 testes passaram; modelos e motor antigo preservados, sem retreino ou promoção.
+
 ## Oportunidade e viabilidade dos especialistas · 21/10/2026
 
 [Auditoria e considerações](app/PEPE-OPORTUNIDADES.md) · [Protocolo e resultados](reports/opportunity-v1/) · [Painel local](http://127.0.0.1:4173/pesquisa-genetica/oportunidades.html).
