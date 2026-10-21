@@ -1,5 +1,11 @@
 # Trend Lab · código e relatórios
 
+## Oportunidade e viabilidade dos especialistas · 21/10/2026
+
+[Auditoria e considerações](app/PEPE-OPORTUNIDADES.md) · [Protocolo e resultados](reports/opportunity-v1/) · [Painel local](http://127.0.0.1:4173/pesquisa-genetica/oportunidades.html).
+
+14.582 oportunidades isoladas, 14.574 preenchidas: viabilidade não explica a inatividade geral. Operações positivas: 44,2% nas compras e 46,9% nas vendas, com ganhos médios de 0,36–0,37R versus perdas de 0,89R após custos. Os três controles ativos atingiram limite global em todos os cinco meses; CDI bruto +R$8,50/mês. As faixas positivas relevantes da calibração tinham sete/dez exemplos e falharam na avaliação. Nenhum novo treino, filtro ou alteração de risco aplicado. Históricos previamente consumidos; oportunidades sobrepostas não são lucro de carteira. 18 testes passaram e 1.350 inputs/fontes registrados permaneceram intactos.
+
 ## PEPE V3 · teste final e V4 revisada · 21/10/2026
 
 **V4 concluída:** 20 gerações, 500 candidatos completos e validação de três políticas. Nenhum aprovado. Filho selecionado: −R$103,66 em 2025-Q3, −R$100,93 em 2025-Q4 e −R$103,09 na carteira contínua de 15 meses; CDI nessa carteira +R$173,83. Os dois filhos têm pesos distintos e as mesmas operações finais. [Conclusão e diagnóstico](app/PEPE-V3-FINAL-E-V4.md#conclusão-da-v4--20-gerações-concluídas) · [Evidência da validação](reports/pepe-v4-v2/validation-report.json). Sem retreino após a avaliação.

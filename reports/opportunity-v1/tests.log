@@ -1,0 +1,26 @@
+✔ all frozen input and scientific-source hashes remain unchanged (2209.062916ms)
+✔ every grid timestamp has both sides and cost attribution never double-counts slippage (226.302625ms)
+✔ regime partitions and month summaries include every opportunity once per side (0.6665ms)
+✔ controls use continuous monthly wallets, reconcile BRL and retain no-trade cash (1.507166ms)
+✔ calibration remains read-only with exact acceptance coverage and complete fixed bins (25.535542ms)
+✔ known feasibility respects cost/tick stop and liquidation and cannot use next candle (9.326333ms)
+✔ regime groups depend on known trends and cost buckets, not outcomes (3.824334ms)
+✔ enriched diagnosis reproduces frozen candidate outcome and cost identity (791.029708ms)
+✔ opportunity means include unfilled zero and retain boundaries separately (1.427583ms)
+✔ one-minute candles and aggregated OHLC cannot reveal unclosed candles (11.786958ms)
+✔ all 45 archived wallets have exact exported ledger and rejection parity (37.920208ms)
+✔ real entry, parities, moving stop and final exit are revealed in archived order (2.507291ms)
+✔ no-trade months retain candles and explain policy versus calibration veto (317.696ms)
+✔ April PPO entry rejection is executable-risk incompatibility, not a missing order (0.51975ms)
+✔ specialists may choose either direction or cash; ties do not force exposure (13.4825ms)
+✔ fixed exit wrapper reproduces an already-frozen source position from equal initial state (955.293375ms)
+✔ only closed finite input features enter an expert (1.872792ms)
+✔ candle shape uses exactly five already-closed minutes (0.641292ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2923.8995

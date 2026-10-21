@@ -181,6 +181,10 @@ export const PAGES=[
     "title": "Nova genética"
   },
   {
+    "href": "/pesquisa-genetica/oportunidades.html",
+    "title": "Oportunidade e viabilidade das entradas"
+  },
+  {
     "href": "/pesquisa-genetica/pepe-conclusao.html",
     "title": "Conclusão das1.000 gerações PEPE"
   },

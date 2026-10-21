@@ -1,0 +1,442 @@
+{
+  "version": "pepe-opportunity-v1",
+  "registeredAt": 1792613951746,
+  "origin": "work/pepe-specialists-v1",
+  "engine": {
+    "version": "pepe-exits-v1",
+    "symbol": "1000PEPEUSDT",
+    "unit": "One contract quantity unit represents 1000 PEPE; prices are USDT per 1000PEPE, not per PEPE.",
+    "train": {
+      "start": "2023-06",
+      "end": "2024-10"
+    },
+    "validation": {
+      "start": "2025-01",
+      "end": "2025-07"
+    },
+    "test": {
+      "start": null,
+      "end": null,
+      "status": "locked_pending_new_prospective_period"
+    },
+    "decisionMinutes": 5,
+    "executionMinutes": 1,
+    "capitalBRL": 1000,
+    "fx": 5,
+    "risk": 0.01,
+    "leverage": 15,
+    "dailyLimit": 0.03,
+    "totalLimit": 0.1,
+    "stopATR": 1.5,
+    "targetR": 2,
+    "cooldownMinutes": 10,
+    "maintenance": 0.005,
+    "fundingReserve": 0.0003,
+    "enforceTicks": true,
+    "exitMode": "split",
+    "firstTargetFraction": 0.5,
+    "protectMode": "off",
+    "costCases": [
+      {
+        "id": "base",
+        "fee": 0.0005,
+        "slippage": 0.0005
+      },
+      {
+        "id": "stress",
+        "fee": 0.001,
+        "slippage": 0.001
+      }
+    ],
+    "trainingCost": "stress",
+    "actions": [
+      "Manter / ficar em caixa",
+      "Abrir compra 10×",
+      "Abrir venda 10×",
+      "Encerrar",
+      "Realizar 50% uma vez",
+      "Proteger custos",
+      "Trailing 1 ATR",
+      "Trailing 2 ATR",
+      "Abrir compra 15×",
+      "Abrir venda 15×"
+    ],
+    "trainingEpisodeDays": 7,
+    "rewardScale": 100,
+    "drawdownPenalty": 0.25,
+    "ppo": {
+      "n_steps": 1024,
+      "batch_size": 256,
+      "n_epochs": 5,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_range": 0.2,
+      "ent_coef": 0.01
+    },
+    "policyNetwork": [
+      64,
+      64
+    ],
+    "selection": "No genetic mutation or best-checkpoint cherry-picking. Compare predeclared final65536-step policies; aggregate all three seeds per reward arm before any preference. Show every seed and negative/no-trade outcome.",
+    "realOrders": false,
+    "automaticPromotion": false,
+    "notes": [
+      "New isolated experiment. Old registrations, checkpoints and results remain unchanged.",
+      "SB3-Contrib MaskablePPO with the existing custom FinRL research environment. The FinRL DRLAgent factory does not implement masking. Historical PPO policy tensors are transferred only after checking every key and shape; optimizers are reset.",
+      "38 observations and 10 actions retained. Invalid state actions are masked during learning AND deterministic evaluation. Flat state cannot close/partially close/protect; open state cannot enter again. Cash is always permitted. Execution may still reject a causally valid command after a future gap, funding, zero volume or changed exchange minimum.",
+      "Training only June 2023–September 2024 excluding August 2024. All 250 candidates receive the identical continuous October–December 2024 audit each generation, with one R$1000 wallet and original daily/global loss stops. Never reset losses inside that calendar.",
+      "Rotating two-day probes are diagnostics only. Both new all-time probe PNL peaks and continuous-score champions are archived before further learning or replacement, including exact weights, hashes, wallet curve, trades, costs, calendar and lineage.",
+      "Initialization scans recoverable PEPE neural policies from the completed 250 run, partial 1000 run, immutable candidates, and G830 behavioral reconstruction. ETH G151 trees and Donchian rules cannot initialize PPO tensors. No missing historical weights are invented.",
+      "Active parent ranking is explicitly separate from the cash baseline: if all active policies lose, initialization is labeled least-bad active, not profitable. Population selection thereafter may favor cash.",
+      "Agent 0 starts with an exact tensor copy of the chosen converted parent. All 250 start from that parent with diverse learning hyperparameters and independent RNG; no silent random parameter perturbation. Later immigrants start fresh and are labeled.",
+      "Old validation Jan–Jun 2025 and old final July 2025–Aug 2026 have already been inspected. Neither is used in V3 fitness or called an independent test. Final V3 results stay pending until a new prospective calendar is separately registered and frozen.",
+      "Risk 1%, daily loss 3%, total loss 10%, leverage choice 10x/15x and stressed execution costs unchanged. No forced trading, live orders, paid AI API, credentials or network calls during training.",
+      "One thousand target generations, 250 logical agents, three worker processes in boost / one in eco, two Torch threads per worker. 48-hour active compute budget; checkpoint and pause rather than promise overnight completion."
+    ],
+    "reserved": "2026-09",
+    "excludedTraining": [
+      {
+        "start": "2024-08",
+        "end": "2024-09",
+        "reason": "Two actual mark-price minutes absent from monthly, daily and REST archives. Whole month excluded from reward/trading episodes; its valid price candles can still supply causal indicator context."
+      }
+    ],
+    "allowedLeverages": [
+      15
+    ],
+    "requireVolume": true,
+    "development": {
+      "start": "2024-10",
+      "end": "2025-01"
+    },
+    "population": 250,
+    "generations": 1000,
+    "workers": 3,
+    "ecoWorkers": 1,
+    "stepsPerGeneration": 1024,
+    "probeDays": 2,
+    "minimumMaturity": 5,
+    "eliteFraction": 0.1,
+    "replaceFraction": 0.2,
+    "immigrantFraction": 0.05,
+    "anchorEveryGenerations": 50,
+    "finalists": 10,
+    "maxWallHours": 48,
+    "minimumFreeGiB": 10,
+    "hyperparameters": {
+      "learning_rate": [
+        0.0001,
+        0.0002,
+        0.0003,
+        0.0005,
+        0.001
+      ],
+      "ent_coef": [
+        0.001,
+        0.003,
+        0.01,
+        0.02,
+        0.03
+      ],
+      "gamma": [
+        0.95,
+        0.97,
+        0.99,
+        0.995
+      ],
+      "clip_range": [
+        0.1,
+        0.2,
+        0.3
+      ]
+    },
+    "globalSeed": 20261020,
+    "threadsPerWorker": 2,
+    "observationCount": 38,
+    "createdAt": 1792594560270,
+    "seed": 2026102105,
+    "founder": {
+      "label": "V3 G91/a245",
+      "modelPath": "work/pepe-exits-v1/founder.zip",
+      "modelSHA256": "2ee954256829b8ffea36a4fea682ac3c15f046e8ca76e34c3cc4d9f9fd42dc0b"
+    },
+    "months": [
+      {
+        "month": "2023-06",
+        "start": 1685577600000,
+        "end": 1688169600000,
+        "split": "train"
+      },
+      {
+        "month": "2023-07",
+        "start": 1688169600000,
+        "end": 1690848000000,
+        "split": "train"
+      },
+      {
+        "month": "2023-08",
+        "start": 1690848000000,
+        "end": 1693526400000,
+        "split": "train"
+      },
+      {
+        "month": "2023-09",
+        "start": 1693526400000,
+        "end": 1696118400000,
+        "split": "train"
+      },
+      {
+        "month": "2023-10",
+        "start": 1696118400000,
+        "end": 1698796800000,
+        "split": "train"
+      },
+      {
+        "month": "2023-11",
+        "start": 1698796800000,
+        "end": 1701388800000,
+        "split": "train"
+      },
+      {
+        "month": "2023-12",
+        "start": 1701388800000,
+        "end": 1704067200000,
+        "split": "train"
+      },
+      {
+        "month": "2024-01",
+        "start": 1704067200000,
+        "end": 1706745600000,
+        "split": "train"
+      },
+      {
+        "month": "2024-02",
+        "start": 1706745600000,
+        "end": 1709251200000,
+        "split": "train"
+      },
+      {
+        "month": "2024-03",
+        "start": 1709251200000,
+        "end": 1711929600000,
+        "split": "train"
+      },
+      {
+        "month": "2024-04",
+        "start": 1711929600000,
+        "end": 1714521600000,
+        "split": "development"
+      },
+      {
+        "month": "2024-05",
+        "start": 1714521600000,
+        "end": 1717200000000,
+        "split": "development"
+      },
+      {
+        "month": "2024-06",
+        "start": 1717200000000,
+        "end": 1719792000000,
+        "split": "development"
+      },
+      {
+        "month": "2024-07",
+        "start": 1719792000000,
+        "end": 1722470400000,
+        "split": "development"
+      },
+      {
+        "month": "2024-09",
+        "start": 1725148800000,
+        "end": 1727740800000,
+        "split": "development"
+      }
+    ],
+    "minimumControllable": {
+      "train": 20,
+      "development": 20
+    },
+    "sourcePolicyNeverLearns": true,
+    "sourceCorpus": "Independent monthly R$1000 source accounts, original masked actions/costs/risk. Record entry snapshots with only information known before each entry. Source monthly profits must never be compounded.",
+    "limitation": "All calendars and the entry generator were already used in previous research. Retrospective exit-management pilot, not independent validation. 2025 validation and September2026 final are excluded.",
+    "exitObservationCount": 29,
+    "exitActions": [
+      "Esperar",
+      "Encerrar",
+      "Proteger custos",
+      "Travar lucro líquido 0.25R",
+      "Trailing1ATR",
+      "Trailing2ATR"
+    ],
+    "lockR": 0.25,
+    "profitLadder": [
+      {
+        "roi": 0.1,
+        "fraction": 0.25
+      },
+      {
+        "roi": 0.2,
+        "fraction": 0.5
+      },
+      {
+        "roi": 0.4,
+        "fraction": 0.25
+      }
+    ],
+    "protectAfterFirst": true,
+    "ladderReference": "Hypothetical net return of the ORIGINAL full quantity over ORIGINAL initial margin, with modeled entry/exit fees, adverse exit slippage, tick rounding and known funding. Reference never changes after partials. Final weighted target approximately22.5% of original margin if all targets fill exactly. Not actual total-position ROI after prior partials.",
+    "ladderExecution": "Signal uses last closed decision bar; execute at next tradable opening only when its cost-adjusted ROI still meets the registered target. Otherwise no fill. Stop/gap/liquidation checks take precedence. One ladder stage per decision. Original quantity fractions25/50/remainder; reject invalid exchange lots/notionals, never fabricate partials.",
+    "trainingRewardArms": [
+      "mark",
+      "liquidation"
+    ],
+    "seeds": [
+      101,
+      202,
+      303
+    ],
+    "trainingStepsPerRun": 65536,
+    "chunkSteps": 8192,
+    "evaluateAtSteps": [
+      0,
+      32768,
+      65536
+    ],
+    "ppoExit": {
+      "n_steps": 1024,
+      "batch_size": 256,
+      "n_epochs": 5,
+      "learning_rate": 0.0003,
+      "gamma": 0.995,
+      "gae_lambda": 0.95,
+      "clip_range": 0.2,
+      "ent_coef": 0.01
+    },
+    "exitNetwork": [
+      64,
+      64
+    ],
+    "rewardDescription": "Incremental mark equity (control) or known net liquidation equity (treatment), in original price-risk R, minus0.25 incremental drawdown inR. Include entry/reset costs in first transition. No reward for pressing partial/protection buttons. Stop tightening alone creates no equity reward.",
+    "episodeDesign": "One original frozen entry per episode, exact entry fill/quantity and known pre-entry cash/day state. Exits may be earlier or later than original; data ends at same month end, marked as truncation. Independent counterfactual positions can overlap: their sum is not a portfolio return.",
+    "baselines": [
+      "wait",
+      "lock",
+      "trail",
+      "ladder",
+      "ladder_trail"
+    ],
+    "evaluation": "Paired position study with original entry prices/quantities; plus separate continuous monthly R$1000 wallets fed same source entry signals, sized with their own cash and1% risk. Overlap/risk skips are reported. Compare CDI only against these actual wallets, never sums of independent positions.",
+    "finalTest": "No independent profit claim. Previously consumed2025 validation andSeptember2026 final excluded. Register a fresh prospective paper period only after this exit pilot is frozen.",
+    "chunkReset": "Environment and RNG reset at each8192-step boundary, using seed+chunk. Open training episodes are abandoned at that boundary; evaluations use full closed episodes.",
+    "termination": "Six runs x65536steps, pause/error or disk<10GiB; checkpoints each8192. No automatic scale-up or real trading."
+  },
+  "months": [
+    {
+      "month": "2024-04",
+      "start": 1711929600000,
+      "end": 1714521600000,
+      "split": "evaluation"
+    },
+    {
+      "month": "2024-05",
+      "start": 1714521600000,
+      "end": 1717200000000,
+      "split": "evaluation"
+    },
+    {
+      "month": "2024-06",
+      "start": 1717200000000,
+      "end": 1719792000000,
+      "split": "evaluation"
+    },
+    {
+      "month": "2024-07",
+      "start": 1719792000000,
+      "end": 1722470400000,
+      "split": "evaluation"
+    },
+    {
+      "month": "2024-09",
+      "start": 1725148800000,
+      "end": 1727740800000,
+      "split": "evaluation"
+    }
+  ],
+  "jobs": [
+    {
+      "side": 1,
+      "family": "genetic",
+      "seed": 151,
+      "key": "genetic-1-151"
+    },
+    {
+      "side": 1,
+      "family": "ppo",
+      "seed": 101,
+      "key": "ppo-1-101"
+    },
+    {
+      "side": 1,
+      "family": "ppo",
+      "seed": 202,
+      "key": "ppo-1-202"
+    },
+    {
+      "side": -1,
+      "family": "genetic",
+      "seed": 151,
+      "key": "genetic--1-151"
+    },
+    {
+      "side": -1,
+      "family": "ppo",
+      "seed": 101,
+      "key": "ppo--1-101"
+    },
+    {
+      "side": -1,
+      "family": "ppo",
+      "seed": 202,
+      "key": "ppo--1-202"
+    }
+  ],
+  "threshold": 0.1,
+  "question": "Distinguish absence of profitable fixed-exit opportunities, infeasible execution, policy rejection and calibration veto. Diagnostic only, no model training, threshold optimization or automatic promotion.",
+  "opportunities": "Same fixed 30-minute grid and closed19 inputs as frozen specialists. Both sides evaluated independently with fresh R$1000 accounts and unchanged fixed ladder_lock exits, stress fees/slippage/ticks/funding/limits15x/risk1%. Counterfactual labels can overlap; means/rates are diagnostics, never compounded portfolio PNL.",
+  "knownFeasibility": "Static order-size, tick, stop and liquidation check at LAST KNOWN CLOSE, originalcapital. No next open, candle extrema or future outcomes enter this estimate. Report confusion against actual first-minute fill. Does not predict gaps, next-minute volume, mark intrabar path or changing wallet balance.",
+  "costAttribution": "Reference-price gross = modeled-fill gross + adverse slippage/ticks on same archived path. Net = reference gross - slippage - fees + funding. This is accounting attribution, NOT a zero-cost strategy rerun; costs affect the path and decisions.",
+  "groups": {
+    "trend": [
+      "aligned",
+      "opposed",
+      "mixed"
+    ],
+    "friction": [
+      "upTo025R",
+      "025to05R",
+      "above05R",
+      "unavailable"
+    ],
+    "volume": [
+      "below1",
+      "1to2",
+      "atLeast2"
+    ]
+  },
+  "grouping": "Predeclared one-dimensional buckets from closed features only. Report both directions, per-month results and support. No grid search, winner selection, interaction mining or IID significance claim. Friction buckets use price-risk R, not original risk-budget R of the label.",
+  "controls": [
+    "cash",
+    "all_long",
+    "all_short",
+    "aligned_trend"
+  ],
+  "controlsDefinition": "Same monthly actual continuous wallet and every30m grid. all_long buys,all_short sells; aligned_trend enters the common nonzero direction when closed1h and4h agree; cash holds. Same exits, overlap, cooldown, fees, leverage, daily/global stops. No feasibility gate applied to any strategy; diagnostic estimate not deployed. Report all fixed controls, not choose a winner.",
+  "calibration": "Read frozen scalers/models/calibrators only. No fitting. Reconstruct exact March maturity/embargo and compare raw score support, clipping and expected-netR bins<=0,(0,.1],(.1,.25],>.25. Compare calibrated prediction against counterfactual outcome by month. Unsupported small bins flagged (<50 March rows). No global calibration metric is a profitability claim.",
+  "boundaries": "Keep month-end settlements and report means with/without boundary outcomes. Five previously consumed months, not an independent holdout. No sum of opportunity PNL as investment return.",
+  "parity": "New diagnostic candidate wrapper must match frozen candidateOutcome exactly; deterministic30 cases checked against archived train/calibration labels. All registered inputs checked before/after.",
+  "realOrders": false,
+  "retrain": false,
+  "independentValidation": false,
+  "automaticPromotion": false
+}

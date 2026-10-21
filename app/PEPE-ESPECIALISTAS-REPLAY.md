@@ -49,3 +49,7 @@ Pacote local: `web/data/specialist-replay/`. Candles não são enviados ao GitHu
 ## Próxima hipótese, ainda não aplicada
 
 Verificar a viabilidade das entradas por lado e regime antes de investir em mais gerações. Medir cobertura e retorno após custos contra uma política simples nas mesmas oportunidades. Auditar suporte e estabilidade das faixas de calibração. Se existir vantagem mensurável, registrar uma única alteração com nova avaliação cronológica. Não baixar o limiar apenas para criar operações e não selecionar novos parâmetros nestes mesmos meses e chamá-los de teste independente.
+
+## Auditoria seguinte concluída
+
+[Oportunidade e viabilidade](http://127.0.0.1:4173/pesquisa-genetica/oportunidades.html): 14.582 contrafactuais, 20 carteiras de controles, custos, regimes e suporte da calibração. Documento `PEPE-OPORTUNIDADES.md`. Nenhum modelo foi retreinado.
