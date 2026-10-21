@@ -1,5 +1,15 @@
 # Trend Lab · código e relatórios
 
+## PEPE V3 · teste final e V4 revisada · 21/10/2026
+
+[Método e diagnóstico](app/PEPE-V3-FINAL-E-V4.md) · [Teste final V3 local](http://127.0.0.1:4173/pesquisa-genetica/pepe-v3-final.html) · [V4 local](http://127.0.0.1:4173/pesquisa-genetica/pepe-v4.html#validacao).
+
+V3 encerrada em 338 gerações completas, checkpoint parcial preservado. G91/a245 congelado antes de abrir setembro/2026: −R$102,65 com estresse, −R$101,44 com custos base; CDI +R$10,82. Zero passos de treino no teste; pesos idênticos nas avaliações. [Evidência registrada](reports/pepe-v3-final-v1/).
+
+V4 revisada: 25 filhos × 20 gerações totais, retomando as quatro completas da revisão anterior. Seleção em três trimestres, elite imutável, mutação limitada à taxa de aprendizado e médias incluindo rejeitados/caixa. Ao final, até dois filhos congelados e o pai como controle são avaliados em 2025-Q3/Q4, mais uma carteira contínua de 15 meses. Vencedor prioriza o pior excesso trimestral sobre CDI; aprovação exige superar CDI em todas essas avaliações, sem limite global e com drawdown <=20%. Validação histórica já vista em estudos anteriores, sem alegação de independência; teste prospectivo novo continua pendente. [Registro e retrato datado da V4](reports/pepe-v4-v2/). Sem retreino após a validação e sem ordens reais.
+
+Controles CPU agora seguem a V4 local. Fonte e snapshots versionados; pesos, candles e banco privado permanecem locais.
+
 ## Plano para buscar 60% de qualidade de pesquisa
 
 [Diagnóstico e plano](app/PEPE-QUALIDADE-PESQUISA.md) · [Evidência numérica](experiments/pepe-quality-audit-v1/audit-and-plan.json) · [Painel local](http://127.0.0.1:4173/pesquisa-genetica/qualidade-pesquisa.html).

@@ -1,0 +1,3 @@
+import fs from'node:fs';import{read,atomic}from'./multiasset-io.mjs';import{cdiReference}from'./cdi-reference-core.mjs';
+const run=fs.existsSync('work/pepe-v4-v2/registration.json')?'work/pepe-v4-v2':'work/pepe-v4-v1',p=read(run+'/protocol.json'),rates=read(run+'/rates.json'),blocks=[...p.diagnosticTrainBlocks,...p.fitnessBlocks,...(p.validationBlocks??[]),...(p.continuousAudit?[p.continuousAudit]:[])];
+atomic('web/data/pepe-v4-cdi.json',Object.fromEntries(blocks.map(b=>{const cdi=cdiReference(rates,b.start,b.end,p.capitalBRL);if(!cdi.comparable)throw Error('CDI not reconciled: '+b.id);return[b.id,cdi];})));

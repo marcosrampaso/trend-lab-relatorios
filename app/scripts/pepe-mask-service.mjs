@@ -13,7 +13,7 @@ export function maskedStatus(){
  const latest=fs.existsSync(base+'/runtime-status.json')?read(base+'/runtime-status.json'):null;
  const effectiveMode=control.mode==='ultra'&&!(control.ultraExpiresAt>Date.now())?'eco':control.mode;
  const runtime=config?{...latest,profiles:config.profiles,maximumWorkers:config.maximumWorkers,threadsPerWorker:config.threadsPerWorker,requestedMode:control.mode,effectiveMode,ultraExpiresAt:control.ultraExpiresAt??null,ultraExpired:control.mode==='ultra'&&effectiveMode==='eco',adapterActive:active&&[ultraScript,unlimitedScript].includes(actualScript)}:null;
- return{app:'trend-lab-pepe-mask-control',active,pid:active?s.pid:null,script:actualScript,control,runtime,report:fs.existsSync(base+'/status.json')?read(base+'/status.json'):null};
+ return{...(fs.existsSync(base+'/closure.json')?{closed:true,successorControlEndpoint:fs.existsSync(path.join(ROOT,'work/pepe-v4-v1/registration.json'))?'http://127.0.0.1:4175/api/mask-v4':null}:{}),app:'trend-lab-pepe-mask-control',active,pid:active?s.pid:null,script:actualScript,control,runtime,report:fs.existsSync(base+'/status.json')?read(base+'/status.json'):null};
 }
 export function maskedAction(action,mode){
  if(!['start','resume','pause','eco','boost','ultra'].includes(action))throw Error('Unknown action');
@@ -25,6 +25,7 @@ export function maskedAction(action,mode){
   if(action==='ultra'||['start','resume'].includes(action))control.ultraExpiresAt=now+leaseMS;
  }
  if(control.desired==='running'){
+  if(fs.existsSync(base+'/closure.json'))throw Error('V3 encerrada antes do teste final; use o piloto V4 registrado');
   if(old.report?.status==='complete_training_final_locked')throw Error('Training complete; register another run before retraining');
   for(const run of['pepe-finrl-v2','pepe-finrl-1000-v1']){const file=path.join(ROOT,'work',run,'service.json');if(!fs.existsSync(file))continue;const svc=read(file),check=spawnSync('ps',['-p',String(svc.pid),'-o','command='],{encoding:'utf8'});if(check.error)throw check.error;if(check.status===0&&/scripts\/run-pepe-(pbt|1000)\.mjs/.test(check.stdout))throw Error('Pause the old population and wait for its checkpoint first');}
  }

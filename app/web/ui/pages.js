@@ -169,8 +169,16 @@ export const PAGES=[
     "title": "G830: lucro da sondagem e auditoria"
   },
   {
+    "href": "/pesquisa-genetica/pepe-v3-final.html",
+    "title": "V3 · teste final e sobreajuste"
+  },
+  {
     "href": "/pesquisa-genetica/pepe-v3.html",
     "title": "PEPE V3 · auditoria contínua"
+  },
+  {
+    "href": "/pesquisa-genetica/pepe-v4.html",
+    "title": "PEPE V4 · consistência entre trimestres"
   },
   {
     "href": "/pesquisa-genetica/qualidade-pesquisa.html",
