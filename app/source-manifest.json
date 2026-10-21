@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-21T13:45:44.890336+00:00",
+  "exportedAt": "2026-10-21T14:23:17.854776+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -118,8 +118,8 @@
       "bytes": 6945
     },
     "PEPE-V3-FINAL-E-V4.md": {
-      "sha256": "89a7e532fc44d0d13ed228fb60afb90817ef2cdade04ff347a223f488b59a65c",
-      "bytes": 8091
+      "sha256": "0322e0cd27a7b84dc6d3dcdf93d8126c02a9d8662b202d2ba078d6ad251a3915",
+      "bytes": 11395
     },
     "PESQUISA-ML-MERCADOS.md": {
       "sha256": "0de1890c2bf19a7cbc54807340189a005d4bf31c94c85a32a2ff532c6a8c82c7",

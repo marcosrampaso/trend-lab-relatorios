@@ -2,6 +2,8 @@
 
 ## PEPE V3 · teste final e V4 revisada · 21/10/2026
 
+**V4 concluída:** 20 gerações, 500 candidatos completos e validação de três políticas. Nenhum aprovado. Filho selecionado: −R$103,66 em 2025-Q3, −R$100,93 em 2025-Q4 e −R$103,09 na carteira contínua de 15 meses; CDI nessa carteira +R$173,83. Os dois filhos têm pesos distintos e as mesmas operações finais. [Conclusão e diagnóstico](app/PEPE-V3-FINAL-E-V4.md#conclusão-da-v4--20-gerações-concluídas) · [Evidência da validação](reports/pepe-v4-v2/validation-report.json). Sem retreino após a avaliação.
+
 [Método e diagnóstico](app/PEPE-V3-FINAL-E-V4.md) · [Teste final V3 local](http://127.0.0.1:4173/pesquisa-genetica/pepe-v3-final.html) · [V4 local](http://127.0.0.1:4173/pesquisa-genetica/pepe-v4.html#validacao).
 
 V3 encerrada em 338 gerações completas, checkpoint parcial preservado. G91/a245 congelado antes de abrir setembro/2026: −R$102,65 com estresse, −R$101,44 com custos base; CDI +R$10,82. Zero passos de treino no teste; pesos idênticos nas avaliações. [Evidência registrada](reports/pepe-v3-final-v1/).

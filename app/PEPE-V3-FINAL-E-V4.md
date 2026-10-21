@@ -70,3 +70,27 @@ Fontes metodológicas: [scikit-learn · Validation curves](https://scikit-learn.
 - Páginas separam todos os candidatos, campeões retidos, carteiras e CDI. Curvas completas do campeão são publicadas pelo controle local, sem expor pesos ou banco privado.
 - Comandos: `node scripts/local-pepe-v4.mjs status|resume|pause|eco|boost|ultra`.
 - Código e relatórios podem ser exportados ao repositório privado autorizado. Pesos, dados brutos e `.local/` permanecem locais.
+
+## Conclusão da V4 · 20 gerações concluídas
+
+Encerramento automático em 21/10/2026 às 11:16:49 (São Paulo). Foram 500 candidatos treinados completos ao longo das duas revisões; os sete trabalhos parciais arquivados da primeira revisão não foram contados como gerações completas. O coordenador encerrou sem erro. Não houve retreino após abrir a validação.
+
+**Nenhum candidato foi aprovado no protocolo.** Os dois filhos selecionados, G1/a10 e G2/a10, têm pesos diferentes, mas produziram exatamente as mesmas posições nos dois trimestres de validação e as mesmas posições e curva na carteira contínua. São duas políticas numericamente distintas, mas sem diversidade comportamental nessas avaliações. O campeão do desenvolvimento permaneceu o G1/a10 até a G20.
+
+| Avaliação do filho selecionado · R$1.000 iniciais | Líquido do bot | CDI bruto |
+|---|---:|---:|
+| 2025-Q3 | R$-103,66 | R$37,05 |
+| 2025-Q4 | R$-100,93 | R$35,90 |
+| Carteira contínua · out/2024–dez/2025 | R$-103,09 | R$173,83 |
+
+A carteira contínua terminou com R$896,91; CDI no mesmo calendário: R$1.173,83. Diferença de R$-276,93 para o bot. O limite global foi atingido em 21/06/2025 às 21:22 (São Paulo), e a carteira ficou em caixa até o fim de dezembro; não houve reinício para acessar regimes posteriores. Queda máxima desde o pico: 42.79%. O limite global de 10% tem referência no capital inicial; não equivale a um limite de 10% desde o maior patrimônio.
+
+Nas 245 posições da carteira contínua, o bruto já com slippage embutido foi +R$390,75; taxas R$486,86 e funding líquido R$-6,99. Valores arredondados. As taxas excederam o ganho bruto. Slippage modelado: R$489,26; não subtrair novamente. Isso identifica uma contribuição negativa importante dos custos, mas não é um backtest alternativo sem custos: mudar custos poderia mudar a trajetória e as decisões.
+
+Apesar de as ações estarem disponíveis no ambiente, o filho não usou realizações parciais, movimentos de stop ou proteção por trailing na carteira contínua: zero em todos os três contadores. As ações observadas foram esperar e tentar entradas a 15×. Isso é um achado comportamental; não demonstra, por si só, um erro no motor ou que forçar essas saídas tornaria a estratégia lucrativa.
+
+A seleção trimestral e a preservação dos pesos organizaram a pesquisa, mas não demonstraram melhora financeira consistente. Aumentar a contagem de gerações não é justificado por esta rodada. O próximo diagnóstico deveria separar a aprendizagem das saídas, a repetição do mesmo comportamento entre filhos e a relação sinal/custos. Uma nova hipótese exigirá registro próprio; os trimestres de validação agora também estão consumidos e não devem servir de teste independente de novos ajustes.
+
+Integridade conferida após o encerramento: 1.391 hashes de fontes, dados, dependências, modelos herdados e registros permanecem iguais. Todos os três modelos receberam zero passos de aprendizado na avaliação e mantiveram os tensores. O relatório de validação original permaneceu imutável. Nenhuma alteração na estratégia, no risco, nas ordens reais ou nos dados privados foi feita nesta conferência.
+
+Painel: http://127.0.0.1:4173/pesquisa-genetica/pepe-v4.html#validacao
