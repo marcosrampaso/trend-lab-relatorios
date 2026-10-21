@@ -58,3 +58,7 @@ O protocolo e os hashes foram gravados antes dos resultados. Os 1.222 arquivos h
 Passaram nove testes, incluindo as verificações de causalidade, custos/ticks em compra e venda e ausência de leitura dos resultados futuros. Os arquivos científicos anteriores não foram alterados. O estudo não usa API paga, rede ou ordens reais.
 
 Artefatos: `work/pepe-entry-cost-v1/{protocol,registration,result,status}.json`; publicação local `web/data/entry-cost-gate.json`; implementação `scripts/{entry-cost-gate-core,prepare-entry-cost-gate,run-entry-cost-gate}.mjs`.
+
+## Controle adicional concluído
+
+A comparação com200 descartes aleatórios ficou no estudo separado `pepe-entry-random-v1`. Filtro no percentil78,44/200 sorteios iguais ou superiores; nenhuma promoção. Relatório `PEPE-FILTRO-VERSUS-ACASO.md`; painel http://127.0.0.1:4173/pesquisa-genetica/filtro-aleatorio.html. Nenhum resultado ou protocolo deste estudo de custos foi alterado.

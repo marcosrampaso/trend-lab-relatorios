@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-21T17:19:28.846052+00:00",
+  "exportedAt": "2026-10-21T17:56:42.060204+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -98,8 +98,12 @@
       "bytes": 4849
     },
     "PEPE-FILTRO-CUSTOS.md": {
-      "sha256": "9320814caea4f94eded7ec75d3ea21343d10019b05eeffefb3e27cb04995523d",
-      "bytes": 5702
+      "sha256": "d7dcd74beef14b5585b89804ce522b95160b207f60c5d4eadb3eaff96c10980c",
+      "bytes": 6089
+    },
+    "PEPE-FILTRO-VERSUS-ACASO.md": {
+      "sha256": "d20d9d0cb31d4047034b1dd9ac14a28ea580561b61e93c3c191b80203275a6c9",
+      "bytes": 6567
     },
     "PEPE-FINRL-PBT.md": {
       "sha256": "46c17f3e268a54ab9238785e4fae07a7d7e1061de0f6ba37fc200a73e013fd72",
@@ -669,6 +673,14 @@
       "sha256": "7329b9810b97ccc9735d8e27b3dd3e9ba679a9433ad766a853d05a73906d5373",
       "bytes": 2507
     },
+    "scripts/entry-random-core.mjs": {
+      "sha256": "485d2b476144aa9ab46edb5f77f8f96a0deb6154bffd09502c2e9a1a07df604c",
+      "bytes": 2942
+    },
+    "scripts/entry-random-month.mjs": {
+      "sha256": "57412a133875c551f340f8cbde2ee9f1b59ecb699f6511c38aba7019be7d8433",
+      "bytes": 3235
+    },
     "scripts/evaluate-btc-comparison.mjs": {
       "sha256": "73d8f448d99257bc66a0ee2849f51257e7325b8d5553b16329dba1eebe60bf08",
       "bytes": 3181
@@ -1189,6 +1201,10 @@
       "sha256": "108b6faf4ee40fec268a4126a354c442e13d208feb56cfc5ce8746812d6b807e",
       "bytes": 4586
     },
+    "scripts/prepare-entry-random.mjs": {
+      "sha256": "1ed10461e57bd5e17e03081c7ad1c7386d2a3f5d31616e2bb40b814dcd93066b",
+      "bytes": 5119
+    },
     "scripts/prepare-exit-sources.py": {
       "sha256": "7775a48ad68ffdd401fa9b1a44fdfc290257bc696478bec4cfd30c4f34858b76",
       "bytes": 2894
@@ -1328,6 +1344,10 @@
     "scripts/run-entry-cost-gate.mjs": {
       "sha256": "432a42174b352fad58ee137ca8e5c0997657206cefbb6264154aa642d43c2076",
       "bytes": 5607
+    },
+    "scripts/run-entry-random.mjs": {
+      "sha256": "b4fabd8b8b9852e14d1c3fb8bf44f374ea9a80b79bbb1a867dad1b71eec49a41",
+      "bytes": 5094
     },
     "scripts/run-exit-controls.mjs": {
       "sha256": "e953d07b47bf56cf5353b4d614fbce8b7c9745b489603a4a13b05271d61b3c1c",
@@ -1596,6 +1616,10 @@
     "tests/entry-cost-gate.test.mjs": {
       "sha256": "05cd25b8f248289298a724825d12f9c963d965d7ff3097c9ce3c28d1ac66b41a",
       "bytes": 2395
+    },
+    "tests/entry-random.test.mjs": {
+      "sha256": "29ef6a950e6da58daccf416b42372161e33f6622a87d2e47e313b3bdae2640bf",
+      "bytes": 2458
     },
     "tests/exit-lab.test.mjs": {
       "sha256": "249ebbfa9d08f4a3c29d936311a08309a74766a7329add9b3a8d7106c7b2b17a",
@@ -2149,9 +2173,17 @@
       "sha256": "9049698e62a4374782fcf7129edccf663bc14258b3668c4ce3689b63e9b36e28",
       "bytes": 9322
     },
+    "web/pesquisa-genetica/filtro-aleatorio.html": {
+      "sha256": "a131f77e743e5f517217c379ec08462def3afa3975a92f802566f8e0622d1c9b",
+      "bytes": 5134
+    },
+    "web/pesquisa-genetica/filtro-aleatorio.js": {
+      "sha256": "0e3b3eb10d1e40eaeba1f30d3b935b2761c8413cc80dee09d91d10167a6af517",
+      "bytes": 7030
+    },
     "web/pesquisa-genetica/filtro-custos.html": {
-      "sha256": "51805f77dbfbab47e2f4962afb96bba7cce1a3b2be5e310fe5e35a94d7e33f49",
-      "bytes": 6167
+      "sha256": "221625b07eeafe95af1fb3c47fcd2fd344226e49e8b24e1f9d23f11e2a19b14d",
+      "bytes": 6338
     },
     "web/pesquisa-genetica/filtro-custos.js": {
       "sha256": "d2191d59bb14cab0a523b5c73cde02ee5702b0a0784c7bb380905e0b7e56555c",
@@ -2466,12 +2498,12 @@
       "bytes": 4675
     },
     "web/ui/navigation.js": {
-      "sha256": "13a5b9295330fdb1cfeaf930804679fb96c98fa6d8f48c82f0a8556202f5459c",
-      "bytes": 8295
+      "sha256": "f07c1650a3486e8212a8ea698a17a4738246637dba8bca211beed759666669c8",
+      "bytes": 8454
     },
     "web/ui/pages.js": {
-      "sha256": "7d0b9364ce31d6f504905d283ba2abb4e46f6dd00b3f7cbd72afd3a5ecc00ef5",
-      "bytes": 6752
+      "sha256": "3cf99f9dd21e6933b75e4586922d28bcabae555ee22bedd72ede772b5814fc77",
+      "bytes": 6860
     },
     "web/ui/shell.css": {
       "sha256": "987f556170ea418918e1978eff550732547b244f73d2fddf549425be6091d96c",

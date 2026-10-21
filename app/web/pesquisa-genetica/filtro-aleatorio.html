@@ -1,0 +1,34 @@
+<!doctype html><html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Filtro versus acaso · PEPE | Trend Lab</title>
+<link rel="stylesheet" href="experimento-noticias.css"><link rel="stylesheet" href="pepe-v4.css">
+<style>.tl-speed{display:none}.random-progress{margin:20px 0}.distribution-note{color:#aebfd2}</style>
+<script type="module" src="filtro-aleatorio.js"></script></head><body><main>
+<header><div class="eyebrow">CONTROLE ALEATÓRIO · MESMA QUANTIDADE DE SINAIS ACEITOS</div>
+<h1>Escolher melhor<br><span>ou apenas operar menos?</span></h1>
+<p class="lead">O filtro de custos é comparado com 200 seleções aleatórias. Todas recebem a mesma agenda G91 e aceitam o mesmo número de sinais por mês. Saída, risco e custos permanecem fixos.</p>
+<p><a href="filtro-custos.html">← Experimento ATR versus custos</a></p></header>
+<section id="resumo" class="v4-panel"><h2 id="status" aria-live="polite">Lendo execução…</h2>
+<p id="progress-note"></p><progress id="progress" class="random-progress" value="0" max="1000"></progress>
+<p id="summary"></p><div id="metrics" class="v4-metrics"></div><p id="error" role="alert"></p></section>
+<div id="results" hidden>
+<section id="distribuicao"><h2>Como o filtro se compara ao acaso?</h2>
+<p>Cada seleção produz cinco carteiras mensais independentes de R$ 1.000. O valor comparado é a média do líquido desses cinco meses, incluindo setembro sem operações. Não é patrimônio composto.</p>
+<div class="v4-legend"><span style="color:#8cbaff">● Seleções aleatórias</span><span style="color:#7bdcba">● Filtro ATR/custo</span><span style="color:#f4c467">● CDI médio</span></div>
+<div id="histogram" class="v4-chart"></div><p id="distribution-note" class="distribution-note"></p>
+<div class="v4-table"><table><thead><tr><th>Referência</th><th>Líquido mensal médio</th></tr></thead><tbody id="references"></tbody></table></div>
+<p>O intervalo de 2,5% a 97,5% descreve os resultados das seleções simuladas. Não é intervalo de confiança do lucro futuro. O percentil mede a posição do filtro nesta distribuição; não é acurácia nem chance de ganhar na próxima operação.</p></section>
+<section id="meses"><h2>Comparação em cada mês.</h2><div class="v4-table"><table><thead><tr><th>Mês</th><th>Sinais aceitos / disponíveis</th><th>Filtro</th><th>Acaso · mediana</th><th>Acaso · 2,5% a 97,5%</th><th>CDI bruto</th><th>Subconjuntos aleatórios distintos</th></tr></thead><tbody id="months"></tbody></table></div>
+<p>As quantidades foram congeladas em 7, 2, 5, 2 e 0. O sorteio ignora retornos e indicadores; usa somente a identidade dos sinais. Subconjuntos repetidos permanecem na distribuição. Setembro permanece em todas as médias, com resultado de caixa R$ 0 antes de rendimentos.</p></section>
+<section id="atividade"><h2>A atividade também precisa aparecer.</h2>
+<div class="v4-table"><table><thead><tr><th>Medida nos cinco meses</th><th>Filtro</th><th>Acaso · mínimo</th><th>Acaso · mediana</th><th>Acaso · máximo</th></tr></thead><tbody id="activity"></tbody></table></div>
+<p>Igualamos sinais aceitos, não duração das posições, direção, exposição financeira, volatilidade ou ordens preenchidas. Cada carteira usa seu próprio saldo e limites; nenhum sorteio é excluído por operar menos ou perder. Horas expostas somam o tempo das posições executadas, não o número de dias de mercado independentes.</p></section>
+<section id="selecoes"><h2>Todas as 200 seleções.</h2><p>Ordem fixa de sementes, sem escolher a melhor. Repetimos os mesmos cinco meses, não 200 histórias independentes de mercado.</p>
+<div class="v4-table"><table><thead><tr><th>Semente</th><th>Líquido mensal médio</th><th>Diferença do filtro*</th><th>Operações</th><th>Meses acima do CDI</th><th>Meses negativos</th><th>Horas expostas</th></tr></thead><tbody id="replicates"></tbody></table></div><p>* Resultado do filtro menos resultado da seleção aleatória.</p></section>
+<section id="conclusao"><h2 id="conclusion-title"></h2><p id="conclusion"></p>
+<p>Este é um diagnóstico retrospectivo condicionado à quantidade que o filtro aceitou em cada mês completo. Essa condição não é uma política executável em tempo real. A distribuição não prova causalidade, significância independente ou lucro futuro; a agenda G91 também já foi usada no laboratório.</p>
+<p>Nenhum limiar foi ajustado, modelo treinado ou filtro promovido. O filtro já havia falhado nos critérios financeiros e de amostra. Nem uma posição favorável nesta distribuição altera esse resultado anterior. Nenhum dado de 2025 ou setembro de 2026 foi consumido aqui.</p>
+<p id="verification"></p><p><a href="../data/entry-random.json">Resultados, todas as sementes e protocolo · JSON</a> · <a href="filtro-custos.html">Teste anterior</a></p>
+<details><summary>Protocolo registrado antes da execução</summary><pre id="protocol"></pre></details></section>
+</div><footer>Trend Lab local · comparação de seleções · sem ordens reais e sem novo treino</footer>
+</main></body></html>

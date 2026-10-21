@@ -133,6 +133,10 @@ export const PAGES=[
     "title": "Experimento com notícias"
   },
   {
+    "href": "/pesquisa-genetica/filtro-aleatorio.html",
+    "title": "Filtro versus acaso · PEPE"
+  },
+  {
     "href": "/pesquisa-genetica/filtro-custos.html",
     "title": "Entrada com espaço para custos · PEPE"
   },
