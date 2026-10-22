@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-22T01:53:50.237193+00:00",
+  "exportedAt": "2026-10-22T02:42:32.374570+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -160,6 +160,10 @@
     "PEPE-SELECAO-CALIBRACAO.md": {
       "sha256": "3be97fe1858bda2096ac6939d9e3a6164f5e37813ee6f8ce50b3756ed53b09ee",
       "bytes": 6424
+    },
+    "PEPE-SEQUENCIA-NOTURNA.md": {
+      "sha256": "441dd90946587ebdf1379b583cbe2b63cc3cc2e0b0a926a3bac553b0601cbdaa",
+      "bytes": 6168
     },
     "PEPE-V3-AUDITORIA.md": {
       "sha256": "9ebbe195d60c0bf4b9d0c66a335310efa51b8d76cdb5600012f22e811ed4a43c",
@@ -545,6 +549,10 @@
       "sha256": "1c07ca3cb1ed7884100af6acad08a3d351037569707f6e52de04db6672b2014c",
       "bytes": 2348
     },
+    "scripts/audit-payoff200.py": {
+      "sha256": "75d281cd70e6f2915cdf9350816e1a199565e2778d5d1b4624de37cc816f92d2",
+      "bytes": 2343
+    },
     "scripts/audit-pepe-g830.py": {
       "sha256": "29dad6f7562db3772ecc63202d9461fade8f5e0112123e3453c67a11f824d3f5",
       "bytes": 5323
@@ -833,6 +841,10 @@
       "sha256": "88c1a5b1db154a3a8e76c7efd12f677e30f249427434ff572146f122015f6c68",
       "bytes": 2464
     },
+    "scripts/export-genetic-replay.mjs": {
+      "sha256": "e4ebd3d3f331dd719c3d1c97c9b40c6372c3231c152081ac4e94f34d7c17bd09",
+      "bytes": 1710
+    },
     "scripts/export-specialist-replay.mjs": {
       "sha256": "4d9076d3a9aaebc2d8a47c786b8e9c29c92d7c089853bc54e415834f8fdc119f",
       "bytes": 5710
@@ -1085,6 +1097,70 @@
       "sha256": "cdf10fc4823440a3a2e9e35a66bac2846315433fc834e580fdd4e7b66b26c8e4",
       "bytes": 7073
     },
+    "scripts/night-audit.mjs": {
+      "sha256": "4b8ab257d2c8d02a451bfa84bf22323682d78350b01aeeab377f239416d5ad72",
+      "bytes": 3280
+    },
+    "scripts/night-benchmarks.mjs": {
+      "sha256": "c453985521e389a406310064c01a809f0d0d6894f05b6479fc6a48171280bcb1",
+      "bytes": 678
+    },
+    "scripts/night-bridge.mjs": {
+      "sha256": "cfd8635247860a8c5a96dc18f366764ffccabbf19b5aa93d4492ea38177a91a8",
+      "bytes": 7126
+    },
+    "scripts/night-context-v2.py": {
+      "sha256": "ecd868687861ceff909a23c1667b7b289b8d93ce1ac9af2689f994f341a6a51a",
+      "bytes": 2956
+    },
+    "scripts/night-context.py": {
+      "sha256": "fe16884ef0de902cdfe70c4fbfe76e8fb2993477658a3028600196e6857a9107",
+      "bytes": 2776
+    },
+    "scripts/night-control.py": {
+      "sha256": "284d45e2017c3ac00891b0de43cbfa889d660c5dfa391345080edd0b513bd27a",
+      "bytes": 2807
+    },
+    "scripts/night-core.py": {
+      "sha256": "2567c273c34b2bef0d829e63e631a5818053bed4e051b98502bd2224890647bb",
+      "bytes": 3232
+    },
+    "scripts/night-feature-core.mjs": {
+      "sha256": "7a50a5e6049080c70355d4078d1979eddea3eb45dab82b34f3667a7b4f7caf65",
+      "bytes": 1791
+    },
+    "scripts/night-final.py": {
+      "sha256": "505f9a011301b82b4a5360f2af5b330ced91593c9c8b8e2e95b4cda078f4417d",
+      "bytes": 1649
+    },
+    "scripts/night-grids-v2.mjs": {
+      "sha256": "af6c4e417931da59ef23d5d4b241a1d2d6ccea03484b8ff92470cce4ca539d28",
+      "bytes": 1849
+    },
+    "scripts/night-grids.mjs": {
+      "sha256": "cb0766fbce5762165b794254fae1508b988a2f7af28e946e963b6d139ebf7c72",
+      "bytes": 1552
+    },
+    "scripts/night-infer.py": {
+      "sha256": "f8cd68f616eb04126171652989c7abc4bbfe23e90177dfa62482c1c3f11951e1",
+      "bytes": 942
+    },
+    "scripts/night-paper.mjs": {
+      "sha256": "d48429c014ea5dee83de17636bd414056ebda89d888f10aabcf9d43fb7f85041",
+      "bytes": 5433
+    },
+    "scripts/night-smoke.py": {
+      "sha256": "38fd99790171d50379f1e67360aa0a43f5e766aba26195fb526f7ca410d3cbd5",
+      "bytes": 835
+    },
+    "scripts/night-worker.py": {
+      "sha256": "a5836aea59a80d170a157a6b87fb68c58378a407da9353405e4052eb6f984356",
+      "bytes": 3945
+    },
+    "scripts/night_env.py": {
+      "sha256": "0cc72531fc88dfac983689c3289a185c15a71191276523ac591a6901502f6ff9",
+      "bytes": 1787
+    },
     "scripts/payoff-entry-core.py": {
       "sha256": "91ed4b035b9e0a692ca0f019e5ecab8f1907d58c709d6222423a3bf70ba76387",
       "bytes": 1218
@@ -1092,6 +1168,14 @@
     "scripts/payoff-genetic-wallet.mjs": {
       "sha256": "8ee9ba85e2102b420880146511de16a720e61b32d80538a7de52c093949e2eb2",
       "bytes": 2431
+    },
+    "scripts/payoff200-wallet.mjs": {
+      "sha256": "b1e323e40bab5bc45b7c32955262d491e7ef67ab0b261831fa7a3cd8438d52e7",
+      "bytes": 2435
+    },
+    "scripts/payoff200_worker.py": {
+      "sha256": "38ad0bd816f720ae3bd2323b1d8f55355411825466daa1865ddfa5356087cc75",
+      "bytes": 4368
     },
     "scripts/payoff_entry_core.py": {
       "sha256": "91ed4b035b9e0a692ca0f019e5ecab8f1907d58c709d6222423a3bf70ba76387",
@@ -1321,9 +1405,17 @@
       "sha256": "52b05d4ca819e0efbed6f3d0edd7103bb62e9173dc7327c6eda0bf77de1a1879",
       "bytes": 3867
     },
+    "scripts/prepare-night-study.py": {
+      "sha256": "32cc387c5647864f7fdc0f8b444b50b5977912b8b21f5c8b4079d886b46f4e8a",
+      "bytes": 7900
+    },
     "scripts/prepare-opportunity-audit.mjs": {
       "sha256": "95f0c3bd21c3cbcdee5dcb66c207aff4e46b57c528b9e35da3f82f5fa4bd9d35",
       "bytes": 5076
+    },
+    "scripts/prepare-payoff-200.py": {
+      "sha256": "b246f156834839fc792aeb831a2f91cdbb67f03ed96d769e2c9b089d1fdd863f",
+      "bytes": 3464
     },
     "scripts/prepare-payoff-entry.mjs": {
       "sha256": "dd7225586e1571081a3916d1c772d24059d2426988655038194c0db8f22f7dd8",
@@ -1525,6 +1617,18 @@
       "sha256": "4727940b5831100383e8d9b5ced8c01f90ffe6f26933c37a1338918a5827b893",
       "bytes": 4662
     },
+    "scripts/run-night-chain-v2.py": {
+      "sha256": "69157db0bac86d53521a7d454d861f9bb987237626ec34bfd86d15347988590e",
+      "bytes": 5567
+    },
+    "scripts/run-night-chain.py": {
+      "sha256": "a0d14f9a1e6a91a81abf037729e8e2f45384861eda8dc54580a2f6646fc929f2",
+      "bytes": 5422
+    },
+    "scripts/run-night-ppo.py": {
+      "sha256": "ffabef801f2c3e86f57b270deccff360ce7fd0269c972786ae108377f161924a",
+      "bytes": 7658
+    },
     "scripts/run-opportunity-audit.mjs": {
       "sha256": "b1275a8c86bc14756e06e73f9ce4ac53382387c954d6af7d1228cae0ef82bd5e",
       "bytes": 6686
@@ -1532,6 +1636,10 @@
     "scripts/run-payoff-genetic.py": {
       "sha256": "2dab7c3d00b2304af393c061c4dc05ef4a19a017b36b6189979eafc98860f13c",
       "bytes": 11961
+    },
+    "scripts/run-payoff200.py": {
+      "sha256": "f771bffc11c38503d3b0df3396b23adc6f9f43d91bd43d7868c8aa3a746779ff",
+      "bytes": 11962
     },
     "scripts/run-pepe-1000.mjs": {
       "sha256": "de1f7b6d768bc9d95ee118d4bef47f4c7ad66dcab411a1d669a38b2f05b3a00e",
@@ -1901,6 +2009,10 @@
       "sha256": "e1906effc6405b6b63600fb618bd3af8daf7f284cfe9f54f009a7f1a74e6debc",
       "bytes": 3814
     },
+    "tests/night-features.test.mjs": {
+      "sha256": "73e99d65f177391969ec59fba40db6a97d525b69b1fbd4026df254825ebb00ec",
+      "bytes": 1094
+    },
     "tests/opportunity-results.test.mjs": {
       "sha256": "4fa4a93290892fe4903cb9c3aca94ee3ab1da5dc1a85e40d3737208e36331df4",
       "bytes": 3271
@@ -2068,6 +2180,10 @@
     "tests/test_local_ml.py": {
       "sha256": "27e8f15e9f65d7501e2e935cb49ac9d9a7f162d730b0f9e12e322802b8640f6d",
       "bytes": 1262
+    },
+    "tests/test_night.py": {
+      "sha256": "fe6edd2c1102070b587cb71b180ad5842ce8ee9e403767c79ee3ea310648380b",
+      "bytes": 1777
     },
     "tests/test_payoff_entry.py": {
       "sha256": "a787da6292ae3a9b7e27e69d1ebbda910a2cb50e86470d71f1b059794d2268e1",
@@ -2505,17 +2621,33 @@
       "sha256": "00b8d10d79794f3a72e55b2ad0aa0cef1779270a42a2e5456beaf26787165701",
       "bytes": 12035
     },
+    "web/pesquisa-genetica/genetica-200.html": {
+      "sha256": "82eb8a7edff8baa43a5c0ed016ab0e266124bf05922399c407c61c631bbf87b6",
+      "bytes": 8501
+    },
+    "web/pesquisa-genetica/genetica-200.js": {
+      "sha256": "7dcb04df0d772f34b7d0b2fc683ff6abd8cc0a8b21b7b20fbdd93ce9c388a9e4",
+      "bytes": 7758
+    },
     "web/pesquisa-genetica/genetica-entradas.html": {
-      "sha256": "afdeb13ff84cbcca0d747bc99a6b92453f026861f7d80e468749a69f2f216dc7",
-      "bytes": 7957
+      "sha256": "2385103a5d526d8725aaaa68b1c1a2b0dd65414d875fea6bdc289e2dd8450eea",
+      "bytes": 8778
     },
     "web/pesquisa-genetica/genetica-entradas.js": {
-      "sha256": "ba00ebc4b06e2cc738ed7bacb317fbbfdfe10160d9f3ebeefbc1f5e3f468424a",
-      "bytes": 7189
+      "sha256": "d1d710aa323c8b8f0011eebe3fe3c12010b5da1aee1befb932f5950c839c9249",
+      "bytes": 7746
+    },
+    "web/pesquisa-genetica/genetica-replay.html": {
+      "sha256": "623ca8f0692f13db3722a7a37da68155a826eec55b0d124d00e5df97194f1b0d",
+      "bytes": 2171
+    },
+    "web/pesquisa-genetica/genetica-replay.js": {
+      "sha256": "a559d1d041c3a72f8f784bdb5dacbd93495a27a4e3e6ab85b0330f9749019bf0",
+      "bytes": 8286
     },
     "web/pesquisa-genetica/genetica-validacao.html": {
-      "sha256": "dad3a67bcfb05666e985c96a27ed3c6a8ce0ea217f34d89f358f354c2134d3dc",
-      "bytes": 5678
+      "sha256": "bc1838f8eab9c7eba25ecdcba42c454c24f3aad9587ff3208d0f08ef7b93acd9",
+      "bytes": 5958
     },
     "web/pesquisa-genetica/genetica-validacao.js": {
       "sha256": "86f7b1568f4904304f63646d778475efb4d1fe7b99ba9e70ac280b46945f0254",
@@ -2544,6 +2676,14 @@
     "web/pesquisa-genetica/mudanca-de-abordagem.html": {
       "sha256": "0d4b437e8076b7770e8ee8e6d9de574840af35eacf3339d7dcba26e4f44ca904",
       "bytes": 8231
+    },
+    "web/pesquisa-genetica/noite-encadeada.html": {
+      "sha256": "8fcdcfb9fadb6bf41583ac2d2ea150d716a746b969594ddc954344073bcdf5c0",
+      "bytes": 7544
+    },
+    "web/pesquisa-genetica/noite-encadeada.js": {
+      "sha256": "989a1b4e4660886428e03a5e1cef92fd3dcff39f258565ec88d2dd9ab483c373",
+      "bytes": 5382
     },
     "web/pesquisa-genetica/nova-campanha.html": {
       "sha256": "2e004a818b492f85c7032c880f2818afe82f24087fd692c375592d7549feb586",
@@ -2830,12 +2970,12 @@
       "bytes": 4675
     },
     "web/ui/navigation.js": {
-      "sha256": "c1e3c43758e87e1aa2400a67592a623135af47d8bba3249017a6962403b09388",
-      "bytes": 9902
+      "sha256": "710fa66b1f8ded5d497e37afc32ef65048e3cd788b59f41498cb12a38bf2b69c",
+      "bytes": 10232
     },
     "web/ui/pages.js": {
-      "sha256": "38a7e4c0793a3238cca2a43e0062b9b7a3d7a55ca87eb0bb73ed5e6cb9b503e4",
-      "bytes": 7939
+      "sha256": "c52f3fb7df37cd6c7423f25ebf637b65f808287c09d06062b96c529eb38e5e26",
+      "bytes": 8306
     },
     "web/ui/shell.css": {
       "sha256": "987f556170ea418918e1978eff550732547b244f73d2fddf549425be6091d96c",

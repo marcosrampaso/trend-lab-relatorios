@@ -1,0 +1,5 @@
+import test from'node:test';import assert from'node:assert/strict';import{scheduledEntryTime,chooseSide,normalizeKline}from'../scripts/night-feature-core.mjs';import{closedCandles,visibleEvents}from'../web/pesquisa-genetica/especialistas-replay-core.js';
+test('paper decisions always precede scheduled next-minute entry',()=>{for(const t of[0,1,59999,60000,987654321]){const at=scheduledEntryTime(t);assert.ok(at>t);assert.equal(at%60000,0);}assert.equal(chooseSide(.2,.1),1);assert.equal(chooseSide(.2,.2),0);assert.equal(chooseSide(-1,.3),-1);assert.equal(chooseSide(.1,0),0);});
+test('replay does not reveal unfinished candles or unconfirmed events',()=>{const rows=Array.from({length:6},(_,i)=>[i*60000,1,2,0,1,10]);assert.equal(closedCandles(rows,59999).length,0);assert.equal(closedCandles(rows,300000,5).length,1);assert.equal(visibleEvents({events:[{knownAt:60001}]},60000).length,0);});
+
+test('Binance quote and taker volume use indices7 and9, not closeTime',()=>{assert.deepEqual(normalizeKline(['0','1','2','.5','1.5','10','299999','15','7','6','9','0']),[0,1,2,.5,1.5,10,15,6]);});

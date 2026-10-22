@@ -1,0 +1,18 @@
+{
+  "pythonTests": 14,
+  "nodeTests": 11,
+  "actualPPOTrainingSmokeSteps": 1024,
+  "observationCount": 51,
+  "queuedPopulation": 250,
+  "causalFolds": 7,
+  "gridMonths": 39,
+  "gridRows": 341856,
+  "liveFeaturesMatchArchived": true,
+  "futureCandleIgnored": true,
+  "replayChromeDesktopMobile": true,
+  "queueChromeDesktopMobile": true,
+  "unsafeOriginHTTP": 403,
+  "scientificMutationHTTP": 400,
+  "trainingContinues": true,
+  "noRealOrders": true
+}

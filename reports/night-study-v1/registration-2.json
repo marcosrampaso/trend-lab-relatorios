@@ -1,0 +1,13 @@
+{
+  "revision": 2,
+  "registeredAt": 1792636452484,
+  "parentRegistrationSHA256": "28b5c9b24d7c27c560671be934d0ab26ea33024e2a09a702fb44b3ccd11be9be",
+  "reason": "Preflight found raw candle files omit calendar bounds. Derive bounds from the hashed feature packet and reject empty grids. Original sources remain preserved; no selection, model, reward, risk, period, budget or generation count changed. The chain had not left waiting_100.",
+  "sources": {
+    "scripts/night-grids-v2.mjs": "af6c4e417931da59ef23d5d4b241a1d2d6ccea03484b8ff92470cce4ca539d28",
+    "scripts/night-context-v2.py": "ecd868687861ceff909a23c1667b7b289b8d93ce1ac9af2689f994f341a6a51a",
+    "scripts/run-night-chain-v2.py": "69157db0bac86d53521a7d454d861f9bb987237626ec34bfd86d15347988590e"
+  },
+  "scientificParametersChanged": false,
+  "realOrders": false
+}

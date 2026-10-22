@@ -165,8 +165,16 @@ export const PAGES=[
     "title": "Gatilho da proteção de lucro"
   },
   {
+    "href": "/pesquisa-genetica/genetica-200.html",
+    "title": "Genética das entradas · continuação até200 e campeões"
+  },
+  {
     "href": "/pesquisa-genetica/genetica-entradas.html",
     "title": "Genética das entradas · progresso e campeões"
+  },
+  {
+    "href": "/pesquisa-genetica/genetica-replay.html",
+    "title": "Replay das trades do campeão"
   },
   {
     "href": "/pesquisa-genetica/genetica-validacao.html",
@@ -187,6 +195,10 @@ export const PAGES=[
   {
     "href": "/pesquisa-genetica/mudanca-de-abordagem.html",
     "title": "Por que mudamos a abordagem"
+  },
+  {
+    "href": "/pesquisa-genetica/noite-encadeada.html",
+    "title": "Genética200 → MaskablePPO e simulação"
   },
   {
     "href": "/pesquisa-genetica/nova-campanha.html",

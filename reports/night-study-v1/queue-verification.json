@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "combinations": 4,
+  "chartNote": "Aguardando100 originais e auditoria",
+  "uncaughtErrors": 0,
+  "mobileOverflow": false,
+  "desktop": [
+    1440,
+    1080
+  ],
+  "mobile": [
+    390,
+    844
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "updatedAt": 1792636775216,
+  "realOrders": false,
+  "phase": "waiting_100",
+  "queue": [
+    "Wait for original100 and its original audit",
+    "Continue from checkpoint to total200 without changing fitness",
+    "Freeze200 model; audit expanded history and generate report",
+    "Start prospective paper monitoring and the paired MaskablePPO population concurrently"
+  ],
+  "pid": 26469,
+  "maxWallHours": null,
+  "sourceGenerations": 95,
+  "sourcePhase": "training"
+}
