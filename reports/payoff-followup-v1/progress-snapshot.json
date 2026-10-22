@@ -1,0 +1,462 @@
+{
+  "version": "payoff-followup-v1",
+  "updatedAt": 1792634016275,
+  "phase": "waiting_for_100",
+  "completedGenerations": 22,
+  "history": [
+    {
+      "generation": 0,
+      "individuals": 256,
+      "distinctGenomes": 253,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.5568523920873792,
+        "median": 0.0,
+        "minimum": -15.019900457578501,
+        "maximum": 6.631493217875004
+      },
+      "fractionAboveCDIMean": 0.0,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 186,
+      "bestMeanMonthlyBRL": 0,
+      "selectionOnly": true
+    },
+    {
+      "generation": 1,
+      "individuals": 256,
+      "distinctGenomes": 254,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.36493819494170177,
+        "median": 0.0,
+        "minimum": -12.977535452288436,
+        "maximum": 3.7042311214316825
+      },
+      "fractionAboveCDIMean": 0.0,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 215,
+      "bestMeanMonthlyBRL": 0,
+      "selectionOnly": true
+    },
+    {
+      "generation": 2,
+      "individuals": 256,
+      "distinctGenomes": 254,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.29216084156599154,
+        "median": 0.0,
+        "minimum": -14.217571240719664,
+        "maximum": 7.3646134292952325
+      },
+      "fractionAboveCDIMean": 0.0,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 230,
+      "bestMeanMonthlyBRL": 0,
+      "selectionOnly": true
+    },
+    {
+      "generation": 3,
+      "individuals": 256,
+      "distinctGenomes": 253,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.3069707416915506,
+        "median": 0.0,
+        "minimum": -12.845289104156592,
+        "maximum": 7.758454358124922
+      },
+      "fractionAboveCDIMean": 0.0,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 217,
+      "bestMeanMonthlyBRL": 0,
+      "selectionOnly": true
+    },
+    {
+      "generation": 4,
+      "individuals": 256,
+      "distinctGenomes": 253,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.16013691148587195,
+        "median": 0.0,
+        "minimum": -9.082063266875053,
+        "maximum": 6.631493217875004
+      },
+      "fractionAboveCDIMean": 0.0,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 229,
+      "bestMeanMonthlyBRL": 3.9137889102499557,
+      "selectionOnly": true
+    },
+    {
+      "generation": 5,
+      "individuals": 256,
+      "distinctGenomes": 246,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.2886336595927533,
+        "median": 0.0,
+        "minimum": -19.66298873471427,
+        "maximum": 13.189831484924781
+      },
+      "fractionAboveCDIMean": 0.00390625,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 231,
+      "bestMeanMonthlyBRL": 3.9137889102499557,
+      "selectionOnly": true
+    },
+    {
+      "generation": 6,
+      "individuals": 256,
+      "distinctGenomes": 247,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.2099282644820996,
+        "median": 0.0,
+        "minimum": -12.163182136153203,
+        "maximum": 11.587717130556605
+      },
+      "fractionAboveCDIMean": 0.00390625,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 214,
+      "bestMeanMonthlyBRL": 3.9137889102499557,
+      "selectionOnly": true
+    },
+    {
+      "generation": 7,
+      "individuals": 256,
+      "distinctGenomes": 248,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.34895781500486056,
+        "median": 0.0,
+        "minimum": -17.54119683589611,
+        "maximum": 9.177070103806741
+      },
+      "fractionAboveCDIMean": 0.0,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 215,
+      "bestMeanMonthlyBRL": 3.9137889102499557,
+      "selectionOnly": true
+    },
+    {
+      "generation": 8,
+      "individuals": 256,
+      "distinctGenomes": 248,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.03982881736052046,
+        "median": 0.0,
+        "minimum": -9.594469578658504,
+        "maximum": 10.82351316555659
+      },
+      "fractionAboveCDIMean": 0.00390625,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 207,
+      "bestMeanMonthlyBRL": 3.9137889102499557,
+      "selectionOnly": true
+    },
+    {
+      "generation": 9,
+      "individuals": 256,
+      "distinctGenomes": 251,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.24584145764029952,
+        "median": 0.0,
+        "minimum": -15.125487761391838,
+        "maximum": 9.177070103806741
+      },
+      "fractionAboveCDIMean": 0.0,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 215,
+      "bestMeanMonthlyBRL": 3.9137889102499557,
+      "selectionOnly": true
+    },
+    {
+      "generation": 10,
+      "individuals": 256,
+      "distinctGenomes": 245,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": 0.09500899013873909,
+        "median": 0.0,
+        "minimum": -8.050714406624984,
+        "maximum": 9.177070103806741
+      },
+      "fractionAboveCDIMean": 0.0,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 217,
+      "bestMeanMonthlyBRL": 3.9137889102499557,
+      "selectionOnly": true
+    },
+    {
+      "generation": 11,
+      "individuals": 256,
+      "distinctGenomes": 246,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.1296910036295175,
+        "median": 0.0,
+        "minimum": -9.103598487360252,
+        "maximum": 9.177070103806741
+      },
+      "fractionAboveCDIMean": 0.0,
+      "fractionWithSufficientSupport": 0.00390625,
+      "zeroTradeIndividuals": 207,
+      "bestMeanMonthlyBRL": 3.9137889102499557,
+      "selectionOnly": true
+    },
+    {
+      "generation": 12,
+      "individuals": 256,
+      "distinctGenomes": 248,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.2366761206808593,
+        "median": 0.0,
+        "minimum": -18.411498644225084,
+        "maximum": 9.177070103806741
+      },
+      "fractionAboveCDIMean": 0.0,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 213,
+      "bestMeanMonthlyBRL": 8.323229633124889,
+      "selectionOnly": true
+    },
+    {
+      "generation": 13,
+      "individuals": 256,
+      "distinctGenomes": 249,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.21455364892425485,
+        "median": 0.0,
+        "minimum": -18.0775110422665,
+        "maximum": 9.177070103806741
+      },
+      "fractionAboveCDIMean": 0.0,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 207,
+      "bestMeanMonthlyBRL": 8.323229633124889,
+      "selectionOnly": true
+    },
+    {
+      "generation": 14,
+      "individuals": 256,
+      "distinctGenomes": 250,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.02968345900494246,
+        "median": 0.0,
+        "minimum": -22.60915172426902,
+        "maximum": 12.322417669624954
+      },
+      "fractionAboveCDIMean": 0.00390625,
+      "fractionWithSufficientSupport": 0.00390625,
+      "zeroTradeIndividuals": 211,
+      "bestMeanMonthlyBRL": 8.323229633124889,
+      "selectionOnly": true
+    },
+    {
+      "generation": 15,
+      "individuals": 256,
+      "distinctGenomes": 243,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.004666516242580743,
+        "median": 0.0,
+        "minimum": -21.049028134444754,
+        "maximum": 12.322417669624954
+      },
+      "fractionAboveCDIMean": 0.0078125,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 205,
+      "bestMeanMonthlyBRL": 8.323229633124889,
+      "selectionOnly": true
+    },
+    {
+      "generation": 16,
+      "individuals": 256,
+      "distinctGenomes": 251,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.2991099100648603,
+        "median": 0.0,
+        "minimum": -18.317580622943517,
+        "maximum": 12.322417669624954
+      },
+      "fractionAboveCDIMean": 0.00390625,
+      "fractionWithSufficientSupport": 0.00390625,
+      "zeroTradeIndividuals": 207,
+      "bestMeanMonthlyBRL": 8.323229633124889,
+      "selectionOnly": true
+    },
+    {
+      "generation": 17,
+      "individuals": 256,
+      "distinctGenomes": 251,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": 0.0025770168278527184,
+        "median": 0.0,
+        "minimum": -10.407442242126415,
+        "maximum": 12.322417669624954
+      },
+      "fractionAboveCDIMean": 0.0078125,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 209,
+      "bestMeanMonthlyBRL": 8.323229633124889,
+      "selectionOnly": true
+    },
+    {
+      "generation": 18,
+      "individuals": 256,
+      "distinctGenomes": 253,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.2914846828538792,
+        "median": 0.0,
+        "minimum": -16.626973529614162,
+        "maximum": 12.322417669624954
+      },
+      "fractionAboveCDIMean": 0.0078125,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 201,
+      "bestMeanMonthlyBRL": 8.323229633124889,
+      "selectionOnly": true
+    },
+    {
+      "generation": 19,
+      "individuals": 256,
+      "distinctGenomes": 252,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.24944303265627799,
+        "median": 0.0,
+        "minimum": -20.162895394170626,
+        "maximum": 13.20602315379979
+      },
+      "fractionAboveCDIMean": 0.0078125,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 197,
+      "bestMeanMonthlyBRL": 8.323229633124889,
+      "selectionOnly": true
+    },
+    {
+      "generation": 20,
+      "individuals": 256,
+      "distinctGenomes": 243,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.2841869710275344,
+        "median": 0.0,
+        "minimum": -24.612264898205467,
+        "maximum": 12.322417669624954
+      },
+      "fractionAboveCDIMean": 0.0078125,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 195,
+      "bestMeanMonthlyBRL": 8.323229633124889,
+      "selectionOnly": true
+    },
+    {
+      "generation": 21,
+      "individuals": 256,
+      "distinctGenomes": 250,
+      "meanMonthlyNetBRL": {
+        "count": 256,
+        "mean": -0.336808772548281,
+        "median": 0.0,
+        "minimum": -27.033753473853572,
+        "maximum": 12.322417669624954
+      },
+      "fractionAboveCDIMean": 0.0078125,
+      "fractionWithSufficientSupport": 0.0,
+      "zeroTradeIndividuals": 193,
+      "bestMeanMonthlyBRL": 8.323229633124889,
+      "selectionOnly": true
+    }
+  ],
+  "selection": {
+    "months": 4,
+    "activeMonths": 3,
+    "aboveCDI": 2,
+    "monthlyNetBRL": {
+      "count": 4,
+      "mean": 8.323229633124889,
+      "median": 8.929424196499909,
+      "minimum": 0,
+      "maximum": 15.434070139499738
+    },
+    "monthlyExcessBRL": {
+      "count": 4,
+      "mean": -1.1292243683230154,
+      "median": -0.12313891509863595,
+      "minimum": -9.729017544111343,
+      "maximum": 5.4583979010165535
+    },
+    "meanCDIBRL": 9.452454001447904,
+    "positions": 8,
+    "perPositionBRL": {
+      "count": 8,
+      "mean": 4.161614816562487,
+      "median": 2.8426744054999817,
+      "minimum": -9.440811191000023,
+      "maximum": 21.819378465499945
+    },
+    "winRate": 0.875,
+    "bestTwoPositiveBRL": 29.606490928499934,
+    "bestTwoShareOfPositivePNL": 0.6928131740445506,
+    "sumNetWithoutBestTwoBRL": 3.686427603999622,
+    "meanMonthlyWithoutBestTwoBRL": 0.9216069009999055,
+    "maximumMonthlyDrawdown": 0.020783378548390206,
+    "withoutBestTwoIsArithmeticDiagnosticNotReplay": true,
+    "monthlyResetsAreNotCompounded": true
+  },
+  "championID": "fa1e93b9a58818c59f28",
+  "selectionMonthly": [
+    {
+      "month": "2023-09",
+      "pnlBRL": 0,
+      "positions": 0,
+      "cdiBRL": 9.729017544111343
+    },
+    {
+      "month": "2023-10",
+      "pnlBRL": 15.434070139499738,
+      "positions": 4,
+      "cdiBRL": 9.975672238483185
+    },
+    {
+      "month": "2023-11",
+      "pnlBRL": 9.781232430999864,
+      "positions": 2,
+      "cdiBRL": 9.159878255822036
+    },
+    {
+      "month": "2023-12",
+      "pnlBRL": 8.077615961999953,
+      "positions": 2,
+      "cdiBRL": 8.945247967375053
+    }
+  ],
+  "oldG830": {
+    "probeBRL": 330.49022111655006,
+    "probePositions": 1,
+    "quarterBRL": -100.70765130159046,
+    "quarterPositions": 13,
+    "sameProtocolComparison": false,
+    "exactHistoricalWeightsRecovered": false
+  },
+  "queue": [
+    "Complete the unchanged100-generation selection",
+    "Run its already-registered eight-month retrospective audit automatically",
+    "Publish population mean/median, champion concentration, and same-calendar comparison against original boosting",
+    "Report research-budget eligibility for a possible1000-generation continuation; no new trainer is launched by this diagnostic watcher"
+  ],
+  "realOrders": false,
+  "trainingUntouched": true,
+  "independentValidation": false
+}

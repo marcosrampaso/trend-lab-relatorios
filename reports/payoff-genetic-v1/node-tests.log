@@ -1,0 +1,15 @@
+✔ no frozen scientific input changed and models remain research only (744.627625ms)
+✔ all six policies use only the registered forecasts and fixed threshold (158.68625ms)
+✔ all monthly accounts and CDI include zero trades and reconcile without compounding resets (0.46125ms)
+✔ registered genetic sources and ancestor inputs remain immutable without an hour limit (796.009416ms)
+✔ all genetic selection rows use the original closed features and 2023 labels only (78.858ms)
+✔ archived founder has exact hashed weights, causal maturity and reconciled continuous wallets (6.915208ms)
+✔ search checkpoint separates selection history from final audit and resumes fixed population (0.470666ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1068.846667

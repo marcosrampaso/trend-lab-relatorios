@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "untrustedHTTP": 403,
+  "unknownParameterHTTP": 400,
+  "before": 672,
+  "paused": 681,
+  "resumed": 681,
+  "pid": 13075,
+  "phase": "training",
+  "maxWallHours": null
+}

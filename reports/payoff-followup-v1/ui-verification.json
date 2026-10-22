@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "combinations": 17,
+  "chartNote": "Campeão fa1e93b9a58818c59f28: as duas melhores posições somam R$ 29,61 e representam 69.28% da soma dos ganhos positivos. Média mensal sem essas posições: R$ 0,92.",
+  "uncaughtErrors": 0,
+  "mobileOverflow": false,
+  "desktop": [
+    1440,
+    1080
+  ],
+  "mobile": [
+    390,
+    844
+  ]
+}

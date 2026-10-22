@@ -1,0 +1,22 @@
+{
+  "version": "payoff-followup-v1",
+  "registeredAt": 1792633886164,
+  "sourceProtocolSHA256": "eb600b0feaf1630e5894749eda706e09a4532acebcbc814f7107d5a805484db9",
+  "hypothesis": "Population mean and median, cash months included, must improve beyond isolated winning positions. Measure concentration and retrospective audit after the fixed100-generation selection.",
+  "queue": [
+    "Complete the unchanged100-generation selection",
+    "Run its already-registered eight-month retrospective audit automatically",
+    "Publish population mean/median, champion concentration, and same-calendar comparison against original boosting",
+    "Report research-budget eligibility for a possible1000-generation continuation; no new trainer is launched by this diagnostic watcher"
+  ],
+  "continuationTargetGenerations": 1000,
+  "continuationLaunch": "not_scheduled_pending_choice_of_model_and_audit",
+  "gate": "Require selection>=30 positions and>=3 active months; audit>=30 positions and>=4 active months; positive mean AND median excess vsCDI; majority of audit months aboveCDI; sum net positive after subtracting the two best positive positions. This descriptive budget gate is not deployment approval.",
+  "concentration": "Subtract full positions, including all partial exits/costs; share denominator is sum of positive positions. Arithmetic leave-two-out does not replay freed capital or changed paths.",
+  "historicalReference": "G830 of PPO v2, not V4. Original weights unavailable; read existing reconstruction metadata. Its two-day probe and quarterly wallet are historical context, not same-protocol comparison to boosting.",
+  "sameCalendarReference": "Original payoff_boost-combined result on Apr-Jul,Sep-Dec2024, same dates, risk, execution and costs. All months already globally examined.",
+  "independentValidation": false,
+  "trainingUntouched": true,
+  "realOrders": false,
+  "maxWallHours": null
+}

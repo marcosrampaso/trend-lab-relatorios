@@ -1,0 +1,11 @@
+{
+  "phase": "training",
+  "updatedAt": 1792634030277,
+  "completedGenerations": 22,
+  "population": 256,
+  "targetGenerations": 100,
+  "maxWallHours": null,
+  "realOrders": false,
+  "independentValidation": false,
+  "automaticPromotion": false
+}

@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-21T21:38:59.811673+00:00",
+  "exportedAt": "2026-10-22T01:53:50.237193+00:00",
   "files": {
     "AGENTS.md": {
       "sha256": "94dfcfe400c59416be534577956f77f8838b55b8b0d515e0c2628da5cf7bfc54",
@@ -124,6 +124,10 @@
     "PEPE-GATILHO-PROTECAO.md": {
       "sha256": "554b4a6d44a2bbfa6d086b195ac9f62a78fa4ee3ecc46476a94766717ff42f03",
       "bytes": 8358
+    },
+    "PEPE-GENETICA-ENTRADAS.md": {
+      "sha256": "83167193f335168b57d50f315e2cdc2cd6430ae5757da7423f3c7bbdfe47f03e",
+      "bytes": 5318
     },
     "PEPE-GESTAO-SAIDAS.md": {
       "sha256": "a412882d614b528d871c30a0b3a8c5698e60f0d16aaeca10fe6fa7f73d0fac02",
@@ -536,6 +540,10 @@
     "scripts/audit-g151-exits.mjs": {
       "sha256": "b79e9aa0b2635b9fb6710609620f1f2697e6be5d04347c82fa58080de40b5ded",
       "bytes": 2753
+    },
+    "scripts/audit-payoff-genetic.py": {
+      "sha256": "1c07ca3cb1ed7884100af6acad08a3d351037569707f6e52de04db6672b2014c",
+      "bytes": 2348
     },
     "scripts/audit-pepe-g830.py": {
       "sha256": "29dad6f7562db3772ecc63202d9461fade8f5e0112123e3453c67a11f824d3f5",
@@ -1005,6 +1013,10 @@
       "sha256": "06d1828cc239b2039b1dc58298ac1f7e8caaa257dbea63a3d3023964d1705a38",
       "bytes": 12518
     },
+    "scripts/local-payoff-genetic.mjs": {
+      "sha256": "8080fcb7416e245d7dded14d5e3ea3627615c2079bbc3d9db8b631aa4b7e8129",
+      "bytes": 1770
+    },
     "scripts/local-pepe-elite.mjs": {
       "sha256": "c6b89dfa28e7d482ab3a64c8a4180cfe06eb466ed3de60a3489b44a8ae74b41b",
       "bytes": 1807
@@ -1077,9 +1089,25 @@
       "sha256": "91ed4b035b9e0a692ca0f019e5ecab8f1907d58c709d6222423a3bf70ba76387",
       "bytes": 1218
     },
+    "scripts/payoff-genetic-wallet.mjs": {
+      "sha256": "8ee9ba85e2102b420880146511de16a720e61b32d80538a7de52c093949e2eb2",
+      "bytes": 2431
+    },
     "scripts/payoff_entry_core.py": {
       "sha256": "91ed4b035b9e0a692ca0f019e5ecab8f1907d58c709d6222423a3bf70ba76387",
       "bytes": 1218
+    },
+    "scripts/payoff_followup_core.py": {
+      "sha256": "0c48ba99af430e64f036d05fecbfd8a68726d94f2086cc49723c961a2a9efc96",
+      "bytes": 3458
+    },
+    "scripts/payoff_genetic_core.py": {
+      "sha256": "6dcfe42d6ae8a12cc0e57ad650d234d187dcc34f5e0e8a0829a67a94e0c6309c",
+      "bytes": 3789
+    },
+    "scripts/payoff_genetic_worker.py": {
+      "sha256": "2921e0ce928eeaa6eacc671193bc923265854f83a47eff80eaa337a6e861322b",
+      "bytes": 4364
     },
     "scripts/pepe-1000-bridge.mjs": {
       "sha256": "518059b0bfac287af475c9555fa6c0a7dd0d9fd994bf3218acfdeacda24d3e75",
@@ -1301,6 +1329,10 @@
       "sha256": "dd7225586e1571081a3916d1c772d24059d2426988655038194c0db8f22f7dd8",
       "bytes": 6512
     },
+    "scripts/prepare-payoff-genetic.mjs": {
+      "sha256": "c3b73f177ca92b245f832f627f982d7c1319f180b9bf11e2721aa718ba698150",
+      "bytes": 6562
+    },
     "scripts/prepare-pepe-1000.mjs": {
       "sha256": "54fa090ef7bdf882a5f65eb82846c0b6d80453087c576f220bf2e9cb7b32324a",
       "bytes": 4713
@@ -1497,6 +1529,10 @@
       "sha256": "b1275a8c86bc14756e06e73f9ce4ac53382387c954d6af7d1228cae0ef82bd5e",
       "bytes": 6686
     },
+    "scripts/run-payoff-genetic.py": {
+      "sha256": "2dab7c3d00b2304af393c061c4dc05ef4a19a017b36b6189979eafc98860f13c",
+      "bytes": 11961
+    },
     "scripts/run-pepe-1000.mjs": {
       "sha256": "de1f7b6d768bc9d95ee118d4bef47f4c7ad66dcab411a1d669a38b2f05b3a00e",
       "bytes": 9503
@@ -1680,6 +1716,10 @@
     "scripts/verify-loss-audit.mjs": {
       "sha256": "95d7bbb3c1a7c2d5320f0826e5432fa6ddf576e8547a3d724d5c918134ee891b",
       "bytes": 2539
+    },
+    "scripts/watch-payoff-followup.py": {
+      "sha256": "a58112fce30416e3a87ac43f977bdda20ff5aa9bb52ca524ca27f3b8cd047af8",
+      "bytes": 6225
     },
     "tests/adaptive.test.mjs": {
       "sha256": "256a6fdf45fe9ab892af1e9a0e662b2d3fdc8e1271222fb59ac3462520db0331",
@@ -1869,6 +1909,10 @@
       "sha256": "cf45de45dccee88ae4e786fbd2bea2bae4ac482a8943f6922415a8947c04e8d7",
       "bytes": 2391
     },
+    "tests/payoff-genetic.test.mjs": {
+      "sha256": "2598751f11fa1b9a81205d9242e6587305eccc7dc81f9c828c4b91bb03e153aa",
+      "bytes": 2683
+    },
     "tests/pepe-dashboard.test.mjs": {
       "sha256": "8b466877aa9b8c796dfd66045cc4f95fdd087494aa34db37e42b6e4196b8d02a",
       "bytes": 2861
@@ -2032,6 +2076,14 @@
     "tests/test_payoff_entry_results.py": {
       "sha256": "99a635528e4c542bf78908e5cd3b843e0821b19c03ea50ccf521665ad3b04a52",
       "bytes": 3833
+    },
+    "tests/test_payoff_followup.py": {
+      "sha256": "a4ff2291747436734588ed3d38e5fbaa2a48e3c166cdf13a076ea7d8413cbb85",
+      "bytes": 2442
+    },
+    "tests/test_payoff_genetic.py": {
+      "sha256": "bd7691b06d9142e91e6e3752a8b1acc4182b1c3cdbbd993347d311607aa162db",
+      "bytes": 2254
     },
     "tests/test_pepe_entry_risk.py": {
       "sha256": "74cd4dee25c9a75057ee918bf484b96d060beff96650d08fab447dc2f1842a4f",
@@ -2453,6 +2505,22 @@
       "sha256": "00b8d10d79794f3a72e55b2ad0aa0cef1779270a42a2e5456beaf26787165701",
       "bytes": 12035
     },
+    "web/pesquisa-genetica/genetica-entradas.html": {
+      "sha256": "afdeb13ff84cbcca0d747bc99a6b92453f026861f7d80e468749a69f2f216dc7",
+      "bytes": 7957
+    },
+    "web/pesquisa-genetica/genetica-entradas.js": {
+      "sha256": "ba00ebc4b06e2cc738ed7bacb317fbbfdfe10160d9f3ebeefbc1f5e3f468424a",
+      "bytes": 7189
+    },
+    "web/pesquisa-genetica/genetica-validacao.html": {
+      "sha256": "dad3a67bcfb05666e985c96a27ed3c6a8ce0ea217f34d89f358f354c2134d3dc",
+      "bytes": 5678
+    },
+    "web/pesquisa-genetica/genetica-validacao.js": {
+      "sha256": "86f7b1568f4904304f63646d778475efb4d1fe7b99ba9e70ac280b46945f0254",
+      "bytes": 3863
+    },
     "web/pesquisa-genetica/gestao-saidas.html": {
       "sha256": "e3c36517c3d915fa654641e6e8ec085428cbf75e81d2863dbe37cd134dffd020",
       "bytes": 12586
@@ -2762,12 +2830,12 @@
       "bytes": 4675
     },
     "web/ui/navigation.js": {
-      "sha256": "a61c79331ed92ab5db8c81a4258df44bb375cd5c8ee03528f50d8db7a08e8328",
-      "bytes": 9543
+      "sha256": "c1e3c43758e87e1aa2400a67592a623135af47d8bba3249017a6962403b09388",
+      "bytes": 9902
     },
     "web/ui/pages.js": {
-      "sha256": "34bb01b8af337e7ededdf58563b319b5c23d8c46c95b8432dc551ea6da3c6abd",
-      "bytes": 7685
+      "sha256": "38a7e4c0793a3238cca2a43e0062b9b7a3d7a55ca87eb0bb73ed5e6cb9b503e4",
+      "bytes": 7939
     },
     "web/ui/shell.css": {
       "sha256": "987f556170ea418918e1978eff550732547b244f73d2fddf549425be6091d96c",

@@ -165,6 +165,14 @@ export const PAGES=[
     "title": "Gatilho da proteção de lucro"
   },
   {
+    "href": "/pesquisa-genetica/genetica-entradas.html",
+    "title": "Genética das entradas · progresso e campeões"
+  },
+  {
+    "href": "/pesquisa-genetica/genetica-validacao.html",
+    "title": "Média da população e próxima auditoria"
+  },
+  {
     "href": "/pesquisa-genetica/gestao-saidas.html",
     "title": "Gestão de saídas · escada e stop em lucro"
   },

@@ -1,0 +1,13 @@
+{
+  "registeredAt": 1792633886164,
+  "protocolSHA256": "b2ecd2a4a9bf6c07d2fab980fd2adba770bfe664fe1a1d978b9890c7d95b5b25",
+  "sourceHashes": {
+    "scripts/payoff_followup_core.py": "0c48ba99af430e64f036d05fecbfd8a68726d94f2086cc49723c961a2a9efc96",
+    "scripts/watch-payoff-followup.py": "a58112fce30416e3a87ac43f977bdda20ff5aa9bb52ca524ca27f3b8cd047af8",
+    "tests/test_payoff_followup.py": "a4ff2291747436734588ed3d38e5fbaa2a48e3c166cdf13a076ea7d8413cbb85"
+  },
+  "referenceHashes": {
+    "work/pepe-g830-audit-v1/result.json": "ea4cf90d47698f0a7c886248c25653dbe10bd13cf31670d84db7f963046e0fdc",
+    "work/pepe-payoff-entry-v1/result.json": "93182b4f486f917af71cf6087a3ee37bd82bc21f3e9c4b894f6752d7b45230ac"
+  }
+}
